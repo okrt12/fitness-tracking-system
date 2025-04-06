@@ -6,8 +6,13 @@
 :root {
   /* Primary Theme Colors */
   --primary-color: #00c853; /* Neon Green */
+  --primar-hover: #aeea00;
+
   --secondary-color: #0a1929; /* Deep Navy */
+  --seondary-hover: #1f6feb;
+
   --accent-color: #ffb74d; /* Soft Orange */
+  --accent-hover: #ff8a00;
 
   /* Backgrounds & Text */
   --background-color: #0d0d0d; /* Dark Background */
