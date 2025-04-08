@@ -1,0 +1,41 @@
+/* ************************************************************
+************************** Header ****************************** */
+.header {
+  background-color: var(--background-color);
+}
+
+.nav-btns__container {
+  display: flex;
+  justify-content: center;
+}
+
+li {
+  list-style: none;
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 9.6rem;
+  padding: 0 4.8rem;
+}
+.nav-cta:hover,
+.nav-cta:active {
+  background-color: var(--secondary-hover);
+}
+
+.nav-cta,
+.nav-cta:link,
+.nav-cta:visited {
+  background-color: var(--primary-color);
+  color: var(--white) !important;
+  font-size: 1.6rem;
+  padding: 1.4rem 2.8rem;
+  border-radius: 22px;
+  font-weight: 600;
+}
+.nav-btn:hover,
+.nav-btn:active {
+  color: var(--primary-hover);
+}

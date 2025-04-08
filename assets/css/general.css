@@ -6,7 +6,7 @@
 :root {
   /* Primary Theme Colors */
   --primary-color: #00c853; /* Neon Green */
-  --primar-hover: #aeea00;
+  --primary-hover: #aeea00;
 
   --secondary-color: #0a1929; /* Deep Navy */
   --seondary-hover: #1f6feb;
@@ -21,4 +21,77 @@
   /* Status Indicators */
   --success-color: #aeea00; /* Lime Green for success/badges */
   --danger-color: #ef5350; /* Coral Red for alerts */
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+body {
+  line-height: 1;
+  font-weight: 400;
+  color: var(--text-color);
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 180rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
+}
+
+.headers,
+.heading-primary,
+.heading-secondary,
+.heading-tertiary {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.heading-primary {
+  font-family: "Poppins", sans-serif;
+  font-size: 5.2rem;
+  line-height: 1.05;
+}
+
+.heading-secondary {
+  font-family: "Poppins", sans-serif;
+  font-size: 4.4rem;
+  line-height: 1.2;
+}
+
+.heading-tertiary {
+  font-family: "Poppins", sans-serif;
+  font-size: 3rem;
+  line-height: 1.2;
+  margin-bottom: 3.2rem;
+}
+
+.btn,
+.btn:link,
+.btn:visited {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
+  display: inline-block;
+  text-decoration: none;
+  font-size: 2rem;
+  padding: 1.6rem 3.2rem;
+  border-radius: 9px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.normal-text {
+  font-family: Inter, sans-serif;
 }
