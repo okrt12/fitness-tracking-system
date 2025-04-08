@@ -39,3 +39,88 @@ li {
 .nav-btn:active {
   color: var(--primary-hover);
 }
+
+/* ****************************************************************************
+*********************  Hero ***************************************************** */
+.hero-section {
+  padding: 4.8rem 0 9.6rem 0;
+  background-color: var(--background-color);
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.heading-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+.sub-hero__container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hero-img__container {
+  position: relative;
+  width: 100%;
+}
+
+.hero-img {
+  position: absolute;
+  right: 10%;
+  top: -20%;
+  width: 90rem;
+}
+
+.heading-color {
+  color: var(--primary-color);
+}
+
+.hero-header {
+  font-size: 7rem;
+  line-height: 1.2;
+}
+
+.hero-description {
+  font-size: 2rem;
+  font-weight: 500;
+  color: #e6edf3;
+  width: 80%;
+  line-height: 1.5;
+}
+
+.hero-btn,
+.hero-btn:link,
+.hero-btn :visited {
+  margin-top: 2.4rem;
+  color: var(--background-color) !important;
+  font-size: 1.8rem !important;
+  padding: 1.4rem 2.8rem !important;
+  border-radius: 22px !important;
+  background-color: var(--primary-hover);
+}
+
+.hero-btn:last-child {
+  background-color: var(--background-color);
+  color: var(--white) !important;
+  border: #e6edf3 solid 0.1rem;
+  border-radius: 11px !important;
+}
+
+.hero-btn:hover,
+.hero-btn:active {
+  background-color: var(--primary-color);
+}
+
+.hero-btn:last-child:hover,
+.hero-btn:last-child:active {
+  border-color: var(--primary-color);
+}
+
+/* *******************************************************************************
+***************************** Features ******************************************* */
