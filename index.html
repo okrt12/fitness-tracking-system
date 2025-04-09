@@ -20,12 +20,12 @@
       rel="stylesheet"
     />
 
-    <title>Fitness</title>
+    <title>FitTrack+</title>
   </head>
   <body>
     <header class="header">
       <div class="desktop-nav">
-        <span class="logo btn">FITESSIFY</span>
+        <span class="logo btn">FitTrack+</span>
         <nav class="nav container">
           <ul class="nav-btns__container">
             <li>
@@ -84,59 +84,75 @@
           <h3 class="heading-secondary">Features.</h3>
           <div class="features-cards__container">
             <div class="features-card">
-              <span class="icon features-icons"></span>
+              <ion-icon
+                class="icon features-icons"
+                name="flag-outline"
+              ></ion-icon>
+              <!-- <span class="icon features-icons"></span> -->
               <div class="feat-cards__detail">
                 <span class="sub-header">Goal-Based Planning</span>
                 <p class="feat-card__description">
                   Set goals like weight loss, muscle gain, or health management.
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
+                  FitTrack+ personalizes your plan to match your fitness vision
+                  and lifestyle.
                 </p>
                 <a class="feat-cards__btn">Learn more</a>
               </div>
             </div>
             <div class="features-card">
-              <span class="icon features-icons"></span>
+              <ion-icon
+                class="icon features-icons"
+                name="nutrition-outline"
+              ></ion-icon>
               <div class="feat-cards__detail">
-                <span class="sub-header">Goal-Based Planning</span>
+                <span class="sub-header">Smart Diet Planning</span>
+
                 <p class="feat-card__description">
-                  Set goals like weight loss, muscle gain, or health management.
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
+                  Plan your meals without the stress. FitTrack+ suggests what to
+                  eat based on your body needs and fitness goals.
                 </p>
                 <a class="feat-cards__btn">Learn more</a>
               </div>
             </div>
             <div class="features-card">
-              <span class="icon features-icons"></span>
+              <ion-icon
+                class="icon features-icons"
+                name="barbell-outline"
+              ></ion-icon>
               <div class="feat-cards__detail">
-                <span class="sub-header">Goal-Based Planning</span>
+                <span class="sub-header">Workout Scheduler</span>
                 <p class="feat-card__description">
-                  Set goals like weight loss, muscle gain, or health management.
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Esse
+                  Create workout plans that fit your schedule. From home
+                  routines to gym splits, we’ve got you covered.
                 </p>
                 <a class="feat-cards__btn">Learn more</a>
               </div>
             </div>
             <div class="feat-cards__bottom">
               <div class="features-card card4">
-                <span class="icon features-icons"></span>
+                <ion-icon
+                  class="icon features-icons"
+                  name="heart-outline"
+                ></ion-icon>
                 <div class="feat-cards__detail">
                   <span class="sub-header">Health Tracking</span>
                   <p class="feat-card__description">
-                    Set goals like weight loss, muscle gain, or health
-                    management. Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Esse
+                    Track key health metrics like blood pressure, sugar levels,
+                    and more—all in one easy dashboard.
                   </p>
                   <a class="feat-cards__btn">Learn more</a>
                 </div>
               </div>
               <div class="features-card card5">
-                <span class="icon features-icons"></span>
+                <ion-icon
+                  class="icon features-icons"
+                  name="sparkles-outline"
+                ></ion-icon>
                 <div class="feat-cards__detail">
-                  <span class="sub-header">Achievements & Motivation</span>
+                  <span class="sub-header">Daily Motivations</span>
                   <p class="feat-card__description">
-                    Set goals like weight loss, muscle gain, or health
-                    management. Lorem ipsum dolor sit amet consectetur
-                    adipisicing elit. Esse
+                    Stay on track with motivational quotes and alerts that
+                    notify you about unusual progress or potential health risks.
                   </p>
                   <a class="feat-cards__btn">Learn more</a>
                 </div>
@@ -146,7 +162,47 @@
         </div>
       </section>
       <section class="section how-section" id="how">
-        <div class="how"></div>
+        <div class="how container">
+          <div class="flex-col">
+            <span class="subheading">HOW IT WORKS</span>
+            <h2 class="heading-secondary">
+              Getting Started is Easy in 3 simple steps
+            </h2>
+          </div>
+          <div class="steps-container container grid grid--2-cols">
+            <div class="step-text__box">
+              <h3 class="heading-tertiary">Set Your Goals</h3>
+              <p class="step-description normal-text">
+                Tell us about your fitness goals, body type, and health
+                concerns: Whether you want to lose weight, build muscle, or stay
+                healthy, FitTrack+ will personalize your fitness journey. No
+                more guesswork—just a clear path to your ideal body and
+                lifestyle.
+              </p>
+            </div>
+            <p class="step-number normal-text">01</p>
+            <p class="step-number normal-text">02</p>
+            <div class="step-text__box">
+              <h3 class="heading-tertiary">Follow Your Plan</h3>
+              <p class="step-description normal-text">
+                Based on your profile, FitTrack+ creates a customized workout
+                and diet plan tailored to your goals and preferences. From gym
+                routines to home workouts, and balanced meals to healthy
+                snacks—we’ve got you covered.
+              </p>
+            </div>
+            <div class="step-text__box">
+              <h3 class="heading-tertiary">Track & Improve</h3>
+              <p class="step-description normal-text">
+                Easily log your progress and health data in one place. FitTrack+
+                automatically analyzes your performance, adjusts your plan, and
+                helps you stay on track with motivational insights, smart
+                alerts, and health tips that evolve with you.
+              </p>
+            </div>
+            <p class="step-number normal-text">03</p>
+          </div>
+        </div>
       </section>
       <section class="section tetimonials-section" id="tetimonials">
         <div class="tetimonials"></div>
@@ -156,5 +212,15 @@
       </section>
     </main>
     <footer class="footer"></footer>
+
+    <!-- JS -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>
