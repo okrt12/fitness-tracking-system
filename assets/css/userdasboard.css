@@ -1,0 +1,68 @@
+.dashboard-container {
+  background-color: var(--background-color);
+  height: 100vh;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  overflow-y: hidden;
+  height: 100vh;
+}
+
+/* ***************************************************************************
+************************* Sidebar ********************************************** */
+.sidebar {
+  width: 22rem;
+  height: 100vh;
+  background-color: var(--secondary-bg);
+  overflow: hidden;
+  padding-top: 4rem;
+}
+
+.side {
+  width: 22rem;
+  height: 100vh;
+}
+nav ul {
+  list-style: none;
+  padding: 0;
+}
+
+nav li:first-child {
+  margin-bottom: 3.2rem;
+}
+
+.logo {
+  padding: 2rem;
+}
+.sidebar-btn {
+  font-size: 1.6rem;
+  padding: 2rem;
+  font-family: var(--poppins);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.sidebar-btn:hover {
+  background-color: #1f6feb;
+}
+
+/* *****************************************************************************
+***************************** Header *********************************************/
+.header {
+  padding: 4.8rem 0 3.2rem 0;
+}
+.welcome-text {
+  margin-bottom: 1.6rem;
+}
+
+.header-date {
+  font-size: 1.6rem;
+}
+
+/* *****************************************************************************
+***************************** Main *********************************************/
+.dashboard-main {
+  overflow-y: auto;
+}

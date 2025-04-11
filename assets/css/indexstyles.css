@@ -78,10 +78,6 @@ li {
   width: 90rem;
 }
 
-.heading-color {
-  color: var(--primary-color);
-}
-
 .hero-header {
   font-size: 7rem;
   line-height: 1.2;
@@ -182,14 +178,6 @@ li {
   align-items: center;
   gap: 1.6rem;
   min-height: 25rem;
-}
-
-.sub-header {
-  font-family: Poppins, sans-serif;
-  font-size: 2.4rem;
-  font-weight: 600;
-  align-self: flex-start;
-  align-self: center;
 }
 
 .feat-card__description {
