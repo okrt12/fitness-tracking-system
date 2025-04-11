@@ -181,6 +181,7 @@ li {
   justify-content: center;
   align-items: center;
   gap: 1.6rem;
+  min-height: 25rem;
 }
 
 .sub-header {
@@ -199,6 +200,7 @@ li {
   text-align: center;
   line-height: 1.6;
   margin-bottom: 1rem;
+  height: 15rem;
 }
 
 .feat-cards__btn,
