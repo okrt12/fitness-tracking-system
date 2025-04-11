@@ -16,8 +16,9 @@
 
   /* Backgrounds & Text */
   --background-color: #0d0d0d; /* Dark Background */
-  --secondary-bg: #1a1f27;
+  --secondary-bg: #0a0a0a;
   --text-color: #e0e0e0; /* Light Gray Text */
+  --white: #fff;
 
   /* Status Indicators */
   --success-color: #aeea00; /* Lime Green for success/badges */
