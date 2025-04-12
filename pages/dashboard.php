@@ -111,7 +111,7 @@
 
             <div class="bmi cards">
               <h2 class="cards-header">BMI and Goals</h2>
-              <p class="normal-text cards-description">BMI: 22.5</p>
+              <p class="normal-text cards-description">BMI: 22.5 (Normal)</p>
               <p class="normal-text cards-description">
                 Goal: Muscle Gain (Bulking)
               </p>
@@ -122,6 +122,22 @@
               <h2 class="cards-header">Motivational Quote</h2>
               <p class="normal-text cards-description">
                 “The only bad workout is the one you didn’t do.”
+              </p>
+            </div>
+
+            <div class="quick-stats cards">
+              <h2 class="cards-header">Quick Stats</h2>
+              <p class="normal-text cards-description">
+                <span>🍽️ Calories Consumed:</span> 1800 kcal
+              </p>
+              <p class="normal-text cards-description">
+                <span>🔥 Calories Burned:</span> 450 kcal
+              </p>
+              <p class="normal-text cards-description">
+                <span>🏃 Workouts This Week:</span> 3/7
+              </p>
+              <p class="normal-text cards-description">
+                <span>💧 Water Intake:</span> 2.5L
               </p>
             </div>
           </div>

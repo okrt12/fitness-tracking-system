@@ -87,7 +87,7 @@ nav li:first-child {
 
 .dashboard-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   padding-left: 0;
   gap: 2rem;
 }
@@ -146,4 +146,8 @@ nav li:first-child {
 
 .bmi {
   border-left: 0.4rem solid var(--primary-color);
+}
+
+.quick-stats {
+  border-left: 0.4rem solid var(--seondary-hover);
 }
