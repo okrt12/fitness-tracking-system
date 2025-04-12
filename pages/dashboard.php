@@ -140,6 +140,46 @@
                 <span>💧 Water Intake:</span> 2.5L
               </p>
             </div>
+
+            <div class="goal-progress cards">
+              <h2 class="cards-header">Goal Progress</h2>
+              <p class="normal-text cards-description">
+                Goal: Muscle Gain (Bulking)
+              </p>
+
+              <svg class="pie-chart" width="120" height="120">
+                <circle
+                  cx="60"
+                  cy="60"
+                  r="50"
+                  stroke="#1A2636"
+                  stroke-width="15"
+                  fill="none"
+                />
+                <circle
+                  cx="60"
+                  cy="60"
+                  r="50"
+                  stroke="#00C853"
+                  stroke-width="15"
+                  fill="none"
+                  stroke-dasharray="314"
+                  stroke-dashoffset="62"
+                  transform="rotate(-90 60 60)"
+                />
+                <text
+                  x="50%"
+                  y="50%"
+                  text-anchor="middle"
+                  fill="white"
+                  dy=".3em"
+                  font-size="20px"
+                  class="normal-text pie-text"
+                >
+                  80%
+                </text>
+              </svg>
+            </div>
           </div>
         </div>
       </main>
