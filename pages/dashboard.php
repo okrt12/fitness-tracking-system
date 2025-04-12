@@ -30,7 +30,7 @@
             <li class="logo-list">
               <span class="sub-header heading-color logo">FitTrack+</span>
             </li>
-            <li class="sidebar-btns">
+            <li class="sidebar-btns home">
               <div class="icon-text">
                 <ion-icon
                   class="icons sidebar-icons"
@@ -42,7 +42,7 @@
             <li class="sidebar-btns">
               <div class="icon-text">
                 <ion-icon
-                  class="icon sidebar-icons"
+                  class="icons sidebar-icons"
                   name="calendar-outline"
                 ></ion-icon>
                 <a href="#" class="sidebar-btn">Workout Schedule</a>
@@ -95,12 +95,35 @@
             </li>
           </ul>
         </nav>
-        <!-- <div class="side"></div> -->
         <div class="dashboard-main">
           <div class="header container">
             <h2 class="welcome-text heading-tertiary heading-color">
               Welcome back, Abel
             </h2>
+          </div>
+          <div class="dashboard-cards container">
+            <div class="did-you-know cards">
+              <h2 class="cards-header">Did You Know?</h2>
+              <p class="normal-text cards-description">
+                Drinking water boosts your metabolism by up to 30%!
+              </p>
+            </div>
+
+            <div class="bmi cards">
+              <h2 class="cards-header">BMI and Goals</h2>
+              <p class="normal-text cards-description">BMI: 22.5</p>
+              <p class="normal-text cards-description">
+                Goal: Muscle Gain (Bulking)
+              </p>
+              <a href="#" class="cards-btn btn bmi-btn"> Update Goal </a>
+            </div>
+
+            <div class="quote cards">
+              <h2 class="cards-header">Motivational Quote</h2>
+              <p class="normal-text cards-description">
+                “The only bad workout is the one you didn’t do.”
+              </p>
+            </div>
           </div>
         </div>
       </main>
