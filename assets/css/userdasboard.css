@@ -46,7 +46,8 @@ nav li:first-child {
   text-decoration: none;
 }
 
-.sidebar-btns:hover {
+.sidebar-btns:hover,
+.home {
   background-color: #161616;
 }
 
@@ -79,4 +80,70 @@ nav li:first-child {
   width: 2.4rem;
   height: 2.4rem;
   color: #cacaca;
+  font-family: --poppins;
+}
+
+/************************ Cards *************************************/
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  padding-left: 0;
+  gap: 2rem;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  background-color: var(--secondary-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cards-header {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cards-description {
+  font-size: 1.6rem;
+  color: var(--text-color);
+}
+
+.cards-btn,
+.cards-btn:link,
+.cards-btn:visited {
+  color: var(--text-color);
+  padding: 0.8rem 1.2rem !important;
+  border-radius: 8px;
+  font-size: 1.6rem !important;
+  width: fit-content;
+}
+
+.bmi-btn {
+  background-color: var(--accent-color1);
+  margin-top: 1rem;
+}
+
+.bmi-btn:hover,
+.bmi-btn:active {
+  background-color: var(--accent-hover);
+}
+
+.did-you-know {
+  border-left: 0.4rem solid var(--primary-hover);
+}
+
+.quote {
+  background-color: var(--secondary-color) !important;
+  color: #212121;
+  border-left: 0.4rem solid var(--accent-hover);
+}
+
+.bmi {
+  border-left: 0.4rem solid var(--primary-color);
 }
