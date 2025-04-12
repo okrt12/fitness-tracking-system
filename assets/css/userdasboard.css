@@ -13,17 +13,13 @@
 /* ***************************************************************************
 ************************* Sidebar ********************************************** */
 .sidebar {
-  width: 22rem;
+  width: 23rem;
   height: 100vh;
   background-color: var(--secondary-bg);
   overflow: hidden;
   padding-top: 4rem;
 }
 
-.side {
-  width: 22rem;
-  height: 100vh;
-}
 nav ul {
   list-style: none;
   padding: 0;
@@ -36,16 +32,22 @@ nav li:first-child {
 .logo {
   padding: 2rem;
 }
-.sidebar-btn {
+.sidebar-btns {
   font-size: 1.6rem;
   padding: 2rem;
   font-family: var(--poppins);
   font-weight: 600;
   cursor: pointer;
 }
+.sidebar-btn,
+.sidebar-btn:link,
+.sidebar-btn:visited {
+  color: #cacaca;
+  text-decoration: none;
+}
 
-.sidebar-btn:hover {
-  background-color: #1f6feb;
+.sidebar-btns:hover {
+  background-color: #161616;
 }
 
 /* *****************************************************************************
@@ -65,4 +67,16 @@ nav li:first-child {
 ***************************** Main *********************************************/
 .dashboard-main {
   overflow-y: auto;
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.icons {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #cacaca;
 }

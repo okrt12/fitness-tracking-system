@@ -30,13 +30,69 @@
             <li class="logo-list">
               <span class="sub-header heading-color logo">FitTrack+</span>
             </li>
-            <li class="sidebar-btn">🏠 Dashboard</li>
-            <li class="sidebar-btn">📅 Workout Schedule</li>
-            <li class="sidebar-btn">🍽️ Diet Logs</li>
-            <li class="sidebar-btn">📈 Progress & Health</li>
-            <li class="sidebar-btn">📖 Nutrition Guide</li>
-            <li class="sidebar-btn">🎯 Profile</li>
-            <li class="sidebar-btn">🪵 Logout</li>
+            <li class="sidebar-btns">
+              <div class="icon-text">
+                <ion-icon
+                  class="icons sidebar-icons"
+                  name="home-outline"
+                ></ion-icon>
+                <a href="#" class="sidebar-btn">Dashboard</a>
+              </div>
+            </li>
+            <li class="sidebar-btns">
+              <div class="icon-text">
+                <ion-icon
+                  class="icon sidebar-icons"
+                  name="calendar-outline"
+                ></ion-icon>
+                <a href="#" class="sidebar-btn">Workout Schedule</a>
+              </div>
+            </li>
+            <li class="sidebar-btns">
+              <div class="icon-text">
+                <ion-icon
+                  class="icons sidebar-icons"
+                  name="pizza-outline"
+                ></ion-icon>
+                <a href="#" class="sidebar-btn">Diet Logs</a>
+              </div>
+            </li>
+            <li class="sidebar-btns">
+              <div class="icon-text">
+                <ion-icon
+                  class="icons sidebar-icons"
+                  name="medkit-outline"
+                ></ion-icon>
+                <a href="#" class="sidebar-btn">Progress & Health</a>
+              </div>
+            </li>
+            <li class="sidebar-btns">
+              <div class="icon-text">
+                <ion-icon
+                  class="icons sidebar-icons"
+                  name="nutrition-outline"
+                ></ion-icon>
+                <a href="#" class="sidebar-btn">Nutrition Guide</a>
+              </div>
+            </li>
+            <li class="sidebar-btns">
+              <div class="icon-text">
+                <ion-icon
+                  class="icons sidebar-btn"
+                  name="person-outline"
+                ></ion-icon>
+                <a href="#" class="sidebar-btn">Profile</a>
+              </div>
+            </li>
+            <li class="sidebar-btns">
+              <div class="icon-text">
+                <ion-icon
+                  class="icons sidebar-icons"
+                  name="log-in-outline"
+                ></ion-icon>
+                <a href="#" class="sidebar-btn">Logout</a>
+              </div>
+            </li>
           </ul>
         </nav>
         <!-- <div class="side"></div> -->
@@ -45,10 +101,20 @@
             <h2 class="welcome-text heading-tertiary heading-color">
               Welcome back, Abel
             </h2>
-            <p class="header-date normal-text">Today is April 10, 2025</p>
           </div>
         </div>
       </main>
     </div>
+
+    <!-- JS -->
+    <script defer src="../assets/js/dashboard.js"></script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>
