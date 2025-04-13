@@ -231,6 +231,15 @@
               >
             </div>
           </div>
+          <div class="flex-col">
+            <h3 class="cards-header">Quick Actions</h3>
+            <div class="dashboard-btns__container">
+              <a class="dashboard-btn" href="#"> ➕ Log Workout </a>
+              <a class="dashboard-btn" href="#"> 🍽️ Log Meal </a>
+              <a class="dashboard-btn" href="#"> 📆 Schedule Workout </a>
+              <a class="dashboard-btn" href="#"> 👤 Update Profile </a>
+            </div>
+          </div>
         </div>
       </main>
     </div>

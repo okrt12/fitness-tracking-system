@@ -251,3 +251,29 @@ nav li:first-child {
 .achievement-btn:active {
   color: var(--accent-hover);
 }
+
+.dashboard-btns__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 3.2rem;
+}
+
+.dashboard-btn,
+.dashboard-btn:link,
+.dashboard-btn:visited {
+  font-family: var(--poppins);
+  font-size: 1.6rem;
+  text-decoration: none;
+  color: var(--text-color);
+  background-color: var(--primary-color);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  transition: all 0.4s;
+}
+
+.dashboard-btn:hover,
+.dashboard-btn:active {
+  background-color: #00b44b;
+}
