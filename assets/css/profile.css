@@ -115,7 +115,8 @@
   background-color: #00b74d;
 }
 
-.goal {
+.goal,
+.goals-popup {
   border-left: 0.4rem solid var(--accent-color1);
 }
 

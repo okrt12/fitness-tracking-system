@@ -231,6 +231,36 @@
               </button>
             </div>
 
+            <form class="cards goals-popup popup">
+              <h3 class="cards-header">Fitness Goal</h3>
+
+              <label class="normal-text cards-description" for="goal"
+                >Select Goal</label
+              >
+              <select class="input" id="goal" name="goal">
+                <option class="input cards-description" value="weight_loss">
+                  Weight Loss
+                </option>
+                <option
+                  class="input cards-description"
+                  value="muscle_gain"
+                  selected
+                >
+                  Muscle Gain
+                </option>
+                <option class="input cards-description" value="endurance">
+                  Endurance
+                </option>
+              </select>
+              <!-- <p class="recommendation normal-text cards-description">
+                Recommendation: Based on your BMI (24.5), we suggest
+                <strong>bulking</strong> for muscle gain.
+              </p> -->
+              <button type="submit" class="btn-primary goal-btn">
+                Save Goal
+              </button>
+            </form>
+
             <!-- BMI -->
             <div class="cards bmi">
               <h3 class="cards-header">BMI</h3>
