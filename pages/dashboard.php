@@ -20,7 +20,7 @@
       rel="stylesheet"
     />
 
-    <title>FitTrack+ User Dashboard</title>
+    <title>FitTrack+ | User Dashboard</title>
   </head>
   <body>
     <div class="dashboard-container">

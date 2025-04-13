@@ -141,3 +141,43 @@ body {
 .heading-color {
   color: var(--primary-color);
 }
+
+/* ***************************************************************************
+************************* Sidebar ********************************************** */
+.sidebar {
+  width: 23rem;
+  height: 100vh;
+  background-color: var(--secondary-bg);
+  overflow: hidden;
+  padding-top: 4rem;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li:first-child {
+  margin-bottom: 3.2rem;
+}
+
+.logo {
+  padding: 2rem;
+}
+.sidebar-btns {
+  font-size: 1.6rem;
+  padding: 2rem;
+  font-family: var(--poppins);
+  font-weight: 600;
+  cursor: pointer;
+}
+.sidebar-btn,
+.sidebar-btn:link,
+.sidebar-btn:visited {
+  color: #cacaca;
+  text-decoration: none;
+}
+
+.sidebar-btns:hover {
+  background-color: #161616;
+}
