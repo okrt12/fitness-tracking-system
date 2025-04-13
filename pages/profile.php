@@ -23,7 +23,7 @@
     <title>FitTrack+ | Profile</title>
   </head>
   <body>
-    <div class="backdrop"></div>
+    <div class="backdrop hidden"></div>
     <main class="main">
       <nav class="sidebar">
         <ul>
@@ -103,27 +103,29 @@
             <h3 class="cards-header">Personal Information</h3>
             <div class="flex-col detail-value">
               <p class="normal-text cards-description info-text">Name</p>
-              <span class="normal-text cards-description">Abel Alebachewu</span>
+              <span class="normal-text cards-description info-name"
+                >Abel Alebachewu</span
+              >
             </div>
             <div class="flex-col detail-value">
               <p class="normal-text cards-description info-text">Age:</p>
-              <span class="normal-text cards-description">22</span>
+              <span class="normal-text cards-description info-age">22</span>
             </div>
             <div class="flex-col detail-value">
               <p class="normal-text cards-description info-text">Height(cm):</p>
-              <span class="normal-text cards-description">180</span>
+              <span class="normal-text cards-description info-height">180</span>
             </div>
             <div class="flex-col detail-value">
               <p class="normal-text cards-description info-text">Weight(kg):</p>
-              <span class="normal-text cards-description">75</span>
+              <span class="normal-text cards-description info-weight">75</span>
             </div>
 
-            <button type="submit" class="btn-primary info-btn">
+            <button class="btn-primary info-btn edit-info__btn">
               Update Info
             </button>
           </div>
 
-          <form class="cards personal-information__popup popup">
+          <form class="cards personal-information__popup popup hidden">
             <h3 class="cards-header">Personal Information</h3>
 
             <div class="flex-col detail-value">
@@ -133,7 +135,7 @@
                 >Name</label
               >
               <input
-                class="input personal-information__input normal-text name"
+                class="input personal-information__input normal-text name cards-description"
                 type="text"
                 id="name"
                 name="name"
@@ -146,7 +148,7 @@
                 >Age</label
               >
               <input
-                class="input personal-information__input normal-text age"
+                class="input personal-information__input normal-text age cards-description"
                 type="number"
                 id="age"
                 name="age"
@@ -164,7 +166,7 @@
                 >Height (cm)</label
               >
               <input
-                class="input personal-information__input normal-text height"
+                class="input personal-information__input normal-text height cards-description"
                 type="number"
                 id="height"
                 name="height"
@@ -182,7 +184,7 @@
                 >Weight (kg)</label
               >
               <input
-                class="input personal-information__input normal-text weight"
+                class="input personal-information__input normal-text weight cards-description"
                 type="number"
                 id="weight"
                 name="weight"
@@ -209,7 +211,9 @@
               </select> 
             </div>
             -->
-            <button type="submit" class="btn-primary info-btn">Save</button>
+            <button type="submit" class="btn-primary info-btn save-info__btn">
+              Save
+            </button>
           </form>
 
           <!-- BMI and Goals -->
@@ -218,7 +222,7 @@
               <h3 class="cards-header">Fitness Goal</h3>
               <div class="flex-col detail-value">
                 <p class="normal-text cards-description info-text">Goal</p>
-                <span class="normal-text cards-description"
+                <span class="normal-text cards-description goal-text"
                   >Muscle Gain(Bulking)
                 </span>
               </div>
@@ -226,7 +230,7 @@
                 Recommendation: Based on your BMI (24.5), we suggest
                 <strong class="heading-color">bulking</strong> for muscle gain.
               </p>
-              <button type="submit" class="btn-primary goal-btn">
+              <button class="btn-primary goal-btn edit-goal__btn">
                 Set Goals
               </button>
             </div>
@@ -246,17 +250,13 @@
                   value="muscle_gain"
                   selected
                 >
-                  Muscle Gain
+                  Muscle Gain(Bulking)
                 </option>
                 <option class="input cards-description" value="endurance">
                   Endurance
                 </option>
               </select>
-              <!-- <p class="recommendation normal-text cards-description">
-                Recommendation: Based on your BMI (24.5), we suggest
-                <strong>bulking</strong> for muscle gain.
-              </p> -->
-              <button type="submit" class="btn-primary goal-btn">
+              <button type="submit" class="btn-primary goal-btn save-goal__btn">
                 Save Goal
               </button>
             </form>
@@ -294,6 +294,7 @@
     </main>
 
     <!-- Js -->
+    <script src="/assets/js/profile.js"></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
