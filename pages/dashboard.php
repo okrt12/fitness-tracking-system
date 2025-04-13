@@ -182,7 +182,7 @@
                 </svg>
                 <p class="normal-text cards-description">
                   <span class="progress-text">75</span>
-                  Gained
+                  Completed
                 </p>
               </div>
             </div>
@@ -206,6 +206,18 @@
                     Calorie Out<span class="out-legend legend"></span
                   ></span>
                 </div>
+              </div>
+            </div>
+
+            <div class="cards weight-progress">
+              <h2 class="cards-header">Weight Progress</h2>
+              <p class="cards-description normal-text">
+                📉 Weight: <span class="start-weight">70kg</span> →
+                <span class="current-weight">68.5kg</span>
+              </p>
+              <span class="weight-progress__percent normal-text">50%</span>
+              <div class="weight-chart__container">
+                <div class="weight-progress__chart"></div>
               </div>
             </div>
           </div>

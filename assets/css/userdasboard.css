@@ -90,6 +90,7 @@ nav li:first-child {
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
   padding-left: 0;
   gap: 2rem;
+  margin-bottom: 3.2rem;
 }
 
 .cards {
@@ -160,6 +161,10 @@ nav li:first-child {
   border-left: 0.4rem solid var(--text-color);
 }
 
+.calorie {
+  border-left: 0.4rem solid var(--secondary-color);
+}
+
 .bar-chart {
   display: flex;
   align-items: center;
@@ -208,4 +213,27 @@ nav li:first-child {
 }
 .out-legend {
   background-color: var(--accent-color1);
+}
+
+.weight-progress {
+  min-width: 30rem;
+  padding: 2rem;
+  grid-column: span 2;
+}
+
+.weight-progress__percent {
+  font-size: 1.6rem;
+}
+
+.weight-chart__container {
+  background-color: #e6edf3;
+  border-radius: 8px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.weight-progress__chart {
+  width: 60%;
+  height: 100%;
+  background-color: var(--primary-color);
 }
