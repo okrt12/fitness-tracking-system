@@ -37,3 +37,12 @@ calorieIn.style.height = `${calorieInPercent}%`;
 calorieOut.style.height = `${calorieOutPercent}%`;
 calorieInText.textContent = calorieInKcal;
 calorieOutText.textContent = calorieOutKcal;
+
+// Weight Progress
+
+const weightProgressText = document.querySelector(".weight-progress__percent");
+const weightProgressChart = document.querySelector(".weight-progress__chart");
+
+const weightProgressPercent = 60;
+weightProgressText.textContent = weightProgressPercent + "% ";
+weightProgressChart.style.width = `${weightProgressPercent}%`;
