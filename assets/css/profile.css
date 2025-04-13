@@ -42,6 +42,7 @@
   padding-left: 0 !important;
   gap: 2rem;
   margin-bottom: 3.2rem;
+  position: relative;
 }
 
 .cards {
@@ -174,6 +175,9 @@ input {
 
 .popup {
   z-index: 99;
+  position: absolute;
+  align-self: center;
+  justify-self: center;
 }
 
 .input {
@@ -184,4 +188,8 @@ input {
   color: var(--text-color);
 }
 .personal-information__popup {
+  width: 40rem;
+}
+.goals-popup {
+  width: 35rem;
 }

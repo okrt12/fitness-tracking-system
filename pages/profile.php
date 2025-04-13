@@ -123,7 +123,7 @@
             </button>
           </div>
 
-          <form class="cards personal-information__popup popup hidden">
+          <form class="cards personal-information__popup popup">
             <h3 class="cards-header">Personal Information</h3>
 
             <div class="flex-col detail-value">
@@ -231,7 +231,7 @@
               </button>
             </div>
 
-            <form class="cards goals-popup popup">
+            <form class="cards goals-popup popup hidden">
               <h3 class="cards-header">Fitness Goal</h3>
 
               <label class="normal-text cards-description" for="goal"
