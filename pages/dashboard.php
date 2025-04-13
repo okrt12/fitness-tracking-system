@@ -81,7 +81,7 @@
                   class="icons sidebar-btn"
                   name="person-outline"
                 ></ion-icon>
-                <a href="#" class="sidebar-btn">Profile</a>
+                <a href="/pages/profile.php" class="sidebar-btn">Profile</a>
               </div>
             </li>
             <li class="sidebar-btns">

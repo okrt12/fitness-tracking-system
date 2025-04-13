@@ -23,6 +23,7 @@
     <title>FitTrack+ | Profile</title>
   </head>
   <body>
+    <div class="backdrop"></div>
     <main class="main">
       <nav class="sidebar">
         <ul>
@@ -35,7 +36,7 @@
                 class="icons sidebar-icons"
                 name="home-outline"
               ></ion-icon>
-              <a href="#" class="sidebar-btn">Dashboard</a>
+              <a href="/pages/dashboard.php" class="sidebar-btn">Dashboard</a>
             </div>
           </li>
           <li class="sidebar-btns">
@@ -97,6 +98,7 @@
       <div class="profile-container">
         <h2 class="heading-tertiary profile-header">Profile & Goal Settings</h2>
         <div class="profile-cards container">
+          <!-- Cards -->
           <div class="cards personal-information">
             <h3 class="cards-header">Personal Information</h3>
             <div class="flex-col detail-value">
@@ -121,6 +123,96 @@
             </button>
           </div>
 
+          <form class="cards personal-information__popup popup hidden">
+            <h3 class="cards-header">Personal Information</h3>
+
+            <div class="flex-col detail-value">
+              <label
+                class="normal-text cards-description input-label"
+                for="name"
+                >Name</label
+              >
+              <input
+                class="input personal-information__input normal-text name"
+                type="text"
+                id="name"
+                name="name"
+                value="Alex Smith"
+                required
+              />
+            </div>
+            <div class="flex-col detail-value">
+              <label class="normal-text cards-description input-label" for="age"
+                >Age</label
+              >
+              <input
+                class="input personal-information__input normal-text age"
+                type="number"
+                id="age"
+                name="age"
+                value="30"
+                min="1"
+                max="120"
+                required
+              />
+            </div>
+
+            <div class="flex-col detail-value">
+              <label
+                class="normal-text cards-description input-label"
+                for="height"
+                >Height (cm)</label
+              >
+              <input
+                class="input personal-information__input normal-text height"
+                type="number"
+                id="height"
+                name="height"
+                value="175"
+                min="100"
+                max="250"
+                required
+              />
+            </div>
+
+            <div class="flex-col detail-value">
+              <label
+                class="normal-text cards-description input-label"
+                for="weight"
+                >Weight (kg)</label
+              >
+              <input
+                class="input personal-information__input normal-text weight"
+                type="number"
+                id="weight"
+                name="weight"
+                value="75"
+                min="20"
+                max="500"
+                required
+              />
+            </div>
+            <!-- <div class="flex-col detail-value">
+              <label
+                class="normal-text cards-description input-label"
+                for="diseases"
+                >Diseases (Optional)</label
+              >
+               <select id="diseases" name="diseases" class="input">
+                <option class="input normal-text" value="">None</option>
+                <option class="input normal-text" value="diabetes">
+                  Diabetes
+                </option>
+                <option class="input normal-text" value="hypertension">
+                  Hypertension
+                </option>
+              </select> 
+            </div>
+            -->
+            <button type="submit" class="btn-primary info-btn">Save</button>
+          </form>
+
+          <!-- BMI and Goals -->
           <div class="flex-col goal-bmi">
             <div class="cards goal">
               <h3 class="cards-header">Fitness Goal</h3>
@@ -139,6 +231,7 @@
               </button>
             </div>
 
+            <!-- BMI -->
             <div class="cards bmi">
               <h3 class="cards-header">BMI</h3>
               <p class="normal-text cards-description">BMI: 24.5 (Normal)</p>
@@ -169,5 +262,15 @@
         </div>
       </div>
     </main>
+
+    <!-- Js -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>
