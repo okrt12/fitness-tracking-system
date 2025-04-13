@@ -213,12 +213,14 @@ nav li:first-child {
 }
 .out-legend {
   background-color: var(--accent-color1);
+  background-color: var(--accent-color1);
 }
 
 .weight-progress {
   min-width: 30rem;
   padding: 2rem;
   grid-column: span 2;
+  border-left: 0.4rem solid var(--primary-color);
 }
 
 .weight-progress__percent {
@@ -236,4 +238,16 @@ nav li:first-child {
   width: 60%;
   height: 100%;
   background-color: var(--primary-color);
+}
+
+.achievement-btn,
+.achievement-btn:link,
+.achievement-btn:visited {
+  color: var(--accent-color1);
+  transition: 0.4s all;
+}
+
+.achievement-btn:hover,
+.achievement-btn:active {
+  color: var(--accent-hover);
 }
