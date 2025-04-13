@@ -11,10 +11,29 @@ dashboardHeader.insertAdjacentHTML("beforeend", dashboardDateHtml);
 
 /////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// Graphs    ////////////////////////////////////////////
-// % completed
-const percent = 75;
+// Progress Chart
+const progressPercent = 75;
 const circle = document.querySelector("svg circle:nth-of-type(2)");
 const pieText = document.querySelector(".pie-text");
-pieText.textContent = percent + "%";
+const progressText = document.querySelector(".progress-text");
+pieText.textContent = progressText.textContent = progressPercent + "%";
 
-circle.setAttribute("stroke-dashoffset", 314 - (314 * percent) / 100);
+circle.setAttribute("stroke-dashoffset", 314 - (314 * progressPercent) / 100);
+
+// Calorie Chart
+const calorieIn = document.querySelector(".calorie-intake");
+const calorieInText = document.querySelector(".in-text");
+
+const calorieOut = document.querySelector(".calorie-outtake");
+const calorieOutText = document.querySelector(".out-text");
+
+const calorieInPercent = 65;
+const calorieOutPercent = 85;
+
+const calorieInKcal = 2000;
+const calorieOutKcal = 1800;
+
+calorieIn.style.height = `${calorieInPercent}%`;
+calorieOut.style.height = `${calorieOutPercent}%`;
+calorieInText.textContent = calorieInKcal;
+calorieOutText.textContent = calorieOutKcal;
