@@ -147,38 +147,66 @@
                 Goal: Muscle Gain (Bulking)
               </p>
 
-              <svg class="pie-chart" width="120" height="120">
-                <circle
-                  cx="60"
-                  cy="60"
-                  r="50"
-                  stroke="#1A2636"
-                  stroke-width="15"
-                  fill="none"
-                />
-                <circle
-                  cx="60"
-                  cy="60"
-                  r="50"
-                  stroke="#00C853"
-                  stroke-width="15"
-                  fill="none"
-                  stroke-dasharray="314"
-                  stroke-dashoffset="62"
-                  transform="rotate(-90 60 60)"
-                />
-                <text
-                  x="50%"
-                  y="50%"
-                  text-anchor="middle"
-                  fill="white"
-                  dy=".3em"
-                  font-size="20px"
-                  class="normal-text pie-text"
-                >
-                  80%
-                </text>
-              </svg>
+              <div class="flex-container chart-text">
+                <svg class="pie-chart" width="120" height="120">
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="50"
+                    stroke="#1A2636"
+                    stroke-width="15"
+                    fill="none"
+                  />
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="50"
+                    stroke="#00C853"
+                    stroke-width="15"
+                    fill="none"
+                    stroke-dasharray="314"
+                    stroke-dashoffset="62"
+                    transform="rotate(-90 60 60)"
+                  />
+                  <text
+                    x="50%"
+                    y="50%"
+                    text-anchor="middle"
+                    fill="white"
+                    dy=".3em"
+                    font-size="20px"
+                    class="normal-text pie-text"
+                  >
+                    80%
+                  </text>
+                </svg>
+                <p class="normal-text cards-description">
+                  <span class="progress-text">75</span>
+                  Gained
+                </p>
+              </div>
+            </div>
+
+            <div class="calorie cards">
+              <h2 class="cards-header">Calories</h2>
+              <div class="bar-chart">
+                <div class="calorie-intake bar">
+                  <span class="normal-text bar-text in-text">2200kcal</span>
+                </div>
+                <div class="calorie-outtake bar">
+                  <span class="normal-text bar-text out-text">2200kcal</span>
+                </div>
+
+                <div class="legend-container flex-container">
+                  <span class="legend-text normal-text flex-col">
+                    Calorie In<span class="in-legend legend"></span
+                  ></span>
+
+                  <span class="legend-text normal-text flex-col">
+                    Calorie Out<span class="out-legend legend"></span
+                  ></span>
+                </div>
+              </div>
             </div>
           </div>
         </div>

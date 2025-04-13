@@ -151,3 +151,61 @@ nav li:first-child {
 .quick-stats {
   border-left: 0.4rem solid var(--seondary-hover);
 }
+
+.chart-text {
+  align-items: center;
+}
+
+.goal-progress {
+  border-left: 0.4rem solid var(--text-color);
+}
+
+.bar-chart {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  height: 100%;
+}
+
+.bar {
+  width: 5rem;
+  padding: 1.6rem;
+  align-self: flex-end;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.calorie-intake {
+  height: 50%;
+  background-color: var(--primary-color);
+}
+.calorie-outtake {
+  height: 85%;
+  background-color: var(--accent-color1);
+}
+
+.bar-text {
+  font-weight: 600;
+}
+
+.legend-container {
+  align-self: flex-start;
+  margin-left: 3.2rem;
+}
+.legend {
+  padding: 0.3rem;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.legend-text {
+  align-items: center;
+  gap: 1rem;
+}
+.in-legend {
+  background-color: var(--primary-color);
+}
+.out-legend {
+  background-color: var(--accent-color1);
+}
