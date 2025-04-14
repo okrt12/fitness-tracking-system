@@ -1,0 +1,245 @@
+.main {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  overflow-y: hidden;
+  height: 100vh;
+}
+
+.dashboard-container {
+  background-color: var(--background-color);
+  height: 100vh;
+}
+.home {
+  background-color: var(--light-black);
+}
+
+/* *****************************************************************************
+***************************** Header *********************************************/
+.header {
+  padding: 4.8rem 0 3.2rem 0;
+}
+.welcome-text {
+  margin-bottom: 1.6rem;
+}
+
+.header-date {
+  font-size: 1.6rem;
+}
+
+/* *****************************************************************************
+***************************** Main *********************************************/
+.dashboard-main {
+  overflow-y: auto;
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.icons {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #cacaca;
+  font-family: --poppins;
+}
+
+/************************ Cards *************************************/
+
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  padding-left: 0;
+  gap: 2rem;
+  margin-bottom: 3.2rem;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  background-color: var(--secondary-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cards-header {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cards-description {
+  font-size: 1.6rem;
+  color: var(--text-color);
+}
+
+.cards-btn,
+.cards-btn:link,
+.cards-btn:visited {
+  color: var(--text-color);
+  padding: 0.8rem 1.2rem !important;
+  border-radius: 8px;
+  font-size: 1.6rem !important;
+  width: fit-content;
+}
+
+.bmi-btn {
+  background-color: var(--accent-color1);
+  margin-top: 1rem;
+}
+
+.bmi-btn:hover,
+.bmi-btn:active {
+  background-color: var(--accent-hover);
+}
+
+.did-you-know {
+  border-left: 0.4rem solid var(--primary-hover);
+}
+
+.quote {
+  background-color: var(--secondary-color) !important;
+  color: #212121;
+  border-left: 0.4rem solid var(--accent-hover);
+}
+
+.bmi {
+  border-left: 0.4rem solid var(--primary-color);
+}
+
+.quick-stats {
+  border-left: 0.4rem solid var(--seondary-hover);
+}
+
+.chart-text {
+  align-items: center;
+}
+
+.goal-progress {
+  border-left: 0.4rem solid var(--text-color);
+}
+
+.calorie {
+  border-left: 0.4rem solid var(--secondary-color);
+}
+
+.bar-chart {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  height: 100%;
+}
+
+.bar {
+  width: 5rem;
+  padding: 1.6rem;
+  align-self: flex-end;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.calorie-intake {
+  height: 50%;
+  background-color: var(--primary-color);
+}
+.calorie-outtake {
+  height: 85%;
+  background-color: var(--accent-color1);
+}
+
+.bar-text {
+  font-weight: 600;
+}
+
+.legend-container {
+  align-self: flex-start;
+  margin-left: 3.2rem;
+}
+.legend {
+  padding: 0.3rem;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.legend-text {
+  align-items: center;
+  gap: 1rem;
+}
+.in-legend {
+  background-color: var(--primary-color);
+}
+.out-legend {
+  background-color: var(--accent-color1);
+  background-color: var(--accent-color1);
+}
+
+.weight-progress {
+  min-width: 30rem;
+  padding: 2rem;
+  grid-column: span 2;
+  border-left: 0.4rem solid var(--primary-color);
+}
+
+.weight-progress__percent {
+  font-size: 1.6rem;
+}
+
+.weight-chart__container {
+  background-color: #e6edf3;
+  border-radius: 8px;
+  height: 10px;
+  overflow: hidden;
+}
+
+.weight-progress__chart {
+  width: 60%;
+  height: 100%;
+  background-color: var(--primary-color);
+}
+
+.achivements {
+  border-left: 0.4rem solid var(--accent-hover);
+}
+
+.achievement-btn,
+.achievement-btn:link,
+.achievement-btn:visited {
+  color: var(--accent-color1);
+  transition: 0.4s all;
+}
+
+.achievement-btn:hover,
+.achievement-btn:active {
+  color: var(--accent-hover);
+}
+
+.dashboard-btns__container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  width: 100%;
+  margin-bottom: 3.2rem;
+}
+
+.dashboard-btn,
+.dashboard-btn:link,
+.dashboard-btn:visited {
+  font-family: var(--poppins);
+  font-size: 1.6rem;
+  text-decoration: none;
+  color: var(--text-color);
+  background-color: var(--primary-color);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  transition: all 0.4s;
+}
+
+.dashboard-btn:hover,
+.dashboard-btn:active {
+  background-color: #00b44b;
+}
