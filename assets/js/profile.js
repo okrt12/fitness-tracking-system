@@ -17,6 +17,7 @@ const goalPopup = document.querySelector(".goals-popup");
 const goalText = document.querySelector(".goal-text");
 const editGoalBtn = document.querySelector(".edit-goal__btn");
 const saveGoalBtn = document.querySelector(".save-goal__btn");
+const goalSelect = document.querySelector(".goal-select");
 
 function toggleHidden(popup) {
   backdrop.classList.toggle("hidden");
@@ -41,5 +42,6 @@ saveInfoBtn.addEventListener("click", function (e) {
 
 saveGoalBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  goalText.textContent;
+  goalText.textContent = goalSelect.options[goalSelect.selectedIndex].text;
+  toggleHidden(goalPopup);
 });

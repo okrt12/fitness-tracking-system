@@ -241,18 +241,27 @@
               <label class="normal-text cards-description" for="goal"
                 >Select Goal</label
               >
-              <select class="input" id="goal" name="goal">
-                <option class="input cards-description" value="weight_loss">
+              <select class="input goal-select" id="goal" name="goal">
+                <option
+                  name="goal"
+                  class="input cards-description"
+                  value="weight_loss"
+                >
                   Weight Loss
                 </option>
                 <option
+                  name="goal"
                   class="input cards-description"
                   value="muscle_gain"
                   selected
                 >
                   Muscle Gain(Bulking)
                 </option>
-                <option class="input cards-description" value="endurance">
+                <option
+                  name="goal"
+                  class="input cards-description"
+                  value="endurance"
+                >
                   Endurance
                 </option>
               </select>
