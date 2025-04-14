@@ -1,5 +1,5 @@
 .profile-btn {
-  background-color: #161616;
+  background-color: var(--light-black);
 }
 
 .main {
@@ -86,7 +86,7 @@
 }
 
 .detail-value span {
-  background-color: #161616;
+  background-color: var(--light-black);
   padding: 1.2rem;
   width: 100%;
   border-radius: 11px;
@@ -181,7 +181,7 @@ input {
 }
 
 .input {
-  background-color: #161616;
+  background-color: var(--light-black);
   padding: 1.2rem;
   width: 100%;
   border-radius: 11px;

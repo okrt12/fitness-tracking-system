@@ -20,6 +20,7 @@
   --secondary-bg: #0a0a0a;
   --text-color: #e0e0e0; /* Light Gray Text */
   --white: #fff;
+  --light-black: #161616;
 
   /* Status Indicators */
   --success-color: #aeea00; /* Lime Green for success/badges */
@@ -179,5 +180,5 @@ body {
 }
 
 .sidebar-btns:hover {
-  background-color: #161616;
+  background-color: var(--light-black);
 }
