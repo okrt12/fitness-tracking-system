@@ -1,0 +1,188 @@
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  background-color: var(--secondary-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cards-description {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  font-family: var(--inter);
+}
+.signup-section {
+  padding: 6.4rem 0;
+  background-color: var(--background-color);
+}
+
+.signup-container {
+  max-width: 60rem;
+  margin: 0 auto;
+}
+
+.signup-card {
+  padding: 4.8rem;
+  background-color: var(--secondary-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+  margin-top: 3.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.input__label {
+  font-size: 1.6rem;
+  color: var(--text-color);
+  font-weight: 400;
+}
+
+.input {
+  background-color: #161616;
+  border: 1px solid #333;
+  padding: 1.4rem 1.6rem;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 1.6rem;
+  transition: all 0.3s;
+  width: 100%;
+}
+
+.input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+select.input {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1.6rem center;
+  background-size: 1.6rem;
+}
+
+.radio-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  margin-top: 0.8rem;
+}
+
+.radio-option {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+}
+
+.radio-option input[type="radio"] {
+  appearance: none;
+  width: 2rem;
+  height: 2rem;
+  border: 2px solid #333;
+  border-radius: 50%;
+  background-color: #161616;
+  transition: all 0.3s;
+  position: relative;
+}
+
+.radio-option input[type="radio"]:checked {
+  border-color: var(--primary-color);
+}
+
+.radio-option input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 1rem;
+  height: 1rem;
+  background-color: var(--primary-color);
+  border-radius: 50%;
+}
+
+.radio-option span {
+  font-size: 1.6rem;
+  color: var(--text-color);
+}
+
+.checkbox-group {
+  flex-direction: row;
+  align-items: center;
+  gap: 1.2rem;
+  margin: 1.6rem 0;
+}
+
+.checkbox-group input {
+  width: 2rem;
+  height: 2rem;
+  accent-color: var(--primary-color);
+}
+
+.signup-btn {
+  width: 100%;
+  padding: 1.6rem;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-top: 1.6rem;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.signup-btn:hover {
+  background-color: var(--primary-hover);
+}
+
+.login-link {
+  text-align: center;
+  margin-top: 1.6rem;
+  font-size: 1.6rem;
+}
+
+.login-link a {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.login-link a:hover {
+  text-decoration: underline;
+}
+
+.text-link {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.text-link:hover {
+  text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .signup-card {
+      padding: 3.2rem 2.4rem;
+  }
+  
+  .radio-group {
+      flex-direction: column;
+      gap: 1rem;
+  }
+}
