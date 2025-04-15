@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/assets/css/progresshealth.css" />
+    <link rel="stylesheet" href="/assets/css/general.css" />
+
+    <title>FitTrack+ | Progress and Health</title>
+  </head>
+  <body>
+    <main class="main">
+      <nav class="sidebar">
+        <ul>
+          <li class="logo-list">
+            <span class="sub-header heading-color logo">FitTrack+</span>
+          </li>
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/dashboard.php"
+            >
+              <ion-icon
+                class="icons sidebar-icons"
+                name="home-outline"
+              ></ion-icon>
+              <p class="sidebar-btn">Dashboard</p>
+            </a>
+          </li>
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/workoutschedule.php"
+            >
+              <ion-icon
+                class="icons sidebar-icons"
+                name="calendar-outline"
+              ></ion-icon>
+              <p class="sidebar-btn">Workout Schedule</p>
+            </a>
+          </li>
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/activitylog.php"
+            >
+              <ion-icon
+                class="icons sidebar-icons"
+                name="pizza-outline"
+              ></ion-icon>
+              <p class="sidebar-btn">Diet Logs</p>
+            </a>
+          </li>
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns active-page"
+              href="/pages/progresshealth.php"
+            >
+              <ion-icon
+                class="icons sidebar-icons"
+                name="medkit-outline"
+              ></ion-icon>
+              <p class="sidebar-btn">Progress & Health</p>
+            </a>
+          </li>
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/profile.php "
+            >
+              <ion-icon
+                class="icons sidebar-btn"
+                name="person-outline"
+              ></ion-icon>
+              <p class="sidebar-btn">Profile</p>
+            </a>
+          </li>
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/dashboard.php"
+            >
+              <ion-icon
+                class="icons sidebar-icons"
+                name="log-in-outline"
+              ></ion-icon>
+              <p class="sidebar-btn">Logout</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="main-progress">
+        <h3 class="heading-tertiary progress-header">
+          <span class="heading-color">FitTrack+</span> Progress & Health
+        </h3>
+        <div class="status-container"></div>
+      </div>
+    </main>
+
+    <!-- JS -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>

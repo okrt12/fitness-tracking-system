@@ -1,0 +1,15 @@
+.icons {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #cacaca;
+  font-family: --poppins;
+}
+
+.main-progress {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.progress-header {
+  margin-top: 2.4rem;
+}

@@ -168,7 +168,7 @@ body {
 }
 
 .sidebar li:first-child {
-  margin-bottom: 3.2rem;
+  margin-bottom: 1.8rem;
 }
 
 .logo {
@@ -194,6 +194,12 @@ body {
 
 .active-page {
   background-color: var(--light-black);
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
 }
 /* ************************** Cards *************************************/
 .cards {
