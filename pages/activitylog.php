@@ -30,68 +30,77 @@
           <li class="logo-list">
             <span class="sub-header heading-color logo">FitTrack+</span>
           </li>
-          <li class="sidebar-btns home">
-            <div class="icon-text">
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/dashboard.php"
+            >
               <ion-icon
                 class="icons sidebar-icons"
                 name="home-outline"
               ></ion-icon>
-              <a href="/pages/dashboard.php" class="sidebar-btn">Dashboard</a>
-            </div>
+              <p class="sidebar-btn">Dashboard</p>
+            </a>
           </li>
-          <li class="sidebar-btns">
-            <div class="icon-text">
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/workoutschedule.php"
+            >
               <ion-icon
                 class="icons sidebar-icons"
                 name="calendar-outline"
               ></ion-icon>
-              <a href="#" class="sidebar-btn">Workout Schedule</a>
-            </div>
+              <p class="sidebar-btn">Workout Schedule</p>
+            </a>
           </li>
-          <li class="sidebar-btns active">
-            <div class="icon-text">
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns active-page"
+              href="/pages/activitylog.php"
+            >
               <ion-icon
                 class="icons sidebar-icons"
                 name="pizza-outline"
               ></ion-icon>
-              <a href="#" class="sidebar-btn">Diet Logs</a>
-            </div>
+              <p class="sidebar-btn">Diet Logs</p>
+            </a>
           </li>
-          <li class="sidebar-btns">
-            <div class="icon-text">
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/progresshealth.php"
+            >
               <ion-icon
                 class="icons sidebar-icons"
                 name="medkit-outline"
               ></ion-icon>
-              <a href="#" class="sidebar-btn">Progress & Health</a>
-            </div>
+              <p class="sidebar-btn">Progress & Health</p>
+            </a>
           </li>
-          <li class="sidebar-btns">
-            <div class="icon-text">
-              <ion-icon
-                class="icons sidebar-icons"
-                name="nutrition-outline"
-              ></ion-icon>
-              <a href="#" class="sidebar-btn">Nutrition Guide</a>
-            </div>
-          </li>
-          <li class="sidebar-btns profile-btn">
-            <div class="icon-text">
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/profile.php "
+            >
               <ion-icon
                 class="icons sidebar-btn"
                 name="person-outline"
               ></ion-icon>
-              <a href="#" class="sidebar-btn">Profile</a>
-            </div>
+              <p class="sidebar-btn">Profile</p>
+            </a>
           </li>
-          <li class="sidebar-btns">
-            <div class="icon-text">
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/dashboard.php"
+            >
               <ion-icon
                 class="icons sidebar-icons"
                 name="log-in-outline"
               ></ion-icon>
-              <a href="#" class="sidebar-btn">Logout</a>
-            </div>
+              <p class="sidebar-btn">Logout</p>
+            </a>
           </li>
         </ul>
       </nav>
@@ -101,7 +110,7 @@
           <span class="heading-color">FitTrack+</span> Workout & Diet
         </h3>
 
-        <div class="logs-cards">
+        <div class="logs-cards container">
           <form class="workout-log cards">
             <h3 class="cards-header">Log Workout</h3>
             <div class="flex-col detail-value">
@@ -195,87 +204,6 @@
               Log Meal
             </button>
           </form>
-
-          <div class="schedule-workout cards">
-            <h3 class="cards-header">Schedule Workouts</h3>
-            <form class="schedule-workout__form">
-              <div class="detail-value flex-col">
-                <label class="normal-text cards-description" for="schedule-date"
-                  >Date</label
-                >
-                <input
-                  class="input normal-text cards-description"
-                  type="date"
-                  id="schedule-date"
-                  name="schedule-date"
-                  required
-                />
-              </div>
-              <div class="detail-value flex-col">
-                <label class="normal-text cards-description" for="schedule-type"
-                  >Workout Type</label
-                >
-                <select
-                  class="input cards-description normal-text"
-                  id="schedule-type"
-                  name="schedule-type"
-                  required
-                >
-                  <option value="running">Running</option>
-                  <option value="lifting">Weight Lifting</option>
-                  <option value="cycling">Cycling</option>
-                  <option value="yoga">Yoga</option>
-                </select>
-              </div>
-
-              <div class="detail-value flex-col">
-                <label class="normal-text cards-description" for="schedule-time"
-                  >Time</label
-                >
-                <input
-                  class="input normal-text cards-description"
-                  type="time"
-                  id="schedule-time"
-                  name="schedule-time"
-                  required
-                />
-              </div>
-
-              <div class="detail-value flex-col">
-                <label
-                  class="normal-text cards-description"
-                  for="schedule-duration"
-                  >Duration (minutes)</label
-                >
-                <input
-                  class="input normal-text cards-description"
-                  type="number"
-                  id="schedule-duration"
-                  name="schedule-duration"
-                  min="1"
-                  max="240"
-                  value="30"
-                />
-              </div>
-              <div class="flex-container">
-                <input
-                  class="normal-text cards-description"
-                  type="checkbox"
-                  id="weekly-repeat"
-                  name="weekly-repeat"
-                />
-                <label
-                  class="normal-text cards-description"
-                  for="weekly-repeat"
-                >
-                  Repeat Weekly
-                </label>
-              </div>
-              <button type="submit" class="btn-primary schedule-btn">
-                Schedule Workout
-              </button>
-            </form>
-          </div>
         </div>
       </div>
     </main>
