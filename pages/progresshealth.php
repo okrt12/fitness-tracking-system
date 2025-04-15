@@ -109,7 +109,24 @@
         <h3 class="heading-tertiary progress-header">
           <span class="heading-color">FitTrack+</span> Progress & Health
         </h3>
-        <div class="status-container"></div>
+        <div class="progress-status__container container">
+          <div class="cards flex-col status-cards">
+            <h3 class="cards-header">Weight Change</h3>
+            <p class="cards-description normal-text">↓ 2.5 kg</p>
+          </div>
+          <div class="cards flex-col status-cards">
+            <h3 class="cards-header">Workouts</h3>
+            <p class="cards-description normal-text">12 this month</p>
+          </div>
+          <div class="cards flex-col status-cards">
+            <h3 class="cards-header">Avg Calories Burned</h3>
+            <p class="cards-description normal-text">450/day</p>
+          </div>
+          <div class="cards flex-col status-cards">
+            <h3 class="cards-header">Health Status</h3>
+            <p class="health-status cards-description normal-text">Normal</p>
+          </div>
+        </div>
       </div>
     </main>
 

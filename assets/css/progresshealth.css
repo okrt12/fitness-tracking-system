@@ -13,3 +13,20 @@
 .progress-header {
   margin-top: 2.4rem;
 }
+
+/* ******************************** main ************************************** */
+.progress-status__container {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
+  margin-bottom: 3rem;
+}
+
+.progress-status__container div {
+  gap: 1rem;
+}
+
+.health-status {
+  color: var(--primary-color) !important;
+}
