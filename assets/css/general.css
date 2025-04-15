@@ -28,7 +28,7 @@
 
   /* Fonts */
   --poppins: "Poppins", sans-serif;
-  --inter: font-family: "Inter", sans-serif;
+  --inter: "Inter", sans-serif;
 }
 
 * {
@@ -144,6 +144,14 @@ body {
   color: var(--primary-color);
 }
 
+.main {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  background-color: var(--background-color);
+  overflow-y: hidden;
+  height: 100vh;
+}
+
 /* ***************************************************************************
 ************************* Sidebar ********************************************** */
 .sidebar {
@@ -182,4 +190,47 @@ body {
 
 .sidebar-btns:hover {
   background-color: var(--light-black);
+}
+
+.active-page {
+  background-color: var(--light-black);
+}
+/* ************************** Cards *************************************/
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  background-color: var(--secondary-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cards-header {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cards-description {
+  font-size: 1.6rem;
+  color: var(--text-color);
+}
+
+.btn-primary {
+  color: var(--white);
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-family: var(--poppins);
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: 0.4s all;
+}
+
+.detail-value {
+  gap: 1.2rem;
 }

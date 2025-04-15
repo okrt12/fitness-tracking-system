@@ -25,76 +25,85 @@
   <body>
     <div class="dashboard-container">
       <main class="main">
-        <nav class="sidebar">
-          <ul>
-            <li class="logo-list">
-              <span class="sub-header heading-color logo">FitTrack+</span>
-            </li>
-            <li class="sidebar-btns home">
-              <div class="icon-text">
-                <ion-icon
-                  class="icons sidebar-icons"
-                  name="home-outline"
-                ></ion-icon>
-                <a href="#" class="sidebar-btn">Dashboard</a>
-              </div>
-            </li>
-            <li class="sidebar-btns">
-              <div class="icon-text">
-                <ion-icon
-                  class="icons sidebar-icons"
-                  name="calendar-outline"
-                ></ion-icon>
-                <a href="#" class="sidebar-btn">Workout Schedule</a>
-              </div>
-            </li>
-            <li class="sidebar-btns">
-              <div class="icon-text">
-                <ion-icon
-                  class="icons sidebar-icons"
-                  name="pizza-outline"
-                ></ion-icon>
-                <a href="#" class="sidebar-btn">Diet Logs</a>
-              </div>
-            </li>
-            <li class="sidebar-btns">
-              <div class="icon-text">
-                <ion-icon
-                  class="icons sidebar-icons"
-                  name="medkit-outline"
-                ></ion-icon>
-                <a href="#" class="sidebar-btn">Progress & Health</a>
-              </div>
-            </li>
-            <li class="sidebar-btns">
-              <div class="icon-text">
-                <ion-icon
-                  class="icons sidebar-icons"
-                  name="nutrition-outline"
-                ></ion-icon>
-                <a href="#" class="sidebar-btn">Nutrition Guide</a>
-              </div>
-            </li>
-            <li class="sidebar-btns">
-              <div class="icon-text">
-                <ion-icon
-                  class="icons sidebar-btn"
-                  name="person-outline"
-                ></ion-icon>
-                <a href="/pages/profile.php" class="sidebar-btn">Profile</a>
-              </div>
-            </li>
-            <li class="sidebar-btns">
-              <div class="icon-text">
-                <ion-icon
-                  class="icons sidebar-icons"
-                  name="log-in-outline"
-                ></ion-icon>
-                <a href="#" class="sidebar-btn">Logout</a>
-              </div>
-            </li>
-          </ul>
-        </nav>
+      <nav class="sidebar">
+        <ul>
+          <li class="logo-list">
+            <span class="sub-header heading-color logo">FitTrack+</span>
+          </li>
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns active-page"
+              href="/pages/dashboard.php"
+            >
+              <ion-icon
+                class="icons sidebar-icons"
+                name="home-outline"
+              ></ion-icon>
+              <p class="sidebar-btn">Dashboard</p>
+            </a>
+          </li>
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/workoutschedule.php"
+            >
+              <ion-icon
+                class="icons sidebar-icons"
+                name="calendar-outline"
+              ></ion-icon>
+              <p class="sidebar-btn">Workout Schedule</p>
+            </a>
+          </li>
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/activitylog.php"
+            >
+              <ion-icon
+                class="icons sidebar-icons"
+                name="pizza-outline"
+              ></ion-icon>
+              <p class="sidebar-btn">Diet Logs</p>
+            </a>
+          </li>
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/progresshealth.php"
+            >
+              <ion-icon
+                class="icons sidebar-icons"
+                name="medkit-outline"
+              ></ion-icon>
+              <p class="sidebar-btn">Progress & Health</p>
+            </a>
+          </li>
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/profile.php "
+            >
+              <ion-icon
+                class="icons sidebar-btn"
+                name="person-outline"
+              ></ion-icon>
+              <p class="sidebar-btn">Profile</p>
+            </a>
+          </li>
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/dashboard.php"
+            >
+              <ion-icon
+                class="icons sidebar-icons"
+                name="log-in-outline"
+              ></ion-icon>
+              <p class="sidebar-btn">Logout</p>
+            </a>
+          </li>
+        </ul>
+      </nav>
         <div class="dashboard-main">
           <div class="header container">
             <h2 class="welcome-text heading-tertiary heading-color">

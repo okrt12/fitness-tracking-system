@@ -1,15 +1,3 @@
-.profile-btn {
-  background-color: var(--light-black);
-}
-
-.main {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  overflow-y: hidden;
-  height: 100vh;
-  background-color: var(--background-color);
-}
-
 .profile-container {
   height: 100vh;
   overflow-y: auto;
@@ -45,44 +33,8 @@
   position: relative;
 }
 
-.cards {
-  display: flex;
-  flex-direction: column;
-  gap: 1.4rem;
-  background-color: var(--secondary-bg);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.cards-header {
-  font-family: "Poppins", sans-serif;
-  color: var(--text-color);
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.cards-description {
-  font-size: 1.6rem;
-  color: var(--text-color);
-}
-
-.cards-btn,
-.cards-btn:link,
-.cards-btn:visited {
-  color: var(--text-color);
-  padding: 0.8rem 1.2rem !important;
-  border-radius: 8px;
-  font-size: 1.6rem !important;
-  width: fit-content;
-}
-
 .info-text {
   font-weight: 600;
-}
-
-.detail-value {
-  gap: 1.2rem;
 }
 
 .detail-value span {
@@ -90,18 +42,6 @@
   padding: 1.2rem;
   width: 100%;
   border-radius: 11px;
-}
-.btn-primary {
-  color: var(--white);
-  font-size: 1.6rem;
-  font-weight: 600;
-  padding: 1rem 2rem;
-  border: none;
-  border-radius: 4px;
-  font-family: var(--poppins);
-  margin-top: 1rem;
-  cursor: pointer;
-  transition: 0.4s all;
 }
 
 .personal-information,

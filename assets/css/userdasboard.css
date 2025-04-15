@@ -1,16 +1,5 @@
-.main {
-  display: grid;
-  grid-template-columns: 1fr 4fr;
-  overflow-y: hidden;
-  height: 100vh;
-}
-
 .dashboard-container {
-  background-color: var(--background-color);
   height: 100vh;
-}
-.home {
-  background-color: var(--light-black);
 }
 
 /* *****************************************************************************
@@ -53,28 +42,6 @@
   padding-left: 0;
   gap: 2rem;
   margin-bottom: 3.2rem;
-}
-
-.cards {
-  display: flex;
-  flex-direction: column;
-  gap: 1.4rem;
-  background-color: var(--secondary-bg);
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.cards-header {
-  font-family: "Poppins", sans-serif;
-  color: var(--text-color);
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-
-.cards-description {
-  font-size: 1.6rem;
-  color: var(--text-color);
 }
 
 .cards-btn,
