@@ -160,7 +160,7 @@
           </div>
         </div>
 
-        <div class="container health-charts__container">
+        <div class="health-charts__container">
           <div class="progress-charts health-charts cards">
             <h3 class="cards-header">Health Status</h3>
             <div class="chart-grid">
@@ -168,8 +168,11 @@
               <div class="chart-card">
                 <h3 class="cards-header">Blood Pressure</h3>
                 <div class="weightChart"></div>
-                <p class="cards-description normal-text">Current: 180 / 90</p>
+                <p class="cards-description normal-text">
+                  This Week: 3 sessions, 950 kcal
+                </p>
               </div>
+
               <!-- Sugar Level Chart -->
               <div class="chart-card">
                 <h3 class="cards-header">Sugar Level</h3>
@@ -180,6 +183,55 @@
               </div>
             </div>
           </div>
+
+          <form class="cards health-form flex-col">
+            <h3 class="cards-header">Log Health Metrics</h3>
+            <div class="detail-value flex-col">
+              <label class="cards-description normal-text" for="bp-systolic"
+                >Blood Pressure (Systolic)</label
+              >
+              <input
+                class="input normal-text cards-description"
+                type="number"
+                id="bp-systolic"
+                name="bp-systolic"
+                min="50"
+                max="250"
+                placeholder="e.g., 120"
+              />
+            </div>
+            <div class="detail-value flex-col">
+              <label class="cards-description normal-text" for="bp-diastolic"
+                >Blood Pressure (Diastolic)</label
+              >
+              <input
+                class="input normal-text cards-description"
+                type="number"
+                id="bp-diastolic"
+                name="bp-diastolic"
+                min="30"
+                max="150"
+                placeholder="e.g., 80"
+              />
+            </div>
+            <div class="detail-value flex-col">
+              <label class="cards-description normal-text" for="blood-sugar"
+                >Blood Sugar (mg/dL)</label
+              >
+              <input
+                class="input normal-text cards-description"
+                type="number"
+                id="blood-sugar"
+                name="blood-sugar"
+                min="20"
+                max="500"
+                placeholder="e.g., 100"
+              />
+            </div>
+            <button type="submit" class="btn-primary health-btn">
+              Log Health
+            </button>
+          </form>
         </div>
       </div>
     </main>

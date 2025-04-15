@@ -48,7 +48,6 @@
 
 .health-charts {
   border-left: 4px solid var(--accent-color1);
-  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
 }
 
 .chart-grid {
@@ -68,4 +67,31 @@
 
 .chart-card p {
   color: var(--primary-color);
+}
+
+.input {
+  background-color: var(--light-black);
+  padding: 1.2rem;
+  width: 100%;
+  border-radius: 11px;
+  color: var(--text-color);
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+.health-charts__container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 1.4rem;
+}
+
+.health-btn {
+  background-color: var(--accent-color1);
+}
+
+.health-btn:hover {
+  background-color: var(--accent-color);
 }
