@@ -28,6 +28,7 @@
 
   /* Fonts */
   --poppins: "Poppins", sans-serif;
+  --inter: font-family: "Inter", sans-serif;
 }
 
 * {
