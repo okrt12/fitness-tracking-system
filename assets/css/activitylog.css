@@ -105,3 +105,11 @@ select {
 .workout-log {
   border-left: 0.4rem solid var(--primary-color);
 }
+.log-meal {
+  height: fit-content;
+  border-left: 0.4rem solid var(--accent-color1);
+}
+
+.log-meal__btn {
+  background-color: var(--accent-color1);
+}
