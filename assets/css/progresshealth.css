@@ -14,13 +14,14 @@
   margin-top: 2.4rem;
 }
 
-/* ******************************** main ************************************** */
+/*****************************************************************************
+ ******************************** main ************************************** */
 .progress-status__container {
   padding-left: 0 !important;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1.6rem;
-  margin-bottom: 3rem;
+  margin-bottom: 3rem !important;
 }
 
 .progress-status__container div {
@@ -29,4 +30,36 @@
 
 .health-status {
   color: var(--primary-color) !important;
+}
+
+/*****************************************************************************************
+ *************************  Progress Charts ***********************************************/
+
+.progress-charts__container {
+  padding-left: 0 !important;
+}
+
+.progress-charts {
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border-left: 4px solid var(--primary-color); /* Neon Green */
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 2rem;
+}
+
+.chart-card {
+  padding: 1rem;
+}
+
+.chart-card div {
+  width: 30rem;
+  height: 20rem;
+}
+
+.chart-card p {
+  color: var(--primary-color);
 }

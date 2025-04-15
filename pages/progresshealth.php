@@ -127,6 +127,38 @@
             <p class="health-status cards-description normal-text">Normal</p>
           </div>
         </div>
+
+        <div class="container progress-charts__container">
+          <div class="progress-charts cards">
+            <h3 class="cards-header">Your Progress</h3>
+            <div class="chart-grid">
+              <!-- Weight Chart -->
+              <div class="chart-card">
+                <h3 class="cards-header">Weight Over Time</h3>
+                <div class="weightChart"></div>
+                <p class="cards-description normal-text">
+                  Current: 73kg (Goal: 70kg)
+                </p>
+              </div>
+              <!-- Workout Chart -->
+              <div class="chart-card">
+                <h3 class="cards-header">Weekly Workouts</h3>
+                <div class="workoutChart"></div>
+                <p class="cards-description normal-text">
+                  This Week: 3 sessions, 950 kcal
+                </p>
+              </div>
+              <!-- Diet Chart -->
+              <div class="chart-card">
+                <h3 class="cards-header">Daily Calories</h3>
+                <div class="dietChart"></div>
+                <p class="cards-description normal-text">
+                  Today: 1800 kcal (Goal: 2000 kcal)
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
 
