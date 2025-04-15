@@ -195,6 +195,87 @@
               Log Meal
             </button>
           </form>
+
+          <div class="schedule-workout cards">
+            <h3 class="cards-header">Schedule Workouts</h3>
+            <form class="schedule-workout__form">
+              <div class="detail-value flex-col">
+                <label class="normal-text cards-description" for="schedule-date"
+                  >Date</label
+                >
+                <input
+                  class="input normal-text cards-description"
+                  type="date"
+                  id="schedule-date"
+                  name="schedule-date"
+                  required
+                />
+              </div>
+              <div class="detail-value flex-col">
+                <label class="normal-text cards-description" for="schedule-type"
+                  >Workout Type</label
+                >
+                <select
+                  class="input cards-description normal-text"
+                  id="schedule-type"
+                  name="schedule-type"
+                  required
+                >
+                  <option value="running">Running</option>
+                  <option value="lifting">Weight Lifting</option>
+                  <option value="cycling">Cycling</option>
+                  <option value="yoga">Yoga</option>
+                </select>
+              </div>
+
+              <div class="detail-value flex-col">
+                <label class="normal-text cards-description" for="schedule-time"
+                  >Time</label
+                >
+                <input
+                  class="input normal-text cards-description"
+                  type="time"
+                  id="schedule-time"
+                  name="schedule-time"
+                  required
+                />
+              </div>
+
+              <div class="detail-value flex-col">
+                <label
+                  class="normal-text cards-description"
+                  for="schedule-duration"
+                  >Duration (minutes)</label
+                >
+                <input
+                  class="input normal-text cards-description"
+                  type="number"
+                  id="schedule-duration"
+                  name="schedule-duration"
+                  min="1"
+                  max="240"
+                  value="30"
+                />
+              </div>
+              <div class="flex-container">
+                <input
+                  class="normal-text cards-description"
+                  type="checkbox"
+                  id="weekly-repeat"
+                  name="weekly-repeat"
+                />
+                <label
+                  class="normal-text cards-description"
+                  for="weekly-repeat"
+                >
+                  Repeat Weekly
+                </label>
+              </div>
+              <button type="submit" class="btn-primary schedule-btn">
+                Schedule Workout
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </main>

@@ -91,10 +91,12 @@ select {
   transition: 0.4s all;
 }
 
-.log-btn {
+.log-btn,
+.log-meal__btn {
   background-color: var(--primary-color);
 }
-.log-btn:hover {
+.log-btn:hover,
+.log-meal__btn:hover {
   background-color: #00b74d;
 }
 
@@ -102,14 +104,22 @@ select {
   gap: 1.2rem;
 }
 
-.workout-log {
+.workout-log,
+.log-meal {
   border-left: 0.4rem solid var(--primary-color);
 }
 .log-meal {
   height: fit-content;
-  border-left: 0.4rem solid var(--accent-color1);
 }
 
-.log-meal__btn {
+/* Schedule */
+
+.schedule-workout__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.schedule-btn {
   background-color: var(--accent-color1);
 }
