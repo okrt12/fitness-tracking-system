@@ -159,6 +159,28 @@
             </div>
           </div>
         </div>
+
+        <div class="container health-charts__container">
+          <div class="progress-charts health-charts cards">
+            <h3 class="cards-header">Health Status</h3>
+            <div class="chart-grid">
+              <!-- Blood Pressure Chart -->
+              <div class="chart-card">
+                <h3 class="cards-header">Blood Pressure</h3>
+                <div class="weightChart"></div>
+                <p class="cards-description normal-text">Current: 180 / 90</p>
+              </div>
+              <!-- Sugar Level Chart -->
+              <div class="chart-card">
+                <h3 class="cards-header">Sugar Level</h3>
+                <div class="workoutChart"></div>
+                <p class="cards-description normal-text">
+                  This Week: 3 sessions, 950 kcal
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
 
