@@ -256,7 +256,95 @@
               <!-- Sugar Level Chart -->
               <div class="chart-card">
                 <h3 class="cards-header">Sugar Level</h3>
-                <div class="sugar-level__chart"></div>
+                <div class="sugar-level__chart">
+                  <svg
+                    class="sugar-level"
+                    viewBox="25 -10 350 160"
+                    width="100%"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <!-- Axes -->
+                    <line x1="30" y1="10" x2="30" y2="140" stroke="#ccc" />
+                    <line x1="30" y1="140" x2="360" y2="140" stroke="#ccc" />
+
+                    <!-- Blood Pressure Bars -->
+                    <rect x="50" y="70" width="20" height="70" fill="#00C853" />
+                    <text x="50" y="65" font-size="10" fill="#E6EDF3">120</text>
+
+                    <rect
+                      x="100"
+                      y="50"
+                      width="20"
+                      height="90"
+                      fill="#00C853"
+                    />
+                    <text x="100" y="45" font-size="10" fill="#E6EDF3">
+                      130
+                    </text>
+
+                    <rect
+                      x="150"
+                      y="60"
+                      width="20"
+                      height="80"
+                      fill="#00C853"
+                    />
+                    <text x="150" y="55" font-size="10" fill="#E6EDF3">
+                      125
+                    </text>
+
+                    <rect
+                      x="200"
+                      y="90"
+                      width="20"
+                      height="50"
+                      fill="#FFA726"
+                    />
+                    <text x="200" y="85" font-size="10" fill="#E6EDF3">95</text>
+
+                    <rect
+                      x="250"
+                      y="80"
+                      width="20"
+                      height="60"
+                      fill="#FFA726"
+                    />
+                    <text x="250" y="75" font-size="10" fill="#E6EDF3">
+                      100
+                    </text>
+
+                    <rect
+                      x="300"
+                      y="60"
+                      width="20"
+                      height="80"
+                      fill="#00C853"
+                    />
+                    <text x="300" y="55" font-size="10" fill="#E6EDF3">
+                      125
+                    </text>
+
+                    <rect
+                      x="350"
+                      y="50"
+                      width="20"
+                      height="90"
+                      fill="#00C853"
+                    />
+                    <text x="350" y="45" font-size="10" fill="#E6EDF3">
+                      130
+                    </text>
+
+                    <!-- Labels -->
+                    <text x="40" y="156">Mon</text>
+                    <text x="90" y="156">Tue</text>
+                    <text x="140" y="156">Wed</text>
+                    <text x="190" y="156">Thu</text>
+                    <text x="240" y="156">Fri</text>
+                    <text x="290" y="156">Sat</text>
+                    <text x="340" y="156">Sun</text>
+                  </svg>
+                </div>
                 <p class="cards-description normal-text">
                   This Week: 3 sessions, 950 kcal
                 </p>

@@ -107,7 +107,3 @@ svg text {
   font-size: 1.4rem;
   fill: var(--text-color);
 }
-
-.bar-chart {
-  align-self: flex-start;
-}
