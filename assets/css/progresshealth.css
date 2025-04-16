@@ -102,8 +102,17 @@ input {
 svg {
   height: 100%;
 }
+
 svg text {
   font-family: var(--inter);
   font-size: 1.4rem;
   fill: var(--text-color);
+}
+
+.bp-bar {
+  fill: var(--primary-color);
+}
+
+.sugar-bar {
+  fill: var(--accent-color1);
 }

@@ -163,192 +163,161 @@
         <div class="health-charts__container">
           <div class="progress-charts health-charts cards">
             <h3 class="cards-header">Health Status</h3>
-            <div class="chart-grid">
-              <!-- Blood Pressure Chart -->
-              <div class="chart-card">
-                <h3 class="cards-header">Blood Pressure</h3>
-                <div class="bar-chart__container">
-                  <!-- viewBox="25 0 360 160" -->
-                  <svg
-                    class="bar-chart"
-                    viewBox="25 -10 350 160"
-                    width="100%"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <!-- Axes -->
-                    <line x1="30" y1="10" x2="30" y2="140" stroke="#ccc" />
-                    <line x1="30" y1="140" x2="360" y2="140" stroke="#ccc" />
+            <div class="chart">
+              <svg
+                class="bar-chart bp-chart"
+                viewBox="25 -10 570 180"
+                width="100%"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <!-- Axes -->
+                <line x1="30" y1="10" x2="30" y2="140" stroke="#ccc" />
+                <line x1="30" y1="140" x2="550" y2="140" stroke="#ccc" />
 
-                    <!-- Blood Pressure Bars -->
-                    <rect x="50" y="70" width="20" height="70" fill="#00C853" />
-                    <text x="50" y="65" font-size="10" fill="#E6EDF3">120</text>
+                <!-- Blood Pressure and Sugar Bars -->
 
-                    <rect
-                      x="100"
-                      y="50"
-                      width="20"
-                      height="90"
-                      fill="#00C853"
-                    />
-                    <text x="100" y="45">130</text>
+                <!-- Mon -->
+                <rect
+                  class="bp-bar bp-mon-bar"
+                  x="50"
+                  y="70"
+                  width="20"
+                  height="70"
+                />
+                <text x="50" y="65" font-size="10" fill="#E6EDF3">120</text>
 
-                    <rect
-                      x="150"
-                      y="60"
-                      width="20"
-                      height="80"
-                      fill="#00C853"
-                    />
-                    <text x="150" y="55">125</text>
+                <rect
+                  class="sugar-bar sugar-mon-bar"
+                  x="75"
+                  y="60"
+                  width="20"
+                  height="80"
+                />
+                <text x="75" y="55" font-size="10" fill="#E6EDF3">95</text>
 
-                    <rect
-                      x="200"
-                      y="90"
-                      width="20"
-                      height="50"
-                      fill="#FFA726"
-                    />
-                    <text x="200" y="85">95</text>
+                <!-- Tue -->
+                <rect
+                  class="bp-bar bp-tue-bar"
+                  x="125"
+                  y="50"
+                  width="20"
+                  height="90"
+                />
+                <text x="125" y="45" font-size="10" fill="#E6EDF3">130</text>
 
-                    <rect
-                      x="250"
-                      y="80"
-                      width="20"
-                      height="60"
-                      fill="#FFA726"
-                    />
-                    <text x="250" y="75">100</text>
+                <rect
+                  class="sugar-bar sugar-tue-bar"
+                  x="150"
+                  y="30"
+                  width="20"
+                  height="110"
+                />
+                <text x="150" y="25" font-size="10" fill="#E6EDF3">100</text>
 
-                    <rect
-                      x="300"
-                      y="60"
-                      width="20"
-                      height="80"
-                      fill="#00C853"
-                    />
-                    <text x="300" y="55">125</text>
+                <!-- Wed -->
+                <rect
+                  class="bp-bar bp-wed-bar"
+                  x="200"
+                  y="60"
+                  width="20"
+                  height="80"
+                />
+                <text x="200" y="55" font-size="10" fill="#E6EDF3">125</text>
 
-                    <rect
-                      x="350"
-                      y="50"
-                      width="20"
-                      height="90"
-                      fill="#00C853"
-                    />
-                    <text x="350" y="45">130</text>
+                <rect
+                  class="sugar-bar sugar-wed-bar"
+                  x="225"
+                  y="40"
+                  width="20"
+                  height="100"
+                />
+                <text x="225" y="35" font-size="10" fill="#E6EDF3">95</text>
 
-                    <!-- Labels -->
-                    <text x="40" y="156">Mon</text>
-                    <text x="90" y="156">Tue</text>
-                    <text x="140" y="156">Wed</text>
-                    <text x="190" y="156">Thu</text>
-                    <text x="240" y="156">Fri</text>
-                    <text x="290" y="156">Sat</text>
-                    <text x="340" y="156">Sun</text>
-                  </svg>
-                </div>
+                <!-- Thu -->
+                <rect
+                  class="bp-bar bp-thu-bar"
+                  x="275"
+                  y="90"
+                  width="20"
+                  height="50"
+                />
+                <text x="275" y="85" font-size="10" fill="#E6EDF3">95</text>
 
-                <p class="cards-description normal-text">
-                  This Week: 3 sessions, 950 kcal
-                </p>
-              </div>
+                <rect
+                  class="sugar-bar sugar-thu-bar"
+                  x="300"
+                  y="60"
+                  width="20"
+                  height="80"
+                />
+                <text x="300" y="55" font-size="10" fill="#E6EDF3">100</text>
 
-              <!-- Sugar Level Chart -->
-              <div class="chart-card">
-                <h3 class="cards-header">Sugar Level</h3>
-                <div class="sugar-level__chart">
-                  <svg
-                    class="sugar-level"
-                    viewBox="25 -10 350 160"
-                    width="100%"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <!-- Axes -->
-                    <line x1="30" y1="10" x2="30" y2="140" stroke="#ccc" />
-                    <line x1="30" y1="140" x2="360" y2="140" stroke="#ccc" />
+                <!-- Fri -->
+                <rect
+                  class="bp-bar bp-fri-bar"
+                  x="350"
+                  y="50"
+                  width="20"
+                  height="90"
+                />
+                <text x="350" y="45" font-size="10" fill="#E6EDF3">130</text>
 
-                    <!-- Blood Pressure Bars -->
-                    <rect x="50" y="70" width="20" height="70" fill="#00C853" />
-                    <text x="50" y="65" font-size="10" fill="#E6EDF3">120</text>
+                <rect
+                  class="sugar-bar sugar-fri-bar"
+                  x="375"
+                  y="30"
+                  width="20"
+                  height="110"
+                />
+                <text x="375" y="25" font-size="10" fill="#E6EDF3">105</text>
 
-                    <rect
-                      x="100"
-                      y="50"
-                      width="20"
-                      height="90"
-                      fill="#00C853"
-                    />
-                    <text x="100" y="45" font-size="10" fill="#E6EDF3">
-                      130
-                    </text>
+                <!-- Sat -->
+                <rect
+                  class="bp-bar bp-sat-bar"
+                  x="425"
+                  y="60"
+                  width="20"
+                  height="80"
+                />
+                <text x="425" y="55" font-size="10" fill="#E6EDF3">125</text>
 
-                    <rect
-                      x="150"
-                      y="60"
-                      width="20"
-                      height="80"
-                      fill="#00C853"
-                    />
-                    <text x="150" y="55" font-size="10" fill="#E6EDF3">
-                      125
-                    </text>
+                <rect
+                  class="sugar-bar sugar-sat-bar"
+                  x="450"
+                  y="40"
+                  width="20"
+                  height="100"
+                />
+                <text x="450" y="35" font-size="10" fill="#E6EDF3">110</text>
 
-                    <rect
-                      x="200"
-                      y="90"
-                      width="20"
-                      height="50"
-                      fill="#FFA726"
-                    />
-                    <text x="200" y="85" font-size="10" fill="#E6EDF3">95</text>
+                <!-- Sun -->
+                <rect
+                  class="bp-bar bp-sun-bar"
+                  x="500"
+                  y="50"
+                  width="20"
+                  height="90"
+                />
+                <text x="500" y="45" font-size="10" fill="#E6EDF3">130</text>
 
-                    <rect
-                      x="250"
-                      y="80"
-                      width="20"
-                      height="60"
-                      fill="#FFA726"
-                    />
-                    <text x="250" y="75" font-size="10" fill="#E6EDF3">
-                      100
-                    </text>
+                <rect
+                  class="sugar-bar sugar-sun-bar"
+                  x="525"
+                  y="30"
+                  width="20"
+                  height="110"
+                />
+                <text x="525" y="25" font-size="10" fill="#E6EDF3">120</text>
 
-                    <rect
-                      x="300"
-                      y="60"
-                      width="20"
-                      height="80"
-                      fill="#00C853"
-                    />
-                    <text x="300" y="55" font-size="10" fill="#E6EDF3">
-                      125
-                    </text>
-
-                    <rect
-                      x="350"
-                      y="50"
-                      width="20"
-                      height="90"
-                      fill="#00C853"
-                    />
-                    <text x="350" y="45" font-size="10" fill="#E6EDF3">
-                      130
-                    </text>
-
-                    <!-- Labels -->
-                    <text x="40" y="156">Mon</text>
-                    <text x="90" y="156">Tue</text>
-                    <text x="140" y="156">Wed</text>
-                    <text x="190" y="156">Thu</text>
-                    <text x="240" y="156">Fri</text>
-                    <text x="290" y="156">Sat</text>
-                    <text x="340" y="156">Sun</text>
-                  </svg>
-                </div>
-                <p class="cards-description normal-text">
-                  This Week: 3 sessions, 950 kcal
-                </p>
-              </div>
+                <!-- Labels -->
+                <text x="40" y="156" fill="#E6EDF3">Mon</text>
+                <text x="115" y="156" fill="#E6EDF3">Tue</text>
+                <text x="190" y="156" fill="#E6EDF3">Wed</text>
+                <text x="265" y="156" fill="#E6EDF3">Thu</text>
+                <text x="340" y="156" fill="#E6EDF3">Fri</text>
+                <text x="415" y="156" fill="#E6EDF3">Sat</text>
+                <text x="490" y="156" fill="#E6EDF3">Sun</text>
+              </svg>
             </div>
           </div>
 
