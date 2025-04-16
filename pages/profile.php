@@ -18,8 +18,8 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="/assets/css/profile.css" />
-    <link rel="stylesheet" href="/assets/css/general.css" />
+    <link rel="stylesheet" href="../assets/css/profile.css" />
+    <link rel="stylesheet" href="../assets/css/general.css" />
     <title>FitTrack+ | Profile</title>
   </head>
   <body>
@@ -312,7 +312,7 @@
     </main>
 
     <!-- Js -->
-    <script src="/assets/js/profile.js"></script>
+    <script src="../assets/js/profile.js"></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"

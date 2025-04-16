@@ -18,8 +18,8 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="/assets/css/login.css" />
-    <link rel="stylesheet" href="/assets/css/general.css" />
+    <link rel="stylesheet" href="../assets/css/login.css" />
+    <link rel="stylesheet" href="../assets/css/general.css" />
 
 
     <title>FitTrack+ | Login</title>

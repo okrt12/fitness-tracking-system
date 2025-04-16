@@ -18,8 +18,8 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="/assets/css/general.css" />
-    <link rel="stylesheet" href="/assets/css/workoutschedule.css" />
+    <link rel="stylesheet" href="../assets/css/general.css" />
+    <link rel="stylesheet" href="../assets/css/workoutschedule.css" />
     <title>Document</title>
   </head>
   <body>

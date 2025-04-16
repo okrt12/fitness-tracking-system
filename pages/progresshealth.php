@@ -18,8 +18,8 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="/assets/css/progresshealth.css" />
-    <link rel="stylesheet" href="/assets/css/general.css" />
+    <link rel="stylesheet" href="../assets/css/progresshealth.css" />
+    <link rel="stylesheet" href="../assets/css/general.css" />
 
     <title>FitTrack+ | Progress and Health</title>
   </head>

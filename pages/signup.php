@@ -12,8 +12,8 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="/assets/css/general.css" />
-    <link rel="stylesheet" href="/assets/css/signup.css" />
+    <link rel="stylesheet" href="../assets/css/general.css" />
+    <link rel="stylesheet" href="../assets/css/signup.css" />
 </head>
 <body>
     <main class="signup-section">
@@ -87,7 +87,7 @@
                         <button type="submit" class="btn signup-btn">Create Account</button>
                         
                         <div class="login-link">
-                            <p>Already have an account? <a href="#" class="text-link">Log in</a></p>
+                            <p>Already have an account? <a href="/pages/login.php" class="text-link">Log in</a></p>
                         </div>
                     </form>
                 </div>

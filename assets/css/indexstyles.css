@@ -7,6 +7,7 @@
 .nav-btns__container {
   display: flex;
   justify-content: center;
+  /* z-index: 99; */
 }
 
 li {

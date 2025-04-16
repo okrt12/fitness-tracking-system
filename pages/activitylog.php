@@ -18,8 +18,8 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="/assets/css/activitylog.css" />
-    <link rel="stylesheet" href="/assets/css/general.css" />
+    <link rel="stylesheet" href="../assets/css/activitylog.css" />
+    <link rel="stylesheet" href="../assets/css/general.css" />
 
     <title>FitTrack+ | Log Workout</title>
   </head>
