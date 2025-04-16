@@ -95,3 +95,19 @@ input {
 .health-btn:hover {
   background-color: var(--accent-color);
 }
+
+/* ***********************************************************************************
+********************************* Charts ********************************************* */
+
+svg {
+  height: 100%;
+}
+svg text {
+  font-family: var(--inter);
+  font-size: 1.4rem;
+  fill: var(--text-color);
+}
+
+.bar-chart {
+  align-self: flex-start;
+}
