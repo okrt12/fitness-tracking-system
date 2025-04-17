@@ -178,145 +178,145 @@
 
                 <!-- Mon -->
                 <rect
-                  class="bp-bar bp-mon-bar"
+                  class="day1-bp_bar bp-bar bp-mon-bar"
                   x="50"
                   y="70"
                   width="20"
                   height="70"
                 />
-                <text x="50" y="65" font-size="10" fill="#E6EDF3">120</text>
+                <text class="day1-bp_text" x="50" y="65">120</text>
 
                 <rect
-                  class="sugar-bar sugar-mon-bar"
+                  class="day1-sugar_bar sugar-bar sugar-mon-bar"
                   x="75"
                   y="60"
                   width="20"
                   height="80"
                 />
-                <text x="75" y="55" font-size="10" fill="#E6EDF3">95</text>
+                <text class="day1-sugar_text" x="75" y="55">95</text>
 
                 <!-- Tue -->
                 <rect
-                  class="bp-bar bp-tue-bar"
+                  class="day2-bp_bar bp-bar bp-tue-bar"
                   x="125"
                   y="50"
                   width="20"
                   height="90"
                 />
-                <text x="125" y="45" font-size="10" fill="#E6EDF3">130</text>
+                <text class="day2-bp_text" x="125" y="45">130</text>
 
                 <rect
-                  class="sugar-bar sugar-tue-bar"
+                  class="sugar-bar day2-sugar_bar sugar-tue-bar"
                   x="150"
                   y="30"
                   width="20"
                   height="110"
                 />
-                <text x="150" y="25" font-size="10" fill="#E6EDF3">100</text>
+                <text class="day2-sugar_text" x="150" y="25">100</text>
 
                 <!-- Wed -->
                 <rect
-                  class="bp-bar bp-wed-bar"
+                  class="day3-bp_bar bp-bar bp-wed-bar"
                   x="200"
                   y="60"
                   width="20"
                   height="80"
                 />
-                <text x="200" y="55" font-size="10" fill="#E6EDF3">125</text>
+                <text class="day3-bp_text" x="200" y="55">125</text>
 
                 <rect
-                  class="sugar-bar sugar-wed-bar"
+                  class="sugar-bar day3-bp_bar sugar-wed-bar"
                   x="225"
                   y="40"
                   width="20"
                   height="100"
                 />
-                <text x="225" y="35" font-size="10" fill="#E6EDF3">95</text>
+                <text class="day3-sugar_text" x="225" y="35">95</text>
 
                 <!-- Thu -->
                 <rect
-                  class="bp-bar bp-thu-bar"
+                  class="day4-bp_bar bp-bar bp-thu-bar"
                   x="275"
                   y="90"
                   width="20"
                   height="50"
                 />
-                <text x="275" y="85" font-size="10" fill="#E6EDF3">95</text>
+                <text class="day4-bp_text" x="275" y="85">95</text>
 
                 <rect
-                  class="sugar-bar sugar-thu-bar"
+                  class="sugar-bar day4-sugar_bar sugar-thu-bar"
                   x="300"
                   y="60"
                   width="20"
                   height="80"
                 />
-                <text x="300" y="55" font-size="10" fill="#E6EDF3">100</text>
+                <text class="day4-sugar_text" x="300" y="55">100</text>
 
                 <!-- Fri -->
                 <rect
-                  class="bp-bar bp-fri-bar"
+                  class="day5-bp_bar bp-bar bp-fri-bar"
                   x="350"
                   y="50"
                   width="20"
                   height="90"
                 />
-                <text x="350" y="45" font-size="10" fill="#E6EDF3">130</text>
+                <text class="day5-bp_text" x="350" y="45">130</text>
 
                 <rect
-                  class="sugar-bar sugar-fri-bar"
+                  class="sugar-bar day5-bp_bar sugar-fri-bar"
                   x="375"
                   y="30"
                   width="20"
                   height="110"
                 />
-                <text x="375" y="25" font-size="10" fill="#E6EDF3">105</text>
+                <text class="day5-sugar_text" x="375" y="25">105</text>
 
                 <!-- Sat -->
                 <rect
-                  class="bp-bar bp-sat-bar"
+                  class="day6-bp_bar bp-bar bp-sat-bar"
                   x="425"
                   y="60"
                   width="20"
                   height="80"
                 />
-                <text x="425" y="55" font-size="10" fill="#E6EDF3">125</text>
+                <text class="day6-bp_text" x="425" y="55">125</text>
 
                 <rect
-                  class="sugar-bar sugar-sat-bar"
+                  class="sugar-bar day6-bp_bar sugar-sat-bar"
                   x="450"
                   y="40"
                   width="20"
                   height="100"
                 />
-                <text x="450" y="35" font-size="10" fill="#E6EDF3">110</text>
+                <text class="day6-sugar_text" x="450" y="35">110</text>
 
                 <!-- Sun -->
                 <rect
-                  class="bp-bar bp-sun-bar"
+                  class="day7-bp_bar bp-bar bp-sun-bar"
                   x="500"
                   y="50"
                   width="20"
                   height="90"
                 />
-                <text x="500" y="45" font-size="10" fill="#E6EDF3">130</text>
+                <text class="day7-bp_text" x="500" y="45">130</text>
 
                 <rect
-                  class="sugar-bar sugar-sun-bar"
+                  class="sugar-bar day7-bp_bar sugar-sun-bar"
                   x="525"
                   y="30"
                   width="20"
                   height="110"
                 />
-                <text x="525" y="25" font-size="10" fill="#E6EDF3">120</text>
+                <text class="day7-sugar_text" x="525" y="25">120</text>
 
                 <!-- Labels -->
-                <text x="40" y="156" fill="#E6EDF3">Mon</text>
-                <text x="115" y="156" fill="#E6EDF3">Tue</text>
-                <text x="190" y="156" fill="#E6EDF3">Wed</text>
-                <text x="265" y="156" fill="#E6EDF3">Thu</text>
-                <text x="340" y="156" fill="#E6EDF3">Fri</text>
-                <text x="415" y="156" fill="#E6EDF3">Sat</text>
-                <text x="490" y="156" fill="#E6EDF3">Sun</text>
+                <text class="bar-say__texts text-mon" x="40" y="156">Mon</text>
+                <text class="bar-say__texts text-tue" x="115" y="156">Tue</text>
+                <text class="bar-say__texts text-wed" x="190" y="156">Wed</text>
+                <text class="bar-say__texts text-thu" x="265" y="156">Thu</text>
+                <text class="bar-say__texts text-fri" x="340" y="156">Fri</text>
+                <text class="bar-say__texts text-sat" x="415" y="156">Sat</text>
+                <text class="bar-say__texts text-sun" x="490" y="156">Sun</text>
               </svg>
             </div>
           </div>
@@ -328,7 +328,7 @@
                 >Blood Pressure (Systolic)</label
               >
               <input
-                class="input normal-text cards-description"
+                class="input normal-text cards-description bp-systolic"
                 type="number"
                 id="bp-systolic"
                 name="bp-systolic"
@@ -342,7 +342,7 @@
                 >Blood Pressure (Diastolic)</label
               >
               <input
-                class="input normal-text cards-description"
+                class="input normal-text cards-description bp-diastolic"
                 type="number"
                 id="bp-diastolic"
                 name="bp-diastolic"
@@ -356,7 +356,7 @@
                 >Blood Sugar (mg/dL)</label
               >
               <input
-                class="input normal-text cards-description"
+                class="input normal-text cards-description blood-sugar"
                 type="number"
                 id="blood-sugar"
                 name="blood-sugar"
@@ -374,6 +374,8 @@
     </main>
 
     <!-- JS -->
+    <script defer src="../assets/js/progresshealth.js"></script>
+
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
