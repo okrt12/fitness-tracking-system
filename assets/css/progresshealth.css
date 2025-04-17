@@ -116,3 +116,29 @@ svg text {
 .sugar-bar {
   fill: var(--accent-color1);
 }
+
+.legend-container {
+  align-self: flex-start;
+  margin-left: 3.2rem;
+}
+.legend {
+  padding: 0.3rem;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.legend-text {
+  align-items: center;
+  gap: 1rem;
+}
+.in-legend {
+  background-color: var(--primary-color);
+}
+.out-legend {
+  background-color: var(--accent-color1);
+  background-color: var(--accent-color1);
+}
+
+.health-form {
+  margin-bottom: 2rem;
+}

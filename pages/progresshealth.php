@@ -160,10 +160,10 @@
           </div>
         </div>
 
-        <div class="health-charts__container">
+        <div class="health-charts__container container">
           <div class="progress-charts health-charts cards">
             <h3 class="cards-header">Health Status</h3>
-            <div class="chart">
+            <div class="chart detail-value flex-col">
               <svg
                 class="bar-chart bp-chart"
                 viewBox="25 -10 570 180"
@@ -318,6 +318,16 @@
                 <text class="bar-say__texts text-sat" x="415" y="156">Sat</text>
                 <text class="bar-say__texts text-sun" x="490" y="156">Sun</text>
               </svg>
+
+              <div class="legend-container flex-container">
+                <span class="legend-text normal-text flex-col">
+                  Blood Pressure Level<span class="in-legend legend"></span
+                ></span>
+
+                <span class="legend-text normal-text flex-col">
+                  Blood Sugar Level<span class="out-legend legend"></span
+                ></span>
+              </div>
             </div>
           </div>
 

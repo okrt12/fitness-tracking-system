@@ -36,12 +36,14 @@ const sunText = document.querySelector(".text-sun");
 // Var
 const maxY = 140;
 const maxHeight = 130;
+const maxBP = 200;
+const maxBSL = 500;
+const dataBP = [190, 180, 175, 165, 150, 125, 115];
+const dataBS = [400, 350, 250, 200, 150, 125, 100];
 
 let systolic;
 let diastolic;
 let bloodSugar;
-// const dataBP = [];
-const dataSL = [];
 
 function calcAveBP(systolic, diastolic) {
   return (systolic + diastolic) / 2;
@@ -54,14 +56,8 @@ healthBtn.addEventListener("click", function (e) {
   diastolic = +diastolicInput.value;
   bloodSugar = +bloodSugarInput.value;
 
-  dataBP.push(calcAveBP(systolic, diastolic));
-  dataSL.push(bloodSugar);
+  // POST to DB
 });
-
-const maxBP = 200;
-const maxBS = 500;
-const dataBP = [190, 180, 175, 165, 150, 125, 115];
-const dataBS = [400, 350, 250, 200, 150, 125, 100];
 
 function updateBarGraph(chartType, value, height, i) {
   document
@@ -88,6 +84,5 @@ dataBP.forEach((el, i) => {
 });
 
 dataBS.forEach((el, i) => {
-  updateBarGraph("sugar", el, valueToHeight(el, maxBS), i + 1);
+  updateBarGraph("sugar", el, valueToHeight(el, maxBSL), i + 1);
 });
-// console.log(height);
