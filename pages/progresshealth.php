@@ -234,7 +234,112 @@
               <!-- Workout Chart -->
               <div class="chart-card">
                 <h3 class="cards-header">Weekly Workouts</h3>
-                <div class="workoutChart"></div>
+                <div class="workout-chart">
+                  <svg
+                    class="bar-chart workout-chart"
+                    viewBox="25 -10 350 180"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <!-- Axes -->
+                    <line x1="30" y1="10" x2="30" y2="140" stroke="#ccc" />
+                    <line x1="30" y1="140" x2="375" y2="140" stroke="#ccc" />
+
+                    <!-- Blood Pressure and Sugar Bars -->
+
+                    <!-- Mon -->
+                    <rect
+                      class="day1-calorie_bar bp-bar bp-mon-bar"
+                      x="50"
+                      y="70"
+                      width="20"
+                      height="70"
+                    />
+                    <text class="day1-calorie_text" x="50" y="65">120</text>
+
+                    <!-- Tue -->
+                    <rect
+                      class="day2-calorie_bar bp-bar bp-tue-bar"
+                      x="100"
+                      y="50"
+                      width="20"
+                      height="90"
+                    />
+                    <text class="day2-calorie_text" x="100" y="45">130</text>
+
+                    <!-- Wed -->
+                    <rect
+                      class="day3-calorie_bar bp-bar bp-wed-bar"
+                      x="150"
+                      y="60"
+                      width="20"
+                      height="80"
+                    />
+                    <text class="day3-calorie_text" x="150" y="55">125</text>
+
+                    <!-- Thu -->
+                    <rect
+                      class="day4-calorie_bar bp-bar bp-thu-bar"
+                      x="200"
+                      y="90"
+                      width="20"
+                      height="50"
+                    />
+                    <text class="day4-calorie_text" x="200" y="85">95</text>
+
+                    <!-- Fri -->
+                    <rect
+                      class="day5-calorie_bar bp-bar bp-fri-bar"
+                      x="250"
+                      y="50"
+                      width="20"
+                      height="90"
+                    />
+                    <text class="day5-calorie_text" x="250" y="45">130</text>
+
+                    <!-- Sat -->
+                    <rect
+                      class="day6-calorie_bar bp-bar bp-sat-bar"
+                      x="300"
+                      y="60"
+                      width="20"
+                      height="80"
+                    />
+                    <text class="day6-calorie_text" x="300" y="55">125</text>
+
+                    <!-- Sun -->
+                    <rect
+                      class="day7-calorie_bar bp-bar bp-sun-bar"
+                      x="350"
+                      y="50"
+                      width="20"
+                      height="90"
+                    />
+                    <text class="day7-calorie_text" x="350" y="45">130</text>
+
+                    <!-- Labels -->
+                    <text class="bar-day__texts text-mon" x="50" y="156">
+                      Mon
+                    </text>
+                    <text class="bar-day__texts text-tue" x="90" y="156">
+                      Tue
+                    </text>
+                    <text class="bar-day__texts text-wed" x="140" y="156">
+                      Wed
+                    </text>
+                    <text class="bar-day__texts text-thu" x="190" y="156">
+                      Thu
+                    </text>
+                    <text class="bar-day__texts text-fri" x="240" y="156">
+                      Fri
+                    </text>
+                    <text class="bar-day__texts text-sat" x="290" y="156">
+                      Sat
+                    </text>
+                    <text class="bar-day__texts text-sun" x="340" y="156">
+                      Sun
+                    </text>
+                  </svg>
+                </div>
                 <p class="cards-description normal-text">
                   This Week: 3 sessions, 950 kcal
                 </p>
@@ -402,7 +507,7 @@
                 <text class="day7-sugar_text" x="525" y="25">120</text>
 
                 <!-- Labels -->
-                <text class="bar-say__texts text-mon" x="40" y="156">Mon</text>
+                <text class="bar-day__texts text-mon" x="40" y="156">Mon</text>
                 <text class="bar-say__texts text-tue" x="115" y="156">Tue</text>
                 <text class="bar-say__texts text-wed" x="190" y="156">Wed</text>
                 <text class="bar-say__texts text-thu" x="265" y="156">Thu</text>
