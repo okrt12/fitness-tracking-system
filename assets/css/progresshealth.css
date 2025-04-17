@@ -61,8 +61,8 @@
 }
 
 .chart-card div {
-  width: 30rem;
-  height: 20rem;
+  /* width: 30rem;
+    height: 20rem; */
 }
 
 .chart-card p {
@@ -101,6 +101,7 @@ input {
 
 svg {
   height: 100%;
+  width: 100%;
 }
 
 svg text {
@@ -108,6 +109,44 @@ svg text {
   font-size: 1.4rem;
   fill: var(--text-color);
 }
+
+/* *********************************** Weight ********************************************************** */
+
+.goal-line {
+  stroke: var(--accent-color1);
+}
+
+.goal-line__text {
+  fill: var(--accent-color1);
+  font-size: 1.6rem;
+}
+
+.line-chart circle {
+  fill: var(--accent-color1);
+}
+
+.polyline {
+  stroke: var(--primary-color);
+  stroke-width: 2;
+}
+
+.line {
+  stroke: #00c853;
+  stroke-width: 2;
+  fill: none;
+}
+.goal-line {
+  stroke: #ffa726;
+  stroke-width: 1;
+  stroke-dasharray: 4;
+}
+.dot {
+  fill: #aeea00;
+  stroke: #212121;
+  stroke-width: 1;
+}
+
+/* ********************************************* Health Status **************************************** */
 
 .bp-bar {
   fill: var(--primary-color);

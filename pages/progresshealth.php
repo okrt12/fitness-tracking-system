@@ -135,7 +135,98 @@
               <!-- Weight Chart -->
               <div class="chart-card">
                 <h3 class="cards-header">Weight Over Time</h3>
-                <div class="weightChart"></div>
+                <div class="weight-chart">
+                  <svg
+                    class="line-chart weight-line__chart"
+                    viewBox="0 0 600 300"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <!-- Y-axis line -->
+                    <line x1="50" y1="20" x2="50" y2="260" stroke="#ccc" />
+
+                    <!-- X-axis line -->
+                    <line x1="50" y1="260" x2="580" y2="260" stroke="#ccc" />
+
+                    <!-- Y-axis labels -->
+                    <text class="day1-kg__text" x="10" y="30">80kg</text>
+                    <text class="day2-kg__text" x="10" y="80">75kg</text>
+                    <text class="day3-kg__text" x="10" y="130">70kg</text>
+                    <text class="day4-kg__text" x="10" y="180">65kg</text>
+                    <text class="day5-kg__text" x="10" y="230">60kg</text>
+
+                    <!-- Goal line -->
+                    <line
+                      class="goal-line"
+                      x1="50"
+                      y1="130"
+                      x2="580"
+                      y2="130"
+                      stroke-dasharray="4"
+                    />
+                    <text class="goal-line__text" x="500" y="125">
+                      Goal: 70kg
+                    </text>
+
+                    <!-- X-axis labels -->
+                    <text class="day1-weight__text" x="70" y="280">Apr 1</text>
+                    <text class="day2-weight__text" x="130" y="280">Apr 3</text>
+                    <text class="day3-weight__text" x="190" y="280">Apr 5</text>
+                    <text class="day4-weight__text" x="250" y="280">Apr 7</text>
+                    <text class="day5-weight__text" x="310" y="280">Apr 9</text>
+                    <text class="day6-weight__text" x="370" y="280">
+                      Apr 11
+                    </text>
+                    <text class="day7-weight__text" x="430" y="280">
+                      Apr 13
+                    </text>
+
+                    <!-- Weight line (sample data) -->
+
+                    <!-- Dots on the line -->
+                    <circle
+                      class="dot day1-weight__dot"
+                      cx="70"
+                      cy="70"
+                      r="4"
+                    />
+                    <circle
+                      class="dot day2-weight__dot"
+                      cx="130"
+                      cy="90"
+                      r="4"
+                    />
+                    <circle
+                      class="dot day3-weight__dot"
+                      cx="190"
+                      cy="110"
+                      r="4"
+                    />
+                    <circle
+                      class="dot day4-weight__dot"
+                      cx="250"
+                      cy="120"
+                      r="4"
+                    />
+                    <circle
+                      class="dot day5-weight__dot"
+                      cx="310"
+                      cy="130"
+                      r="4"
+                    />
+                    <circle
+                      class="dot day6-weight__dot"
+                      cx="370"
+                      cy="140"
+                      r="4"
+                    />
+                    <!-- <circle
+                      class="dot day7-weight__dot"
+                      cx="430"
+                      cy="160"
+                      r="4"
+                    /> -->
+                  </svg>
+                </div>
                 <p class="cards-description normal-text">
                   Current: 73kg (Goal: 70kg)
                 </p>
@@ -149,13 +240,13 @@
                 </p>
               </div>
               <!-- Diet Chart -->
-              <div class="chart-card">
+              <!-- <div class="chart-card">
                 <h3 class="cards-header">Daily Calories</h3>
                 <div class="dietChart"></div>
                 <p class="cards-description normal-text">
                   Today: 1800 kcal (Goal: 2000 kcal)
                 </p>
-              </div>
+              </div> -->
             </div>
           </div>
         </div>
@@ -225,12 +316,13 @@
                 <text class="day3-bp_text" x="200" y="55">125</text>
 
                 <rect
-                  class="sugar-bar day3-bp_bar sugar-wed-bar"
+                  class="sugar-bar day3-sugar_bar sugar-wed-bar"
                   x="225"
                   y="40"
                   width="20"
                   height="100"
                 />
+
                 <text class="day3-sugar_text" x="225" y="35">95</text>
 
                 <!-- Thu -->

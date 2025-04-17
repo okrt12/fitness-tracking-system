@@ -1,37 +1,8 @@
-// element.setAttribute("attributeName", "newValue");
 // Health Form
 const diastolicInput = document.querySelector(".bp-diastolic");
 const systolicInput = document.querySelector(".bp-systolic");
 const bloodSugarInput = document.querySelector(".blood-sugar");
 const healthBtn = document.querySelector(".health-btn");
-// BP Bar
-const monBpBar = document.querySelector(".bp-mon-bar");
-const tueBpBar = document.querySelector(".bp-tue-bar");
-const wedBpBar = document.querySelector(".bp-wed-bar");
-const thuBpBar = document.querySelector(".bp-thu-bar");
-const friBpBar = document.querySelector(".bp-fri-bar");
-const satBpBar = document.querySelector(".bp-sat-bar");
-const sunBpBar = document.querySelector(".bp-sun-bar");
-
-const monBPText = document.querySelector(".mon-bp_text");
-
-// Sugar Bar
-const monSugarBar = document.querySelector(".sugar-mon-bar");
-const tueSugarBar = document.querySelector(".sugar-tue-bar");
-const wedSugarBar = document.querySelector(".sugar-wed-bar");
-const thuSugarBar = document.querySelector(".sugar-thu-bar");
-const friSugarBar = document.querySelector(".sugar-fri-bar");
-const satSugarBar = document.querySelector(".sugar-sat-bar");
-const sunSugarBar = document.querySelector(".sugar-sun-bar");
-
-// Day label
-const monText = document.querySelector(".text-mon");
-const tueText = document.querySelector(".text-tue");
-const wedText = document.querySelector(".text-wed");
-const thuText = document.querySelector(".text-thu");
-const friText = document.querySelector(".text-fri");
-const satText = document.querySelector(".text-sat");
-const sunText = document.querySelector(".text-sun");
 
 // Var
 const maxY = 140;
@@ -83,6 +54,26 @@ dataBP.forEach((el, i) => {
   updateBarGraph("bp", el, valueToHeight(el, maxBP), i + 1);
 });
 
-dataBS.forEach((el, i) => {
-  updateBarGraph("sugar", el, valueToHeight(el, maxBSL), i + 1);
-});
+// dataBS.forEach((el, i) => {
+//   updateBarGraph("sugar", el, valueToHeight(el, maxBSL), i + 1);
+// });
+
+////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////// Line Chart ////////////////////////////////////////
+// Dom
+const lineChart = document.querySelector(".line-chart");
+const weightPolyline = document.querySelector(".weight-polyline");
+
+// Var
+const circleX = 70;
+const circleY = 230;
+
+const dataWeight = [60, 65, 70, 60, 65, 75, 80];
+
+const circleHTML = `<circle class="dot" cx="${circleX}" cy="${circleY}" r="4" />`;
+const polylineHTML = `  <polyline class="polyline weight-polyline" points = 
+  "70,70 130,90 190,110 250,120 310,130 370,140 ${circleX + "," + circleY}"  
+   />`;
+
+// lineChart.insertAdjacentHTML("beforeend", circleHTML);
+lineChart.insertAdjacentHTML("afterbegin", polylineHTML);
