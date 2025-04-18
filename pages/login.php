@@ -26,7 +26,7 @@
 
   <body>
     <main class="main-login">
-      <div class="login-container container">
+      <div class="login-container container flex-col">
         <div class="login-header">
           <h2 class="heading-secondary">
             Welcome Back to <span class="heading-color">FitTrack+</span>
@@ -34,7 +34,7 @@
         </div>
 
         <form class="login-form cards" id="loginForm">
-          <div class="detail-value flex-col">
+          <div class="detail-value label-input flex-col">
             <label for="email" class="normal-text cards-description"
               >Email Address</label
             >
