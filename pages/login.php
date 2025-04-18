@@ -47,7 +47,7 @@
             />
           </div>
 
-          <div class="detail-value flex-col">
+          <div class="detail-value flex-col password-container">
             <label for="password" class="normal-text cards-description"
               >Password</label
             >
@@ -58,13 +58,21 @@
               placeholder="Enter your password"
               required
             />
+            <ion-icon
+              class="password-icon show-password"
+              name="eye-outline"
+            ></ion-icon>
+            <ion-icon
+              class="password-icon hide-password"
+              name="eye-off-outline"
+            ></ion-icon>
           </div>
           <button type="submit" class="btn-primary login-btn">Log In</button>
 
           <div class="signup-link">
             <p class="normal-text cards-description login-link">
               Already have an account?
-              <a href="/pages/signup.php" class="text-link">Sign Ip</a>
+              <a href="/pages/signup.php" class="text-link">Sign Up</a>
             </p>
           </div>
         </form>
@@ -72,5 +80,13 @@
     </main>
 
     <!-- JS -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>

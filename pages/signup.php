@@ -50,30 +50,47 @@
             />
           </div>
 
-          <div class="detail-value label-input flex-col">
+          <div class="detail-value label-input flex-col password-container">
             <label for="password" class="normal-text cards-description"
               >Password</label
             >
             <input
               type="password"
               id="password"
-              class="input normal-text cards-description"
+              class="input normal-text cards-description create-password password"
               placeholder="Create a password"
               required
             />
+
+            <ion-icon
+              class="password-icon show-password"
+              name="eye-outline"
+            ></ion-icon>
+            <ion-icon
+              class="password-icon hide-password"
+              name="eye-off-outline"
+            ></ion-icon>
           </div>
 
-          <div class="detail-value label-input flex-col">
+          <div class="detail-value label-input flex-col password-container">
             <label for="password" class="normal-text cards-description"
               >Confirm Password</label
             >
             <input
               type="password"
               id="password"
-              class="input normal-text cards-description"
+              class="input normal-text cards-description confirm-password password"
               placeholder="Confirm a password"
               required
             />
+            <ion-icon
+              class="password-icon show-password"
+              name="eye-outline"
+            ></ion-icon>
+            <ion-icon
+              class="password-icon hide-password"
+              name="eye-off-outline"
+            ></ion-icon>
           </div>
 
           <div class="flex-col detail-value">
@@ -212,5 +229,13 @@
     </main>
 
     <!-- JS -->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
   </body>
 </html>

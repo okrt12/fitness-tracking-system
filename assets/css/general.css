@@ -249,3 +249,17 @@ select.input {
   background-size: 1.6rem;
   cursor: pointer;
 }
+
+/* ******************************** Password Icons ************************************************/
+.password-container {
+  position: relative;
+}
+
+.password-icon {
+  position: absolute;
+  color: var(--white);
+  right: 1rem;
+  top: 55%;
+  cursor: pointer;
+  font-size: 2rem;
+}
