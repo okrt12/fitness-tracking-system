@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FitTrack+ | Signup</title>
-    
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,85 +14,201 @@
 
     <link rel="stylesheet" href="../assets/css/general.css" />
     <link rel="stylesheet" href="../assets/css/signup.css" />
-</head>
-<body>
+  </head>
+  <body>
     <main class="signup-section">
-        <div class="container">
-            <div class="signup-container">
-                <div class="signup-card cards">
-                    <h2 class="heading-secondary">Create Your <span class="heading-color">FitTrack+</span> Account</h2>
-                    <p class="cards-description">Join thousands of users transforming their health and fitness journey.</p>
-                    
-                    <form class="signup-form">
-                        <div class="form-group">
-                            <label for="fullname" class="input__label">Full Name</label>
-                            <input type="text" id="fullname" class="input" placeholder="Enter your full name" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="email" class="input__label">Email Address</label>
-                            <input type="email" id="email" class="input" placeholder="Enter your email" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="password" class="input__label">Password</label>
-                            <input type="password" id="password" class="input" placeholder="Create a password" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="age" class="input__label">Age</label>
-                            <input type="number" id="age" class="input" placeholder="Enter your age" min="12" max="120" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="height" class="input__label">Height (cm)</label>
-                            <input type="number" id="height" class="input" placeholder="Enter your height" min="100" max="250" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="weight" class="input__label">Weight (kg)</label>
-                            <input type="number" id="weight" class="input" placeholder="Enter your weight" min="30" max="300" step="0.1" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="fitness-goal" class="input__label">Fitness Goal</label>
-                            <select id="fitness-goal" class="input" required>
-                                <option value="" disabled selected>Select your goal</option>
-                                <option value="lose-weight">Lose Weight</option>
-                                <option value="gain-muscle">Gain Muscle</option>
-                                <option value="maintain">Maintain Fitness</option>
-                                <option value="improve-endurance">Improve Endurance</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label class="input__label">Gender</label>
-                            <div class="radio-group">
-                                <label class="radio-option">
-                                    <input type="radio" name="gender" value="male" required>
-                                    <span>Male</span>
-                                </label>
-                                <label class="radio-option">
-                                    <input type="radio" name="gender" value="female">
-                                    <span>Female</span>
-                                </label>
-                                <label class="radio-option">
-                                    <input type="radio" name="gender" value="other">
-                                    <span>Other</span>
-                                </label>
-                            </div>
-                        </div>
-                        
-                        <button type="submit" class="btn signup-btn">Create Account</button>
-                        
-                        <div class="login-link">
-                            <p>Already have an account? <a href="/pages/login.php" class="text-link">Log in</a></p>
-                        </div>
-                    </form>
-                </div>
-            </div>
+      <div class="signup-container container">
+        <div class="header-container flex-col detail-value">
+          <h2 class="heading-secondary">
+            Create Your <span class="heading-color">FitTrack+</span> Account
+          </h2>
         </div>
+        <form class="signup-form grid--2-cols container">
+          <div class="detail-value label-input flex-col">
+            <label for="fullname" class="normal-text cards-description"
+              >Full Name</label
+            >
+            <input
+              type="text"
+              id="fullname"
+              class="input normal-text cards-description"
+              placeholder="Enter your full name"
+              required
+            />
+          </div>
+
+          <div class="detail-value label-input flex-col">
+            <label for="email" class="normal-text cards-description"
+              >Email Address</label
+            >
+            <input
+              type="email"
+              id="email"
+              class="input normal-text cards-description"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          <div class="detail-value label-input flex-col">
+            <label for="password" class="normal-text cards-description"
+              >Password</label
+            >
+            <input
+              type="password"
+              id="password"
+              class="input normal-text cards-description"
+              placeholder="Create a password"
+              required
+            />
+          </div>
+
+          <div class="detail-value label-input flex-col">
+            <label for="password" class="normal-text cards-description"
+              >Confirm Password</label
+            >
+            <input
+              type="password"
+              id="password"
+              class="input normal-text cards-description"
+              placeholder="Confirm a password"
+              required
+            />
+          </div>
+
+          <div class="flex-col detail-value">
+            <label for="age" class="normal-text cards-description">Age</label>
+            <input
+              type="number"
+              id="age"
+              class="input normal-text cards-description"
+              placeholder="Enter your age"
+              min="12"
+              max="120"
+              required
+            />
+          </div>
+
+          <div class="detail-value label-input flex-col">
+            <label for="height" class="normal-text cards-description"
+              >Height (cm)</label
+            >
+            <input
+              type="number"
+              id="height"
+              class="input normal-text cards-description"
+              placeholder="Enter your height"
+              min="100"
+              max="250"
+              required
+            />
+          </div>
+
+          <div class="detail-value label-input flex-col">
+            <label for="weight" class="normal-text cards-description"
+              >Weight (kg)</label
+            >
+            <input
+              type="number"
+              id="weight"
+              class="input normal-text cards-description"
+              placeholder="Enter your weight"
+              min="30"
+              max="300"
+              step="0.1"
+              required
+            />
+          </div>
+          <div class="detail-value label-input flex-col">
+            <label class="normal-text cards-description">Gender</label>
+            <select
+              id="gender"
+              name="gender"
+              class="input normal-text cards-description"
+            >
+              <option class="input normal-text cards-description" value="">
+                Choose Your Gender
+              </option>
+              <option class="input normal-text cards-description" value="male">
+                Male
+              </option>
+              <option
+                class="input normal-text cards-description"
+                value="Female"
+              >
+                Female
+              </option>
+            </select>
+          </div>
+
+          <div class="detail-value label-input flex-col">
+            <label for="fitness-goal" class="normal-text cards-description"
+              >Fitness Goal</label
+            >
+            <select
+              id="fitness-goal"
+              class="input normal-text cards-description"
+              required
+            >
+              <option class="normal-text" value="" disabled selected>
+                Select your goal
+              </option>
+              <option class="normal-text" value="lose-weight">
+                Lose Weight
+              </option>
+              <option class="normal-text" value="gain-muscle">
+                Gain Muscle
+              </option>
+              <option class="normal-text" value="maintain">
+                Maintain Fitness
+              </option>
+              <option class="normal-text" value="improve-endurance">
+                Improve Endurance
+              </option>
+              <option class="normal-text" value="other">Other</option>
+            </select>
+          </div>
+          <div class="flex-col detail-value">
+            <label
+              class="normal-text cards-description input-label"
+              for="diseases"
+              >Diseases (Optional)</label
+            >
+            <select
+              id="diseases"
+              name="diseases"
+              class="input normal-text cards-description"
+            >
+              <option class="input normal-text cards-description" value="">
+                None
+              </option>
+              <option
+                class="input normal-text cards-description"
+                value="diabetes"
+              >
+                Diabetes
+              </option>
+              <option
+                class="input normal-text cards-description"
+                value="hypertension"
+              >
+                Hypertension
+              </option>
+            </select>
+          </div>
+
+          <button type="submit" class="btn-primary signup-btn">
+            Create Account
+          </button>
+
+          <div class="login-link">
+            <p class="normal-text cards-description login-link">
+              Already have an account?
+              <a href="/pages/login.php" class="text-link">Log in</a>
+            </p>
+          </div>
+        </form>
+      </div>
     </main>
 
     <script
@@ -103,5 +219,5 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
-</body>
+  </body>
 </html>

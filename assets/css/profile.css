@@ -121,9 +121,11 @@ input {
   border-radius: 11px;
   color: var(--text-color);
 }
+
 .personal-information__popup {
   width: 40rem;
 }
+
 .goals-popup {
   width: 35rem;
 }
