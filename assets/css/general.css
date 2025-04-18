@@ -247,4 +247,5 @@ select.input {
   background-repeat: no-repeat;
   background-position: right 1.6rem center;
   background-size: 1.6rem;
+  cursor: pointer;
 }
