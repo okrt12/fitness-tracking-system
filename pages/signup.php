@@ -23,7 +23,7 @@
             Create Your <span class="heading-color">FitTrack+</span> Account
           </h2>
         </div>
-        <form class="signup-form grid--2-cols container">
+        <form class="signup-form grid--2-cols container form">
           <div class="detail-value label-input flex-col">
             <label for="fullname" class="normal-text cards-description"
               >Full Name</label
@@ -31,7 +31,7 @@
             <input
               type="text"
               id="fullname"
-              class="input normal-text cards-description"
+              class="input normal-text cards-description fullname"
               placeholder="Enter your full name"
               required
             />
@@ -45,7 +45,7 @@
               type="email"
               id="email"
               autocomplete="username"
-              class="input normal-text cards-description"
+              class="input normal-text cards-description email"
               placeholder="Enter your email"
               required
             />
@@ -149,12 +149,17 @@
               <option class="input normal-text cards-description" value="">
                 Choose Your Gender
               </option>
-              <option class="input normal-text cards-description" value="male">
+              <option
+                name="gender"
+                class="input normal-text cards-description"
+                value="male"
+              >
                 Male
               </option>
               <option
+                name="gender"
                 class="input normal-text cards-description"
-                value="Female"
+                value="female"
               >
                 Female
               </option>
@@ -168,24 +173,39 @@
             <select
               id="fitness-goal"
               class="input normal-text cards-description"
+              name="fitness-goal"
               required
             >
               <option class="normal-text" value="" disabled selected>
                 Select your goal
               </option>
-              <option class="normal-text" value="lose-weight">
+              <option
+                class="normal-text"
+                name="fitness-goal"
+                value="lose-weight"
+              >
                 Lose Weight
               </option>
-              <option class="normal-text" value="gain-muscle">
+              <option
+                class="normal-text"
+                name="fitness-goal"
+                value="gain-muscle"
+              >
                 Gain Muscle
               </option>
-              <option class="normal-text" value="maintain">
+              <option class="normal-text" name="fitness-goal" value="maintain">
                 Maintain Fitness
               </option>
-              <option class="normal-text" value="improve-endurance">
+              <option
+                class="normal-text"
+                name="fitness-goal"
+                value="improve-endurance"
+              >
                 Improve Endurance
               </option>
-              <option class="normal-text" value="other">Other</option>
+              <option class="normal-text" name="fitness-goal" value="other">
+                Other
+              </option>
             </select>
           </div>
           <div class="flex-col detail-value">
@@ -199,17 +219,19 @@
               name="diseases"
               class="input normal-text cards-description"
             >
-              <option class="input normal-text cards-description" value="">
+              <option class="input normal-text cards-description" value="none">
                 None
               </option>
               <option
                 class="input normal-text cards-description"
+                name="diseases"
                 value="diabetes"
               >
                 Diabetes
               </option>
               <option
                 class="input normal-text cards-description"
+                name="diseases"
                 value="hypertension"
               >
                 Hypertension

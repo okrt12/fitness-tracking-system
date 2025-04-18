@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';
-$dbname = 'fittrack_db'; // Change if you named it differently
+$dbname = 'fittrack_plus'; // Change if you named it differently
 $username = 'root'; // Change if needed
 $password = '';     // Change if you use a password
 
