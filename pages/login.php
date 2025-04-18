@@ -41,6 +41,7 @@
             <input
               type="email"
               id="email"
+              autocomplete="username"
               class="input normal-text cards-description"
               placeholder="Enter your email"
               required
@@ -54,16 +55,18 @@
             <input
               type="password"
               id="password"
+              autocomplete="current-password"
               class="input normal-text cards-description"
               placeholder="Enter your password"
               required
             />
+
             <ion-icon
-              class="password-icon show-password"
+              class="password-icon login_show"
               name="eye-outline"
             ></ion-icon>
             <ion-icon
-              class="password-icon hide-password"
+              class="password-icon hide-icon login_hide"
               name="eye-off-outline"
             ></ion-icon>
           </div>
@@ -80,6 +83,8 @@
     </main>
 
     <!-- JS -->
+    <script type="module" src="/assets/js/login.js"></script>
+
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"

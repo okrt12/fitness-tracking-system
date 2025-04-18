@@ -44,6 +44,7 @@
             <input
               type="email"
               id="email"
+              autocomplete="username"
               class="input normal-text cards-description"
               placeholder="Enter your email"
               required
@@ -56,18 +57,19 @@
             >
             <input
               type="password"
-              id="password"
+              id="create-password"
+              autocomplete="new-password"
               class="input normal-text cards-description create-password password"
               placeholder="Create a password"
               required
             />
 
             <ion-icon
-              class="password-icon show-password"
+              class="password-icon create_show"
               name="eye-outline"
             ></ion-icon>
             <ion-icon
-              class="password-icon hide-password"
+              class="password-icon hide-icon create_hide"
               name="eye-off-outline"
             ></ion-icon>
           </div>
@@ -78,17 +80,18 @@
             >
             <input
               type="password"
-              id="password"
+              id="confirm-password"
+              autocomplete="new-password"
               class="input normal-text cards-description confirm-password password"
               placeholder="Confirm a password"
               required
             />
             <ion-icon
-              class="password-icon show-password"
+              class="password-icon confirm_show-password"
               name="eye-outline"
             ></ion-icon>
             <ion-icon
-              class="password-icon hide-password"
+              class="password-icon hide-icon confirm_hide-password"
               name="eye-off-outline"
             ></ion-icon>
           </div>
@@ -229,6 +232,9 @@
     </main>
 
     <!-- JS -->
+    <script type="module" src="/assets/js/signup.js"></script>
+    <!-- <script src="/assets/js/common.js"></script> -->
+
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
