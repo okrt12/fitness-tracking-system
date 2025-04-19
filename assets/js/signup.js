@@ -17,6 +17,13 @@ const gender = document.getElementById("gender");
 const fitnessGoal = document.getElementById("fitness-goal");
 const disease = document.getElementById("diseases");
 const form = document.querySelector(".form");
+//
+document.addEventListener("focus", () => {
+  const inputs = document.querySelectorAll(".input");
+  inputs.forEach((input) => {
+    input.classList.add("input-autofill");
+  });
+});
 
 // UI
 toggleShowHidePass(newPassword, createhideIcon, createShowIcon);
@@ -26,34 +33,45 @@ const date = new Date().toDateString();
 
 form.addEventListener("submit", async function (e) {
   e.preventDefault();
+  newPassword.classList.remove("error-input");
+  confirmPassword.classList.remove("error-input");
 
-  if (newPassword.value === confirmPassword.value) {
-    const userData = {
-      name: fullName.value,
-      email: email.value,
-      password: confirmPassword.value,
-      age: age.value,
-      weight: weight.value,
-      height: height.value,
-      gender: gender.value,
-      goal: fitnessGoal.value,
-      disease: disease.value || "none",
-    };
-    try {
-      const response = await fetch("../backend/auth/register.php", {
-        method: "POST",
-        body: JSON.stringify(userData),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      if (response.ok) {
-        const data = response.json();
-        alert("Registered succesfully");
-      }
-    } catch (error) {
-      console.log("Error: ", error);
-      alert("An unexpected error occurred. Please try again later.");
+  if (newPassword.value !== confirmPassword.value) {
+    newPassword.classList.add("error-input");
+    confirmPassword.classList.add("error-input");
+    alert("Your Passwords do not match");
+    return;
+  }
+
+  const userData = {
+    name: fullName.value,
+    email: email.value,
+    password: confirmPassword.value,
+    age: age.value,
+    weight: weight.value,
+    height: height.value,
+    gender: gender.value,
+    goal: fitnessGoal.value,
+    disease: disease.value || "none",
+  };
+  try {
+    const response = await fetch("../backend/auth/signup_auth.php", {
+      method: "POST",
+      body: JSON.stringify(userData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    if (response.ok && data.success) {
+      const data = response.json();
+      alert("Registered succesfully");
+      form.reset();
+      setTimeout(() => {
+        window.location.href = "./login.php";
+      }, 1500);
     }
+  } catch (error) {
+    console.log("Error: ", error);
+    alert("An unexpected error occurred. Please try again later.");
   }
 });

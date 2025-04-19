@@ -267,3 +267,12 @@ select.input {
 .hide-icon {
   display: none;
 }
+
+input,
+select {
+  border: solid 0.1rem var(--light-black) !important;
+}
+
+.error-input {
+  border: solid 0.1rem var(--danger-color) !important;
+}
