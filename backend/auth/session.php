@@ -1,6 +1,5 @@
 <?php
 // session.php
-
 session_start();
 
 // Redirect unauthenticated users to login

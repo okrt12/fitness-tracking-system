@@ -111,7 +111,7 @@
         <div class="dashboard-main">
           <div class="header container">
             <h2 class="welcome-text heading-tertiary heading-color">
-              Welcome back, Abel
+              Welcome back, <span class="username">Abel</span>
             </h2>
           </div>
           <div class="dashboard-cards container">
@@ -124,9 +124,9 @@
 
             <div class="bmi cards">
               <h2 class="cards-header">BMI and Goals</h2>
-              <p class="normal-text cards-description">BMI: 22.5 (Normal)</p>
+              <p class="normal-text cards-description">BMI: <span class ="bmi-value">22.5</span> <span class="bmi-status">(Normal)</span></p>
               <p class="normal-text cards-description">
-                Goal: Muscle Gain (Bulking)
+                Goal: <span class="goal">Muscle Gain (Bulking)</span>
               </p>
               <a href="#" class="cards-btn btn bmi-btn"> Update Goal </a>
             </div>

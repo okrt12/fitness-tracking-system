@@ -182,14 +182,14 @@
               <option
                 class="normal-text"
                 name="fitness-goal"
-                value="lose-weight"
+                value="lose_weight"
               >
                 Lose Weight
               </option>
               <option
                 class="normal-text"
                 name="fitness-goal"
-                value="gain-muscle"
+                value="gain_muscle"
               >
                 Gain Muscle
               </option>
@@ -199,7 +199,7 @@
               <option
                 class="normal-text"
                 name="fitness-goal"
-                value="improve-endurance"
+                value="improve_endurance"
               >
                 Improve Endurance
               </option>
