@@ -5,7 +5,6 @@ require '../config/db.php';
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-echo("$data");
 // Validate
 if (!isset($data['name'], $data['email'], $data['password'])) {
   echo json_encode(['success' => false, 'message' => 'Missing required fields']);

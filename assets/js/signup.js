@@ -62,13 +62,14 @@ form.addEventListener("submit", async function (e) {
         "Content-Type": "application/json",
       },
     });
+    const data = await response.json();
+    console.log(data);
     if (response.ok && data.success) {
-      const data = response.json();
       alert("Registered succesfully");
       form.reset();
       setTimeout(() => {
         window.location.href = "./login.php";
-      }, 1500);
+      }, 1000);
     }
   } catch (error) {
     console.log("Error: ", error);
