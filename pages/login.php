@@ -41,7 +41,7 @@
             <input
               type="email"
               id="email"
-              autocomplete="username"
+              autocomplete="off"
               class="input normal-text cards-description"
               placeholder="Enter your email"
               required
@@ -55,7 +55,7 @@
             <input
               type="password"
               id="password"
-              autocomplete="current-password"
+              autocomplete="off"
               class="input normal-text cards-description"
               placeholder="Enter your password"
               required

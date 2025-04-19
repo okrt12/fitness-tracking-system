@@ -1,3 +1,4 @@
+<?php include "../backend/auth/session.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
