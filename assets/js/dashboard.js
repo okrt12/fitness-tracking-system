@@ -1,22 +1,7 @@
-// Fetch data from DB
-async function getData() {
-  try {
-    const response = await fetch("../backend/api/get-user-info.php");
-    if (!response.ok) {
-      throw new Error("Failed to fetch user info");
-    }
-
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error("Error:", error);
-    alert("Could not load user info.");
-    return "error";
-  }
-}
-
+import { getData } from "./common.js";
 ///////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////
+
 // Variables
 const dashboardHeader = document.querySelector(".header");
 
@@ -67,13 +52,9 @@ weightProgressText.textContent = weightProgressPercent + "% ";
 weightProgressChart.style.width = `${weightProgressPercent}%`;
 
 ////////////////////////////////////////////////////////////////////////////////////////////
-const goals = {
-  gain_muscle: "Muscle Gain (Bulking)",
-};
 
 async function updateUI() {
-  const userData = await getData();
-  console.log(userData);
+  const userData = await getData("../backend/api/get-user-info.php");
   document.querySelector(".username").textContent = userData.name;
 }
 
