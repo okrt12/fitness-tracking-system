@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 header('Content-Type: application/json');
 require '../config/db.php';
 
@@ -26,6 +28,10 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
 if ($user && password_verify($password, $user['password'])) {
   // You can also start a session or return a token here
+  $_SESSION["user_id"] = $user["user_id"];
+  $_SESSION["name"] = $user["name"];
+  $_SESSION["email"] = $user["email"];
+
   echo json_encode([
     'success' => true,
     'message' => 'Login successful',
