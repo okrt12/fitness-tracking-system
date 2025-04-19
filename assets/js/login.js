@@ -34,13 +34,12 @@ loginForm.addEventListener("submit", async function (e) {
       alert("Successfull");
       setTimeout(() => {
         window.location.href = "../../pages/dashboard.php";
-      }, 1500);
+      }, 1000);
     }
 
     if (!data.success) {
       loginEmailInput.classList.add("error-input");
       loginPasswordInput.classList.add("error-input");
-      alert(data.message);
       return;
     }
 
