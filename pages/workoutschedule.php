@@ -1,3 +1,6 @@
+<?php include "../backend/auth/session.php"; ?>
+<?php include "../backend/auth/auth_check.php"; ?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
