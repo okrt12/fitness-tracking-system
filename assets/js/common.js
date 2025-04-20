@@ -28,6 +28,17 @@ export async function getData(path) {
   }
 }
 
+export async function postData(userData, path) {
+  const response = await fetch(path, {
+    method: "POST",
+    body: JSON.stringify(userData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  return response;
+}
+
 export const goals = {
   gain_muscle: "Muscle Gain(Bulking)",
   lose_weight: "Weight Lose",

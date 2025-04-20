@@ -584,7 +584,7 @@
     </main>
 
     <!-- JS -->
-    <script defer src="../assets/js/progresshealth.js"></script>
+    <script type="module" src="../assets/js/progresshealth.js"></script>
 
     <script
       type="module"

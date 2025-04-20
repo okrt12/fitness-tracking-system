@@ -1,8 +1,33 @@
+import { postData } from "./common.js";
+
 // Health Form
 const diastolicInput = document.querySelector(".bp-diastolic");
 const systolicInput = document.querySelector(".bp-systolic");
 const bloodSugarInput = document.querySelector(".blood-sugar");
 const healthBtn = document.querySelector(".health-btn");
+
+const progressData = {
+  diastolic: diastolicInput.value,
+  systolic: systolicInput.value,
+  bloodSugar: bloodSugarInput.value,
+};
+
+// Post Progress
+async function postProgress(progressData) {
+  try {
+    const response = await postData(
+      progressData,
+      "../backend/controllers/progressLog.php"
+    );
+    if (response.ok) {
+      const data = await response.json();
+      alert(data.message);
+    }
+  } catch (error) {
+    console.log("Error: ", error);
+    alert("An unexpected error occurred. Please try again later.");
+  }
+}
 
 // Var
 const maxY = 140;
