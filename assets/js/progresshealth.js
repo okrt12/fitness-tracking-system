@@ -1,19 +1,22 @@
-import { postData } from "./common.js";
+import { postData, getData } from "./common.js";
 
 // Health Form
 const diastolicInput = document.querySelector(".bp-diastolic");
 const systolicInput = document.querySelector(".bp-systolic");
 const bloodSugarInput = document.querySelector(".blood-sugar");
 const healthBtn = document.querySelector(".health-btn");
-
-const progressData = {
-  diastolic: diastolicInput.value,
-  systolic: systolicInput.value,
-  bloodSugar: bloodSugarInput.value,
-};
-
+const healthForm = document.querySelector(".health-form");
 // Post Progress
-async function postProgress(progressData) {
+let progressData;
+
+async function postProgress() {
+  const userData = await getData("../backend/api/get-user-info.php");
+  progressData = {
+    diastolic: diastolicInput.value,
+    systolic: systolicInput.value,
+    sugar_level: bloodSugarInput.value,
+    weight: userData.weight,
+  };
   try {
     const response = await postData(
       progressData,
@@ -28,6 +31,10 @@ async function postProgress(progressData) {
     alert("An unexpected error occurred. Please try again later.");
   }
 }
+
+healthBtn.addEventListener("click", function (e) {
+  postProgress(progressData);
+});
 
 // Var
 const maxY = 140;

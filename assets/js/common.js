@@ -46,3 +46,10 @@ export const goals = {
   maintain: "Maintain Fitness",
   other: "Other",
 };
+
+export const workoutTypes = {
+  running: 1,
+  lifting: 2,
+  cycling: 3,
+  yoga: 4,
+};
