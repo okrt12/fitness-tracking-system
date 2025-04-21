@@ -44,7 +44,8 @@ select {
 }
 
 .log-btn,
-.log-meal__btn {
+.log-meal__btn,
+.meal__btn {
   background-color: var(--primary-color);
 }
 .log-btn:hover,
@@ -52,7 +53,19 @@ select {
   background-color: #00c853;
 }
 
+.meal__btn {
+  background-color: var(--accent-color1);
+}
+
+.meal__btn:hover {
+  color: var(--accent-color);
+}
+
 .workout-log,
 .log-meal {
   border-left: 0.4rem solid var(--primary-color);
+}
+
+.meal-form {
+  border-left: 0.4rem solid var(--accent-color1);
 }
