@@ -5,18 +5,13 @@ const diastolicInput = document.querySelector(".bp-diastolic");
 const systolicInput = document.querySelector(".bp-systolic");
 const bloodSugarInput = document.querySelector(".blood-sugar");
 const healthBtn = document.querySelector(".health-btn");
-const healthForm = document.querySelector(".health-form");
+const healthForm = document.querySelector(".form");
 // Post Progress
 let progressData;
 
-async function postProgress() {
-  const userData = await getData("../backend/api/get-user-info.php");
-  progressData = {
-    diastolic: diastolicInput.value,
-    systolic: systolicInput.value,
-    sugar_level: bloodSugarInput.value,
-    weight: userData.weight,
-  };
+console.log(healthForm);
+
+async function postProgress(progressData) {
   try {
     const response = await postData(
       progressData,
@@ -32,9 +27,24 @@ async function postProgress() {
   }
 }
 
-healthBtn.addEventListener("click", function (e) {
+healthForm.addEventListener("submit", async function (e) {
+  e.preventDefault();
+  const userData = await getData("../backend/api/get-user-info.php");
+  progressData = {
+    diastolic: diastolicInput.value,
+    systolic: systolicInput.value,
+    sugar_level: bloodSugarInput.value,
+    weight: userData.weight,
+  };
   postProgress(progressData);
 });
+
+async function userProgress() {
+  const userData = await getData("../backend/api/get-progress.php");
+  console.log(userData);
+}
+
+userProgress();
 
 // Var
 const maxY = 140;

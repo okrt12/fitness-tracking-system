@@ -180,4 +180,5 @@ svg text {
 
 .health-form {
   margin-bottom: 2rem;
+  display: none !important;
 }
