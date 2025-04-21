@@ -23,7 +23,7 @@
 
     <link rel="stylesheet" href="../assets/css/general.css" />
     <link rel="stylesheet" href="../assets/css/workoutschedule.css" />
-    <title>Document</title>
+    <title>FitTrack+ | Workout Schedule</title>
   </head>
   <body>
     <main class="main">
@@ -265,6 +265,7 @@
     </main>
 
     <!-- JS -->
+     <script type="module" src="/assets/js/workoutschedule.js"></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"

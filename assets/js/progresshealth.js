@@ -43,7 +43,6 @@ healthForm.addEventListener("submit", async function (e) {
     sugar: bloodSugarInput?.value,
   });
 
-  console.log("Submitting:", progressData);
   await postProgress(progressData);
   healthForm.reset();
 });

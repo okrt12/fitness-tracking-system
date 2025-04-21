@@ -173,40 +173,6 @@
               Log Workout
             </button>
           </form>
-          <!-- 
-          <form class="log-meal cards">
-            <h3 class="cards-header">Log Meal</h3>
-            <div class="flex-col detail-value">
-              <label class="normal-text cards-description" for="meal-items"
-                >Meal Items</label
-              >
-              <input
-                type="text"
-                id="meal-items"
-                name="meal-items"
-                placeholder="e.g., Chicken, Rice"
-                class="input normal-text"
-                required
-              />
-            </div>
-
-            <div class="flex-col detail-value">
-              <label class="normal-text cards-description" for="meal-calories"
-                >Calories Consumed</label
-              >
-              <input
-                type="number"
-                id="meal-calories"
-                name="meal-calories"
-                min="0"
-                value="500"
-                class="input normal-text"
-              />
-            </div>
-            <button type="submit" class="btn-primary log-meal__btn">
-              Log Meal
-            </button>
-          </form> -->
 
           <form id="log-meal-form" class="log-meal cards">
             <h3 class="cards-header">Log Meal</h3>
