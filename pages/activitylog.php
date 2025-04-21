@@ -1,6 +1,8 @@
 <?php include "../backend/auth/session.php"; ?>
 <?php include "../backend/auth/auth_check.php"; ?>
 
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -114,7 +116,11 @@
         </h3>
 
         <div class="logs-cards container">
-          <form id="add-meal-form" name="add-meal" class="meal-form cards">
+          <form
+            id="add-meal-form"
+            name="add-meal"
+            class="add-meal-form meal-form cards"
+          >
             <h3 class="cards-header">
               Add a New Meal to <span class="heading-color">FitTrack+</span>
             </h3>
@@ -326,6 +332,8 @@
     </main>
 
     <!-- JS -->
+    <script type="module" src="/assets/js/activitylog.js"></script>
+
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"

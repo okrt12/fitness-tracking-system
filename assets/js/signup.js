@@ -63,7 +63,6 @@ form.addEventListener("submit", async function (e) {
       },
     });
     const data = await response.json();
-    console.log(data);
     if (response.ok && data.success) {
       alert("Registered succesfully");
       form.reset();

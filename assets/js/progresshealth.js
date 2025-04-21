@@ -37,11 +37,6 @@ healthForm.addEventListener("submit", async function (e) {
     weight: weight,
     bmi: bmi,
   };
-  console.log("Inputs:", {
-    systolic: systolicInput?.value,
-    diastolic: diastolicInput?.value,
-    sugar: bloodSugarInput?.value,
-  });
 
   await postProgress(progressData);
   healthForm.reset();

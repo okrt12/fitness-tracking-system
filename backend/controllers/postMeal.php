@@ -29,11 +29,12 @@ $fats = $data['fats'] ?? null;
 $protein = $data['protein'] ?? null;
 $category = $data['category'] ?? null; // Optional field
 
+
 try {
   // Insert into meals table
   $stmt = $pdo->prepare("
-    INSERT INTO meals (user_id, name, category, calories, carbs, fats, protein)
-    VALUES (:user_id, :name, :category, :calories, :carbs, :fats, :protein)
+    INSERT INTO meals (user_id, name, category, calories, protein, carbs, fats)
+    VALUES (:user_id, :name, :category, :calories, :protein, :carbs, :fats)
   ");
   
   $stmt->execute([
@@ -41,9 +42,9 @@ try {
     'name' => $name,
     'category' => $category,
     'calories' => $calories,
+    'protein' => $protein,
     'carbs' => $carbs,
-    'fats' => $fats,
-    'protein' => $protein
+    'fats' => $fats
   ]);
 
   echo json_encode(['success' => true, 'message' => 'Meal added successfully']);
