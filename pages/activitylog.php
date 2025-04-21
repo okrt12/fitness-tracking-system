@@ -114,118 +114,7 @@
         </h3>
 
         <div class="logs-cards container">
-          <form class="workout-log cards">
-            <h3 class="cards-header">Log Workout</h3>
-            <div class="flex-col detail-value">
-              <label for="workout-type " class="normal-text cards-description"
-                >Workout Type</label
-              >
-              <select
-                id="workout-type"
-                name="workout-type"
-                class="input"
-                required
-              >
-                <option class="input normal-text" value="running">
-                  Running
-                </option>
-                <option class="input normal-text" value="lifting">
-                  Weight Lifting
-                </option>
-                <option class="input normal-text" value="cycling">
-                  Cycling
-                </option>
-                <option class="input normal-text" value="yoga">Yoga</option>
-              </select>
-            </div>
-            <div class="flex-col detail-value">
-              <label
-                for="workout-duration"
-                class="normal-text cards-description"
-                >Duration (minutes)</label
-              >
-              <input
-                type="number"
-                id="workout-duration"
-                name="workout-duration"
-                min="1"
-                max="240"
-                value="30"
-                class="input normal-text cards-description"
-              />
-            </div>
-            <div class="flex-col detail-value">
-              <label
-                for="workout-calories"
-                class="normal-text cards-description"
-                >Calories Burned</label
-              >
-              <input
-                type="number"
-                id="workout-calories"
-                name="workout-calories"
-                min="0"
-                value="200"
-                class="input normal-text cards-description"
-              />
-            </div>
-            <button type="submit" class="btn-primary log-btn">
-              Log Workout
-            </button>
-          </form>
-
-          <form id="log-meal-form" class="log-meal cards">
-            <h3 class="cards-header">Log Meal</h3>
-            <div class="detail-value flex-col">
-              <label for="meal-id" class="normal-text cards-description"
-                >Meal</label
-              >
-              <select
-                id="meal-id"
-                name="meal_id"
-                class="input normal-text cards-description"
-                required
-              >
-                <!-- Populated dynamically via PHP: SELECT meal_id, name FROM Meals -->
-                <option value="">Select a Meal</option>
-                <option value="1">Grilled Chicken Salad</option>
-              </select>
-            </div>
-            <div class="detail-value flex-col">
-              <label for="quantity" class="normal-text cards-description"
-                >Quantity (Servings)</label
-              >
-              <input
-                type="number"
-                id="quantity"
-                name="quantity"
-                class="input normal-text cards-description"
-                placeholder="e.g., 2"
-                step="0.1"
-                min="0"
-                required
-              />
-            </div>
-
-            <div class="detail-value flex-col">
-              <label for="calories" class="normal-text cards-description"
-                >Calories (Calculated)</label
-              >
-              <input
-                type="number"
-                id="calories"
-                name="calories"
-                class="input normal-text cards-description"
-                placeholder="e.g., 400"
-                readonly
-              />
-            </div>
-            <button type="submit" class="btn-primary log-meal__btn">
-              Log Meal
-            </button>
-          </form>
-
-          <form id="add-meal-form" class="meal-form cards">
+          <form id="add-meal-form" name="add-meal" class="meal-form cards">
             <h3 class="cards-header">
               Add a New Meal to <span class="heading-color">FitTrack+</span>
             </h3>
@@ -309,8 +198,127 @@
                 <option value="Snack">Snack</option>
               </select>
             </div>
-            <button type="submit" class="btn-primary meal__btn">
+            <button type="submit" class="btn-primary meal__btn" name="add-meal">
               Add Meal
+            </button>
+          </form>
+
+          <form id="log-meal-form" class="log-meal cards" name="log-meal">
+            <h3 class="cards-header">Log Meal</h3>
+            <div class="detail-value flex-col">
+              <label for="meal-id" class="normal-text cards-description"
+                >Meal</label
+              >
+              <select
+                id="meal-id"
+                name="meal_id"
+                class="input normal-text cards-description"
+                required
+              >
+                <!-- Populated dynamically via PHP: SELECT meal_id, name FROM Meals -->
+                <option value="">Select a Meal</option>
+                <option value="1">Grilled Chicken Salad</option>
+              </select>
+            </div>
+            <div class="detail-value flex-col">
+              <label for="quantity" class="normal-text cards-description"
+                >Quantity (Servings)</label
+              >
+              <input
+                type="number"
+                id="quantity"
+                name="quantity"
+                class="input normal-text cards-description"
+                placeholder="e.g., 2"
+                step="0.1"
+                min="0"
+                required
+              />
+            </div>
+
+            <div class="detail-value flex-col">
+              <label for="calories" class="normal-text cards-description"
+                >Calories (Calculated)</label
+              >
+              <input
+                type="number"
+                id="calories"
+                name="calories"
+                class="input normal-text cards-description"
+                placeholder="e.g., 400"
+                readonly
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn-primary log-meal__btn"
+              name="log-meal"
+            >
+              Log Meal
+            </button>
+          </form>
+
+          <form class="workout-log cards" name="workout-log">
+            <h3 class="cards-header">Log Workout</h3>
+            <div class="flex-col detail-value">
+              <label for="workout-type " class="normal-text cards-description"
+                >Workout Type</label
+              >
+              <select
+                id="workout-type"
+                name="workout-type"
+                class="input"
+                required
+              >
+                <option class="input normal-text" value="running">
+                  Running
+                </option>
+                <option class="input normal-text" value="lifting">
+                  Weight Lifting
+                </option>
+                <option class="input normal-text" value="cycling">
+                  Cycling
+                </option>
+                <option class="input normal-text" value="yoga">Yoga</option>
+              </select>
+            </div>
+            <div class="flex-col detail-value">
+              <label
+                for="workout-duration"
+                class="normal-text cards-description"
+                >Duration (minutes)</label
+              >
+              <input
+                type="number"
+                id="workout-duration"
+                name="workout-duration"
+                min="1"
+                max="240"
+                value="30"
+                class="input normal-text cards-description"
+              />
+            </div>
+            <div class="flex-col detail-value">
+              <label
+                for="workout-calories"
+                class="normal-text cards-description"
+                >Calories Burned</label
+              >
+              <input
+                type="number"
+                id="workout-calories"
+                name="workout-calories"
+                min="0"
+                value="200"
+                class="input normal-text cards-description"
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn-primary log-btn"
+              name="workout-log"
+            >
+              Log Workout
             </button>
           </form>
         </div>
