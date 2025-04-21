@@ -1,15 +1,12 @@
 import { postData, getData } from "./common.js";
 
 // Health Form
-const diastolicInput = document.querySelector(".bp-diastolic");
-const systolicInput = document.querySelector(".bp-systolic");
-const bloodSugarInput = document.querySelector(".blood-sugar");
+const diastolicInput = document.getElementById("bp-diastolic");
+const systolicInput = document.getElementById("bp-systolic");
+const bloodSugarInput = document.getElementById("blood-sugar");
 const healthBtn = document.querySelector(".health-btn");
 const healthForm = document.querySelector(".form");
 // Post Progress
-let progressData;
-
-console.log(healthForm);
 
 async function postProgress(progressData) {
   try {
@@ -29,22 +26,34 @@ async function postProgress(progressData) {
 
 healthForm.addEventListener("submit", async function (e) {
   e.preventDefault();
+
   const userData = await getData("../backend/api/get-user-info.php");
-  progressData = {
+  const weight = userData.weight;
+  const bmi = calcBMI(userData.height, userData.weight).toFixed(2);
+  const progressData = {
     diastolic: diastolicInput.value,
     systolic: systolicInput.value,
     sugar_level: bloodSugarInput.value,
-    weight: userData.weight,
+    weight: weight,
+    bmi: bmi,
   };
-  postProgress(progressData);
+  console.log("Inputs:", {
+    systolic: systolicInput?.value,
+    diastolic: diastolicInput?.value,
+    sugar: bloodSugarInput?.value,
+  });
+
+  console.log("Submitting:", progressData);
+  await postProgress(progressData);
+  healthForm.reset();
 });
+
+const calcBMI = (height, weight) => weight / (height / 100) ** 2;
 
 async function userProgress() {
   const userData = await getData("../backend/api/get-progress.php");
   console.log(userData);
 }
-
-userProgress();
 
 // Var
 const maxY = 140;

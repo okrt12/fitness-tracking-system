@@ -541,7 +541,7 @@
                 class="input normal-text cards-description bp-systolic"
                 required
                 type="number"
-                id="bp-systolic"
+                id="1bp-systolic"
                 name="bp-systolic"
                 min="50"
                 max="250"
@@ -556,7 +556,7 @@
                 class="input normal-text cards-description bp-diastolic"
                 required
                 type="number"
-                id="bp-diastolic"
+                id="1bp-diastolic"
                 name="bp-diastolic"
                 min="30"
                 max="150"
@@ -571,7 +571,7 @@
                 class="input normal-text cards-description blood-sugar"
                 required
                 type="number"
-                id="blood-sugar"
+                id="1blood-sugar"
                 name="blood-sugar"
                 min="20"
                 max="500"
