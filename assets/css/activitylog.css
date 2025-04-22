@@ -48,34 +48,34 @@ select {
 }
 
 .log-meal,
-.workout-log {
+.workout-form,
+.add-meal-form {
   height: fit-content;
 }
 
-.log-btn,
-.log-meal__btn,
-.meal__btn {
+.workout-btn {
   background-color: var(--primary-color);
 }
-.log-btn:hover,
-.log-meal__btn:hover {
+.workout-btn:hover {
   background-color: #00c853;
 }
 
-.workout-log,
-.log-meal {
+.workout-form {
   border-left: 0.4rem solid var(--primary-color);
 }
 
-.meal-form {
+.meal-form,
+.log-meal {
   border-left: 0.4rem solid var(--accent-color1);
 }
 
-.meal__btn {
+.meal__btn,
+.log-meal__btn {
   background-color: var(--accent-color1);
 }
 
-.meal__btn:hover {
+.meal__btn:hover,
+.log-meal__btn:hover {
   color: var(--accent-color);
   color: var(--white);
 }
