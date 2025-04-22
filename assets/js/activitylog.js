@@ -104,3 +104,34 @@ logMealForm.addEventListener("submit", async function (e) {
     alert("An unexpected error occurred. Please try again later.");
   }
 });
+
+// Workout
+const addWorkoutForm = document.querySelector(".add-workout-form");
+const addWorkoutName = document.getElementById("workout-name");
+const addWorkoutCategory = document.getElementById("workout-category");
+const addWorkoutCalories = document.getElementById("calories-per-hour");
+
+addWorkoutForm.addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const addWorkoutData = {
+    name: addWorkoutName.value,
+    category: addWorkoutCategory.value,
+    calories_per_hour: addWorkoutCalories.value,
+  };
+
+  try {
+    const response = await postData(
+      addWorkoutData,
+      "../backend/controllers/addWorkout.php"
+    );
+    if (response.ok) {
+      const data = await response.json();
+      alert(data.message);
+      addWorkoutForm.reset();
+    }
+  } catch (error) {
+    console.log("Error: ", error);
+    alert("An unexpected error occurred. Please try again later.");
+  }
+});
