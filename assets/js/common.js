@@ -53,3 +53,21 @@ export const workoutTypes = {
   cycling: 3,
   yoga: 4,
 };
+
+export async function addOptions(select, path, id, objName, selectName) {
+  const userData = await getData(path);
+  userData.data.forEach((element) => {
+    const html = `<option name="${selectName}" value="${element[id]}">${element[objName]}</option>`;
+    select.insertAdjacentHTML("beforeend", html);
+  });
+}
+
+export function getCalorie(userData, selectedID, id, elCalorie) {
+  let calories;
+  userData.data.forEach((el) => {
+    if (+selectedID && el[id] === +selectedID) {
+      calories = el[elCalorie];
+    }
+  });
+  return calories;
+}
