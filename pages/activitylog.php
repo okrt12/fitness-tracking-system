@@ -339,8 +339,6 @@
                   required
                 >
                   <option value="">Select a Workout</option>
-                  <!-- Populated dynamically via PHP: SELECT workout_id, name FROM Workouts -->
-                  <option value="1">Treadmill Run</option>
                 </select>
               </div>
               <div class="detail-value flex-col">
@@ -356,17 +354,7 @@
                   min="0"
                 />
               </div>
-              <div class="detail-value flex-col">
-                <label for="date" class="normal-text cards-description"
-                  >Date</label
-                >
-                <input
-                  type="date"
-                  id="date"
-                  name="date"
-                  class="input normal-text cards-description"
-                />
-              </div>
+
               <div class="detail-value flex-col">
                 <label
                   for="calories-burned"

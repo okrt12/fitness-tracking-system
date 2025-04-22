@@ -1,5 +1,7 @@
 "use strict";
-import { postData, getData } from "./common.js";
+import { postData, getData, addOptions, getCalorie } from "./common.js";
+// Global Calories
+const date = new Date();
 
 // Add Meal
 const addMealForm = document.querySelector(".add-meal-form");
@@ -43,14 +45,13 @@ const logMealID = document.getElementById("meal-id");
 const logMealQuantity = document.getElementById("quantity");
 const logMealCalories = document.getElementById("calories");
 
-async function meal() {
-  const mealData = await getData("../backend/api/get-meal.php");
-  mealData.data.forEach((element) => {
-    const html = `<option name="meal_id" value="${element.meal_id}">${element.name}</option>`;
-    logMealID.insertAdjacentHTML("beforeend", html);
-  });
-}
-meal();
+addOptions(
+  logMealID,
+  "../backend/api/get-meal.php",
+  "meal_id",
+  "name",
+  "meal_id"
+);
 
 const updateCalories = (quantity, calorie) => quantity * calorie;
 
@@ -59,21 +60,10 @@ logMealID.addEventListener("change", () => {
   selectedID = logMealID.value;
 });
 
-function getMealCalorie(mealData) {
-  let mealCalorie;
-
-  mealData.data.forEach((el) => {
-    if (+selectedID && el.meal_id === +selectedID) {
-      mealCalorie = el.calories;
-    }
-  });
-  return mealCalorie;
-}
-
 let totalCalories;
 logMealQuantity.addEventListener("input", async function () {
   const mealData = await getData("../backend/api/get-meal.php");
-  let mealCalorie = getMealCalorie(mealData);
+  let mealCalorie = getCalorie(mealData, selectedID, "meal_id", "calories");
   const quantity = Number(logMealQuantity.value) || 0;
   totalCalories = updateCalories(quantity, mealCalorie);
   logMealCalories.value = totalCalories;
@@ -81,7 +71,6 @@ logMealQuantity.addEventListener("input", async function () {
 
 logMealForm.addEventListener("submit", async function (e) {
   e.preventDefault();
-  const date = new Date();
   const logMealData = {
     meal_id: logMealID.value,
     quantity: logMealQuantity.value,
@@ -129,6 +118,66 @@ addWorkoutForm.addEventListener("submit", async function (e) {
       const data = await response.json();
       alert(data.message);
       addWorkoutForm.reset();
+    }
+  } catch (error) {
+    console.log("Error: ", error);
+    alert("An unexpected error occurred. Please try again later.");
+  }
+});
+
+// Log Workout
+const logWorkoutForm = document.querySelector(".log-workout");
+const logWorkoutID = document.getElementById("workout-id");
+const logWorkoutDuration = document.getElementById("duration");
+const logWorkoutCalories = document.getElementById("calories-burned");
+
+addOptions(
+  logWorkoutID,
+  "../backend/api/get-workout.php",
+  "workout_id",
+  "name",
+  "workout_id"
+);
+
+const updateCaloriesBurned = (duration, calorie) => (duration / 60) * calorie;
+let selectedWorkoutID;
+logWorkoutID.addEventListener("change", () => {
+  selectedWorkoutID = logWorkoutID.value;
+});
+
+let totalCaloriesBurned;
+logWorkoutDuration.addEventListener("input", async function () {
+  const workoutData = await getData("../backend/api/get-workout.php");
+  let workoutCalories = getCalorie(
+    workoutData,
+    selectedWorkoutID,
+    "workout_id",
+    "calories_per_hour"
+  );
+  const duration = Number(logWorkoutDuration.value) || 0;
+  totalCaloriesBurned = updateCaloriesBurned(duration, workoutCalories);
+  logWorkoutCalories.value = totalCaloriesBurned;
+});
+
+logWorkoutForm.addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const workoutLogData = {
+    workout_id: logWorkoutID.value,
+    duration: logWorkoutDuration.value,
+    calories_burned: totalCaloriesBurned,
+    date: date.toISOString().split("T")[0],
+  };
+
+  try {
+    const response = await postData(
+      workoutLogData,
+      "../backend/controllers/logWorkout.php"
+    );
+    if (response.ok) {
+      const data = await response.json();
+      alert(data.message);
+      logWorkoutForm.reset();
     }
   } catch (error) {
     console.log("Error: ", error);
