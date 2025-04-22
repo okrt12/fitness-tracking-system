@@ -25,17 +25,20 @@ $user_id = $_SESSION['user_id'];
 $meal_id = $data['meal_id'] ?? null;
 $quantity = $data['quantity'] ?? null;
 $calories = $data['calories'] ?? null;
+$date = $data['date'] ?? null;
+
 
 try {
   // Insert into meal_log table
   $stmt = $pdo->prepare("
-    INSERT INTO meal_log (user_id, meal_id, quantity, calories, log_date)
-    VALUES (:user_id, :meal_id, :quantity, :calories, NOW())
+    INSERT INTO meal_log (user_id, meal_id, date, quantity, calories)
+    VALUES (:user_id, :meal_id, :date, :quantity, :calories)
   ");
   
   $stmt->execute([
     'user_id' => $user_id,
     'meal_id' => $meal_id,
+    'date' => $date,
     'quantity' => $quantity,
     'calories' => $calories
   ]);

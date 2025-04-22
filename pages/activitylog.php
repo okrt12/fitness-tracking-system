@@ -221,9 +221,8 @@
                 class="input normal-text cards-description"
                 required
               >
-                <!-- Populated dynamically via PHP: SELECT meal_id, name FROM Meals -->
                 <option value="">Select a Meal</option>
-                <option value="1">Grilled Chicken Salad</option>
+            
               </select>
             </div>
             <div class="detail-value flex-col">

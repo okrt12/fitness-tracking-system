@@ -1,6 +1,7 @@
 "use strict";
 import { postData, getData } from "./common.js";
 
+// Add Meal
 const addMealForm = document.querySelector(".add-meal-form");
 const addMealName = document.getElementById("meal-name");
 const addMealCalories = document.getElementById("meal-calories");
@@ -20,7 +21,6 @@ addMealForm.addEventListener("submit", async function (e) {
     category: addMealCategory.value || "",
   };
 
-  console.log(addMealData);
   try {
     const response = await postData(
       addMealData,
@@ -30,6 +30,74 @@ addMealForm.addEventListener("submit", async function (e) {
       const data = await response.json();
       alert(data.message);
       addMealForm.reset();
+    }
+  } catch (error) {
+    console.log("Error: ", error);
+    alert("An unexpected error occurred. Please try again later.");
+  }
+});
+
+// Log Meal
+const logMealForm = document.querySelector(".log-meal");
+const logMealID = document.getElementById("meal-id");
+const logMealQuantity = document.getElementById("quantity");
+const logMealCalories = document.getElementById("calories");
+
+async function meal() {
+  const mealData = await getData("../backend/api/get-meal.php");
+  mealData.data.forEach((element) => {
+    const html = `<option name="meal_id" value="${element.meal_id}">${element.name}</option>`;
+    logMealID.insertAdjacentHTML("beforeend", html);
+  });
+}
+meal();
+
+const updateCalories = (quantity, calorie) => quantity * calorie;
+
+let selectedID;
+logMealID.addEventListener("change", () => {
+  selectedID = logMealID.value;
+});
+
+function getMealCalorie(mealData) {
+  let mealCalorie;
+
+  mealData.data.forEach((el) => {
+    if (+selectedID && el.meal_id === +selectedID) {
+      mealCalorie = el.calories;
+    }
+  });
+  return mealCalorie;
+}
+
+let totalCalories;
+logMealQuantity.addEventListener("input", async function () {
+  const mealData = await getData("../backend/api/get-meal.php");
+  let mealCalorie = getMealCalorie(mealData);
+  const quantity = Number(logMealQuantity.value) || 0;
+  totalCalories = updateCalories(quantity, mealCalorie);
+  logMealCalories.value = totalCalories;
+});
+
+logMealForm.addEventListener("submit", async function (e) {
+  e.preventDefault();
+  const date = new Date();
+  const logMealData = {
+    meal_id: logMealID.value,
+    quantity: logMealQuantity.value,
+    calories: totalCalories,
+    date: date.toISOString().split("T")[0],
+  };
+
+  try {
+    const response = await postData(
+      logMealData,
+      "../backend/controllers/logMeal.php"
+    );
+    if (response.ok) {
+      const data = await response.json();
+      alert(data.message);
+      logMealForm.reset();
     }
   } catch (error) {
     console.log("Error: ", error);
