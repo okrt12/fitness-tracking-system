@@ -71,6 +71,16 @@
               </a>
             </li>
             <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/workout.php"
+            >
+            <ion-icon class="icons sidebar-icons" name="barbell-outline"></ion-icon>
+          
+              <p class="sidebar-btn">Workout Logs</p>
+            </a>
+          </li>
+            <li>
               <a
                 class="icon-text sidebar-btn sidebar-btns"
                 href="/pages/progresshealth.php"

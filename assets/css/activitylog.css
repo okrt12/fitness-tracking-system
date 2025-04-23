@@ -23,7 +23,7 @@
 
 .logs-cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   padding-left: 0 !important;
   gap: 2rem;
   margin-bottom: 3.2rem;
