@@ -191,20 +191,6 @@
                     value="30"
                   />
                 </div>
-                <!-- <div class="flex-container">
-                  <input
-                    class="normal-text cards-description custom-checkbox"
-                    type="checkbox"
-                    id="weekly-repeat"
-                    name="weekly-repeat"
-                  />
-                  <label
-                    class="normal-text cards-description"
-                    for="weekly-repeat"
-                  >
-                    Repeat Weekly
-                  </label>
-                </div> -->
 
                 <label class="custom-checkbox normal-text cards-description">
                   <input
