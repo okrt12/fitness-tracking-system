@@ -1,32 +1,6 @@
 import { postData, workoutTypes, addOptions } from "./common.js";
 
-const scheduleForm = document.querySelector(".schedule-workout__form");
-const scheduleDateInput = document.getElementById("schedule-date");
-const scheduleTypeInput = document.getElementById("schedule-type");
-const scheduleTimeInput = document.getElementById("schedule-time");
-const scheduleDurationInput = document.getElementById("schedule-duration");
-const scheduleRepeatInput = document.getElementById("weekly-repeat");
-
-let selectedID;
-(async () => {
-  await addOptions(
-    scheduleTypeInput,
-    "../backend/api/get-workout.php",
-    "workout_id",
-    "name",
-    "schedule-type"
-  );
-
-  scheduleTypeInput.addEventListener("change", () => {
-    selectedID = scheduleTypeInput.value;
-  });
-})();
-
-let isChecked;
-scheduleRepeatInput.addEventListener("change", () => {
-  isChecked = scheduleRepeatInput.checked;
-});
-
+/*
 scheduleForm.addEventListener("submit", async function (e) {
   e.preventDefault();
 
@@ -52,4 +26,32 @@ scheduleForm.addEventListener("submit", async function (e) {
     console.log("Error: ", error);
     alert("An unexpected error occurred. Please try again later.");
   }
+});
+*/
+
+const scheduleForm = document.querySelector(".schedule-workout__form");
+const scheduleDateInput = document.getElementById("schedule-date");
+const scheduleTypeInput = document.getElementById("schedule-type");
+const scheduleTimeInput = document.getElementById("schedule-time");
+const scheduleDurationInput = document.getElementById("schedule-duration");
+const scheduleRepeatInput = document.getElementById("weekly-repeat");
+
+let selectedID;
+(async () => {
+  await addOptions(
+    scheduleTypeInput,
+    "../backend/api/get-workout.php",
+    "workout_id",
+    "name",
+    "schedule-type"
+  );
+
+  scheduleTypeInput.addEventListener("change", () => {
+    selectedID = scheduleTypeInput.value;
+  });
+})();
+
+let isChecked;
+scheduleRepeatInput.addEventListener("change", () => {
+  isChecked = scheduleRepeatInput.checked;
 });
