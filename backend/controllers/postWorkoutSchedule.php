@@ -22,23 +22,23 @@ if (!$data) {
 
 // Extract and sanitize input
 $user_id = $_SESSION['user_id'];
-$date = $data['schedule-date'] ?? null;
-$workout_type = $data['schedule-type'] ?? null;
-$time = $data['schedule-time'] ?? null;
-$duration = $data['schedule-duration'] ?? 30;
-$weekly_repeat = isset($data['weekly-repeat']) ? 1 : 0;
+$date = $data['schedule_date'] ?? null;
+$workout_id = $data['workout_id'] ?? null;
+$time = $data['schedule_time'] ?? null;
+$duration = $data['schedule_duration'] ?? 30;
+$weekly_repeat = isset($data['weekly_repeat']) ? 1 : 0;
 
 try {
   // Insert into workout_schedule table
   $stmt = $pdo->prepare("
     INSERT INTO workout_schedule 
-    (user_id, workout_type, date, time, duration, weekly_repeat)
-    VALUES (:user_id, :workout_type, :date, :time, :duration, :weekly_repeat)
+    (user_id, workout_id, date, time, duration, weekly_repeat)
+    VALUES (:user_id, :workout_id, :date, :time, :duration, :weekly_repeat)
   ");
   
   $stmt->execute([
     'user_id' => $user_id,
-    'workout_type' => $workout_type,
+    'workout_id' => $workout_id,
     'date' => $date,
     'time' => $time,
     'duration' => $duration,
@@ -51,7 +51,7 @@ try {
       $next_date = date('Y-m-d', strtotime("+$i week", strtotime($date)));
       $stmt->execute([
         'user_id' => $user_id,
-        'workout_type' => $workout_type,
+        'workout_id' => $workout_id,
         'date' => $next_date,
         'time' => $time,
         'duration' => $duration,

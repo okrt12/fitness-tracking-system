@@ -73,8 +73,11 @@
               class="icon-text sidebar-btn sidebar-btns"
               href="/pages/workout.php"
             >
-            <ion-icon class="icons sidebar-icons" name="barbell-outline"></ion-icon>
-          
+              <ion-icon
+                class="icons sidebar-icons"
+                name="barbell-outline"
+              ></ion-icon>
+
               <p class="sidebar-btn">Workout Logs</p>
             </a>
           </li>
@@ -153,10 +156,7 @@
                     name="schedule-type"
                     required
                   >
-                    <option value="running">Running</option>
-                    <option value="lifting">Weight Lifting</option>
-                    <option value="cycling">Cycling</option>
-                    <option value="yoga">Yoga</option>
+                    <option value="">Select a Workout</option>
                   </select>
                 </div>
 
@@ -191,9 +191,9 @@
                     value="30"
                   />
                 </div>
-                <div class="flex-container">
+                <!-- <div class="flex-container">
                   <input
-                    class="normal-text cards-description"
+                    class="normal-text cards-description custom-checkbox"
                     type="checkbox"
                     id="weekly-repeat"
                     name="weekly-repeat"
@@ -204,7 +204,17 @@
                   >
                     Repeat Weekly
                   </label>
-                </div>
+                </div> -->
+
+                <label class="custom-checkbox normal-text cards-description">
+                  <input
+                    type="checkbox"
+                    id="weekly-repeat"
+                    name="weekly-repeat"
+                  />
+                  <span class="checkmark"></span>
+                  Repeat Weekly
+                </label>
                 <button type="submit" class="btn-primary schedule-btn">
                   Schedule Workout
                 </button>
@@ -275,7 +285,7 @@
     </main>
 
     <!-- JS -->
-     <script type="module" src="/assets/js/workoutschedule.js"></script>
+    <script type="module" src="/assets/js/workoutschedule.js"></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"

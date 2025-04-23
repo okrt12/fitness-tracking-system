@@ -104,3 +104,34 @@ select {
   /* background-color: #ffffff;
   border: 1px dashed #0d1b2a; */
 }
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.custom-checkbox .checkmark {
+  width: 1.8rem;
+  height: 1.8rem;
+  background-color: var(--light-black);
+  border-radius: 4px;
+  position: relative;
+}
+
+.custom-checkbox input:checked + .checkmark::after {
+  content: "";
+  position: absolute;
+  top: 0.2rem;
+  left: 0.6rem;
+  width: 0.4rem;
+  height: 1rem;
+  border: solid var(--primary-color);
+  border-width: 0 0.2rem 0.2rem 0;
+  transform: rotate(45deg);
+}
