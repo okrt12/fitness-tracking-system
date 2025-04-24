@@ -166,7 +166,7 @@
               </div>
             </div>
           </div>
-          <div class="cards flex-col status-cards">
+          <div class="cards flex-col status-cards total-workout_container">
             <h3 class="cards-header">Weekly Workout Time</h3>
             <p class="cards-description normal-text total-workout_time">
               12 hrs
@@ -185,7 +185,9 @@
         <!-- ----------------------------------------------------------------------------------------------------------------------------- -->
         <div class="workout-cards container">
           <div class="schedule-workout cards">
-            <h3 class="cards-header">Schedule Workouts</h3>
+            <h3 class="cards-header calendar-header">
+              This Week Workout Schedule
+            </h3>
 
             <div class="schedule-workout__container">
               <form class="schedule-workout__form popup hidden cards">
@@ -300,7 +302,6 @@
               </form>
 
               <div class="calendar">
-                <h3 class="cards-header">This Week</h3>
                 <div class="calendar-grid">
                   <!-- Day 1 -->
                   <div class="day day-1 mon">

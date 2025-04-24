@@ -4,7 +4,8 @@
 }
 
 .workout-header {
-  margin-top: 2.4rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem !important;
 }
 
 .schedule-status_bar {
@@ -12,7 +13,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.6rem;
-  margin-bottom: 3rem !important;
+  margin-bottom: 1.6rem !important;
 }
 
 .timer_container {
@@ -47,6 +48,22 @@
 .timer-label_unit {
   align-items: center;
   gap: 1rem !important;
+}
+
+.total-workout_container {
+  align-items: center;
+  width: fit-content;
+  gap: 1rem !important;
+}
+
+.total-workout_time {
+  font-size: 2.4rem;
+  text-align: center;
+  background-color: var(--light-black);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.6rem;
+  border-radius: 8px;
+  font-weight: 600;
 }
 
 /* ******************************************************************************************************************* */
@@ -102,6 +119,11 @@ select {
 
 .schedule-workout {
   grid-column: span 2;
+  margin-bottom: 1.6rem;
+}
+
+.calendar-header {
+  margin-bottom: 0 !important;
 }
 
 .calendar {
@@ -120,7 +142,6 @@ select {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1rem;
-  /* width: 100%; */
 }
 
 .day {
@@ -157,6 +178,7 @@ select {
 }
 
 .day-icon {
+  cursor: pointer;
 }
 
 .custom-checkbox {

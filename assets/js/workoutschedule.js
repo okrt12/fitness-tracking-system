@@ -33,6 +33,18 @@ const currentDayIndex = now.getDay() === 0 ? 6 : now.getDay() - 1; // Adjust Sun
 const currentTime = now.getHours() * 60 + now.getMinutes();
 
 function timer(day, hour, minutes) {
+  if (hour >= 24) {
+    day += 1;
+    hour -= 24;
+  }
+  if (minutes === 60) {
+    hour += 1;
+    minutes = 0;
+  }
+  timerDay.textContent = day > 9 ? day : "0" + day;
+  timerHour.textContent = hour > 9 ? hour : "0" + hour;
+  timerMinutes.textContent = minutes > 9 ? minutes : "0" + minutes;
+
   setInterval(() => {
     timerDay.textContent = day > 9 ? day : "0" + day;
     timerHour.textContent = hour > 9 ? hour : "0" + hour;
@@ -44,22 +56,18 @@ function timer(day, hour, minutes) {
 
     if (hour && minutes === 0) {
       hour--;
-      minutes = 60;
+      minutes = 59;
     }
     if (day && hour === 0) {
       day--;
       hour = 23;
-      minutes = 60;
+      minutes = 59;
     }
     if (minutes <= 0) return;
     minutes--;
-  }, 200);
+  }, 1000);
 }
-
-// let temp = "0";
-// timerMinutes.textContent = timerHour.textContent = timerDay.textContent = temp;
-
-timer(0, 1, 50);
+// timer(1, 25, 60);
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const scheduleForm = document.querySelector(".schedule-workout__form");
