@@ -26,7 +26,7 @@
     <title>FitTrack+ | Workout Schedule</title>
   </head>
   <body>
-    <div class="backdrop hidde"></div>
+    <div class="backdrop hidden"></div>
     <main class="main">
       <nav class="sidebar">
         <ul>
@@ -126,11 +126,48 @@
           <span class="heading-color">FitTrack+</span> Workout Schedule
         </h3>
 
+        <div class="schedule-status_bar">
+          <div class="cards flex-col status-cards">
+            <h3 class="cards-header">Next Workout</h3>
+            <div class="timer_container flex-container">
+              <div class="flex-container timer-label_unit">
+                <span class="timer-unit" id="days">00</span>
+                <span class="timer-label cards-description normal-text"
+                  >Days</span
+                >
+              </div>
+              <div class="flex-container timer-label_unit">
+                <span class="timer-unit" id="hours">00</span
+                ><span class="timer-label cards-description normal-text"
+                  >Hours</span
+                >
+              </div>
+
+              <div class="flex-container timer-label_unit">
+                <span class="timer-unit" id="minutes">00</span
+                ><span class="timer-label cards-description normal-text"
+                  >Minutes</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="cards flex-col status-cards">
+            <h3 class="cards-header">Workouts</h3>
+            <p class="cards-description normal-text">12 this month</p>
+          </div>
+          <div class="cards flex-col status-cards">
+            <h3 class="cards-header">Avg Calories Burned</h3>
+            <p class="cards-description normal-text">450/day</p>
+          </div>
+        </div>
+        <!-- ----------------------------------------------------------------------------------------------------------------------------- -->
+        <!-- ----------------------------------------------------------------------------------------------------------------------------- -->
         <div class="workout-cards container">
           <div class="schedule-workout cards">
             <h3 class="cards-header">Schedule Workouts</h3>
+
             <div class="schedule-workout__container">
-              <form class="schedule-workout__form popup hidde cards">
+              <form class="schedule-workout__form popup hidden cards">
                 <h3 class="cards-header">Schedule Workout Form</h3>
                 <div class="detail-value flex-col">
                   <label
@@ -244,6 +281,7 @@
               <div class="calendar">
                 <h3 class="cards-header">This Week</h3>
                 <div class="calendar-grid">
+                  <!-- Day 1 -->
                   <div class="day day-1 mon">
                     <p class="day-label normal-text cards-description">Mon</p>
                     <div class="workout normal-text cards-description">
@@ -251,7 +289,7 @@
                       <span>7:00 AM</span><br />
                       <span>30 min</span>
                     </div>
-                    <div class="flex-container detail-value day-icons">
+                    <div class="flex-container detail-valu day-icons">
                       <ion-icon
                         class="icons day-icon add-icon"
                         name="add-outline"
@@ -266,6 +304,8 @@
                       ></ion-icon>
                     </div>
                   </div>
+
+                  <!-- Day 2 -->
                   <div class="day day-2 tue">
                     <p class="day-label normal-text cards-description">Tue</p>
                     <div class="workout normal-text cards-description empty">
@@ -286,6 +326,8 @@
                       ></ion-icon>
                     </div>
                   </div>
+
+                  <!-- Day 3 -->
                   <div class="day day-3 wed">
                     <p class="day-label normal-text cards-description">Wed</p>
                     <div class="workout normal-text cards-description">
@@ -308,6 +350,8 @@
                       ></ion-icon>
                     </div>
                   </div>
+
+                  <!-- Day 4 -->
                   <div class="day day-4 thu">
                     <p class="day-label normal-text cards-description">Thu</p>
                     <div class="workout normal-text cards-description empty">
