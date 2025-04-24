@@ -13,7 +13,7 @@ $user_id = $_SESSION['user_id'];
 
 try {
   $stmt = $pdo->prepare("
-    SELECT schedule_id, workout_id, date, time, duration, weekly_repeat, day_of_week
+    SELECT schedule_id, workout_id, date, time, duration, weekly_repeat, day_of_week, workout_day_name, 
     FROM workout_schedules
     WHERE user_id = :user_id
     ORDER BY FIELD(day_of_week, 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'), time

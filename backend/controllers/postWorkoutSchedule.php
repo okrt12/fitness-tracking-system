@@ -22,11 +22,12 @@ $day_of_week = $data['day_of_week'];
 $workout_id = $data['workout_id'];
 $time = $data['time'];
 $duration = $data['duration'] ?? 30;
+$workout_day_name = $data['workout_day_name'];
 
 try {
   $stmt = $pdo->prepare("
-    INSERT INTO workout_schedules (user_id, day_of_week, workout_id, time, duration)
-    VALUES (:user_id, :day_of_week, :workout_id, :time, :duration)
+    INSERT INTO workout_schedules (user_id, day_of_week, workout_id,workout_day_name, time, duration)
+    VALUES (:user_id, :day_of_week, :workout_id, :workout_day_name, :time, :duration)
     ON DUPLICATE KEY UPDATE
       workout_id = VALUES(workout_id),
       time = VALUES(time),
@@ -37,6 +38,7 @@ try {
     'user_id' => $user_id,
     'day_of_week' => $day_of_week,
     'workout_id' => $workout_id,
+    'workout_day_name' => $workout_day_name,
     'time' => $time,
     'duration' => $duration
   ]);

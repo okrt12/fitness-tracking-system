@@ -130,20 +130,6 @@
             <h3 class="cards-header">Schedule Workouts</h3>
             <div class="schedule-workout__container">
               <form class="schedule-workout__form">
-                <!-- <div class="detail-value flex-col">
-                  <label
-                    class="normal-text cards-description"
-                    for="schedule-date"
-                    >Date</label
-                  >
-                  <input
-                    class="input normal-text cards-description"
-                    type="date"
-                    id="schedule-date"
-                    name="schedule-date"
-                    required
-                  />
-                </div> -->
                 <div class="detail-value flex-col">
                   <label
                     class="normal-text cards-description"
@@ -165,6 +151,31 @@
                     <option value="Sat">Saturday</option>
                     <option value="Sun">Sunday</option>
                   </select>
+
+                  <div class="detail-value flex-col">
+                    <label
+                      for="workout_day_name"
+                      class="normal-text cards-description"
+                      >Workout Day Name</label
+                    >
+                    <select
+                      class="input cards-description normal-text"
+                      id="workout_day_name"
+                      name="workout_day_name"
+                      required
+                    >
+                      <option value="">Select Workout Day</option>
+                      <option value="Chest Day">Chest Day</option>
+                      <option value="Back Day">Back Day</option>
+                      <option value="Leg Day">Leg Day</option>
+                      <option value="Arm Day">Arm Day</option>
+                      <option value="Push Day">Push Day</option>
+                      <option value="Pull Day">Pull Day</option>
+                      <option value="Core Day">Core Day</option>
+                      <option value="Full Body">Full Body</option>
+                      <option value="Rest Day">Rest Day</option>
+                    </select>
+                  </div>
                 </div>
                 <div class="detail-value flex-col">
                   <label
@@ -248,8 +259,8 @@
                         name="pencil-outline"
                       ></ion-icon>
                       <ion-icon
-                        class="icons day-icon del-icon"
-                        name="trash-outline"
+                        class="icons del-icon day-icon"
+                        name="close-circle-outline"
                       ></ion-icon>
                     </div>
                   </div>
@@ -268,8 +279,8 @@
                         name="pencil-outline"
                       ></ion-icon>
                       <ion-icon
-                        class="icons day-icon del-icon"
-                        name="trash-outline"
+                        class="icons del-icon day-icon"
+                        name="close-circle-outline"
                       ></ion-icon>
                     </div>
                   </div>
@@ -290,8 +301,8 @@
                         name="pencil-outline"
                       ></ion-icon>
                       <ion-icon
-                        class="icons day-icon del-icon"
-                        name="trash-outline"
+                        class="icons del-icon day-icon"
+                        name="close-circle-outline"
                       ></ion-icon>
                     </div>
                   </div>
@@ -310,8 +321,8 @@
                         name="pencil-outline"
                       ></ion-icon>
                       <ion-icon
-                        class="icons day-icon del-icon"
-                        name="trash-outline"
+                        class="icons del-icon day-icon"
+                        name="close-circle-outline"
                       ></ion-icon>
                     </div>
                   </div>
@@ -334,8 +345,8 @@
                           name="pencil-outline"
                         ></ion-icon>
                         <ion-icon
-                          class="icons day-icon del-icon"
-                          name="trash-outline"
+                          class="icons del-icon day-icon"
+                          name="close-circle-outline"
                         ></ion-icon>
                       </div>
                     </div>
@@ -354,8 +365,8 @@
                           name="pencil-outline"
                         ></ion-icon>
                         <ion-icon
-                          class="icons day-icon del-icon"
-                          name="trash-outline"
+                          class="icons del-icon day-icon"
+                          name="close-circle-outline"
                         ></ion-icon>
                       </div>
                     </div>
@@ -376,8 +387,8 @@
                           name="pencil-outline"
                         ></ion-icon>
                         <ion-icon
-                          class="icons day-icon del-icon"
-                          name="trash-outline"
+                          class="icons del-icon day-icon"
+                          name="close-circle-outline"
                         ></ion-icon>
                       </div>
                     </div>

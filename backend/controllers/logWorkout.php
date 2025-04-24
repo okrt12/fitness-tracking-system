@@ -26,17 +26,19 @@ $workout_id = $data['workout_id'] ?? null;
 $duration = $data['duration'] ?? null;
 $date = $data['date'] ?? date('Y-m-d');
 $calories_burned = $data['calories_burned'] ?? null;
+$workout_day_name = $data['workout_day_name'] ?? null;
 
 try {
   // Insert into workout_log table
   $stmt = $pdo->prepare("
-    INSERT INTO workout_log (user_id, workout_id, date, duration, calories_burned)
-    VALUES (:user_id, :workout_id, :date, :duration, :calories_burned)
+    INSERT INTO workout_log (user_id, workout_id, workout_day_name, date, duration, calories_burned)
+    VALUES (:user_id, :workout_id, :workout_day_name, :date, :duration, :calories_burned)
   ");
   
   $stmt->execute([
     'user_id' => $user_id,
     'workout_id' => $workout_id,
+    'workout_day_name' => $workout_day_name,
     'date' => $date,
     'duration' => $duration,
     'calories_burned' => $calories_burned

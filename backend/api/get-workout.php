@@ -16,7 +16,7 @@ $user_id = $_SESSION['user_id'];
 try {
   // Fetch all workouts for the logged-in user
   $stmt = $pdo->prepare("
-    SELECT workout_id, name, category, calories_per_hour
+    SELECT workout_id, name, category, calories_per_hour, workout_day_name
     FROM workouts
     WHERE user_id = :user_id
     ORDER BY name ASC

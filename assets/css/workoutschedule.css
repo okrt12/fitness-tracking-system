@@ -98,11 +98,10 @@ select {
   padding: 1rem;
   border-radius: 4px;
   font-size: 1.4rem;
+  min-height: 9rem;
 }
 
-.workout.empty {
-  /* background-color: #ffffff;
-  border: 1px dashed #0d1b2a; */
+.day-icon {
 }
 
 .custom-checkbox {

@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -73,8 +71,11 @@
               class="icon-text sidebar-btn sidebar-btns active-page"
               href="/pages/workout.php"
             >
-            <ion-icon class="icons sidebar-icons" name="barbell-outline"></ion-icon>
-          
+              <ion-icon
+                class="icons sidebar-icons"
+                name="barbell-outline"
+              ></ion-icon>
+
               <p class="sidebar-btn">Workout Logs</p>
             </a>
           </li>
@@ -122,130 +123,180 @@
           <span class="heading-color">FitTrack+</span> Workout
         </h3>
 
-        <div class="logs-cards container">        
+        <div class="logs-cards container">
           <!-- Workout -->
-            <form
-              id="add-workout-form"
-              class="add-workout-form workout-form cards"
+          <form
+            id="add-workout-form"
+            class="add-workout-form workout-form cards"
+            name="add-workout"
+          >
+            <h3 class="cards-header">Add Workout</h3>
+            <div class="detail-value flex-col">
+              <label for="workout-name" class="normal-text cards-description"
+                >Workout Name</label
+              >
+              <input
+                type="text"
+                id="workout-name"
+                name="name"
+                class="input normal-text cards-description"
+                placeholder="e.g., Treadmill Run"
+                required
+              />
+            </div>
+
+            <div class="detail-value flex-col">
+              <label
+                for="workout_day_name"
+                class="normal-text cards-description"
+                >Workout Day Name</label
+              >
+              <select
+                class="input cards-description normal-text"
+                id="workout_day_name"
+                name="workout_day_name"
+                required
+              >
+                <option value="">Select Workout Day</option>
+                <option value="Chest Day">Chest Day</option>
+                <option value="Back Day">Back Day</option>
+                <option value="Leg Day">Leg Day</option>
+                <option value="Arm Day">Arm Day</option>
+                <option value="Push Day">Push Day</option>
+                <option value="Pull Day">Pull Day</option>
+                <option value="Core Day">Core Day</option>
+                <option value="Full Body">Full Body</option>
+                <option value="Rest Day">Rest Day</option>
+              </select>
+            </div>
+
+            <div class="detail-value flex-col">
+              <label
+                for="workout-category"
+                class="normal-text cards-description"
+                >Category</label
+              >
+              <select
+                id="workout-category"
+                name="category"
+                class="input normal-text cards-description"
+              >
+                <option value="">Select Category (Optional)</option>
+                <option value="Cardio">Cardio</option>
+                <option value="Strength">Strength</option>
+                <option value="Yoga">Yoga</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="detail-value flex-col">
+              <label
+                for="calories-per-hour"
+                class="normal-text cards-description"
+                >Calories Burned per Hour</label
+              >
+              <input
+                type="number"
+                id="calories-per-hour"
+                name="calories_per_hour"
+                class="input normal-text cards-description"
+                placeholder="e.g., 600"
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn-primary workout-btn add-workout_btn"
               name="add-workout"
             >
-              <h3 class="cards-header">Add Workout</h3>
-              <div class="detail-value flex-col">
-                <label for="workout-name" class="normal-text cards-description"
-                  >Workout Name</label
-                >
-                <input
-                  type="text"
-                  id="workout-name"
-                  name="name"
-                  class="input normal-text cards-description"
-                  placeholder="e.g., Treadmill Run"
-                  required
-                />
-              </div>
-              <div class="detail-value flex-col">
-                <label
-                  for="workout-category"
-                  class="normal-text cards-description"
-                  >Category</label
-                >
-                <select
-                  id="workout-category"
-                  name="category"
-                  class="input normal-text cards-description"
-                >
-                  <option value="">Select Category (Optional)</option>
-                  <option value="Cardio">Cardio</option>
-                  <option value="Strength">Strength</option>
-                  <option value="Yoga">Yoga</option>
-                  <option value="Other">Other</option>
-                </select>
-              </div>
-              <div class="detail-value flex-col">
-                <label
-                  for="calories-per-hour"
-                  class="normal-text cards-description"
-                  >Calories Burned per Hour</label
-                >
-                <input
-                  type="number"
-                  id="calories-per-hour"
-                  name="calories_per_hour"
-                  class="input normal-text cards-description"
-                  placeholder="e.g., 600"
-                />
-              </div>
-              <button
-                type="submit"
-                class="btn-primary workout-btn add-workout_btn"
-                name="add-workout"
-              >
-                Add Workout
-              </button>
-            </form>
+              Add Workout
+            </button>
+          </form>
 
-            <form
-              id="log-workout-form"
-              class="log-workout workout-form cards"
+          <form
+            id="log-workout-form"
+            class="log-workout workout-form cards"
+            name="log-workout"
+          >
+            <h3 class="cards-header">Log Workout</h3>
+            <div class="detail-value flex-col">
+              <label for="workout-id" class="normal-text cards-description"
+                >Workout</label
+              >
+              <select
+                id="workout-id"
+                name="workout_id"
+                class="input normal-text cards-description"
+                required
+              >
+                <option value="">Select a Workout</option>
+              </select>
+            </div>
+
+            <div class="detail-value flex-col">
+              <label
+                for="workout_day_name"
+                class="normal-text cards-description"
+                >Workout Day Name</label
+              >
+              <select
+                class="input cards-description normal-text"
+                id="workout_day_name_log"
+                name="workout_day_name"
+                required
+              >
+                <option value="">Select Workout Day</option>
+                <option value="Chest Day">Chest Day</option>
+                <option value="Back Day">Back Day</option>
+                <option value="Leg Day">Leg Day</option>
+                <option value="Arm Day">Arm Day</option>
+                <option value="Push Day">Push Day</option>
+                <option value="Pull Day">Pull Day</option>
+                <option value="Core Day">Core Day</option>
+                <option value="Full Body">Full Body</option>
+                <option value="Rest Day">Rest Day</option>
+              </select>
+            </div>
+
+            <div class="detail-value flex-col">
+              <label for="duration" class="normal-text cards-description"
+                >Duration (Minutes)</label
+              >
+              <input
+                type="number"
+                id="duration"
+                name="duration"
+                class="input normal-text cards-description"
+                placeholder="e.g., 30"
+                min="0"
+              />
+            </div>
+
+            <div class="detail-value flex-col">
+              <label for="calories-burned" class="normal-text cards-description"
+                >Calories Burned (Calculated)</label
+              >
+              <input
+                type="number"
+                id="calories-burned"
+                name="calories_burned"
+                class="input normal-text cards-description"
+                placeholder="e.g., 300"
+                readonly
+              />
+            </div>
+            <button
+              type="submit"
+              class="btn-primary log-workout_btn workout-btn"
               name="log-workout"
             >
-              <h3 class="cards-header">Log Workout</h3>
-              <div class="detail-value flex-col">
-                <label for="workout-id" class="normal-text cards-description"
-                  >Workout</label
-                >
-                <select
-                  id="workout-id"
-                  name="workout_id"
-                  class="input normal-text cards-description"
-                  required
-                >
-                  <option value="">Select a Workout</option>
-                </select>
-              </div>
-              <div class="detail-value flex-col">
-                <label for="duration" class="normal-text cards-description"
-                  >Duration (Minutes)</label
-                >
-                <input
-                  type="number"
-                  id="duration"
-                  name="duration"
-                  class="input normal-text cards-description"
-                  placeholder="e.g., 30"
-                  min="0"
-                />
-              </div>
-
-              <div class="detail-value flex-col">
-                <label
-                  for="calories-burned"
-                  class="normal-text cards-description"
-                  >Calories Burned (Calculated)</label
-                >
-                <input
-                  type="number"
-                  id="calories-burned"
-                  name="calories_burned"
-                  class="input normal-text cards-description"
-                  placeholder="e.g., 300"
-                  readonly
-                />
-              </div>
-              <button
-                type="submit"
-                class="btn-primary log-workout_btn workout-btn"
-                name="log-workout"
-              >
-                Log Workout
-              </button>
-            </form>
-          </div>
+              Log Workout
+            </button>
+          </form>
+        </div>
       </div>
     </main>
 
     <!-- JS -->
-    <script type="module" src="/assets/js/activitylog.js"></script>
+    <script type="module" src="/assets/js/workout.js"></script>
 
     <script
       type="module"

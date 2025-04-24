@@ -18,6 +18,7 @@ try {
   $stmt = $pdo->prepare("
     SELECT wl.log_id, 
            w.name AS workout_name,
+           w.workout_day_name,
            wl.date,
            wl.duration,
            wl.calories_burned,

@@ -25,17 +25,19 @@ $user_id = $_SESSION['user_id'];
 $name = $data['name'] ?? null;
 $category = $data['category'] ?? null;
 $calories_per_hour = $data['calories_per_hour'] ?? null;
+$workout_day_name = $data['workout_day_name'] ?? null;
 
 try {
   // Insert into workouts table
   $stmt = $pdo->prepare("
-    INSERT INTO workouts (user_id, name, category, calories_per_hour)
-    VALUES (:user_id, :name, :category, :calories_per_hour)
+    INSERT INTO workouts (user_id, name, workout_day_name, category, calories_per_hour)
+    VALUES (:user_id, :name, :category, :workout_day_name, :calories_per_hour)
   ");
   
   $stmt->execute([
     'user_id' => $user_id,
     'name' => $name,
+    'workout_day_name' => $workout_day_name,
     'category' => $category,
     'calories_per_hour' => $calories_per_hour
   ]);

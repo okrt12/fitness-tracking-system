@@ -5,6 +5,7 @@ const scheduleTypeInput = document.getElementById("schedule-type");
 const scheduleDayInput = document.getElementById("schedule-day");
 const scheduleTimeInput = document.getElementById("schedule-time");
 const scheduleDurationInput = document.getElementById("schedule-duration");
+const scheduleDayNameInput = document.getElementById("workout_day_name");
 const scheduleRepeatInput = document.getElementById("weekly-repeat");
 
 let selectedID;
@@ -28,6 +29,7 @@ scheduleForm.addEventListener("submit", async function (e) {
   const scheduleData = {
     day_of_week: scheduleDayInput.value,
     workout_id: selectedID,
+    workout_day_name: scheduleDayNameInput.value,
     time: scheduleTimeInput.value,
     duration: scheduleDurationInput.value,
   };
