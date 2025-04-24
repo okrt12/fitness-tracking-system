@@ -32,6 +32,7 @@ scheduleForm.addEventListener("submit", async function (e) {
 const scheduleForm = document.querySelector(".schedule-workout__form");
 const scheduleDateInput = document.getElementById("schedule-date");
 const scheduleTypeInput = document.getElementById("schedule-type");
+const scheduleDayInput = document.getElementById("schedule-day");
 const scheduleTimeInput = document.getElementById("schedule-time");
 const scheduleDurationInput = document.getElementById("schedule-duration");
 const scheduleRepeatInput = document.getElementById("weekly-repeat");
@@ -52,6 +53,37 @@ let selectedID;
 })();
 
 let isChecked;
+let selectedName;
 scheduleRepeatInput.addEventListener("change", () => {
   isChecked = scheduleRepeatInput.checked;
+  selectedName =
+    scheduleRepeatInput.options[scheduleRepeatInput.selectedIndex].text;
+  console.log(selectedName);
+});
+
+scheduleForm.addEventListener("submit", async function (e) {
+  e.preventDefault();
+
+  const scheduleData = {
+    day_of_week: scheduleDayInput.value,
+    workout_id: selectedID,
+    time: scheduleTimeInput.value,
+    duration: scheduleDurationInput.value,
+  };
+
+  try {
+    const response = await postData(
+      scheduleData,
+      "../backend/controllers/postWorkoutSchedule.php"
+    );
+    console.log(response);
+    if (response.ok) {
+      const data = await response.json();
+      alert(data.message);
+      scheduleForm.reset();
+    }
+  } catch (error) {
+    console.log("Error: ", error);
+    alert("An unexpected error occurred. Please try again later.");
+  }
 });

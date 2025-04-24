@@ -11,18 +11,18 @@ if (!isset($_SESSION['user_id'])) {
 
 $data = json_decode(file_get_contents("php://input"), true);
 
-if (!isset($data['day_of_week'])) {
+if (!isset($data['schedule_id'])) {
   http_response_code(400);
-  echo json_encode(['success' => false, 'message' => 'Day of week required']);
+  echo json_encode(['success' => false, 'message' => 'Schedule ID is required']);
   exit;
 }
 
 $user_id = $_SESSION['user_id'];
-$day_of_week = $data['day_of_week'];
+$schedule_id = $data['schedule_id'];
 
 try {
-  $stmt = $pdo->prepare("DELETE FROM workout_schedule WHERE user_id = :user_id AND day_of_week = :day_of_week");
-  $stmt->execute(['user_id' => $user_id, 'day_of_week' => $day_of_week]);
+  $stmt = $pdo->prepare("DELETE FROM workout_schedules WHERE user_id = :user_id AND schedule_id = :schedule_id");
+  $stmt->execute(['user_id' => $user_id, 'schedule_id' => $schedule_id]);
 
   echo json_encode(['success' => true, 'message' => 'Schedule deleted']);
 } catch (PDOException $e) {

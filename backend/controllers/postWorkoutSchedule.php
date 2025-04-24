@@ -25,7 +25,7 @@ $duration = $data['duration'] ?? 30;
 
 try {
   $stmt = $pdo->prepare("
-    INSERT INTO workout_schedule (user_id, day_of_week, workout_id, time, duration)
+    INSERT INTO workout_schedules (user_id, day_of_week, workout_id, time, duration)
     VALUES (:user_id, :day_of_week, :workout_id, :time, :duration)
     ON DUPLICATE KEY UPDATE
       workout_id = VALUES(workout_id),

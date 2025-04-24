@@ -130,7 +130,7 @@
             <h3 class="cards-header">Schedule Workouts</h3>
             <div class="schedule-workout__container">
               <form class="schedule-workout__form">
-                <div class="detail-value flex-col">
+                <!-- <div class="detail-value flex-col">
                   <label
                     class="normal-text cards-description"
                     for="schedule-date"
@@ -143,6 +143,28 @@
                     name="schedule-date"
                     required
                   />
+                </div> -->
+                <div class="detail-value flex-col">
+                  <label
+                    class="normal-text cards-description"
+                    for="schedule-type"
+                    >Workout Day</label
+                  >
+                  <select
+                    class="input cards-description normal-text"
+                    id="schedule-day"
+                    name="schedule-day"
+                    required
+                  >
+                    <option value="">Select Day</option>
+                    <option value="Mon">Monday</option>
+                    <option value="Tue">Tuesday</option>
+                    <option value="Wed">Wednesday</option>
+                    <option value="Thu">Thursday</option>
+                    <option value="Fri">Friday</option>
+                    <option value="Sat">Saturday</option>
+                    <option value="Sun">Sunday</option>
+                  </select>
                 </div>
                 <div class="detail-value flex-col">
                   <label
@@ -188,7 +210,7 @@
                     name="schedule-duration"
                     min="1"
                     max="240"
-                    value="30"
+                    placeholder="Minutes"
                   />
                 </div>
 
@@ -209,56 +231,154 @@
               <div class="calendar">
                 <h3 class="cards-header">This Week</h3>
                 <div class="calendar-grid">
-                  <div class="day mon">
+                  <div class="day day-1 mon">
                     <p class="day-label normal-text cards-description">Mon</p>
                     <div class="workout normal-text cards-description">
                       <span>Running</span> <br />
                       <span>7:00 AM</span><br />
                       <span>30 min</span>
                     </div>
+                    <div class="flex-container detail-value day-icons">
+                      <ion-icon
+                        class="icons day-icon add-icon"
+                        name="add-outline"
+                      ></ion-icon>
+                      <ion-icon
+                        class="icons day-icon edit-icon"
+                        name="pencil-outline"
+                      ></ion-icon>
+                      <ion-icon
+                        class="icons day-icon del-icon"
+                        name="trash-outline"
+                      ></ion-icon>
+                    </div>
                   </div>
-                  <div class="day tue">
+                  <div class="day day-2 tue">
                     <p class="day-label normal-text cards-description">Tue</p>
                     <div class="workout normal-text cards-description empty">
                       <span>No Workout</span>
                     </div>
+                    <div class="flex-container detail-value day-icons">
+                      <ion-icon
+                        class="icons day-icon add-icon"
+                        name="add-outline"
+                      ></ion-icon>
+                      <ion-icon
+                        class="icons day-icon edit-icon"
+                        name="pencil-outline"
+                      ></ion-icon>
+                      <ion-icon
+                        class="icons day-icon del-icon"
+                        name="trash-outline"
+                      ></ion-icon>
+                    </div>
                   </div>
-                  <div class="day wed">
+                  <div class="day day-3 wed">
                     <p class="day-label normal-text cards-description">Wed</p>
                     <div class="workout normal-text cards-description">
                       <span>Lifting</span> <br />
                       <span> 6:00 PM</span><br />
                       <span>45 min</span>
                     </div>
+                    <div class="flex-container detail-value day-icons">
+                      <ion-icon
+                        class="icons day-icon add-icon"
+                        name="add-outline"
+                      ></ion-icon>
+                      <ion-icon
+                        class="icons day-icon edit-icon"
+                        name="pencil-outline"
+                      ></ion-icon>
+                      <ion-icon
+                        class="icons day-icon del-icon"
+                        name="trash-outline"
+                      ></ion-icon>
+                    </div>
                   </div>
-                  <div class="day thu">
+                  <div class="day day-4 thu">
                     <p class="day-label normal-text cards-description">Thu</p>
                     <div class="workout normal-text cards-description empty">
                       <span>No Workout</span>
                     </div>
+                    <div class="flex-container detail-value day-icons">
+                      <ion-icon
+                        class="icons day-icon add-icon"
+                        name="add-outline"
+                      ></ion-icon>
+                      <ion-icon
+                        class="icons day-icon edit-icon"
+                        name="pencil-outline"
+                      ></ion-icon>
+                      <ion-icon
+                        class="icons day-icon del-icon"
+                        name="trash-outline"
+                      ></ion-icon>
+                    </div>
                   </div>
 
                   <div class="spacer">
-                    <div class="day today fri">
+                    <div class="day day-5 today fri">
                       <p class="day-label normal-text cards-description">Fri</p>
                       <div class="workout normal-text cards-description">
                         <span>Yoga</span> <br />
                         <span>8:00 AM</span><br />
                         <span>60 min</span>
                       </div>
+                      <div class="flex-container detail-value day-icons">
+                        <ion-icon
+                          class="icons day-icon add-icon"
+                          name="add-outline"
+                        ></ion-icon>
+                        <ion-icon
+                          class="icons day-icon edit-icon"
+                          name="pencil-outline"
+                        ></ion-icon>
+                        <ion-icon
+                          class="icons day-icon del-icon"
+                          name="trash-outline"
+                        ></ion-icon>
+                      </div>
                     </div>
-                    <div class="day sat">
+                    <div class="day day-6 sat">
                       <p class="day-label normal-text cards-description">Sat</p>
                       <div class="workout normal-text cards-description empty">
                         <span> No Workout</span>
                       </div>
+                      <div class="flex-container detail-value day-icons">
+                        <ion-icon
+                          class="icons day-icon add-icon"
+                          name="add-outline"
+                        ></ion-icon>
+                        <ion-icon
+                          class="icons day-icon edit-icon"
+                          name="pencil-outline"
+                        ></ion-icon>
+                        <ion-icon
+                          class="icons day-icon del-icon"
+                          name="trash-outline"
+                        ></ion-icon>
+                      </div>
                     </div>
-                    <div class="day sun">
+                    <div class="day day-7 sun">
                       <p class="day-label normal-text cards-description">Sun</p>
                       <div class="workout normal-text cards-description">
                         <span>Cycling</span><br />
                         <span>9:00 AM</span><br />
                         <span>40 min</span>
+                      </div>
+                      <div class="flex-container detail-value day-icons">
+                        <ion-icon
+                          class="icons day-icon add-icon"
+                          name="add-outline"
+                        ></ion-icon>
+                        <ion-icon
+                          class="icons day-icon edit-icon"
+                          name="pencil-outline"
+                        ></ion-icon>
+                        <ion-icon
+                          class="icons day-icon del-icon"
+                          name="trash-outline"
+                        ></ion-icon>
                       </div>
                     </div>
                   </div>

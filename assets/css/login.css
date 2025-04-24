@@ -17,15 +17,17 @@ main {
 
 .input {
   transition: all 0.3s;
-  background-color: var(--light-black);
+  background-color: var(--light-black) !important;
   padding: 1.4rem 1.6rem;
   border-radius: 8px;
-  color: var(--text-color);
+  color: var(--text-color) !important;
 }
 
 .input:focus {
   border-color: var(--primary-color);
   outline: none;
+  background-color: var(--light-black) !important;
+  color: var(--text-color) !important;
 }
 
 input {
