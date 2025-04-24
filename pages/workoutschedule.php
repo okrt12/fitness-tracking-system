@@ -126,7 +126,7 @@
           <span class="heading-color">FitTrack+</span> Workout Schedule
         </h3>
 
-        <div class="schedule-status_bar">
+        <div class="schedule-status_bar container">
           <div class="cards flex-col status-cards">
             <h3 class="cards-header">Next Workout</h3>
             <div class="timer_container flex-container">
@@ -152,12 +152,18 @@
             </div>
           </div>
           <div class="cards flex-col status-cards">
-            <h3 class="cards-header">Workouts</h3>
-            <p class="cards-description normal-text">12 this month</p>
+            <h3 class="cards-header">Weekly Workout Time</h3>
+            <p class="cards-description normal-text total-workout_time">
+              12 hrs
+            </p>
           </div>
           <div class="cards flex-col status-cards">
-            <h3 class="cards-header">Avg Calories Burned</h3>
-            <p class="cards-description normal-text">450/day</p>
+            <h3 class="cards-header">Workout Days</h3>
+            <div class="flex-container">
+              <p class="cards-description normal-text">Leg Day</p>
+              <p class="cards-description normal-text">Chest Day</p>
+              <p class="cards-description normal-text">Arm Day</p>
+            </div>
           </div>
         </div>
         <!-- ----------------------------------------------------------------------------------------------------------------------------- -->

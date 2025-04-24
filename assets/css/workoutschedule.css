@@ -10,7 +10,7 @@
 .schedule-status_bar {
   padding-left: 0 !important;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 1.6rem;
   margin-bottom: 3rem !important;
 }
