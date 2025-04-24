@@ -35,11 +35,18 @@ select {
 }
 
 /* Schedule */
+.workout-cards {
+  position: relative;
+}
 
 .schedule-workout__form {
   display: flex;
   flex-direction: column;
   gap: 1.4rem;
+  width: 40rem;
+  top: -5%;
+  left: 50%;
+  right: 50%;
 }
 
 .schedule-btn {
@@ -51,7 +58,7 @@ select {
 }
 
 .schedule-workout__container {
-  display: grid;
+  /* display: grid; */
   grid-template-columns: 1fr 2fr;
   gap: 1.4rem;
 }
@@ -133,4 +140,10 @@ select {
   border: solid var(--primary-color);
   border-width: 0 0.2rem 0.2rem 0;
   transform: rotate(45deg);
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+  position: absolute;
 }

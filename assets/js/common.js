@@ -71,3 +71,8 @@ export function getCalorie(userData, selectedID, id, elCalorie) {
   });
   return calories;
 }
+export const backdrop = document.querySelector(".backdrop");
+export function toggleHidden(popup) {
+  backdrop.classList.toggle("hidden");
+  popup.classList.toggle("hidden");
+}

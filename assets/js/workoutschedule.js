@@ -1,4 +1,10 @@
-import { postData, workoutTypes, addOptions } from "./common.js";
+import {
+  backdrop,
+  postData,
+  addOptions,
+  getData,
+  toggleHidden,
+} from "./common.js";
 
 const scheduleForm = document.querySelector(".schedule-workout__form");
 const scheduleTypeInput = document.getElementById("schedule-type");
@@ -49,4 +55,18 @@ scheduleForm.addEventListener("submit", async function (e) {
     console.log("Error: ", error);
     alert("An unexpected error occurred. Please try again later.");
   }
+  toggleHidden(scheduleForm);
 });
+
+backdrop.addEventListener("click", function () {
+  toggleHidden(scheduleForm);
+});
+
+async function temp() {
+  const data = await getData("../backend/api/get-workouts-schedule.php");
+  console.log(data);
+}
+
+// temp();
+
+// Popup

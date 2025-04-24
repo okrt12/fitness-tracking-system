@@ -26,6 +26,7 @@
     <title>FitTrack+ | Workout Schedule</title>
   </head>
   <body>
+    <div class="backdrop hidde"></div>
     <main class="main">
       <nav class="sidebar">
         <ul>
@@ -129,7 +130,8 @@
           <div class="schedule-workout cards">
             <h3 class="cards-header">Schedule Workouts</h3>
             <div class="schedule-workout__container">
-              <form class="schedule-workout__form">
+              <form class="schedule-workout__form popup hidde cards">
+                <h3 class="cards-header">Schedule Workout Form</h3>
                 <div class="detail-value flex-col">
                   <label
                     class="normal-text cards-description"
@@ -192,39 +194,39 @@
                     <option value="">Select a Workout</option>
                   </select>
                 </div>
+                <div class="flex-container detail-value">
+                  <div class="detail-value flex-col">
+                    <label
+                      class="normal-text cards-description"
+                      for="schedule-time"
+                      >Time</label
+                    >
+                    <input
+                      class="input normal-text cards-description"
+                      type="time"
+                      id="schedule-time"
+                      name="schedule-time"
+                      required
+                    />
+                  </div>
 
-                <div class="detail-value flex-col">
-                  <label
-                    class="normal-text cards-description"
-                    for="schedule-time"
-                    >Time</label
-                  >
-                  <input
-                    class="input normal-text cards-description"
-                    type="time"
-                    id="schedule-time"
-                    name="schedule-time"
-                    required
-                  />
+                  <div class="detail-value flex-col">
+                    <label
+                      class="normal-text cards-description"
+                      for="schedule-duration"
+                      >Duration (minutes)</label
+                    >
+                    <input
+                      class="input normal-text cards-description"
+                      type="number"
+                      id="schedule-duration"
+                      name="schedule-duration"
+                      min="1"
+                      max="240"
+                      placeholder="Minutes"
+                    />
+                  </div>
                 </div>
-
-                <div class="detail-value flex-col">
-                  <label
-                    class="normal-text cards-description"
-                    for="schedule-duration"
-                    >Duration (minutes)</label
-                  >
-                  <input
-                    class="input normal-text cards-description"
-                    type="number"
-                    id="schedule-duration"
-                    name="schedule-duration"
-                    min="1"
-                    max="240"
-                    placeholder="Minutes"
-                  />
-                </div>
-
                 <label class="custom-checkbox normal-text cards-description">
                   <input
                     type="checkbox"

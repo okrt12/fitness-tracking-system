@@ -1,6 +1,5 @@
-import { getData, goals } from "./common.js";
+import { getData, goals, toggleHidden } from "./common.js";
 
-const backdrop = document.querySelector(".backdrop");
 // Info
 const infoPopup = document.querySelector(".personal-information__popup");
 
@@ -23,11 +22,6 @@ const goalText = document.querySelector(".goal-text");
 const editGoalBtn = document.querySelector(".edit-goal__btn");
 const saveGoalBtn = document.querySelector(".save-goal__btn");
 const goalSelect = document.querySelector(".goal-select");
-
-function toggleHidden(popup) {
-  backdrop.classList.toggle("hidden");
-  popup.classList.toggle("hidden");
-}
 
 editInfoBtn.addEventListener("click", function () {
   toggleHidden(infoPopup);

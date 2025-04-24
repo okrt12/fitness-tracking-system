@@ -91,27 +91,12 @@
   position: absolute;
 }
 
-.backdrop {
-  position: fixed;
-  height: 100vh;
-  width: 100%;
-  z-index: 10;
-  background-color: rgba(0, 0, 0, 0.9);
-}
-
 /* ****************************** Personal Informtaion **********************/
 /* Forms */
 
 input {
   outline: none;
   border: none;
-}
-
-.popup {
-  z-index: 99;
-  position: absolute;
-  align-self: center;
-  justify-self: center;
 }
 
 .input {
