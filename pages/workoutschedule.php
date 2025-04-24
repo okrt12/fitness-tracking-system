@@ -127,27 +127,42 @@
         </h3>
 
         <div class="schedule-status_bar container">
-          <div class="cards flex-col status-cards">
+          <div class="cards flex-col status-cards next-workout">
             <h3 class="cards-header">Next Workout</h3>
             <div class="timer_container flex-container">
               <div class="flex-container timer-label_unit">
-                <span class="timer-unit" id="days">00</span>
-                <span class="timer-label cards-description normal-text"
-                  >Days</span
-                >
+                <div class="unit-container">
+                  <span class="timer-unit" id="days">00</span>
+                </div>
+                <div class="label-container">
+                  <span
+                    class="timer-label day-label cards-description normal-text"
+                    >Days</span
+                  >
+                </div>
               </div>
               <div class="flex-container timer-label_unit">
-                <span class="timer-unit" id="hours">00</span
-                ><span class="timer-label cards-description normal-text"
-                  >Hours</span
-                >
+                <div class="unit-container">
+                  <span class="timer-unit" id="hours">00</span>
+                </div>
+                <div class="label-container">
+                  <span
+                    class="timer-label hour-label cards-description normal-text"
+                    >Hours</span
+                  >
+                </div>
               </div>
 
               <div class="flex-container timer-label_unit">
-                <span class="timer-unit" id="minutes">00</span
-                ><span class="timer-label cards-description normal-text"
-                  >Minutes</span
-                >
+                <div class="unit-container">
+                  <span class="timer-unit" id="minutes">00</span>
+                </div>
+                <div class="label-container">
+                  <span
+                    class="timer-label cards-description normal-text minute-label"
+                    >Minutes</span
+                  >
+                </div>
               </div>
             </div>
           </div>

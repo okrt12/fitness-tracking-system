@@ -18,6 +18,48 @@ function updateMinWidths() {
   });
 }
 updateMinWidths();
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////   Timer       ////////////////////////////////////////////////////
+const timerDay = document.getElementById("days");
+const timerHour = document.getElementById("hours");
+const timerMinutes = document.getElementById("minutes");
+const dayLabel = document.querySelector(".day-label");
+const hourLabel = document.querySelector(".hour-label");
+const minuteLabel = document.querySelector(".minute-label");
+
+const now = new Date();
+const currentDayIndex = now.getDay() === 0 ? 6 : now.getDay() - 1; // Adjust Sunday (0) to 6
+const currentTime = now.getHours() * 60 + now.getMinutes();
+
+function timer(day, hour, minutes) {
+  setInterval(() => {
+    timerDay.textContent = day > 9 ? day : "0" + day;
+    timerHour.textContent = hour > 9 ? hour : "0" + hour;
+    timerMinutes.textContent = minutes > 9 ? minutes : "0" + minutes;
+
+    dayLabel.textContent = day > 1 ? "Days" : "Day";
+    hourLabel.textContent = hour > 1 ? "Hours" : "Hour";
+    minuteLabel.textContent = minutes > 1 ? "Minutes" : "Minute";
+
+    if (hour && minutes === 0) {
+      hour--;
+      minutes = 60;
+    }
+    if (day && hour === 0) {
+      day--;
+      hour = 23;
+      minutes = 60;
+    }
+    if (minutes <= 0) return;
+    minutes--;
+  }, 200);
+}
+
+// let temp = "0";
+// timerMinutes.textContent = timerHour.textContent = timerDay.textContent = temp;
+
+timer(0, 1, 50);
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 const scheduleForm = document.querySelector(".schedule-workout__form");
@@ -76,7 +118,7 @@ backdrop.addEventListener("click", function () {
   toggleHidden(scheduleForm);
 });
 
-async function temp() {
+async function temp1() {
   const data = await getData("../backend/api/get-workouts-schedule.php");
   console.log(data);
 }
