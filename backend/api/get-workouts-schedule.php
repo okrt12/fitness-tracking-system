@@ -16,7 +16,7 @@ try {
     SELECT schedule_id, workout_id, day_of_week, duration, time, workout_day_name 
     FROM workout_schedules
     WHERE user_id = :user_id
-    ORDER BY FIELD(day_of_week, 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'), time
+    ORDER BY FIELD(day_of_week, 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'), time
   ");
   $stmt->execute(['user_id' => $user_id]);
   $schedules = $stmt->fetchAll(PDO::FETCH_ASSOC);

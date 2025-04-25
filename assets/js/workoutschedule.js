@@ -93,44 +93,81 @@ let selectedID;
   });
 })();
 
-scheduleForm.addEventListener("submit", async function (e) {
-  e.preventDefault();
+function postWorkoutSchedule() {
+  scheduleForm.addEventListener("submit", async function (e) {
+    e.preventDefault();
 
-  const scheduleData = {
-    day_of_week: scheduleDayInput.value,
-    workout_id: selectedID,
-    workout_day_name: scheduleDayNameInput.value,
-    time: scheduleTimeInput.value,
-    duration: scheduleDurationInput.value,
-  };
+    const scheduleData = {
+      day_of_week: scheduleDayInput.value,
+      workout_id: selectedID,
+      workout_day_name: scheduleDayNameInput.value,
+      time: scheduleTimeInput.value,
+      duration: scheduleDurationInput.value,
+    };
 
-  try {
-    const response = await postData(
-      scheduleData,
-      "../backend/controllers/postWorkoutSchedule.php"
-    );
-    console.log(response);
-    if (response.ok) {
-      const data = await response.json();
-      alert(data.message);
-      scheduleForm.reset();
+    try {
+      const response = await postData(
+        scheduleData,
+        "../backend/controllers/postWorkoutSchedule.php"
+      );
+      console.log(response);
+      if (response.ok) {
+        const data = await response.json();
+        alert(data.message);
+        scheduleForm.reset();
+      }
+    } catch (error) {
+      console.log("Error: ", error);
+      alert("An unexpected error occurred. Please try again later.");
     }
-  } catch (error) {
-    console.log("Error: ", error);
-    alert("An unexpected error occurred. Please try again later.");
-  }
-  toggleHidden(scheduleForm);
-});
-
+    toggleHidden(scheduleForm);
+  });
+}
 backdrop.addEventListener("click", function () {
   toggleHidden(scheduleForm);
 });
 
-async function temp1() {
-  const data = await getData("../backend/api/get-workouts-schedule.php");
-  console.log(data);
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////   Edit and Update Schedule   //////////////////////////////
+const weekDays = document.querySelectorAll(".day");
+const addIcons = document.querySelectorAll(".add-icon");
+const editIcons = document.querySelectorAll(".edit-icon");
+const delIcons = document.querySelectorAll(".del-icon");
+
+const days = {
+  1: "Monday",
+  2: "Tuesday",
+  3: "Wednesday",
+  4: "Thursday",
+  5: "Friday",
+  6: "Saturday",
+  7: "Sunday",
+};
+
+function getDayForm(icons) {
+  icons.forEach((el) => {
+    const elementsDay = el.parentElement.className.split(" ").splice(-1, 3);
+    el.addEventListener("click", function (e) {
+      scheduleDayInput.value = days[elementsDay];
+      toggleHidden(scheduleForm);
+    });
+  });
 }
 
-// temp();
+async function addSchedule() {
+  const data = await getData("../backend/api/get-workouts-schedule.php");
+  console.log(data);
+  getDayForm(addIcons);
+  postWorkoutSchedule();
+}
 
-// Popup
+async function editSchedule() {
+  getDayForm(editIcons);
+}
+async function deleteSchedule() {
+  getDayForm(delIcons);
+}
+
+addSchedule();
+deleteSchedule();
+editSchedule();

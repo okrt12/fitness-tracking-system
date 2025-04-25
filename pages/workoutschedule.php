@@ -184,6 +184,7 @@
         <!-- ----------------------------------------------------------------------------------------------------------------------------- -->
         <!-- ----------------------------------------------------------------------------------------------------------------------------- -->
         <div class="workout-cards container">
+          <span class="id-holder hidden"></span>
           <div class="schedule-workout cards">
             <h3 class="cards-header calendar-header">
               This Week Workout Schedule
@@ -198,7 +199,15 @@
                     for="schedule-type"
                     >Workout Day</label
                   >
-                  <select
+                  <input
+                    class="input normal-text cards-description"
+                    type="text"
+                    id="schedule-day"
+                    name="schedule-day"
+                    placeholder="Day"
+                    readonly
+                  />
+                  <!-- <select
                     class="input cards-description normal-text"
                     id="schedule-day"
                     name="schedule-day"
@@ -212,7 +221,7 @@
                     <option value="Fri">Friday</option>
                     <option value="Sat">Saturday</option>
                     <option value="Sun">Sunday</option>
-                  </select>
+                  </select> -->
 
                   <div class="detail-value flex-col">
                     <label
@@ -307,11 +316,12 @@
                   <div class="day day-1 mon">
                     <p class="day-label normal-text cards-description">Mon</p>
                     <div class="workout normal-text cards-description">
-                      <span>Running</span> <br />
-                      <span>7:00 AM</span><br />
+                      <span class="id-holder hidden"></span>
+                      <span>Running</span>
+                      <span>7:00 AM</span>
                       <span>30 min</span>
                     </div>
-                    <div class="flex-container detail-valu day-icons">
+                    <div class="flex-container detail-value day-icons 1">
                       <ion-icon
                         class="icons day-icon add-icon"
                         name="add-outline"
@@ -331,9 +341,10 @@
                   <div class="day day-2 tue">
                     <p class="day-label normal-text cards-description">Tue</p>
                     <div class="workout normal-text cards-description empty">
+                      <span class="id-holder hidden"></span>
                       <span>No Workout</span>
                     </div>
-                    <div class="flex-container detail-value day-icons">
+                    <div class="flex-container detail-value day-icons 2">
                       <ion-icon
                         class="icons day-icon add-icon"
                         name="add-outline"
@@ -353,11 +364,12 @@
                   <div class="day day-3 wed">
                     <p class="day-label normal-text cards-description">Wed</p>
                     <div class="workout normal-text cards-description">
-                      <span>Lifting</span> <br />
-                      <span> 6:00 PM</span><br />
+                      <span class="id-holder hidden"></span>
+                      <span>Lifting</span>
+                      <span> 6:00 PM</span>
                       <span>45 min</span>
                     </div>
-                    <div class="flex-container detail-value day-icons">
+                    <div class="flex-container detail-value day-icons 3">
                       <ion-icon
                         class="icons day-icon add-icon"
                         name="add-outline"
@@ -377,9 +389,10 @@
                   <div class="day day-4 thu">
                     <p class="day-label normal-text cards-description">Thu</p>
                     <div class="workout normal-text cards-description empty">
+                      <span class="id-holder hidden"></span>
                       <span>No Workout</span>
                     </div>
-                    <div class="flex-container detail-value day-icons">
+                    <div class="flex-container detail-value day-icons 4">
                       <ion-icon
                         class="icons day-icon add-icon"
                         name="add-outline"
@@ -399,11 +412,12 @@
                     <div class="day day-5 today fri">
                       <p class="day-label normal-text cards-description">Fri</p>
                       <div class="workout normal-text cards-description">
-                        <span>Yoga</span> <br />
-                        <span>8:00 AM</span><br />
+                        <span class="id-holder hidden"></span>
+                        <span>Yoga</span>
+                        <span>8:00 AM</span>
                         <span>60 min</span>
                       </div>
-                      <div class="flex-container detail-value day-icons">
+                      <div class="flex-container detail-value day-icons 5">
                         <ion-icon
                           class="icons day-icon add-icon"
                           name="add-outline"
@@ -421,9 +435,10 @@
                     <div class="day day-6 sat">
                       <p class="day-label normal-text cards-description">Sat</p>
                       <div class="workout normal-text cards-description empty">
+                        <span class="id-holder hidden"></span>
                         <span> No Workout</span>
                       </div>
-                      <div class="flex-container detail-value day-icons">
+                      <div class="flex-container detail-value day-icons 6">
                         <ion-icon
                           class="icons day-icon add-icon"
                           name="add-outline"
@@ -441,11 +456,12 @@
                     <div class="day day-7 sun">
                       <p class="day-label normal-text cards-description">Sun</p>
                       <div class="workout normal-text cards-description">
-                        <span>Cycling</span><br />
-                        <span>9:00 AM</span><br />
+                        <span class="id-holder hidden"></span>
+                        <span>Cycling</span>
+                        <span>9:00 AM</span>
                         <span>40 min</span>
                       </div>
-                      <div class="flex-container detail-value day-icons">
+                      <div class="flex-container detail-value day-icons 7">
                         <ion-icon
                           class="icons day-icon add-icon"
                           name="add-outline"
