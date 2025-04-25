@@ -9,7 +9,7 @@ import {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////   Styles       ////////////////////////////////////////////////////
 const dayToUpdate = document.querySelectorAll(".spacer .day");
-const day1 = document.querySelector(".day-1");
+const day1 = document.querySelector(".mon");
 const width = day1.getBoundingClientRect().width;
 
 function updateMinWidths() {
@@ -133,6 +133,7 @@ const weekDays = document.querySelectorAll(".day");
 const addIcons = document.querySelectorAll(".add-icon");
 const editIcons = document.querySelectorAll(".edit-icon");
 const delIcons = document.querySelectorAll(".del-icon");
+const workoutContainer = document.querySelectorAll(".workout");
 
 const days = {
   1: "Monday",
@@ -146,7 +147,7 @@ const days = {
 
 function getDayForm(icons) {
   icons.forEach((el) => {
-    const elementsDay = el.parentElement.className.split(" ").splice(-1, 3);
+    const elementsDay = el.parentElement.getAttribute("data-day");
     el.addEventListener("click", function (e) {
       scheduleDayInput.value = days[elementsDay];
       toggleHidden(scheduleForm);
@@ -154,9 +155,51 @@ function getDayForm(icons) {
   });
 }
 
-async function addSchedule() {
+function getRecentData(data, day) {
+  const scheduleDay = data.filter((el) => el.day_of_week === day);
+  if (scheduleDay.length === 0) return 0;
+  scheduleDay.sort(
+    (a, b) => new Date(b.schedule_date) - new Date(a.schedule_date)
+  );
+  return scheduleDay[0];
+}
+
+function getWeekData(weekData, data) {
+  workoutContainer.forEach((el) => {
+    const elementsDay = days[el.nextElementSibling.getAttribute("data-day")];
+    weekData.push(getRecentData(data, elementsDay));
+  });
+}
+
+async function updateDaysData() {
   const data = await getData("../backend/api/get-workouts-schedule.php");
-  console.log(data);
+  const weekData = [];
+
+  getWeekData(weekData, data.data);
+  workoutContainer.forEach((el, i) => {
+    const html = weekData[i]
+      ? `
+    <span class = "normal-text cards-description">${
+      weekData[i].workout_day_name
+    }</span>
+    <span class = "normal-text cards-description">${weekData[i].time
+      .split("")
+      .splice(0, 5)
+      .join("")}</span>
+    <span class = "normal-text cards-description">${
+      weekData[i].duration > 60
+        ? weekData[i].duration / 60 + " hrs"
+        : weekData[i].duration + " min"
+    } </span>
+    `
+      : `<span>No Workout</span>`;
+    el.insertAdjacentHTML("beforeend", html);
+    const schedule_id = weekData[i].schedule_id || "";
+    el.setAttribute("data-schedule_id", schedule_id);
+  });
+}
+
+async function addSchedule() {
   getDayForm(addIcons);
   postWorkoutSchedule();
 }
@@ -171,3 +214,4 @@ async function deleteSchedule() {
 addSchedule();
 deleteSchedule();
 editSchedule();
+updateDaysData();

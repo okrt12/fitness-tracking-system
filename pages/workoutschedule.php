@@ -184,7 +184,6 @@
         <!-- ----------------------------------------------------------------------------------------------------------------------------- -->
         <!-- ----------------------------------------------------------------------------------------------------------------------------- -->
         <div class="workout-cards container">
-          <span class="id-holder hidden"></span>
           <div class="schedule-workout cards">
             <h3 class="cards-header calendar-header">
               This Week Workout Schedule
@@ -313,15 +312,16 @@
               <div class="calendar">
                 <div class="calendar-grid">
                   <!-- Day 1 -->
-                  <div class="day day-1 mon">
+                  <div class="day mon">
                     <p class="day-label normal-text cards-description">Mon</p>
-                    <div class="workout normal-text cards-description">
-                      <span class="id-holder hidden"></span>
-                      <span>Running</span>
-                      <span>7:00 AM</span>
-                      <span>30 min</span>
-                    </div>
-                    <div class="flex-container detail-value day-icons 1">
+                    <div
+                      class="workout day-1 normal-text cards-description"
+                      data-schedule_id=""
+                    ></div>
+                    <div
+                      class="flex-container detail-value day-icons"
+                      data-day="1"
+                    >
                       <ion-icon
                         class="icons day-icon add-icon"
                         name="add-outline"
@@ -338,13 +338,16 @@
                   </div>
 
                   <!-- Day 2 -->
-                  <div class="day day-2 tue">
+                  <div class="day tue">
                     <p class="day-label normal-text cards-description">Tue</p>
-                    <div class="workout normal-text cards-description empty">
-                      <span class="id-holder hidden"></span>
-                      <span>No Workout</span>
-                    </div>
-                    <div class="flex-container detail-value day-icons 2">
+                    <div
+                      data-schedule_id=""
+                      class="workout day-2 normal-text cards-description empty"
+                    ></div>
+                    <div
+                      class="flex-container detail-value day-icons"
+                      data-day="2"
+                    >
                       <ion-icon
                         class="icons day-icon add-icon"
                         name="add-outline"
@@ -361,15 +364,16 @@
                   </div>
 
                   <!-- Day 3 -->
-                  <div class="day day-3 wed">
+                  <div class="day wed">
                     <p class="day-label normal-text cards-description">Wed</p>
-                    <div class="workout normal-text cards-description">
-                      <span class="id-holder hidden"></span>
-                      <span>Lifting</span>
-                      <span> 6:00 PM</span>
-                      <span>45 min</span>
-                    </div>
-                    <div class="flex-container detail-value day-icons 3">
+                    <div
+                      class="workout day-3 normal-text cards-description"
+                      data-schedule_id=""
+                    ></div>
+                    <div
+                      class="flex-container detail-value day-icons"
+                      data-day="3"
+                    >
                       <ion-icon
                         class="icons day-icon add-icon"
                         name="add-outline"
@@ -386,13 +390,16 @@
                   </div>
 
                   <!-- Day 4 -->
-                  <div class="day day-4 thu">
+                  <div class="day thu">
                     <p class="day-label normal-text cards-description">Thu</p>
-                    <div class="workout normal-text cards-description empty">
-                      <span class="id-holder hidden"></span>
-                      <span>No Workout</span>
-                    </div>
-                    <div class="flex-container detail-value day-icons 4">
+                    <div
+                      data-schedule_id=""
+                      class="workout day-4 normal-text cards-description empty"
+                    ></div>
+                    <div
+                      class="flex-container detail-value day-icons"
+                      data-day="4"
+                    >
                       <ion-icon
                         class="icons day-icon add-icon"
                         name="add-outline"
@@ -409,15 +416,20 @@
                   </div>
 
                   <div class="spacer">
-                    <div class="day day-5 today fri">
+                    <div class="day today fri">
                       <p class="day-label normal-text cards-description">Fri</p>
-                      <div class="workout normal-text cards-description">
-                        <span class="id-holder hidden"></span>
-                        <span>Yoga</span>
+                      <div
+                        class="workout day-5 normal-text cards-description"
+                        data-schedule_id=""
+                      >
+                        <!-- <span>Yoga</span>
                         <span>8:00 AM</span>
-                        <span>60 min</span>
+                        <span>60 min</span> -->
                       </div>
-                      <div class="flex-container detail-value day-icons 5">
+                      <div
+                        class="flex-container detail-value day-icons"
+                        data-day="5"
+                      >
                         <ion-icon
                           class="icons day-icon add-icon"
                           name="add-outline"
@@ -432,13 +444,16 @@
                         ></ion-icon>
                       </div>
                     </div>
-                    <div class="day day-6 sat">
+                    <div class="day sat">
                       <p class="day-label normal-text cards-description">Sat</p>
-                      <div class="workout normal-text cards-description empty">
-                        <span class="id-holder hidden"></span>
-                        <span> No Workout</span>
-                      </div>
-                      <div class="flex-container detail-value day-icons 6">
+                      <div
+                        class="workout day-6 normal-text cards-description"
+                        data-schedule_id=""
+                      ></div>
+                      <div
+                        class="flex-container detail-value day-icons"
+                        data-day="6"
+                      >
                         <ion-icon
                           class="icons day-icon add-icon"
                           name="add-outline"
@@ -453,15 +468,20 @@
                         ></ion-icon>
                       </div>
                     </div>
-                    <div class="day day-7 sun">
+                    <div class="day sun">
                       <p class="day-label normal-text cards-description">Sun</p>
-                      <div class="workout normal-text cards-description">
-                        <span class="id-holder hidden"></span>
-                        <span>Cycling</span>
+                      <div
+                        data-schedule_id=""
+                        class="workout day-7 normal-text cards-description"
+                      >
+                        <!-- <span>Cycling</span>
                         <span>9:00 AM</span>
-                        <span>40 min</span>
+                        <span>40 min</span> -->
                       </div>
-                      <div class="flex-container detail-value day-icons 7">
+                      <div
+                        class="flex-container detail-value day-icons"
+                        data-day="7"
+                      >
                         <ion-icon
                           class="icons day-icon add-icon"
                           name="add-outline"
