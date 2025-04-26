@@ -42,13 +42,11 @@ const yesBtn = document.querySelector(".yes");
 const noBtn = document.querySelector(".no");
 
 const totalWeekWorkout = document.querySelector(".total-workout_time");
+const weekWorkoutDay = document.querySelector(".workout-days");
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////   Edit and Update Schedule   //////////////////////////////
-const weekDays = document.querySelectorAll(".day");
-const addIcons = document.querySelectorAll(".add-icon");
-const editIcons = document.querySelectorAll(".edit-icon");
-const delIcons = document.querySelectorAll(".del-icon");
+
 const workoutContainer = document.querySelectorAll(".workout");
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -266,7 +264,7 @@ async function deleteSchedule() {
   });
 }
 
-async function updateTotalWeekWorkout() {
+function updateTotalWeekWorkout() {
   const total = weekData
     .filter((el) => el)
     .map((el) => el.duration)
@@ -277,6 +275,34 @@ async function updateTotalWeekWorkout() {
   totalWeekWorkout.textContent = (total / 60).toFixed(0) + " hrs";
 }
 
+function workoutDays() {
+  const workoutDay = weekData
+    .filter((el) => el)
+    .map((el) => el.day_of_week)
+    .forEach((el) => {
+      const html = `<span>${el}</span>`;
+      weekWorkoutDay.insertAdjacentHTML("beforeend", html);
+    });
+}
+
+const date = new Date();
+
+function getTodaySchedule() {
+  const today = days[date.getDay()]
+    .toLowerCase()
+    .split("")
+    .splice(0, 3)
+    .join("");
+  console.log(today);
+  workoutContainer.forEach((el) => {
+    const todayContainer = el.parentElement;
+    if (todayContainer.classList.contains(today)) {
+      todayContainer.classList.add("today");
+    }
+  });
+}
+
+getTodaySchedule();
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////   Timer       ////////////////////////////////////////////////////
 
@@ -361,4 +387,5 @@ backdrop.addEventListener("click", function () {
   editSchedule();
   deleteSchedule();
   updateTotalWeekWorkout();
+  workoutDays();
 })();

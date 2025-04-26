@@ -174,11 +174,7 @@
           </div>
           <div class="cards flex-col status-cards">
             <h3 class="cards-header">Workout Days</h3>
-            <div class="flex-container">
-              <p class="cards-description normal-text">Leg Day</p>
-              <p class="cards-description normal-text">Chest Day</p>
-              <p class="cards-description normal-text">Arm Day</p>
-            </div>
+            <div class="workout-days"></div>
           </div>
         </div>
         <!-- ----------------------------------------------------------------------------------------------------------------------------- -->
@@ -443,7 +439,7 @@
                     <p class="day-label normal-text cards-description">Tue</p>
                     <div
                       data-schedule_id=""
-                      class="workout day-2 normal-text cards-description empty"
+                      class="workout day-2 normal-text cards-description"
                     ></div>
                     <div
                       class="flex-container detail-value day-icons"
@@ -517,16 +513,12 @@
                   </div>
 
                   <div class="spacer">
-                    <div class="day today fri">
+                    <div class="day fri">
                       <p class="day-label normal-text cards-description">Fri</p>
                       <div
                         class="workout day-5 normal-text cards-description"
                         data-schedule_id=""
-                      >
-                        <!-- <span>Yoga</span>
-                        <span>8:00 AM</span>
-                        <span>60 min</span> -->
-                      </div>
+                      ></div>
                       <div
                         class="flex-container detail-value day-icons"
                         data-day="5"
@@ -574,11 +566,7 @@
                       <div
                         data-schedule_id=""
                         class="workout day-7 normal-text cards-description"
-                      >
-                        <!-- <span>Cycling</span>
-                        <span>9:00 AM</span>
-                        <span>40 min</span> -->
-                      </div>
+                      ></div>
                       <div
                         class="flex-container detail-value day-icons"
                         data-day="7"

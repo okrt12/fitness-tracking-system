@@ -66,6 +66,16 @@
   font-weight: 600;
 }
 
+.workout-days {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.workout-days span {
+  font-size: 1.4rem;
+  font-family: var(--inter);
+}
+
 /* ******************************************************************************************************************* */
 /* ******************************************************************************************************************* */
 .workout-cards {
@@ -149,7 +159,6 @@ select {
   background-color: var(--light-black);
   padding: 1rem;
   border-radius: 4px;
-  gap: 1rem;
   width: inherit;
 }
 
