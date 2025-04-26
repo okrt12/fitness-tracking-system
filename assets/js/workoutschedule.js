@@ -52,15 +52,6 @@ updateMinWidths();
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////    Functions       //////////////////////////////////////////////////
-function getDayForm(icons) {
-  icons.forEach((el) => {
-    const elementsDay = el.parentElement.getAttribute("data-day");
-    el.addEventListener("click", function (e) {
-      scheduleDayInput.value = days[elementsDay];
-      toggleHidden(addScheduleForm);
-    });
-  });
-}
 
 function getRecentData(data, day) {
   const scheduleDay = data.filter((el) => el.day_of_week === day);
@@ -112,12 +103,11 @@ function updateWorkoutSchedule(scheduleID) {
   });
 }
 
-function postWorkoutSchedule(scheduleID, url) {
+function postWorkoutSchedule() {
   addScheduleForm.addEventListener("submit", async function (e) {
     e.preventDefault();
 
     const scheduleData = {
-      schedule_id: scheduleID ? scheduleID : undefined,
       day_of_week: scheduleDayInput.value,
       workout_id: selectedID,
       workout_day_name: scheduleDayNameInput.value,
@@ -271,8 +261,21 @@ async function updateDaysData() {
 }
 
 async function addSchedule() {
-  getDayForm(addIcons);
-  postWorkoutSchedule();
+  workoutContainer.forEach((el) => {
+    const addIcon = el.nextElementSibling.children[0];
+    addIcon.addEventListener("click", function (e) {
+      const scheduleID = el.getAttribute("data-schedule_id");
+      console.log(scheduleID);
+      if (!scheduleID) {
+        const elementsDay = addIcon.parentElement.getAttribute("data-day");
+        scheduleDayInput.value = days[elementsDay];
+        toggleHidden(addScheduleForm);
+        postWorkoutSchedule();
+      } else {
+        alert("There is already schedule please click the edit button");
+      }
+    });
+  });
 }
 
 async function editSchedule() {
