@@ -40,6 +40,8 @@ const minuteLabel = document.querySelector(".minute-label");
 const yesNoPopup = document.querySelector(".yes-no__popup");
 const yesBtn = document.querySelector(".yes");
 const noBtn = document.querySelector(".no");
+
+const totalWeekWorkout = document.querySelector(".total-workout_time");
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////   Styles       ////////////////////////////////////////////////////
 const dayToUpdate = document.querySelectorAll(".spacer .day");
@@ -52,6 +54,10 @@ function updateMinWidths() {
   });
 }
 updateMinWidths();
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////    Const Var       //////////////////////////////////////////////////
+const weekData = [];
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////    Functions       //////////////////////////////////////////////////
@@ -161,6 +167,87 @@ function postWorkoutSchedule() {
   });
 }
 
+async function updateDaysData() {
+  const data = await getData("../backend/api/get-workouts-schedule.php");
+  getWeekData(weekData, data.data);
+  workoutContainer.forEach((el, i) => {
+    const html = weekData[i]
+      ? `
+    <span class = "normal-text cards-description workout_day_name">${
+      weekData[i].workout_day_name
+    }</span>
+    <span class = "normal-text cards-description schedule_time">${weekData[
+      i
+    ].time
+      .split("")
+      .splice(0, 5)
+      .join("")}</span>
+    <span class = "normal-text cards-description schedule_duration">${
+      weekData[i].duration >= 60
+        ? (weekData[i].duration / 60).toFixed(0) + " hr"
+        : weekData[i].duration + " min"
+    } </span>
+    `
+      : `<span>No Workout</span>`;
+    el.insertAdjacentHTML("beforeend", html);
+    const schedule_id = weekData[i].schedule_id || "";
+    el.setAttribute("data-schedule_id", schedule_id);
+  });
+}
+
+async function addSchedule() {
+  workoutContainer.forEach((el) => {
+    const addIcon = el.nextElementSibling.children[0];
+    addIcon.addEventListener("click", function (e) {
+      const scheduleID = el.getAttribute("data-schedule_id");
+      console.log(scheduleID);
+      if (!scheduleID) {
+        const elementsDay = addIcon.parentElement.getAttribute("data-day");
+        scheduleDayInput.value = days[elementsDay];
+        toggleHidden(addScheduleForm);
+        postWorkoutSchedule();
+      } else {
+        alert("There is already schedule please click the edit button");
+      }
+    });
+  });
+}
+
+async function editSchedule() {
+  workoutContainer.forEach((el) => {
+    const workoutDayName = el.querySelector(".workout_day_name");
+    const time = el.querySelector(".schedule_time");
+    const duration = el.querySelector(".schedule_duration");
+    const editIcon = el.nextElementSibling.children[1];
+
+    editIcon.addEventListener("click", function (e) {
+      const scheduleID = el.getAttribute("data-schedule_id");
+      const elementsDay = editIcon.parentElement.getAttribute("data-day");
+      editScheduleDayInput.value = days[elementsDay];
+      toggleHidden(editScheduleForm);
+      if (workoutDayName)
+        editScheduleDayNameInput.value = workoutDayName.textContent;
+      if (time) editScheduleTimeInput.value = time.textContent;
+      if (duration) editScheduleDurationInput.value = duration.textContent;
+      updateWorkoutSchedule(scheduleID);
+    });
+  });
+}
+
+async function deleteSchedule() {
+  workoutContainer.forEach((el) => {
+    const scheduleID = el.getAttribute("data-schedule_id");
+    const delIcon = el.nextElementSibling.children[2];
+    delIcon.addEventListener("click", function (e) {
+      toggleHidden(yesNoPopup);
+      deletePost(scheduleID);
+    });
+    noBtn.addEventListener("click", function () {
+      toggleHidden(yesNoPopup);
+    });
+  });
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////   Timer       ////////////////////////////////////////////////////
 
@@ -256,85 +343,6 @@ const days = {
   6: "Saturday",
   7: "Sunday",
 };
-
-const weekData = [];
-
-async function updateDaysData() {
-  const data = await getData("../backend/api/get-workouts-schedule.php");
-  getWeekData(weekData, data.data);
-  workoutContainer.forEach((el, i) => {
-    const html = weekData[i]
-      ? `
-    <span class = "normal-text cards-description workout_day_name">${
-      weekData[i].workout_day_name
-    }</span>
-    <span class = "normal-text cards-description schedule_time">${weekData[
-      i
-    ].time
-      .split("")
-      .splice(0, 5)
-      .join("")}</span>
-    <span class = "normal-text cards-description schedule_duration">${
-      weekData[i].duration >= 60
-        ? (weekData[i].duration / 60).toFixed(0) + " hr"
-        : weekData[i].duration + " min"
-    } </span>
-    `
-      : `<span>No Workout</span>`;
-    el.insertAdjacentHTML("beforeend", html);
-    const schedule_id = weekData[i].schedule_id || "";
-    el.setAttribute("data-schedule_id", schedule_id);
-  });
-}
-
-async function addSchedule() {
-  workoutContainer.forEach((el) => {
-    const addIcon = el.nextElementSibling.children[0];
-    addIcon.addEventListener("click", function (e) {
-      const scheduleID = el.getAttribute("data-schedule_id");
-      console.log(scheduleID);
-      if (!scheduleID) {
-        const elementsDay = addIcon.parentElement.getAttribute("data-day");
-        scheduleDayInput.value = days[elementsDay];
-        toggleHidden(addScheduleForm);
-        postWorkoutSchedule();
-      } else {
-        alert("There is already schedule please click the edit button");
-      }
-    });
-  });
-}
-
-async function editSchedule() {
-  workoutContainer.forEach((el) => {
-    const workoutDayName = el.querySelector(".workout_day_name");
-    const time = el.querySelector(".schedule_time");
-    const duration = el.querySelector(".schedule_duration");
-    const editIcon = el.nextElementSibling.children[1];
-
-    editIcon.addEventListener("click", function (e) {
-      const scheduleID = el.getAttribute("data-schedule_id");
-      const elementsDay = editIcon.parentElement.getAttribute("data-day");
-      editScheduleDayInput.value = days[elementsDay];
-      toggleHidden(editScheduleForm);
-      if (workoutDayName)
-        editScheduleDayNameInput.value = workoutDayName.textContent;
-      if (time) editScheduleTimeInput.value = time.textContent;
-      if (duration) editScheduleDurationInput.value = duration.textContent;
-      updateWorkoutSchedule(scheduleID);
-    });
-  });
-}
-async function deleteSchedule() {
-  workoutContainer.forEach((el) => {
-    const scheduleID = el.getAttribute("data-schedule_id");
-    const delIcon = el.nextElementSibling.children[2];
-    delIcon.addEventListener("click", function (e) {
-      toggleHidden(yesNoPopup);
-      deletePost(scheduleID);
-    });
-  });
-}
 
 (async () => {
   await updateDaysData();
