@@ -41,7 +41,6 @@
             <input
               type="email"
               id="email"
-              autocomplete="off"
               class="input normal-text cards-description"
               placeholder="Enter your email"
               required
@@ -55,7 +54,6 @@
             <input
               type="password"
               id="password"
-              autocomplete="off"
               class="input normal-text cards-description"
               placeholder="Enter your password"
               required
@@ -72,9 +70,9 @@
           </div>
           <button type="submit" class="btn-primary login-btn">Log In</button>
 
-          <div class="signup-link">
+          <div class="signup-link"> 
             <p class="normal-text cards-description login-link">
-              Already have an account?
+              Don't have an account?
               <a href="/pages/signup.php" class="text-link">Sign Up</a>
             </p>
           </div>

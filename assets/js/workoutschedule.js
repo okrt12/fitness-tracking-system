@@ -168,7 +168,6 @@ function postWorkoutSchedule() {
         scheduleData,
         "../backend/controllers/postWorkoutSchedule.php"
       );
-      console.log(response);
       if (response.ok) {
         const data = await response.json();
         alert(data.message);
@@ -198,11 +197,20 @@ async function updateDaysData() {
       .split("")
       .splice(0, 5)
       .join("")}</span>
-    <span class = "normal-text cards-description schedule_duration">${
-      weekData[i].duration >= 60
-        ? (weekData[i].duration / 60).toFixed(0) + " hr"
-        : weekData[i].duration + " min"
-    } </span>
+      <div>
+    <span class = "normal-text cards-description schedule_duration" data-min = ${
+      weekData[i].duration
+    }>${
+          weekData[i].duration >= 60
+            ? Math.floor(weekData[i].duration / 60) + " hr"
+            : weekData[i].duration + " min"
+        }</span> 
+    <span class = "normal-text cards-description">${
+      weekData[i].duration > 60 && weekData[i].duration % 60 !== 0
+        ? (weekData[i].duration % 60) + " min"
+        : ""
+    }</span>
+    </div>
     `
       : `<span>No Workout</span>`;
     el.insertAdjacentHTML("beforeend", html);
@@ -216,7 +224,6 @@ async function addSchedule() {
     const addIcon = el.nextElementSibling.children[0];
     addIcon.addEventListener("click", function (e) {
       const scheduleID = el.getAttribute("data-schedule_id");
-      console.log(scheduleID);
       if (!scheduleID) {
         const elementsDay = addIcon.parentElement.getAttribute("data-day");
         scheduleDayInput.value = days[elementsDay];
@@ -240,11 +247,18 @@ async function editSchedule() {
       const scheduleID = el.getAttribute("data-schedule_id");
       const elementsDay = editIcon.parentElement.getAttribute("data-day");
       editScheduleDayInput.value = days[elementsDay];
+      let durationText;
+      if (duration) {
+        durationText = duration.getAttribute("data-min");
+      }
+
       toggleHidden(editScheduleForm);
       if (workoutDayName)
         editScheduleDayNameInput.value = workoutDayName.textContent;
       if (time) editScheduleTimeInput.value = time.textContent;
-      if (duration) editScheduleDurationInput.value = duration.textContent;
+      if (duration)
+        editScheduleDurationInput.value =
+          (durationText < 10 && durationText * 60) || durationText;
       updateWorkoutSchedule(scheduleID);
     });
   });
@@ -272,7 +286,12 @@ function updateTotalWeekWorkout() {
       acc += curr;
       return acc;
     }, 0);
-  totalWeekWorkout.textContent = (total / 60).toFixed(0) + " hrs";
+
+  totalWeekWorkout.textContent =
+    (total >= 60 &&
+      total % 60 !== 0 &&
+      Math.floor(total / 60) + " hrs " + (total % 60) + " min") ||
+    total / 60 + " hrs";
 }
 
 function workoutDays() {
@@ -285,15 +304,13 @@ function workoutDays() {
     });
 }
 
-const date = new Date();
-
 function getTodaySchedule() {
+  const date = new Date();
   const today = days[date.getDay()]
     .toLowerCase()
     .split("")
     .splice(0, 3)
     .join("");
-  console.log(today);
   workoutContainer.forEach((el) => {
     const todayContainer = el.parentElement;
     if (todayContainer.classList.contains(today)) {
@@ -302,12 +319,11 @@ function getTodaySchedule() {
   });
 }
 
-getTodaySchedule();
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////   Timer       ////////////////////////////////////////////////////
 
 const now = new Date();
-const currentDayIndex = now.getDay() === 0 ? 6 : now.getDay() - 1; // Adjust Sunday (0) to 6
+const currentDayIndex = now.getDay() === 0 ? 6 : now.getDay();
 const currentTime = now.getHours() * 60 + now.getMinutes();
 
 function timer(day, hour, minutes) {
@@ -388,4 +404,6 @@ backdrop.addEventListener("click", function () {
   deleteSchedule();
   updateTotalWeekWorkout();
   workoutDays();
+  getTodaySchedule();
+  getNextWorkout();
 })();

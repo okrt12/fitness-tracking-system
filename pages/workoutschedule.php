@@ -352,6 +352,7 @@
                     class="input cards-description normal-text"
                     id="edit_schedule-type"
                     name="schedule-type"
+                    required
                   >
                     <option value="">Select a Workout</option>
                   </select>
