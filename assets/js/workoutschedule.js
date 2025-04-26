@@ -42,6 +42,15 @@ const yesBtn = document.querySelector(".yes");
 const noBtn = document.querySelector(".no");
 
 const totalWeekWorkout = document.querySelector(".total-workout_time");
+
+//////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////   Edit and Update Schedule   //////////////////////////////
+const weekDays = document.querySelectorAll(".day");
+const addIcons = document.querySelectorAll(".add-icon");
+const editIcons = document.querySelectorAll(".edit-icon");
+const delIcons = document.querySelectorAll(".del-icon");
+const workoutContainer = document.querySelectorAll(".workout");
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////   Styles       ////////////////////////////////////////////////////
 const dayToUpdate = document.querySelectorAll(".spacer .day");
@@ -58,6 +67,15 @@ updateMinWidths();
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////    Const Var       //////////////////////////////////////////////////
 const weekData = [];
+const days = {
+  1: "Monday",
+  2: "Tuesday",
+  3: "Wednesday",
+  4: "Thursday",
+  5: "Friday",
+  6: "Saturday",
+  7: "Sunday",
+};
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////    Functions       //////////////////////////////////////////////////
@@ -248,6 +266,17 @@ async function deleteSchedule() {
   });
 }
 
+async function updateTotalWeekWorkout() {
+  const total = weekData
+    .filter((el) => el)
+    .map((el) => el.duration)
+    .reduce((acc, curr) => {
+      acc += curr;
+      return acc;
+    }, 0);
+  totalWeekWorkout.textContent = (total / 60).toFixed(0) + " hrs";
+}
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////   Timer       ////////////////////////////////////////////////////
 
@@ -326,27 +355,10 @@ backdrop.addEventListener("click", function () {
   addHidden(yesNoPopup);
 });
 
-//////////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////   Edit and Update Schedule   //////////////////////////////
-const weekDays = document.querySelectorAll(".day");
-const addIcons = document.querySelectorAll(".add-icon");
-const editIcons = document.querySelectorAll(".edit-icon");
-const delIcons = document.querySelectorAll(".del-icon");
-const workoutContainer = document.querySelectorAll(".workout");
-
-const days = {
-  1: "Monday",
-  2: "Tuesday",
-  3: "Wednesday",
-  4: "Thursday",
-  5: "Friday",
-  6: "Saturday",
-  7: "Sunday",
-};
-
 (async () => {
   await updateDaysData();
   addSchedule();
   editSchedule();
   deleteSchedule();
+  updateTotalWeekWorkout();
 })();
