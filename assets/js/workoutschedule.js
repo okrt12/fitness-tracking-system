@@ -37,6 +37,9 @@ const dayLabel = document.querySelector(".day-label");
 const hourLabel = document.querySelector(".hour-label");
 const minuteLabel = document.querySelector(".minute-label");
 
+const yesNoPopup = document.querySelector(".yes-no__popup");
+const yesBtn = document.querySelector(".yes");
+const noBtn = document.querySelector(".no");
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////   Styles       ////////////////////////////////////////////////////
 const dayToUpdate = document.querySelectorAll(".spacer .day");
@@ -210,6 +213,7 @@ editScheduleTypeInput.addEventListener("change", () => {
 backdrop.addEventListener("click", function () {
   addHidden(addScheduleForm);
   addHidden(editScheduleForm);
+  addHidden(yesNoPopup);
 });
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
@@ -299,7 +303,16 @@ async function editSchedule() {
   });
 }
 async function deleteSchedule() {
-  getDayForm(delIcons);
+  workoutContainer.forEach((el) => {
+    const scheduleID = el.getAttribute("data-schedule_id");
+    const delIcon = el.nextElementSibling.children[2];
+
+    delIcon.addEventListener("click", function (e) {
+      toggleHidden(yesNoPopup);
+    });
+  });
+
+  // addHidden(yesNoPopup);
 }
 
 (async () => {

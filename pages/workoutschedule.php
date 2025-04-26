@@ -190,6 +190,16 @@
             </h3>
 
             <div class="schedule-workout__container">
+              <div class="popup yes-no__popup cards hidden">
+                <p class="cards-description normal-text yes-no__text">
+                  Are you Sure ?
+                </p>
+                <div class="flex-container">
+                  <button type="submit" class="yes-no__btn yes">Yes</button>
+                  <button type="submit" class="yes-no__btn no">No</button>
+                </div>
+              </div>
+
               <form class="schedule-workout__form popup hidden cards">
                 <h3 class="cards-header">Schedule Workout Form</h3>
                 <div class="detail-value flex-col">
