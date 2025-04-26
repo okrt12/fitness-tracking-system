@@ -72,6 +72,30 @@ function getWeekData(weekData, data) {
   });
 }
 
+function deletePost(scheduleID) {
+  const scheduleData = {
+    schedule_id: scheduleID,
+  };
+
+  yesBtn.addEventListener("click", async function (e) {
+    try {
+      const response = await updateData(
+        scheduleData,
+        "../backend/controllers/deleteWorkoutSchedule.php"
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        alert(data.message);
+        toggleHidden(yesNoPopup);
+      }
+    } catch (error) {
+      console.log("Error: ", error);
+      alert("An unexpected error occurred. Please try again later.");
+    }
+  });
+}
+
 function updateWorkoutSchedule(scheduleID) {
   editScheduleForm.addEventListener("submit", async function (e) {
     e.preventDefault();
@@ -91,7 +115,6 @@ function updateWorkoutSchedule(scheduleID) {
         scheduleData,
         "../backend/controllers/editWorkoutSchedule.php"
       );
-      console.log(response);
       if (response.ok) {
         const data = await response.json();
         alert(data.message);
@@ -252,8 +275,8 @@ async function updateDaysData() {
       .splice(0, 5)
       .join("")}</span>
     <span class = "normal-text cards-description schedule_duration">${
-      weekData[i].duration > 60
-        ? weekData[i].duration / 60 + " hrs"
+      weekData[i].duration >= 60
+        ? (weekData[i].duration / 60).toFixed(0) + " hr"
         : weekData[i].duration + " min"
     } </span>
     `
@@ -306,13 +329,11 @@ async function deleteSchedule() {
   workoutContainer.forEach((el) => {
     const scheduleID = el.getAttribute("data-schedule_id");
     const delIcon = el.nextElementSibling.children[2];
-
     delIcon.addEventListener("click", function (e) {
       toggleHidden(yesNoPopup);
+      deletePost(scheduleID);
     });
   });
-
-  // addHidden(yesNoPopup);
 }
 
 (async () => {
