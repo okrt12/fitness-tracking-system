@@ -195,7 +195,7 @@
                 <div class="detail-value flex-col">
                   <label
                     class="normal-text cards-description"
-                    for="schedule-type"
+                    for="edit_schedule-type"
                     >Workout Day</label
                   >
                   <input
@@ -206,21 +206,6 @@
                     placeholder="Day"
                     readonly
                   />
-                  <!-- <select
-                    class="input cards-description normal-text"
-                    id="schedule-day"
-                    name="schedule-day"
-                    required
-                  >
-                    <option value="">Select Day</option>
-                    <option value="Mon">Monday</option>
-                    <option value="Tue">Tuesday</option>
-                    <option value="Wed">Wednesday</option>
-                    <option value="Thu">Thursday</option>
-                    <option value="Fri">Friday</option>
-                    <option value="Sat">Saturday</option>
-                    <option value="Sun">Sunday</option>
-                  </select> -->
 
                   <div class="detail-value flex-col">
                     <label
@@ -306,6 +291,112 @@
                 </label>
                 <button type="submit" class="btn-primary schedule-btn">
                   Schedule Workout
+                </button>
+              </form>
+
+              <form class="edit-schedule__form popup hidden cards">
+                <h3 class="cards-header">Schedule Workout Form</h3>
+                <div class="detail-value flex-col">
+                  <label
+                    class="normal-text cards-description"
+                    for="edit_schedule-type"
+                    >Workout Day</label
+                  >
+                  <input
+                    class="input normal-text cards-description"
+                    type="text"
+                    id="edit_schedule-day"
+                    name="schedule-day"
+                    placeholder="Day"
+                    readonly
+                  />
+
+                  <div class="detail-value flex-col">
+                    <label
+                      for="edit_workout_day_name"
+                      class="normal-text cards-description"
+                      >Workout Day Name</label
+                    >
+                    <select
+                      class="input cards-description normal-text"
+                      id="edit_workout_day_name"
+                      name="workout_day_name"
+                      required
+                    >
+                      <option value="">Select Workout Day</option>
+                      <option value="Chest Day">Chest Day</option>
+                      <option value="Back Day">Back Day</option>
+                      <option value="Leg Day">Leg Day</option>
+                      <option value="Arm Day">Arm Day</option>
+                      <option value="Push Day">Push Day</option>
+                      <option value="Pull Day">Pull Day</option>
+                      <option value="Core Day">Core Day</option>
+                      <option value="Full Body">Full Body</option>
+                      <option value="Rest Day">Rest Day</option>
+                    </select>
+                  </div>
+                </div>
+                <div class="detail-value flex-col">
+                  <label
+                    class="normal-text cards-description"
+                    for="edit_schedule-type"
+                    >Workout Type</label
+                  >
+                  <select
+                    class="input cards-description normal-text"
+                    id="edit_schedule-type"
+                    name="schedule-type"
+                  >
+                    <option value="">Select a Workout</option>
+                  </select>
+                </div>
+                <div class="flex-container detail-value">
+                  <div class="detail-value flex-col">
+                    <label
+                      class="normal-text cards-description"
+                      for="edit_schedule-time"
+                      >Time</label
+                    >
+                    <input
+                      class="input normal-text cards-description"
+                      type="time"
+                      id="edit_schedule-time"
+                      name="schedule-time"
+                      required
+                    />
+                  </div>
+
+                  <div class="detail-value flex-col">
+                    <label
+                      class="normal-text cards-description"
+                      for="edit_schedule-duration"
+                      >Duration (minutes)</label
+                    >
+                    <input
+                      class="input normal-text cards-description"
+                      type="number"
+                      id="edit_schedule-duration"
+                      name="schedule-duration"
+                      min="1"
+                      max="240"
+                      placeholder="Minutes"
+                    />
+                  </div>
+                </div>
+                <label class="custom-checkbox normal-text cards-description">
+                  <input
+                    type="checkbox"
+                    id="weekly-repeat"
+                    name="weekly-repeat"
+                  />
+                  <span class="checkmark"></span>
+                  Repeat Weekly
+                </label>
+                <button
+                  type="submit"
+                  class="btn-primary schedule-btn edit-schedule_btn"
+                >
+                  Change Schedule
                 </button>
               </form>
 

@@ -13,12 +13,13 @@ if (!isset($_SESSION['user_id'])) {
 // Read and decode JSON input
 $data = json_decode(file_get_contents("php://input"), true);
 
+
 if (
   !isset($data['schedule_id']) ||
   !isset($data['workout_id']) ||
   !isset($data['day_of_week']) ||
-  !isset($data['schedule_time']) ||
-  !isset($data['schedule_duration'])
+  !isset($data['time']) ||
+  !isset($data['duration'])
 ) {
   http_response_code(400);
   echo json_encode(['success' => false, 'message' => 'Missing required fields']);
@@ -29,21 +30,21 @@ $user_id = $_SESSION['user_id'];
 $schedule_id = $data['schedule_id'];
 $workout_id = $data['workout_id'];
 $day_of_week = $data['day_of_week'];
-$time = $data['schedule_time'];
-$duration = $data['schedule_duration'];
+$time = $data['time'];
+$duration = $data['duration'];
+$workout_day_name = $data['workout_day_name'];
 
 try {
   $stmt = $pdo->prepare("
     UPDATE workout_schedules
-    SET workout_id = :workout_id,
-        day_of_week = :day_of_week,
+    SET day_of_week = :day_of_week,
         time = :time,
-        duration = :duration
-    WHERE schedule_id = :schedule_id AND user_id = :user_id
-  ");
+        duration = :duration,
+        workout_day_name = :workout_day_name
+    WHERE schedule_id = :schedule_id AND user_id = :user_id");
 
   $stmt->execute([
-    'workout_id' => $workout_id,
+    'workout_day_name' => $workout_day_name,
     'day_of_week' => $day_of_week,
     'time' => $time,
     'duration' => $duration,

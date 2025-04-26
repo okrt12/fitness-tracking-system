@@ -38,6 +38,16 @@ export async function postData(userData, path) {
   });
   return response;
 }
+export async function updateData(userData, path) {
+  const response = await fetch(path, {
+    method: "PATCH",
+    body: JSON.stringify(userData),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  return response;
+}
 
 export const goals = {
   gain_muscle: "Muscle Gain(Bulking)",
@@ -75,4 +85,9 @@ export const backdrop = document.querySelector(".backdrop");
 export function toggleHidden(popup) {
   backdrop.classList.toggle("hidden");
   popup.classList.toggle("hidden");
+}
+
+export function addHidden(popup) {
+  backdrop.classList.add("hidden");
+  popup.classList.add("hidden");
 }

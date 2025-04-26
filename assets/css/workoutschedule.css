@@ -103,7 +103,8 @@ select {
   position: relative;
 }
 
-.schedule-workout__form {
+.schedule-workout__form,
+.edit-schedule__form {
   display: flex;
   flex-direction: column;
   gap: 1.4rem;

@@ -292,3 +292,8 @@ select {
   align-self: center;
   justify-self: center;
 }
+
+/* input:-internal-autofill-selected {
+  background-color: var(--light-black) !important;
+  color: var(--text-color) !important;
+} */
