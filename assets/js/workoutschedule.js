@@ -245,21 +245,25 @@ async function editSchedule() {
 
     editIcon.addEventListener("click", function (e) {
       const scheduleID = el.getAttribute("data-schedule_id");
-      const elementsDay = editIcon.parentElement.getAttribute("data-day");
-      editScheduleDayInput.value = days[elementsDay];
-      let durationText;
-      if (duration) {
-        durationText = duration.getAttribute("data-min");
-      }
+      if (scheduleID) {
+        const elementsDay = editIcon.parentElement.getAttribute("data-day");
+        editScheduleDayInput.value = days[elementsDay];
+        let durationText;
+        if (duration) {
+          durationText = duration.getAttribute("data-min");
+        }
 
-      toggleHidden(editScheduleForm);
-      if (workoutDayName)
-        editScheduleDayNameInput.value = workoutDayName.textContent;
-      if (time) editScheduleTimeInput.value = time.textContent;
-      if (duration)
-        editScheduleDurationInput.value =
-          (durationText < 10 && durationText * 60) || durationText;
-      updateWorkoutSchedule(scheduleID);
+        toggleHidden(editScheduleForm);
+        if (workoutDayName)
+          editScheduleDayNameInput.value = workoutDayName.textContent;
+        if (time) editScheduleTimeInput.value = time.textContent;
+        if (duration)
+          editScheduleDurationInput.value =
+            (durationText < 10 && durationText * 60) || durationText;
+        updateWorkoutSchedule(scheduleID);
+      } else {
+        alert("Please first add schedule to edit");
+      }
     });
   });
 }
@@ -268,9 +272,14 @@ async function deleteSchedule() {
   workoutContainer.forEach((el) => {
     const scheduleID = el.getAttribute("data-schedule_id");
     const delIcon = el.nextElementSibling.children[2];
+
     delIcon.addEventListener("click", function (e) {
-      toggleHidden(yesNoPopup);
-      deletePost(scheduleID);
+      if (scheduleID) {
+        toggleHidden(yesNoPopup);
+        deletePost(scheduleID);
+      } else {
+        alert("There is no schedule to delete");
+      }
     });
     noBtn.addEventListener("click", function () {
       toggleHidden(yesNoPopup);
