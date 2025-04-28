@@ -319,12 +319,72 @@ function getTodaySchedule() {
   });
 }
 
+const dayIndex = {
+  Sunday: 0,
+  Monday: 1,
+  Tuesday: 2,
+  Wednesday: 3,
+  Thursday: 4,
+  Friday: 5,
+  Saturday: 6,
+};
+
+async function getNextWorkout() {
+  const date = new Date();
+  const todayIndex = date.getDay();
+  const timeNow = date.toTimeString().split(" ").splice(0, 1).join("");
+  console.log(timeNow);
+
+  const orderDays = [];
+  for (let i = 0; i < 7; i++) {
+    orderDays.push((todayIndex + i) % 7);
+  }
+
+  const sortedWorkouts = weekData
+    .filter((el, i) => {
+      if (!el) return false;
+      const workoutDayIndex = dayIndex[el.day_of_week];
+      if (workoutDayIndex === todayIndex) {
+        return el.time > timeNow;
+      } else if (orderDays.includes(workoutDayIndex)) {
+        return true;
+      }
+      return false;
+    })
+    .sort((a, b) => {
+      const aIndex = orderDays.indexOf(dayIndex[a.day_of_week]);
+      const bIndex = orderDays.indexOf(dayIndex[b.day_of_week]);
+      return aIndex - bIndex;
+    });
+
+  const nextWorkout = sortedWorkouts[0];
+
+  const nextWorkoutDate = new Date();
+  nextWorkoutDate.setHours(
+    Number(nextWorkout.time.split(":")[0]),
+    Number(nextWorkout.time.split(":")[1]),
+    Number(nextWorkout.time.split(":")[2] || 0)
+  );
+
+  const workoutDayIndex = dayIndex[nextWorkout.day_of_week];
+
+  let dayDiff = (workoutDayIndex - todayIndex + 7) % 7;
+  if (dayDiff !== 0) {
+    nextWorkoutDate.setDate(date.getDate() + dayDiff);
+  }
+
+  const diffMs = nextWorkoutDate - date;
+  const diffMinutes = Math.floor(diffMs / 60000);
+
+  const hours = Math.floor(diffMinutes / 60);
+  const min = diffMinutes % 60;
+
+  timer(0, hours, min);
+
+  console.log(sortedWorkouts);
+}
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////   Timer       ////////////////////////////////////////////////////
-
-const now = new Date();
-const currentDayIndex = now.getDay() === 0 ? 6 : now.getDay();
-const currentTime = now.getHours() * 60 + now.getMinutes();
 
 function timer(day, hour, minutes) {
   if (hour >= 24) {
@@ -335,11 +395,8 @@ function timer(day, hour, minutes) {
     hour += 1;
     minutes = 0;
   }
-  timerDay.textContent = day > 9 ? day : "0" + day;
-  timerHour.textContent = hour > 9 ? hour : "0" + hour;
-  timerMinutes.textContent = minutes > 9 ? minutes : "0" + minutes;
 
-  setInterval(() => {
+  function updateDisplay() {
     timerDay.textContent = day > 9 ? day : "0" + day;
     timerHour.textContent = hour > 9 ? hour : "0" + hour;
     timerMinutes.textContent = minutes > 9 ? minutes : "0" + minutes;
@@ -347,21 +404,27 @@ function timer(day, hour, minutes) {
     dayLabel.textContent = day > 1 ? "Days" : "Day";
     hourLabel.textContent = hour > 1 ? "Hours" : "Hour";
     minuteLabel.textContent = minutes > 1 ? "Minutes" : "Minute";
+  }
 
-    if (hour && minutes === 0) {
-      hour--;
-      minutes = 59;
+  updateDisplay();
+  setInterval(() => {
+    if (minutes > 0) {
+      minutes--;
+    } else {
+      if (hour > 0) {
+        hour--;
+        minutes = 59;
+      } else if (day > 0) {
+        day--;
+        hour = 23;
+        minutes = 59;
+      } else {
+        clearInterval(interval);
+      }
     }
-    if (day && hour === 0) {
-      day--;
-      hour = 23;
-      minutes = 59;
-    }
-    if (minutes <= 0) return;
-    minutes--;
-  }, 1000);
+    updateDisplay();
+  }, 60000);
 }
-// timer(1, 25, 60);
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
