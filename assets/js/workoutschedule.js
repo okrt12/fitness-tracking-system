@@ -333,7 +333,6 @@ async function getNextWorkout() {
   const date = new Date();
   const todayIndex = date.getDay();
   const timeNow = date.toTimeString().split(" ").splice(0, 1).join("");
-  console.log(timeNow);
 
   const orderDays = [];
   for (let i = 0; i < 7; i++) {
@@ -376,12 +375,9 @@ async function getNextWorkout() {
   const diffMs = nextWorkoutDate - date;
   const diffMinutes = Math.floor(diffMs / 60000);
 
-  const hours = Math.floor(diffMinutes / 60);
-  const min = diffMinutes % 60;
-
+  const hours = diffMinutes >= 60 ? Math.floor(diffMinutes / 60) : 0;
+  const min = diffMinutes >= 60 ? diffMinutes % 60 : diffMinutes;
   timer(0, hours, min);
-
-  console.log(sortedWorkouts);
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////   Timer       ////////////////////////////////////////////////////
