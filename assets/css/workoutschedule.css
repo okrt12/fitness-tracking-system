@@ -1,0 +1,276 @@
+.main-workout {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.workout-header {
+  margin-top: 2rem;
+  margin-bottom: 2rem !important;
+}
+
+.schedule-status_bar {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.6rem;
+  margin-bottom: 1.6rem !important;
+}
+
+.timer_container {
+  align-items: center;
+}
+
+.label-container {
+  min-width: 6rem;
+}
+
+.unit-container {
+  background-color: var(--light-black);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: 8px;
+  min-width: 5rem;
+  max-width: 5rem;
+  display: flex;
+  justify-content: center;
+}
+.timer-unit {
+  font-family: var(--poppins);
+  color: var(--white);
+  font-weight: 600;
+  font-size: 2.4rem;
+}
+
+.timer-label {
+  color: #cacaca;
+}
+
+.timer-label_unit {
+  align-items: center;
+  gap: 1rem !important;
+}
+
+.total-workout_container {
+  align-items: center;
+  width: fit-content;
+  gap: 1rem !important;
+}
+
+.total-workout_time {
+  font-size: 2.4rem;
+  text-align: center;
+  background-color: var(--light-black);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1.6rem;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.workout-days {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+.workout-days span {
+  font-size: 1.4rem;
+  font-family: var(--inter);
+}
+
+/* ******************************************************************************************************************* */
+/* ******************************************************************************************************************* */
+.workout-cards {
+  padding-left: 0;
+}
+.icon-text {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.icons {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #cacaca;
+  font-family: --poppins;
+}
+
+.input {
+  background-color: var(--light-black);
+  padding: 1.2rem;
+  width: 100%;
+  border-radius: 11px;
+  color: var(--text-color);
+}
+
+input,
+select {
+  outline: none;
+  border: none;
+}
+
+/* Schedule */
+.workout-cards {
+  position: relative;
+}
+
+.schedule-workout__form,
+.edit-schedule__form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  width: 40rem;
+  top: -35%;
+  left: 50%;
+  right: 50%;
+}
+
+.schedule-btn {
+  background-color: var(--primary-color);
+}
+
+.schedule-workout {
+  grid-column: span 2;
+  margin-bottom: 1.6rem;
+}
+
+.calendar-header {
+  margin-bottom: 0 !important;
+}
+
+.calendar {
+  padding: 1rem;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.spacer {
+  justify-self: center;
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.day {
+  background-color: var(--light-black);
+  padding: 1rem;
+  border-radius: 4px;
+  width: inherit;
+}
+
+.day,
+.workout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.day.today {
+  border: 0.2rem solid var(--accent-color1);
+}
+
+.workout {
+  color: #ffffff;
+  padding: 1rem;
+  border-radius: 4px;
+  font-size: 1.4rem;
+  min-height: 9rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.day-icons {
+  justify-content: space-around;
+  width: 100%;
+}
+
+.day-icon {
+  font-family: var(--poppins);
+  cursor: pointer;
+}
+
+.custom-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.custom-checkbox input[type="checkbox"] {
+  display: none;
+}
+
+.custom-checkbox .checkmark {
+  width: 1.8rem;
+  height: 1.8rem;
+  background-color: var(--light-black);
+  border-radius: 4px;
+  position: relative;
+}
+
+.custom-checkbox input:checked + .checkmark::after {
+  content: "";
+  position: absolute;
+  top: 0.2rem;
+  left: 0.6rem;
+  width: 0.4rem;
+  height: 1rem;
+  border: solid var(--primary-color);
+  border-width: 0 0.2rem 0.2rem 0;
+  transform: rotate(45deg);
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+}
+
+.yes-no__popup {
+  align-items: center;
+  gap: 1.6rem;
+  top: 0;
+  left: 25%;
+  right: 50%;
+  min-width: 20rem;
+}
+
+.yes-no__popup div {
+  gap: 2rem;
+}
+
+.yes-no__text {
+  font-size: 2rem;
+}
+
+.yes-no__btn {
+  color: var(--white);
+  font-size: 2rem;
+  font-weight: 600;
+  padding: 0.3rem 1rem;
+  border: none;
+  border-radius: 4px;
+  font-family: var(--poppins);
+  cursor: pointer;
+  transition: 0.4s all;
+}
+
+.yes {
+  background-color: var(--primary-color);
+}
+
+.yes:hover {
+  background-color: #33d375;
+}
+
+.no {
+  background-color: var(--danger-color);
+}
+.no:hover {
+  background-color: #bf4240;
+}

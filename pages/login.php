@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -18,45 +18,70 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="/assets/css/login.css" />
-    <link rel="stylesheet" href="/assets/css/general.css" />
-
+    <link rel="stylesheet" href="../assets/css/login.css" />
+    <link rel="stylesheet" href="../assets/css/general.css" />
 
     <title>FitTrack+ | Login</title>
-</head>
-<body>
-    
-<body>
-    <main class="login-section">
-        <div class="container">
-            <div class="login-container">
-                <div class="login-card cards">
-                    <div class="login-header">
-                        <h2 class="heading-secondary">Welcome Back to <span class="heading-color">FitTrack+</span></h2>
-                        <p class="cards-description">Log in to continue your fitness journey and track your progress.</p>
-                    </div>
-                    
-                    <form class="login-form" id="loginForm">
-                        <div class="form-group cards">
-                            <label for="email" class="cards-description">Email Address</label>
-                            <input type="email" id="email" class="input" placeholder="Enter your email" required>
-                        </div>
-                        
-                        <div class="form-group cards">
-                            <label for="password" class="cards-description">Password</label>
-                            <input type="password" id="password" class="input" placeholder="Enter your password" required>
-                            <div id="attempts" class="attempts-message">Attempts remaining: 2</div>
-                        </div>                        
-                        <button type="submit" class="btn login-btn">Log In</button>
-                        
-                        <div class="signup-link">
-                            <p class="cards-description">Don't have an account? <a href="#" class="text-link">Sign up</a></p>
-                        </div>
-                    </form>
-                </div>
-            </div>
+  </head>
+
+  <body>
+    <main class="main-login">
+      <div class="login-container container flex-col">
+        <div class="login-header">
+          <h2 class="heading-secondary">
+            Welcome Back to <span class="heading-color">FitTrack+</span>
+          </h2>
         </div>
+
+        <form class="login-form cards" id="loginForm">
+          <div class="detail-value label-input flex-col">
+            <label for="email" class="normal-text cards-description"
+              >Email Address</label
+            >
+            <input
+              type="email"
+              id="email"
+              class="input normal-text cards-description"
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+
+          <div class="detail-value flex-col password-container">
+            <label for="password" class="normal-text cards-description"
+              >Password</label
+            >
+            <input
+              type="password"
+              id="password"
+              class="input normal-text cards-description"
+              placeholder="Enter your password"
+              required
+            />
+
+            <ion-icon
+              class="password-icon login_show"
+              name="eye-outline"
+            ></ion-icon>
+            <ion-icon
+              class="password-icon hide-icon login_hide"
+              name="eye-off-outline"
+            ></ion-icon>
+          </div>
+          <button type="submit" class="btn-primary login-btn">Log In</button>
+
+          <div class="signup-link"> 
+            <p class="normal-text cards-description login-link">
+              Don't have an account?
+              <a href="/pages/signup.php" class="text-link">Sign Up</a>
+            </p>
+          </div>
+        </form>
+      </div>
     </main>
+
+    <!-- JS -->
+    <script type="module" src="/assets/js/login.js"></script>
 
     <script
       type="module"
@@ -66,5 +91,5 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
-</body>
+  </body>
 </html>

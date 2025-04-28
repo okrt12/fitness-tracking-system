@@ -28,7 +28,7 @@
 
   /* Fonts */
   --poppins: "Poppins", sans-serif;
-  --inter: font-family: "Inter", sans-serif;
+  --inter: "Inter", sans-serif;
 }
 
 * {
@@ -51,7 +51,7 @@ body {
 }
 
 .container {
-  max-width: 180rem;
+  max-width: 120rem;
   margin: 0 auto;
   padding: 0 3.2rem;
 }
@@ -144,6 +144,14 @@ body {
   color: var(--primary-color);
 }
 
+.main {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  background-color: var(--background-color);
+  overflow-y: hidden;
+  height: 100vh;
+}
+
 /* ***************************************************************************
 ************************* Sidebar ********************************************** */
 .sidebar {
@@ -160,7 +168,7 @@ body {
 }
 
 .sidebar li:first-child {
-  margin-bottom: 3.2rem;
+  margin-bottom: 1.8rem;
 }
 
 .logo {
@@ -183,3 +191,109 @@ body {
 .sidebar-btns:hover {
   background-color: var(--light-black);
 }
+
+.active-page {
+  background-color: var(--light-black);
+}
+
+.icon-text {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+/* ************************** Cards *************************************/
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  background-color: var(--secondary-bg);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cards-header {
+  font-family: "Poppins", sans-serif;
+  color: var(--text-color);
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.cards-description {
+  font-size: 1.6rem;
+  color: var(--text-color);
+}
+
+.btn-primary {
+  color: var(--white);
+  font-size: 1.6rem;
+  font-weight: 600;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: 4px;
+  font-family: var(--poppins);
+  margin-top: 1rem;
+  cursor: pointer;
+  transition: 0.4s all;
+}
+
+.detail-value {
+  gap: 1.2rem;
+}
+
+select.input {
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1.6rem center;
+  background-size: 1.6rem;
+  cursor: pointer;
+}
+
+/* ******************************** Password Icons ************************************************/
+.password-container {
+  position: relative;
+}
+
+.password-icon {
+  position: absolute;
+  color: var(--white);
+  right: 1rem;
+  top: 55%;
+  cursor: pointer;
+  font-size: 2rem;
+}
+
+.hide-icon {
+  display: none;
+}
+
+input,
+select {
+  border: solid 0.1rem var(--light-black) !important;
+}
+
+.error-input {
+  border: solid 0.1rem var(--danger-color) !important;
+}
+
+/* ***************************************************** Modal Ppoup ***********************************************/
+.backdrop {
+  position: fixed;
+  height: 100vh;
+  width: 100%;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.popup {
+  z-index: 99;
+  position: absolute;
+  align-self: center;
+  justify-self: center;
+}
+
+/* input:-internal-autofill-selected {
+  background-color: var(--light-black) !important;
+  color: var(--text-color) !important;
+} */

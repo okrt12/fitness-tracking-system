@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/css/general.css" />
-    <link rel="stylesheet" href="/assets/css/index-styles.css" />
+    <link rel="stylesheet" href="./assets/css/general.css" />
+    <link rel="stylesheet" href="./assets/css/indexstyles.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -45,7 +45,7 @@
             </li>
           </ul>
         </nav>
-        <a href="#" class="nav-cta btn">Get Started</a>
+        <a href="./pages/signup.php" class="nav-cta btn">Get Started</a>
       </div>
     </header>
     <main>
@@ -64,14 +64,14 @@
                 keep away from injury.
               </p>
               <div class="flex-container hero-btn__container">
-                <a href="#" class="btn hero-btn">Join Us</a>
+                <a href="./pages/signup.php" class="btn hero-btn">Join Us</a>
                 <a href="#" class="btn hero-btn hero-btn1">Learn More ↓</a>
               </div>
             </div>
 
             <div class="hero-img__container">
               <img
-                src="/assets/imgs/hero.png"
+                src="./assets/imgs/hero.png"
                 class="hero-img"
                 alt="man holding dumbells"
               />
@@ -233,7 +233,7 @@
 
                 <img
                   class="test-img"
-                  src="/assets/imgs/hero.png"
+                  src="./assets/imgs/hero.png"
                   alt="women holding dumbell"
                 />
               </div>
@@ -245,7 +245,7 @@
         <div class="cta flex-container">
           <img
             class="cta-img"
-            src="/assets/imgs/cta.jpg"
+            src="./assets/imgs/cta.jpg"
             alt="man holding dumbell"
           />
           <div class="flex-col cta-sub__container container">
@@ -264,7 +264,7 @@
                 corrupti odit cumque nisi
               </p>
               <div class="flex-container hero-btn__container">
-                <a href="#" class="btn cta-btns">Join Now</a>
+                <a href="/pages/signup.php" class="btn cta-btns">Join Now</a>
                 <a href="#" class="btn cta-btns1">Learn More &UpArrow;</a>
               </div>
             </div>

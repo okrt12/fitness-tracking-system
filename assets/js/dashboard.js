@@ -1,3 +1,7 @@
+import { getData } from "./common.js";
+///////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////
+
 // Variables
 const dashboardHeader = document.querySelector(".header");
 
@@ -46,3 +50,12 @@ const weightProgressChart = document.querySelector(".weight-progress__chart");
 const weightProgressPercent = 60;
 weightProgressText.textContent = weightProgressPercent + "% ";
 weightProgressChart.style.width = `${weightProgressPercent}%`;
+
+////////////////////////////////////////////////////////////////////////////////////////////
+
+async function updateUI() {
+  const userData = await getData("../backend/api/get-user-info.php");
+  document.querySelector(".username").textContent = userData.name;
+}
+
+updateUI();

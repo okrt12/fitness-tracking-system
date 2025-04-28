@@ -1,3 +1,7 @@
+<?php include "../backend/auth/session.php"; ?>
+<?php include "../backend/auth/auth_check.php"; ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -18,8 +22,8 @@
       rel="stylesheet"
     />
 
-    <link rel="stylesheet" href="/assets/css/profile.css" />
-    <link rel="stylesheet" href="/assets/css/general.css" />
+    <link rel="stylesheet" href="../assets/css/profile.css" />
+    <link rel="stylesheet" href="../assets/css/general.css" />
     <title>FitTrack+ | Profile</title>
   </head>
   <body>
@@ -30,68 +34,88 @@
           <li class="logo-list">
             <span class="sub-header heading-color logo">FitTrack+</span>
           </li>
-          <li class="sidebar-btns home">
-            <div class="icon-text">
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/dashboard.php"
+            >
               <ion-icon
                 class="icons sidebar-icons"
                 name="home-outline"
               ></ion-icon>
-              <a href="/pages/dashboard.php" class="sidebar-btn">Dashboard</a>
-            </div>
+              <p class="sidebar-btn">Dashboard</p>
+            </a>
           </li>
-          <li class="sidebar-btns">
-            <div class="icon-text">
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/workoutschedule.php"
+            >
               <ion-icon
                 class="icons sidebar-icons"
                 name="calendar-outline"
               ></ion-icon>
-              <a href="#" class="sidebar-btn">Workout Schedule</a>
-            </div>
+              <p class="sidebar-btn">Workout Schedule</p>
+            </a>
           </li>
-          <li class="sidebar-btns">
-            <div class="icon-text">
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/activitylog.php"
+            >
               <ion-icon
                 class="icons sidebar-icons"
                 name="pizza-outline"
               ></ion-icon>
-              <a href="#" class="sidebar-btn">Diet Logs</a>
-            </div>
+              <p class="sidebar-btn">Diet Logs</p>
+            </a>
           </li>
-          <li class="sidebar-btns">
-            <div class="icon-text">
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/workout.php"
+            >
+            <ion-icon class="icons sidebar-icons" name="barbell-outline"></ion-icon>
+          
+              <p class="sidebar-btn">Workout Logs</p>
+            </a>
+          </li>
+
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/progresshealth.php"
+            >
               <ion-icon
                 class="icons sidebar-icons"
                 name="medkit-outline"
               ></ion-icon>
-              <a href="#" class="sidebar-btn">Progress & Health</a>
-            </div>
+              <p class="sidebar-btn">Progress & Health</p>
+            </a>
           </li>
-          <li class="sidebar-btns">
-            <div class="icon-text">
-              <ion-icon
-                class="icons sidebar-icons"
-                name="nutrition-outline"
-              ></ion-icon>
-              <a href="#" class="sidebar-btn">Nutrition Guide</a>
-            </div>
-          </li>
-          <li class="sidebar-btns profile-btn">
-            <div class="icon-text">
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns active-page"
+              href="/pages/profile.php "
+            >
               <ion-icon
                 class="icons sidebar-btn"
                 name="person-outline"
               ></ion-icon>
-              <a href="#" class="sidebar-btn">Profile</a>
-            </div>
+              <p class="sidebar-btn">Profile</p>
+            </a>
           </li>
-          <li class="sidebar-btns">
-            <div class="icon-text">
+          <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="../backend/auth/logout.php"
+            >
               <ion-icon
                 class="icons sidebar-icons"
                 name="log-in-outline"
               ></ion-icon>
-              <a href="#" class="sidebar-btn">Logout</a>
-            </div>
+              <p class="sidebar-btn">Logout</p>
+            </a>
           </li>
         </ul>
       </nav>
@@ -139,7 +163,6 @@
                 type="text"
                 id="name"
                 name="name"
-                value="Alex Smith"
                 required
               />
             </div>
@@ -152,7 +175,6 @@
                 type="number"
                 id="age"
                 name="age"
-                value="30"
                 min="1"
                 max="120"
                 required
@@ -170,7 +192,6 @@
                 type="number"
                 id="height"
                 name="height"
-                value="175"
                 min="100"
                 max="250"
                 required
@@ -188,7 +209,6 @@
                 type="number"
                 id="weight"
                 name="weight"
-                value="75"
                 min="20"
                 max="500"
                 required
@@ -257,13 +277,21 @@
                 >
                   Muscle Gain(Bulking)
                 </option>
+
+                <option class="normal-text cards-description" name="fitness-goal" value="maintain">
+                Maintain Fitness
+              </option>
+
                 <option
                   name="goal"
                   class="input cards-description"
-                  value="endurance"
+                  value="improve_endurance"
                 >
-                  Endurance
+                  Improve Endurance
                 </option>
+                <option class="normal-text cards-description" name="goal" value="other">
+                Other
+              </option>
               </select>
               <button type="submit" class="btn-primary goal-btn save-goal__btn">
                 Save Goal
@@ -303,7 +331,7 @@
     </main>
 
     <!-- Js -->
-    <script src="/assets/js/profile.js"></script>
+    <script type="module" src="../assets/js/profile.js"></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"

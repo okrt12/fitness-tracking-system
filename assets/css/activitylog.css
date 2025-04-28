@@ -1,0 +1,81 @@
+.icons {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #cacaca;
+  font-family: --poppins;
+}
+
+.active {
+  background-color: var(--light-black);
+}
+
+.main-logs {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.logs-header {
+  margin-top: 2.4rem;
+}
+
+/* ***************************************************************************************************
+ ************************************   MAIN ***********************************************************/
+
+.logs-cards {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding-left: 0 !important;
+  gap: 2rem;
+  margin-bottom: 3.2rem;
+}
+
+.input {
+  background-color: var(--light-black);
+  padding: 1.2rem;
+  width: 100%;
+  border-radius: 11px;
+  color: var(--text-color);
+}
+
+input,
+select {
+  outline: none;
+  border: none;
+}
+
+.logs-cards {
+  height: fit-content;
+}
+
+.log-meal,
+.workout-form,
+.add-meal-form {
+  height: fit-content;
+}
+
+.workout-btn {
+  background-color: var(--primary-color);
+}
+.workout-btn:hover {
+  background-color: #00c853;
+}
+
+.workout-form {
+  border-left: 0.4rem solid var(--primary-color);
+}
+
+.meal-form,
+.log-meal {
+  border-left: 0.4rem solid var(--accent-color1);
+}
+
+.meal__btn,
+.log-meal__btn {
+  background-color: var(--accent-color1);
+}
+
+.meal__btn:hover,
+.log-meal__btn:hover {
+  color: var(--accent-color);
+  color: var(--white);
+}

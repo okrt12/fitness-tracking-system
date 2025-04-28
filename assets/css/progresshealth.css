@@ -1,0 +1,184 @@
+.icons {
+  width: 2.4rem;
+  height: 2.4rem;
+  color: #cacaca;
+  font-family: --poppins;
+}
+
+.main-progress {
+  height: 100vh;
+  overflow-y: auto;
+}
+
+.progress-header {
+  margin-top: 2.4rem;
+}
+
+/*****************************************************************************
+ ******************************** main ************************************** */
+.progress-status__container {
+  padding-left: 0 !important;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.6rem;
+  margin-bottom: 3rem !important;
+}
+
+.progress-status__container div {
+  gap: 1rem;
+}
+
+.health-status {
+  color: var(--primary-color) !important;
+}
+
+/*****************************************************************************************
+ *************************  Progress Charts ***********************************************/
+
+.progress-charts__container,
+.health-charts__container {
+  padding-left: 0 !important;
+}
+
+.progress-charts {
+  border-radius: 8px;
+  margin-bottom: 2rem;
+  border-left: 4px solid var(--primary-color); /* Neon Green */
+}
+
+.health-charts {
+  border-left: 4px solid var(--accent-color1);
+}
+
+.chart-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+  gap: 2rem;
+}
+
+.chart-card {
+  padding: 1rem;
+}
+
+.chart-card div {
+  /* width: 30rem;
+    height: 20rem; */
+}
+
+.chart-card p {
+  color: var(--primary-color);
+}
+
+.input {
+  background-color: var(--light-black);
+  padding: 1.2rem;
+  width: 100%;
+  border-radius: 11px;
+  color: var(--text-color);
+}
+
+input {
+  outline: none;
+  border: none;
+}
+
+.health-charts__container {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  gap: 1.4rem;
+}
+
+.health-btn {
+  background-color: var(--accent-color1);
+}
+
+.health-btn:hover {
+  background-color: var(--accent-color);
+}
+
+/* ***********************************************************************************
+********************************* Charts ********************************************* */
+
+svg {
+  height: 100%;
+  width: 100%;
+}
+
+svg text {
+  font-family: var(--inter);
+  font-size: 1.4rem;
+  fill: var(--text-color);
+}
+
+/* *********************************** Weight ********************************************************** */
+
+.goal-line {
+  stroke: var(--accent-color1);
+}
+
+.goal-line__text {
+  fill: var(--accent-color1);
+  font-size: 1.6rem;
+}
+
+.line-chart circle {
+  fill: var(--accent-color1);
+}
+
+.polyline {
+  stroke: var(--primary-color);
+  stroke-width: 2;
+}
+
+.line {
+  stroke: #00c853;
+  stroke-width: 2;
+  fill: none;
+}
+.goal-line {
+  stroke: #ffa726;
+  stroke-width: 1;
+  stroke-dasharray: 4;
+}
+.dot {
+  fill: #aeea00;
+  stroke: #212121;
+  stroke-width: 1;
+}
+
+/* ********************************************* Health Status **************************************** */
+
+.bp-bar {
+  fill: var(--primary-color);
+}
+
+.sugar-bar {
+  fill: var(--accent-color1);
+}
+
+.legend-container {
+  align-self: flex-start;
+  margin-left: 3.2rem;
+}
+.legend {
+  padding: 0.3rem;
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+.legend-text {
+  align-items: center;
+  gap: 1rem;
+}
+.in-legend {
+  background-color: var(--primary-color);
+}
+.out-legend {
+  background-color: var(--accent-color1);
+  background-color: var(--accent-color1);
+}
+
+.health-form {
+  margin-bottom: 2rem;
+  display: none !important;
+}

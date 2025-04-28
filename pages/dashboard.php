@@ -1,10 +1,14 @@
+<?php include "../backend/auth/session.php"; ?>
+<?php include "../backend/auth/auth_check.php"; ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/assets/css/general.css" />
-    <link rel="stylesheet" href="/assets/css/userdasboard.css" />
+    <link rel="stylesheet" href="../assets/css/general.css" />
+    <link rel="stylesheet" href="../assets/css/userdasboard.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -30,75 +34,94 @@
             <li class="logo-list">
               <span class="sub-header heading-color logo">FitTrack+</span>
             </li>
-            <li class="sidebar-btns home">
-              <div class="icon-text">
+            <li>
+              <a
+                class="icon-text sidebar-btn sidebar-btns active-page"
+                href="/pages/dashboard.php"
+              >
                 <ion-icon
                   class="icons sidebar-icons"
                   name="home-outline"
                 ></ion-icon>
-                <a href="#" class="sidebar-btn">Dashboard</a>
-              </div>
+                <p class="sidebar-btn">Dashboard</p>
+              </a>
             </li>
-            <li class="sidebar-btns">
-              <div class="icon-text">
+            <li>
+              <a
+                class="icon-text sidebar-btn sidebar-btns"
+                href="/pages/workoutschedule.php"
+              >
                 <ion-icon
                   class="icons sidebar-icons"
                   name="calendar-outline"
                 ></ion-icon>
-                <a href="#" class="sidebar-btn">Workout Schedule</a>
-              </div>
+                <p class="sidebar-btn">Workout Schedule</p>
+              </a>
             </li>
-            <li class="sidebar-btns">
-              <div class="icon-text">
+            <li>
+              <a
+                class="icon-text sidebar-btn sidebar-btns"
+                href="/pages/activitylog.php"
+              >
                 <ion-icon
                   class="icons sidebar-icons"
                   name="pizza-outline"
                 ></ion-icon>
-                <a href="#" class="sidebar-btn">Diet Logs</a>
-              </div>
+                <p class="sidebar-btn">Diet Logs</p>
+              </a>
             </li>
-            <li class="sidebar-btns">
-              <div class="icon-text">
+            <li>
+            <a
+              class="icon-text sidebar-btn sidebar-btns"
+              href="/pages/workout.php"
+            >
+            <ion-icon class="icons sidebar-icons" name="barbell-outline"></ion-icon>
+          
+              <p class="sidebar-btn">Workout Logs</p>
+            </a>
+          </li>
+            <li>
+              <a
+                class="icon-text sidebar-btn sidebar-btns"
+                href="/pages/progresshealth.php"
+              >
                 <ion-icon
                   class="icons sidebar-icons"
                   name="medkit-outline"
                 ></ion-icon>
-                <a href="#" class="sidebar-btn">Progress & Health</a>
-              </div>
+                <p class="sidebar-btn">Progress & Health</p>
+              </a>
             </li>
-            <li class="sidebar-btns">
-              <div class="icon-text">
-                <ion-icon
-                  class="icons sidebar-icons"
-                  name="nutrition-outline"
-                ></ion-icon>
-                <a href="#" class="sidebar-btn">Nutrition Guide</a>
-              </div>
-            </li>
-            <li class="sidebar-btns">
-              <div class="icon-text">
+            <li>
+              <a
+                class="icon-text sidebar-btn sidebar-btns"
+                href="/pages/profile.php "
+              >
                 <ion-icon
                   class="icons sidebar-btn"
                   name="person-outline"
                 ></ion-icon>
-                <a href="/pages/profile.php" class="sidebar-btn">Profile</a>
-              </div>
+                <p class="sidebar-btn">Profile</p>
+              </a>
             </li>
-            <li class="sidebar-btns">
-              <div class="icon-text">
+            <li>
+              <a
+                class="icon-text sidebar-btn sidebar-btns"
+                href="../backend/auth/logout.php"
+              >
                 <ion-icon
                   class="icons sidebar-icons"
                   name="log-in-outline"
                 ></ion-icon>
-                <a href="#" class="sidebar-btn">Logout</a>
-              </div>
+                <p class="sidebar-btn">Logout</p>
+              </a>
             </li>
           </ul>
         </nav>
         <div class="dashboard-main">
           <div class="header container">
             <h2 class="welcome-text heading-tertiary heading-color">
-              Welcome back, Abel
+              Welcome back, <span class="username">Abel</span>
             </h2>
           </div>
           <div class="dashboard-cards container">
@@ -111,9 +134,9 @@
 
             <div class="bmi cards">
               <h2 class="cards-header">BMI and Goals</h2>
-              <p class="normal-text cards-description">BMI: 22.5 (Normal)</p>
+              <p class="normal-text cards-description">BMI: <span class ="bmi-value">22.5</span> <span class="bmi-status">(Normal)</span></p>
               <p class="normal-text cards-description">
-                Goal: Muscle Gain (Bulking)
+                Goal: <span class="goal">Muscle Gain (Bulking)</span>
               </p>
               <a href="#" class="cards-btn btn bmi-btn"> Update Goal </a>
             </div>
@@ -245,7 +268,7 @@
     </div>
 
     <!-- JS -->
-    <script defer src="../assets/js/dashboard.js"></script>
+    <script type="module" src="../assets/js/dashboard.js"></script>
     <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
