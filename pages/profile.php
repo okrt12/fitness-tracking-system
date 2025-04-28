@@ -214,23 +214,6 @@
                 required
               />
             </div>
-            <!-- <div class="flex-col detail-value">
-              <label
-                class="normal-text cards-description input-label"
-                for="diseases"
-                >Diseases (Optional)</label
-              >
-               <select id="diseases" name="diseases" class="input">
-                <option class="input normal-text" value="">None</option>
-                <option class="input normal-text" value="diabetes">
-                  Diabetes
-                </option>
-                <option class="input normal-text" value="hypertension">
-                  Hypertension
-                </option>
-              </select> 
-            </div>
-            -->
             <button type="submit" class="btn-primary info-btn save-info__btn">
               Save
             </button>
