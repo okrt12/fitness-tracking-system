@@ -56,12 +56,13 @@ const calcBMI = (height, weight) => weight / (height / 100) ** 2;
 
 async function userProgress() {
   const userData = await getData("../backend/api/get-progress.php");
-  console.log(userData);
+  console.log(userData.data);
 }
 backdrop.addEventListener("click", function () {
   addHidden(form);
 });
 
+userProgress();
 // Var
 const maxY = 140;
 const maxHeight = 130;

@@ -202,7 +202,6 @@ svg text {
   background-color: var(--accent-color1);
 }
 
-.health-form {
+.update-weight_goal {
   margin-bottom: 2rem;
-  display: none !important;
 }

@@ -200,20 +200,6 @@
             />
           </div>
 
-          <div class="detail-value flex-col">
-            <label class="cards-description normal-text" for="blood-sugar"
-              >Blood Sugar (mg/dL)</label
-            >
-            <input
-              class="input normal-text cards-description blood-sugar"
-              type="number"
-              id="blood-sugar"
-              name="blood-sugar"
-              min="20"
-              max="500"
-              placeholder="e.g., 100"
-            />
-          </div>
           <button type="submit" class="btn-primary health-btn">Log</button>
         </form>
 
@@ -616,6 +602,39 @@
               </div>
             </div>
           </div>
+          <form class="cards update-weight_goal">
+            <h3 class="cards-header">Weight Goal</h3>
+            <div class="detail-value flex-col">
+              <label class="cards-description normal-text" for="current-weight"
+                >Current Weight</label
+              >
+              <input
+                class="input normal-text cards-description blood-sugar"
+                type="number"
+                id="current-weight"
+                name="current-weight"
+                min="20"
+                max="500"
+                readonly
+              />
+            </div>
+            <div class="detail-value label-input flex-col">
+              <label for="weight-goal" class="normal-text cards-description"
+                >Weight (kg)</label
+              >
+              <input
+                type="number"
+                id="weight-goal"
+                class="input normal-text cards-description"
+                placeholder="Enter your weight"
+                min="30"
+                max="300"
+                step="0.1"
+                required
+              />
+            </div>
+            <button type="submit" class="btn-primary health-btn">Log</button>
+          </form>
         </div>
       </div>
     </main>
