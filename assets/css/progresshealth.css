@@ -50,6 +50,12 @@
   right: 50%;
   border-left: 0.4rem solid var(--accent-color1);
 }
+.hidden {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+}
+
 /*****************************************************************************************
  *************************  Progress Charts ***********************************************/
 

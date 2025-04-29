@@ -28,11 +28,10 @@ $bmi = $data['bmi'] ?? null;
 $systolic = $data['systolic'] ?? null;
 $diastolic = $data['diastolic'] ?? null;
 $sugar_level = $data['sugar_level'] ?? null;
-$notes = $data['notes'] ?? null;
 
 try {
-  $stmt = $pdo->prepare("INSERT INTO user_progress (user_id, date, weight, bmi, systolic, diastolic, sugar_level, notes)
-                         VALUES (:user_id, :date, :weight, :bmi, :systolic, :diastolic, :sugar_level, :notes)");
+  $stmt = $pdo->prepare("INSERT INTO user_progress (user_id, date, weight, bmi, systolic, diastolic, sugar_level)
+                         VALUES (:user_id, :date, :weight, :bmi, :systolic, :diastolic, :sugar_level)");
   $stmt->execute([
     'user_id' => $user_id,
     'date' => $date,
@@ -40,8 +39,7 @@ try {
     'bmi' => $bmi,
     'systolic' => $systolic,
     'diastolic' => $diastolic,
-    'sugar_level' => $sugar_level,
-    'notes' => $notes
+    'sugar_level' => $sugar_level
   ]);
 
   echo json_encode(['success' => true, 'message' => 'Progress logged successfully']);

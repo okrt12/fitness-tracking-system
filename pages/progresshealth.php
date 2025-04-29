@@ -27,7 +27,7 @@
     <title>FitTrack+ | Progress and Health</title>
   </head>
   <body>
-    <div class="backdrop hidde"></div>
+    <div class="backdrop hidden"></div>
 
     <main class="main">
       <nav class="sidebar">
@@ -151,7 +151,7 @@
 
         <form
           id="add-progress__form"
-          class="form cards popup add-progress__form"
+          class="form cards popup add-progress__form hidden"
         >
           <h3 class="cards-header">Log Progress</h3>
 

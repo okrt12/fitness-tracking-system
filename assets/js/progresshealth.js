@@ -1,12 +1,18 @@
-import { postData, getData } from "./common.js";
+import {
+  postData,
+  getData,
+  addHidden,
+  toggleHidden,
+  backdrop,
+} from "./common.js";
 
 // Health Form
 const diastolicInput = document.getElementById("bp-diastolic");
 const systolicInput = document.getElementById("bp-systolic");
 const bloodSugarInput = document.getElementById("blood-sugar");
 const weightInput = document.getElementById("weight");
-const healthBtn = document.querySelector(".health-btn");
 const form = document.getElementById("add-progress__form");
+const addProgressBtn = document.querySelector(".progress-add__btn");
 // Post Progress
 
 async function postProgress(progressData) {
@@ -25,22 +31,25 @@ async function postProgress(progressData) {
   }
 }
 
-form.addEventListener("submit", async function (e) {
-  // e.preventDefault();
-  alert("hello");
-  // const userData = await getData("../backend/api/get-user-info.php");
-  // const weight = userData.weight;
-  // const bmi = calcBMI(userData.height, userData.weight).toFixed(2);
-  // const progressData = {
-  //   diastolic: diastolicInput.value,
-  //   systolic: systolicInput.value,
-  //   sugar_level: bloodSugarInput.value,
-  //   weight: (weight && weight) || weightInput,
-  //   bmi: bmi,
-  // };
+addProgressBtn.addEventListener("click", function (e) {
+  toggleHidden(form);
+});
 
-  // await postProgress(progressData);
-  // form.reset();
+form.addEventListener("submit", async function (e) {
+  e.preventDefault();
+  const userData = await getData("../backend/api/get-user-info.php");
+  const weight = userData.weight;
+  const bmi = calcBMI(userData.height, userData.weight).toFixed(2);
+  const progressData = {
+    diastolic: diastolicInput.value,
+    systolic: systolicInput.value,
+    sugar_level: bloodSugarInput.value,
+    weight: (weight && weight) || weightInput,
+    bmi: bmi,
+  };
+  await postProgress(progressData);
+  form.reset();
+  toggleHidden(form);
 });
 
 const calcBMI = (height, weight) => weight / (height / 100) ** 2;
@@ -49,6 +58,9 @@ async function userProgress() {
   const userData = await getData("../backend/api/get-progress.php");
   console.log(userData);
 }
+backdrop.addEventListener("click", function () {
+  addHidden(form);
+});
 
 // Var
 const maxY = 140;
