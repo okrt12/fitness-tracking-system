@@ -30,20 +30,21 @@ loginForm.addEventListener("submit", async function (e) {
 
     const data = await response.json();
 
-    if (response.ok && data.success) {
-      alert("Successfull");
-      setTimeout(() => {
-        window.location.href = "../../pages/dashboard.php";
-      }, 1000);
+    if (response.ok) {
+      if (data.success) {
+        alert("Successfull");
+        setTimeout(() => {
+          window.location.href = "../../pages/dashboard.php";
+        }, 1000);
+      }
     }
 
     if (!data.success) {
       loginEmailInput.classList.add("error-input");
       loginPasswordInput.classList.add("error-input");
+      alert(data.message);
       return;
     }
-
-    console.log(data);
   } catch (error) {
     console.error("Error: ", error);
     alert("An unexpected error occurred. Please try again later.");

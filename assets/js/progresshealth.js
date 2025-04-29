@@ -4,8 +4,9 @@ import { postData, getData } from "./common.js";
 const diastolicInput = document.getElementById("bp-diastolic");
 const systolicInput = document.getElementById("bp-systolic");
 const bloodSugarInput = document.getElementById("blood-sugar");
+const weightInput = document.getElementById("weight");
 const healthBtn = document.querySelector(".health-btn");
-const healthForm = document.querySelector(".form");
+const form = document.getElementById("add-progress__form");
 // Post Progress
 
 async function postProgress(progressData) {
@@ -24,22 +25,22 @@ async function postProgress(progressData) {
   }
 }
 
-healthForm.addEventListener("submit", async function (e) {
-  e.preventDefault();
+form.addEventListener("submit", async function (e) {
+  // e.preventDefault();
+  alert("hello");
+  // const userData = await getData("../backend/api/get-user-info.php");
+  // const weight = userData.weight;
+  // const bmi = calcBMI(userData.height, userData.weight).toFixed(2);
+  // const progressData = {
+  //   diastolic: diastolicInput.value,
+  //   systolic: systolicInput.value,
+  //   sugar_level: bloodSugarInput.value,
+  //   weight: (weight && weight) || weightInput,
+  //   bmi: bmi,
+  // };
 
-  const userData = await getData("../backend/api/get-user-info.php");
-  const weight = userData.weight;
-  const bmi = calcBMI(userData.height, userData.weight).toFixed(2);
-  const progressData = {
-    diastolic: diastolicInput.value,
-    systolic: systolicInput.value,
-    sugar_level: bloodSugarInput.value,
-    weight: weight,
-    bmi: bmi,
-  };
-
-  await postProgress(progressData);
-  healthForm.reset();
+  // await postProgress(progressData);
+  // form.reset();
 });
 
 const calcBMI = (height, weight) => weight / (height / 100) ** 2;
@@ -65,15 +66,15 @@ function calcAveBP(systolic, diastolic) {
   return (systolic + diastolic) / 2;
 }
 
-// Event Listener
-healthBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-  systolic = +systolicInput.value;
-  diastolic = +diastolicInput.value;
-  bloodSugar = +bloodSugarInput.value;
+// // Event Listener
+// healthBtn.addEventListener("click", function (e) {
+//   e.preventDefault();
+//   systolic = +systolicInput.value;
+//   diastolic = +diastolicInput.value;
+//   bloodSugar = +bloodSugarInput.value;
 
-  // POST to DB
-});
+//   // POST to DB
+// });
 
 function updateBarGraph(chartType, value, height, i) {
   document

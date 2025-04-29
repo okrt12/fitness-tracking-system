@@ -128,20 +128,20 @@
             <div class="flex-col detail-value">
               <p class="normal-text cards-description info-text">Name</p>
               <span class="normal-text cards-description info-name"
-                >Abel Alebachewu</span
+                ></span
               >
             </div>
             <div class="flex-col detail-value">
               <p class="normal-text cards-description info-text">Age:</p>
-              <span class="normal-text cards-description info-age">22</span>
+              <span class="normal-text cards-description info-age"></span>
             </div>
             <div class="flex-col detail-value">
               <p class="normal-text cards-description info-text">Height(cm):</p>
-              <span class="normal-text cards-description info-height">180</span>
+              <span class="normal-text cards-description info-height"></span>
             </div>
             <div class="flex-col detail-value">
               <p class="normal-text cards-description info-text">Weight(kg):</p>
-              <span class="normal-text cards-description info-weight">75</span>
+              <span class="normal-text cards-description info-weight"></span>
             </div>
 
             <button class="btn-primary info-btn edit-info__btn">
@@ -268,7 +268,7 @@
                 <option
                   name="goal"
                   class="input cards-description"
-                  value="improve_endurance"
+                  value="improve_endurance" 
                 >
                   Improve Endurance
                 </option>
