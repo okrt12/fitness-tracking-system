@@ -337,7 +337,7 @@
 
                     <!-- Mon -->
                     <rect
-                      class="day1-calorie_bar bp-bar bp-mon-bar"
+                      class="day1-calorie_bar calorie-bar bp-mon-bar"
                       x="50"
                       y="70"
                       width="20"
@@ -347,7 +347,7 @@
 
                     <!-- Tue -->
                     <rect
-                      class="day2-calorie_bar bp-bar bp-tue-bar"
+                      class="day2-calorie_bar calorie-bar bp-tue-bar"
                       x="100"
                       y="50"
                       width="20"
@@ -357,7 +357,7 @@
 
                     <!-- Wed -->
                     <rect
-                      class="day3-calorie_bar bp-bar bp-wed-bar"
+                      class="day3-calorie_bar calorie-bar bp-wed-bar"
                       x="150"
                       y="60"
                       width="20"
@@ -367,7 +367,7 @@
 
                     <!-- Thu -->
                     <rect
-                      class="day4-calorie_bar bp-bar bp-thu-bar"
+                      class="day4-calorie_bar calorie-bar bp-thu-bar"
                       x="200"
                       y="90"
                       width="20"
@@ -377,7 +377,7 @@
 
                     <!-- Fri -->
                     <rect
-                      class="day5-calorie_bar bp-bar bp-fri-bar"
+                      class="day5-calorie_bar calorie-bar bp-fri-bar"
                       x="250"
                       y="50"
                       width="20"
@@ -387,7 +387,7 @@
 
                     <!-- Sat -->
                     <rect
-                      class="day6-calorie_bar bp-bar bp-sat-bar"
+                      class="day6-calorie_bar calorie-bar bp-sat-bar"
                       x="300"
                       y="60"
                       width="20"
@@ -397,7 +397,7 @@
 
                     <!-- Sun -->
                     <rect
-                      class="day7-calorie_bar bp-bar bp-sun-bar"
+                      class="day7-calorie_bar calorie-bar bp-sun-bar"
                       x="350"
                       y="50"
                       width="20"
@@ -469,7 +469,7 @@
                   width="20"
                   height="70"
                 />
-                <text class="day1-bp_text" x="50" y="65">120</text>
+                <text class="day1-bp_text bp_text" x="50" y="65">120</text>
 
                 <rect
                   class="day1-sugar_bar sugar-bar sugar-mon-bar"
@@ -478,7 +478,7 @@
                   width="20"
                   height="80"
                 />
-                <text class="day1-sugar_text" x="75" y="55">95</text>
+                <text class="day1-sugar_text sugar_text" x="75" y="55">95</text>
 
                 <!-- Tue -->
                 <rect
@@ -488,7 +488,7 @@
                   width="20"
                   height="90"
                 />
-                <text class="day2-bp_text" x="125" y="45">130</text>
+                <text class="day2-bp_text bp_text" x="125" y="45">130</text>
 
                 <rect
                   class="sugar-bar day2-sugar_bar sugar-tue-bar"
@@ -497,7 +497,9 @@
                   width="20"
                   height="110"
                 />
-                <text class="day2-sugar_text" x="150" y="25">100</text>
+                <text class="day2-sugar_text sugar_text" x="150" y="25">
+                  100
+                </text>
 
                 <!-- Wed -->
                 <rect
@@ -507,7 +509,7 @@
                   width="20"
                   height="80"
                 />
-                <text class="day3-bp_text" x="200" y="55">125</text>
+                <text class="day3-bp_text bp_text" x="200" y="55">125</text>
 
                 <rect
                   class="sugar-bar day3-sugar_bar sugar-wed-bar"
@@ -517,7 +519,9 @@
                   height="100"
                 />
 
-                <text class="day3-sugar_text" x="225" y="35">95</text>
+                <text class="day3-sugar_text sugar_text" x="225" y="35">
+                  95
+                </text>
 
                 <!-- Thu -->
                 <rect
@@ -527,7 +531,7 @@
                   width="20"
                   height="50"
                 />
-                <text class="day4-bp_text" x="275" y="85">95</text>
+                <text class="day4-bp_text bp_text" x="275" y="85">95</text>
 
                 <rect
                   class="sugar-bar day4-sugar_bar sugar-thu-bar"
@@ -536,7 +540,9 @@
                   width="20"
                   height="80"
                 />
-                <text class="day4-sugar_text" x="300" y="55">100</text>
+                <text class="day4-sugar_text sugar_text" x="300" y="55">
+                  100
+                </text>
 
                 <!-- Fri -->
                 <rect
@@ -546,16 +552,18 @@
                   width="20"
                   height="90"
                 />
-                <text class="day5-bp_text" x="350" y="45">130</text>
+                <text class="day5-bp_text bp_text" x="350" y="45">130</text>
 
                 <rect
-                  class="sugar-bar day5-bp_bar sugar-fri-bar"
+                  class="sugar-bar day5-sugar_bar sugar-fri-bar"
                   x="375"
                   y="30"
                   width="20"
                   height="110"
                 />
-                <text class="day5-sugar_text" x="375" y="25">105</text>
+                <text class="day5-sugar_text sugar_text" x="375" y="25">
+                  105
+                </text>
 
                 <!-- Sat -->
                 <rect
@@ -565,16 +573,18 @@
                   width="20"
                   height="80"
                 />
-                <text class="day6-bp_text" x="425" y="55">125</text>
+                <text class="day6-bp_text bp_text" x="425" y="55">125</text>
 
                 <rect
-                  class="sugar-bar day6-bp_bar sugar-sat-bar"
+                  class="sugar-bar day6-sugar_bar sugar-sat-bar"
                   x="450"
                   y="40"
                   width="20"
                   height="100"
                 />
-                <text class="day6-sugar_text" x="450" y="35">110</text>
+                <text class="day6-sugar_text sugar_text" x="450" y="35">
+                  110
+                </text>
 
                 <!-- Sun -->
                 <rect
@@ -584,16 +594,18 @@
                   width="20"
                   height="90"
                 />
-                <text class="day7-bp_text" x="500" y="45">130</text>
+                <text class="day7-bp_text bp_text" x="500" y="45">130</text>
 
                 <rect
-                  class="sugar-bar day7-bp_bar sugar-sun-bar"
+                  class="sugar-bar day7-sugar_bar sugar-sun-bar"
                   x="525"
                   y="30"
                   width="20"
                   height="110"
                 />
-                <text class="day7-sugar_text" x="525" y="25">120</text>
+                <text class="day7-sugar_text sugar_text" x="525" y="25">
+                  120
+                </text>
 
                 <!-- Labels -->
                 <text class="bar-day__texts text-mon" x="40" y="156">Mon</text>

@@ -101,16 +101,13 @@ const maxY = 140;
 const maxHeight = 130;
 const maxBP = 200;
 const maxBSL = 500;
-const dataBP = [190, 180, 175, 165, 150, 125, 115];
 const dataBS = [400, 350, 250, 200, 150, 125, 100];
 
-let systolic;
-let diastolic;
-let bloodSugar;
-
-function calcAveBP(systolic, diastolic) {
-  return (systolic + diastolic) / 2;
-}
+const calcAveBP = (systolic, diastolic) => (systolic + diastolic) / 2;
+const bpBars = document.querySelectorAll(".bp-bar");
+const bpText = document.querySelectorAll(".bp_text");
+const bsBars = document.querySelectorAll(".sugar-bar");
+const bsText = document.querySelectorAll(".sugar_text");
 
 function updateBarGraph(chartType, value, height, i) {
   document
@@ -132,13 +129,45 @@ const valueToHeight = (value, maxValue) => (value / maxValue) * maxHeight;
 const calcBarY = (height) => 140 - height;
 const calcTextY = (height) => calcBarY(height) - 5;
 
-dataBP.forEach((el, i) => {
-  updateBarGraph("bp", el, valueToHeight(el, maxBP), i + 1);
-});
+async function updateBPGraph() {
+  bpBars.forEach((el) => {
+    el.setAttribute("height", "0");
+  });
+  bpText.forEach((el) => {
+    el.textContent = "";
+  });
 
-// dataBS.forEach((el, i) => {
-//   updateBarGraph("sugar", el, valueToHeight(el, maxBSL), i + 1);
-// });
+  if (!progressData) return;
+  const dataBP = progressData
+    .filter((el) => el)
+    .slice(0, 7)
+    .map((el) => {
+      return calcAveBP(el.systolic, el.diastolic).toFixed(0);
+    });
+
+  dataBP.forEach((el, i) => {
+    updateBarGraph("bp", el, valueToHeight(el, maxBP), i + 1);
+  });
+}
+
+async function updateSLGraph() {
+  bsBars.forEach((el) => {
+    el.setAttribute("height", "0");
+  });
+  bsText.forEach((el) => {
+    el.textContent = "";
+  });
+
+  if (!progressData) return;
+  const dataBS = progressData
+    .filter((el) => el)
+    .slice(0, 7)
+    .map((el) => el.sugar_level);
+
+  dataBS.forEach((el, i) => {
+    updateBarGraph("sugar", el, valueToHeight(el, maxBSL), i + 1);
+  });
+}
 
 const maxWorkout = 7;
 
@@ -164,4 +193,8 @@ lineChart.insertAdjacentHTML("afterbegin", polylineHTML);
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
-updateUI();
+(async () => {
+  await updateUI();
+  updateBPGraph();
+  updateSLGraph();
+})();

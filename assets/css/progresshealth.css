@@ -172,7 +172,8 @@ svg text {
 
 /* ********************************************* Health Status **************************************** */
 
-.bp-bar {
+.bp-bar,
+.calorie-bar {
   fill: var(--primary-color);
 }
 
