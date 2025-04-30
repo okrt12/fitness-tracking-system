@@ -48,6 +48,8 @@ const calcBMI = (height, weight) => weight / (height / 100) ** 2;
 const valueToHeight = (value, maxValue) => (value / maxValue) * maxHeight;
 const calcBarY = (height) => 140 - height;
 const calcTextY = (height) => calcBarY(height) - 5;
+const calcAveBP = (systolic, diastolic) => (systolic + diastolic) / 2;
+
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 // Post Progress
@@ -125,8 +127,6 @@ async function updateUI() {
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
 
-const calcAveBP = (systolic, diastolic) => (systolic + diastolic) / 2;
-
 function updateBarGraph(chartType, value, height, i) {
   document
     .querySelector(`.day${i}-${chartType}_bar`)
@@ -153,12 +153,13 @@ async function updateBPGraph() {
   if (!progressData) return;
   const dataBP = progressData
     .filter((el) => el)
-    .slice(0, 7)
     .map((el) => {
       return calcAveBP(el.systolic, el.diastolic).toFixed(0);
     });
 
-  dataBP.forEach((el, i) => {
+  const reversedDataDate = dataBP.reverse();
+
+  reversedDataDate.forEach((el, i) => {
     updateBarGraph("bp", el, valueToHeight(el, maxBP), i + 1);
   });
 }
@@ -172,12 +173,10 @@ async function updateSLGraph() {
   });
 
   if (!progressData) return;
-  const dataBS = progressData
-    .filter((el) => el)
-    .slice(0, 7)
-    .map((el) => el.sugar_level);
+  const dataBS = progressData.filter((el) => el).map((el) => el.sugar_level);
+  const reversedDataDate = dataBS.reverse();
 
-  dataBS.forEach((el, i) => {
+  reversedDataDate.forEach((el, i) => {
     updateBarGraph("sugar", el, valueToHeight(el, maxBSL), i + 1);
   });
 }
@@ -189,12 +188,14 @@ async function updateDateLabel() {
   if (!progressData) return;
   const dataDate = progressData
     .filter((el) => el)
-    .slice(0, 7)
     .map((el) => dateToMonth(el.date));
 
+  const reversedDataDate = dataDate.reverse();
+
   healthDateLabels.forEach((el, i) => {
-    el.textContent = dataDate[i];
+    el.textContent = reversedDataDate[i];
   });
+  console.log(progressData);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////

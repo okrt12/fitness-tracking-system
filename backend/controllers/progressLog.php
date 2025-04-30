@@ -31,11 +31,10 @@ $sugar_level = $data['sugar_level'] ?? null;
 
 try {
 
-$stmt = $pdo->prepare("INSERT INTO user_progress (user_id, date, weight, bmi, systolic, diastolic, sugar_level)
-                       VALUES (:user_id, :date, :weight, :bmi, :systolic, :diastolic, :sugar_level)");
+$stmt = $pdo->prepare("INSERT INTO user_progress (user_id, weight, bmi, systolic, diastolic, sugar_level)
+                       VALUES (:user_id, :weight, :bmi, :systolic, :diastolic, :sugar_level)");
 $stmt->execute([
   'user_id' => $user_id,
-  'date' => $date,
   'weight' => $weight,
   'bmi' => $bmi,
   'systolic' => $systolic,
