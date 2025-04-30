@@ -26,12 +26,12 @@ $goal = $data['goal'];
 try {
   $stmt = $pdo->prepare("
     UPDATE users
-    SET goal = :goal
+    SET goal_weight = :goal_weight
     WHERE user_id = :user_id
   ");
 
   $stmt->execute([
-    'goal' => $goal,
+    'goal_weight' => $goal,
     'user_id' => $user_id
   ]);
 

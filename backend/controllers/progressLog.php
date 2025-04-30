@@ -30,17 +30,25 @@ $diastolic = $data['diastolic'] ?? null;
 $sugar_level = $data['sugar_level'] ?? null;
 
 try {
-  $stmt = $pdo->prepare("INSERT INTO user_progress (user_id, date, weight, bmi, systolic, diastolic, sugar_level)
-                         VALUES (:user_id, :date, :weight, :bmi, :systolic, :diastolic, :sugar_level)");
-  $stmt->execute([
-    'user_id' => $user_id,
-    'date' => $date,
+
+$stmt = $pdo->prepare("INSERT INTO user_progress (user_id, date, weight, bmi, systolic, diastolic, sugar_level)
+                       VALUES (:user_id, :date, :weight, :bmi, :systolic, :diastolic, :sugar_level)");
+$stmt->execute([
+  'user_id' => $user_id,
+  'date' => $date,
+  'weight' => $weight,
+  'bmi' => $bmi,
+  'systolic' => $systolic,
+  'diastolic' => $diastolic,
+  'sugar_level' => $sugar_level
+]);
+
+$updateStmt = $pdo->prepare("UPDATE users SET weight = :weight WHERE user_id = :user_id");
+$updateStmt->execute([
     'weight' => $weight,
-    'bmi' => $bmi,
-    'systolic' => $systolic,
-    'diastolic' => $diastolic,
-    'sugar_level' => $sugar_level
-  ]);
+    'user_id' => $user_id
+]);
+
 
   echo json_encode(['success' => true, 'message' => 'Progress logged successfully']);
 } catch (PDOException $e) {

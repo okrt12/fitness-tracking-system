@@ -13,6 +13,10 @@ const bloodSugarInput = document.getElementById("blood-sugar");
 const weightInput = document.getElementById("weight");
 const form = document.getElementById("add-progress__form");
 const addProgressBtn = document.querySelector(".progress-add__btn");
+
+const weightGoalForm = document.querySelector(".update-weight_goal");
+const weightGoalInput = document.getElementById("weight-goal");
+const currentWeightInput = document.getElementById("current-weight");
 // Post Progress
 
 async function postProgress(progressData) {
@@ -31,6 +35,15 @@ async function postProgress(progressData) {
   }
 }
 
+const calcBMI = (height, weight) => weight / (height / 100) ** 2;
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+backdrop.addEventListener("click", function () {
+  addHidden(form);
+});
+
 addProgressBtn.addEventListener("click", function (e) {
   toggleHidden(form);
 });
@@ -38,13 +51,12 @@ addProgressBtn.addEventListener("click", function (e) {
 form.addEventListener("submit", async function (e) {
   e.preventDefault();
   const userData = await getData("../backend/api/get-user-info.php");
-  const weight = userData.weight;
   const bmi = calcBMI(userData.height, userData.weight).toFixed(2);
   const progressData = {
     diastolic: diastolicInput.value,
     systolic: systolicInput.value,
     sugar_level: bloodSugarInput.value,
-    weight: (weight && weight) || weightInput,
+    weight: weightInput.value,
     bmi: bmi,
   };
   await postProgress(progressData);
@@ -52,17 +64,38 @@ form.addEventListener("submit", async function (e) {
   toggleHidden(form);
 });
 
-const calcBMI = (height, weight) => weight / (height / 100) ** 2;
+weightGoalForm.addEventListener("submit", async function (e) {
+  e.preventDefault();
 
-async function userProgress() {
-  const userData = await getData("../backend/api/get-progress.php");
-  console.log(userData.data);
-}
-backdrop.addEventListener("click", function () {
-  addHidden(form);
+  const goalData = {
+    goal: weightGoalInput.value,
+  };
+  try {
+    const response = await postData(
+      goalData,
+      "../backend/controllers/updateGoal.php"
+    );
+    if (response.ok) {
+      const data = await response.json();
+      alert(data.message);
+      weightGoalForm.reset();
+    }
+  } catch (error) {
+    console.log("Error: ", error);
+    alert("An unexpected error occurred. Please try again later.");
+  }
 });
 
-userProgress();
+let progressData;
+
+async function updateUI() {
+  const userData = await getData("../backend/api/get-progress.php");
+  progressData = userData.data.filter((el) => el);
+  currentWeightInput.textContent = (await progressData[0].weight) + " kg";
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
 // Var
 const maxY = 140;
 const maxHeight = 130;
@@ -78,16 +111,6 @@ let bloodSugar;
 function calcAveBP(systolic, diastolic) {
   return (systolic + diastolic) / 2;
 }
-
-// // Event Listener
-// healthBtn.addEventListener("click", function (e) {
-//   e.preventDefault();
-//   systolic = +systolicInput.value;
-//   diastolic = +diastolicInput.value;
-//   bloodSugar = +bloodSugarInput.value;
-
-//   // POST to DB
-// });
 
 function updateBarGraph(chartType, value, height, i) {
   document
@@ -138,3 +161,7 @@ const polylineHTML = `  <polyline class="polyline weight-polyline" points =
 
 // lineChart.insertAdjacentHTML("beforeend", circleHTML);
 lineChart.insertAdjacentHTML("afterbegin", polylineHTML);
+
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+updateUI();
