@@ -608,13 +608,55 @@
                 </text>
 
                 <!-- Labels -->
-                <text class="bar-day__texts text-mon" x="40" y="156">Mon</text>
-                <text class="bar-say__texts text-tue" x="115" y="156">Tue</text>
-                <text class="bar-say__texts text-wed" x="190" y="156">Wed</text>
-                <text class="bar-say__texts text-thu" x="265" y="156">Thu</text>
-                <text class="bar-say__texts text-fri" x="340" y="156">Fri</text>
-                <text class="bar-say__texts text-sat" x="415" y="156">Sat</text>
-                <text class="bar-say__texts text-sun" x="490" y="156">Sun</text>
+                <text
+                  class="bar-day__texts health_bar-text text-mon"
+                  x="40"
+                  y="156"
+                >
+                  Mon
+                </text>
+                <text
+                  class="bar-say__texts health_bar-text text-tue"
+                  x="115"
+                  y="156"
+                >
+                  Tue
+                </text>
+                <text
+                  class="bar-say__texts health_bar-text text-wed"
+                  x="190"
+                  y="156"
+                >
+                  Wed
+                </text>
+                <text
+                  class="bar-say__texts health_bar-text text-thu"
+                  x="265"
+                  y="156"
+                >
+                  Thu
+                </text>
+                <text
+                  class="bar-say__texts health_bar-text text-fri"
+                  x="340"
+                  y="156"
+                >
+                  Fri
+                </text>
+                <text
+                  class="bar-say__texts health_bar-text text-sat"
+                  x="415"
+                  y="156"
+                >
+                  Sat
+                </text>
+                <text
+                  class="bar-say__texts health_bar-text text-sun"
+                  x="490"
+                  y="156"
+                >
+                  Sun
+                </text>
               </svg>
 
               <div class="legend-container flex-container">

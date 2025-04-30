@@ -17,8 +17,40 @@ const addProgressBtn = document.querySelector(".progress-add__btn");
 const weightGoalForm = document.querySelector(".update-weight_goal");
 const weightGoalInput = document.getElementById("weight-goal");
 const currentWeightInput = document.getElementById("current-weight");
-// Post Progress
 
+const bpBars = document.querySelectorAll(".bp-bar");
+const bpText = document.querySelectorAll(".bp_text");
+const bsBars = document.querySelectorAll(".sugar-bar");
+const bsText = document.querySelectorAll(".sugar_text");
+const healthDateLabels = document.querySelectorAll(".health_bar-text");
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////// Constant Variables   ////////////////////////////////
+
+const maxHeight = 130;
+const maxBP = 200;
+const maxBSL = 500;
+let progressData;
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////   Helper Functions       ////////////////////////
+
+function dateToMonth(dateStr) {
+  const date = new Date(dateStr);
+  const formatted = date.toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+  });
+  return formatted;
+}
+
+const calcBMI = (height, weight) => weight / (height / 100) ** 2;
+const valueToHeight = (value, maxValue) => (value / maxValue) * maxHeight;
+const calcBarY = (height) => 140 - height;
+const calcTextY = (height) => calcBarY(height) - 5;
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+// Post Progress
 async function postProgress(progressData) {
   try {
     const response = await postData(
@@ -34,8 +66,6 @@ async function postProgress(progressData) {
     alert("An unexpected error occurred. Please try again later.");
   }
 }
-
-const calcBMI = (height, weight) => weight / (height / 100) ** 2;
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
@@ -86,8 +116,6 @@ weightGoalForm.addEventListener("submit", async function (e) {
   }
 });
 
-let progressData;
-
 async function updateUI() {
   const userData = await getData("../backend/api/get-progress.php");
   progressData = userData.data.filter((el) => el);
@@ -96,18 +124,8 @@ async function updateUI() {
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
-// Var
-const maxY = 140;
-const maxHeight = 130;
-const maxBP = 200;
-const maxBSL = 500;
-const dataBS = [400, 350, 250, 200, 150, 125, 100];
 
 const calcAveBP = (systolic, diastolic) => (systolic + diastolic) / 2;
-const bpBars = document.querySelectorAll(".bp-bar");
-const bpText = document.querySelectorAll(".bp_text");
-const bsBars = document.querySelectorAll(".sugar-bar");
-const bsText = document.querySelectorAll(".sugar_text");
 
 function updateBarGraph(chartType, value, height, i) {
   document
@@ -123,11 +141,6 @@ function updateBarGraph(chartType, value, height, i) {
     .querySelector(`.day${i}-${chartType}_text`)
     .setAttribute("y", `${calcTextY(height)}`);
 }
-
-// Functions
-const valueToHeight = (value, maxValue) => (value / maxValue) * maxHeight;
-const calcBarY = (height) => 140 - height;
-const calcTextY = (height) => calcBarY(height) - 5;
 
 async function updateBPGraph() {
   bpBars.forEach((el) => {
@@ -169,7 +182,20 @@ async function updateSLGraph() {
   });
 }
 
-const maxWorkout = 7;
+async function updateDateLabel() {
+  healthDateLabels.forEach((el) => {
+    el.textContent = "";
+  });
+  if (!progressData) return;
+  const dataDate = progressData
+    .filter((el) => el)
+    .slice(0, 7)
+    .map((el) => dateToMonth(el.date));
+
+  healthDateLabels.forEach((el, i) => {
+    el.textContent = dataDate[i];
+  });
+}
 
 ////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////// Line Chart ////////////////////////////////////////
@@ -197,4 +223,5 @@ lineChart.insertAdjacentHTML("afterbegin", polylineHTML);
   await updateUI();
   updateBPGraph();
   updateSLGraph();
+  updateDateLabel();
 })();
