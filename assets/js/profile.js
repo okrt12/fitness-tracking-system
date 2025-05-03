@@ -14,14 +14,18 @@ const infoHeight = document.querySelector(".info-height");
 const infoWeight = document.querySelector(".info-weight");
 
 const editInfoBtn = document.querySelector(".edit-info__btn");
-const saveInfoBtn = document.querySelector(".save-info__btn");
 
 // Goal
 const goalPopup = document.querySelector(".goals-popup");
 const goalText = document.querySelector(".goal-text");
 const editGoalBtn = document.querySelector(".edit-goal__btn");
-const saveGoalBtn = document.querySelector(".save-goal__btn");
 const goalSelect = document.querySelector(".goal-select");
+
+// BMI
+
+const bmiValue = document.querySelectorAll(".bmi-value");
+const bmiStatus = document.querySelector(".bmi-status");
+const idealWeight = document.querySelector(".ideal-weight");
 
 editInfoBtn.addEventListener("click", function () {
   toggleHidden(infoPopup);
@@ -32,7 +36,6 @@ editGoalBtn.addEventListener("click", function () {
 
 infoPopup.addEventListener("submit", async function (e) {
   e.preventDefault();
-
   infoName.textContent = inputName.value;
   infoAge.textContent = inputAge.value;
   infoHeight.textContent = inputHeight.value;
@@ -83,14 +86,28 @@ goalPopup.addEventListener("submit", async function (e) {
   toggleHidden(goalPopup);
 });
 
+const calcIdealWeight = (height, bmi) => bmi * (height / 100) ** 2;
+
 async function updateUI() {
   const userData = await getData("../backend/api/get-user-info.php");
+  const userProgress = await getData("../backend/api/get-progress.php");
+  console.log(userProgress);
   console.log(userData);
   infoName.textContent = inputName.value = userData.name;
   infoAge.textContent = inputAge.value = userData.age;
   infoHeight.textContent = inputHeight.value = userData.height;
   infoWeight.textContent = inputWeight.value = userData.weight;
   goalText.textContent = goals[userData.goal];
+
+  bmiValue.forEach((el) => {
+    el.textContent = userProgress.data[0].bmi;
+  });
+
+  console.log();
+
+  idealWeight.textContent = Math.floor(
+    calcIdealWeight(userData.height, userProgress.data[0].bmi)
+  );
 }
 
 updateUI();

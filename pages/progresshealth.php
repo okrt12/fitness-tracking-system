@@ -237,11 +237,11 @@
                     <line x1="50" y1="260" x2="580" y2="260" stroke="#ccc" />
 
                     <!-- Y-axis labels -->
-                    <text class="day1-kg__text" x="10" y="30">80kg</text>
-                    <text class="day2-kg__text" x="10" y="80">75kg</text>
-                    <text class="day3-kg__text" x="10" y="130">70kg</text>
-                    <text class="day4-kg__text" x="10" y="180">65kg</text>
-                    <text class="day5-kg__text" x="10" y="230">60kg</text>
+                    <text class="day1-kg day-kg__text" x="10" y="30"></text>
+                    <text class="day2-kg day-kg__text" x="10" y="80"></text>
+                    <text class="day3-kg day-kg__text" x="10" y="130"></text>
+                    <text class="day4-kg day-kg__text" x="10" y="180"></text>
+                    <text class="day5-kg day-kg__text" x="10" y="230"></text>
 
                     <!-- Goal line -->
                     <line
@@ -252,9 +252,7 @@
                       y2="130"
                       stroke-dasharray="4"
                     />
-                    <text class="goal-line__text" x="500" y="125">
-                      Goal: 70kg
-                    </text>
+                    <text class="goal-line__text" x="500" y="125"></text>
 
                     <!-- X-axis labels -->
                     <text class="day1-weight__text" x="70" y="280">Apr 1</text>
@@ -309,11 +307,11 @@
                       r="4"
                     />
                     <!-- <circle
-                      class="dot day7-weight__dot"
-                      cx="430"
-                      cy="160"
-                      r="4"
-                    /> -->
+                        class="dot day7-weight__dot"
+                        cx="430"
+                        cy="160"
+                        r="4"
+                      /> -->
                   </svg>
                 </div>
                 <p class="cards-description normal-text">
@@ -433,14 +431,6 @@
                   This Week: 3 sessions, 950 kcal
                 </p>
               </div>
-              <!-- Diet Chart -->
-              <!-- <div class="chart-card">
-                <h3 class="cards-header">Daily Calories</h3>
-                <div class="dietChart"></div>
-                <p class="cards-description normal-text">
-                  Today: 1800 kcal (Goal: 2000 kcal)
-                </p>
-              </div> -->
             </div>
           </div>
         </div>
@@ -685,7 +675,7 @@
             </div>
             <div class="detail-value label-input flex-col">
               <label for="weight-goal" class="normal-text cards-description"
-                >Weight (kg)</label
+                >Weight Goal  (kg)</label
               >
               <input
                 type="number"

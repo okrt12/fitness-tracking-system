@@ -230,7 +230,7 @@
                 </span>
               </div>
               <p class="normal-text cards-description recommendation">
-                Recommendation: Based on your BMI (24.5), we suggest
+                Recommendation: Based on your BMI (<span class="bmi-value">24.5</span>), we suggest
                 <strong class="heading-color">bulking</strong> for muscle gain.
               </p>
               <button class="btn-primary goal-btn edit-goal__btn">
@@ -284,13 +284,13 @@
             <!-- BMI -->
             <div class="cards bmi">
               <h3 class="cards-header">BMI</h3>
-              <p class="normal-text cards-description">BMI: 24.5 (Normal)</p>
+              <p class="normal-text cards-description">BMI: <span class="bmi-value">24.5</span> (<span class="bmi-status">Normal</span>)</p>
               <p class="normal-text cards-description">
-                Ideal Weight Range: 66kg - 74kg
+                Ideal Weight: <span class="ideal-weight">74</span>kg
               </p>
               <p class="normal-text cards-description">
-                Based on your BMI <span> (24.5)</span>, Maintain or gain muscle
-                with a balanced diet
+                Based on your BMI (<span class="bmi-value">24.5</span>), <span class="recommendation">Maintain or gain muscle
+                with a balanced diet</span>
               </p>
             </div>
           </div>
