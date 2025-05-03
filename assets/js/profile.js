@@ -1,4 +1,11 @@
-import { getData, goals, toggleHidden, postData } from "./common.js";
+import {
+  getData,
+  goals,
+  toggleHidden,
+  postData,
+  backdrop,
+  addHidden,
+} from "./common.js";
 
 // Info
 const infoPopup = document.querySelector(".personal-information__popup");
@@ -25,7 +32,6 @@ const goalSelect = document.querySelector(".goal-select");
 
 const bmiValue = document.querySelectorAll(".bmi-value");
 const bmiStatus = document.querySelector(".bmi-status");
-const idealWeight = document.querySelector(".ideal-weight");
 
 editInfoBtn.addEventListener("click", function () {
   toggleHidden(infoPopup);
@@ -86,7 +92,31 @@ goalPopup.addEventListener("submit", async function (e) {
   toggleHidden(goalPopup);
 });
 
-const calcIdealWeight = (height, bmi) => bmi * (height / 100) ** 2;
+backdrop.addEventListener("click", function () {
+  addHidden(infoPopup);
+  addHidden(goalPopup);
+});
+
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    addHidden(infoPopup);
+    addHidden(goalPopup);
+  }
+});
+
+const calcIdealWeight = function (height) {
+  return [
+    (18.5 * (height / 100) ** 2).toFixed(0),
+    (24.9 * (height / 100) ** 2).toFixed(0),
+  ];
+};
+
+function getBMIStatus(bmi) {
+  if (bmi < 18) return "Underweight";
+  if (bmi > 18 && bmi < 24.9) return "Normal";
+  if (bmi > 24.9 && bmi < 29.9) return "Overweight";
+  if (bmi >= 25) return "Obesity";
+}
 
 async function updateUI() {
   const userData = await getData("../backend/api/get-user-info.php");
@@ -103,11 +133,11 @@ async function updateUI() {
     el.textContent = userProgress.data[0].bmi;
   });
 
-  console.log();
+  bmiStatus.textContent = getBMIStatus(userProgress.data[0].bmi);
 
-  idealWeight.textContent = Math.floor(
-    calcIdealWeight(userData.height, userProgress.data[0].bmi)
-  );
+  calcIdealWeight(userData.height).forEach((el, i) => {
+    document.querySelector(`.ideal-weight_${i}`).textContent = el;
+  });
 }
 
 updateUI();

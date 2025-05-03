@@ -286,7 +286,7 @@
               <h3 class="cards-header">BMI</h3>
               <p class="normal-text cards-description">BMI: <span class="bmi-value">24.5</span> (<span class="bmi-status">Normal</span>)</p>
               <p class="normal-text cards-description">
-                Ideal Weight: <span class="ideal-weight">74</span>kg
+                Ideal Weight Range: <span class="ideal-weight_0"></span>kg - <span class="ideal-weight_1"></span>kg
               </p>
               <p class="normal-text cards-description">
                 Based on your BMI (<span class="bmi-value">24.5</span>), <span class="recommendation">Maintain or gain muscle
