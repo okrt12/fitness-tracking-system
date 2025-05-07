@@ -250,7 +250,6 @@ function plotWeightChart(dataWeight, goalWeight, currWeight) {
   });
 
   const weights = progressData.map((p) => p.weight);
-  const dates = progressData.map((p) => p.date);
 
   const yPositions = weights.map((w) => {
     return chartTop + ((maxWeight - w) / (maxWeight - minWeight)) * chartHeight;
@@ -276,8 +275,6 @@ function plotWeightChart(dataWeight, goalWeight, currWeight) {
     lineChart.insertAdjacentHTML("afterbegin", circleHTML);
     lineChart.insertAdjacentHTML("beforeend", xLabelsHTML);
   });
-
-  console.log(dates);
 
   const weightDateLabels = document.querySelectorAll(".day-weight_text");
   weightDateLabels.forEach((el) => {
