@@ -255,57 +255,59 @@
                     <text class="goal-line__text" x="500" y="125"></text>
 
                     <!-- X-axis labels -->
-                    <text class="day1-weight__text" x="70" y="280">Apr 1</text>
-                    <text class="day2-weight__text" x="130" y="280">Apr 3</text>
-                    <text class="day3-weight__text" x="190" y="280">Apr 5</text>
-                    <text class="day4-weight__text" x="250" y="280">Apr 7</text>
-                    <text class="day5-weight__text" x="310" y="280">Apr 9</text>
-                    <text class="day6-weight__text" x="370" y="280">
-                      Apr 11
-                    </text>
-                    <text class="day7-weight__text" x="430" y="280">
-                      Apr 13
-                    </text>
+                    <!-- <text class="day-weight_text" x="70" y="280"></text> -->
+                    <!-- <text class="day-weight_text" x="130" y="280"></text>
+                    <text class="day-weight_text" x="190" y="280"></text>
+                    <text class="day-weight_text" x="250" y="280"></text>
+                    <text class="day-weight_text" x="310" y="280"></text>
+                    <text class="day-weight_text" x="370" y="280"></text>
+                    <text class="day-weight_text" x="430" y="280"></text> -->
 
                     <!-- Weight line (sample data) -->
+                    <polyline
+                      class="line"
+                      points=""
+                      stroke="#FFA726"
+                      fill="none"
+                    />
 
                     <!-- Dots on the line -->
-                    <circle
-                      class="dot day1-weight__dot"
-                      cx="70"
-                      cy="70"
-                      r="4"
-                    />
-                    <circle
-                      class="dot day2-weight__dot"
-                      cx="130"
-                      cy="90"
-                      r="4"
-                    />
-                    <circle
-                      class="dot day3-weight__dot"
-                      cx="190"
-                      cy="110"
-                      r="4"
-                    />
-                    <circle
-                      class="dot day4-weight__dot"
-                      cx="250"
-                      cy="120"
-                      r="4"
-                    />
-                    <circle
-                      class="dot day5-weight__dot"
-                      cx="310"
-                      cy="130"
-                      r="4"
-                    />
-                    <circle
-                      class="dot day6-weight__dot"
-                      cx="370"
-                      cy="140"
-                      r="4"
-                    />
+                    <!-- <circle
+                        class="dot day1-weight__dot"
+                        cx="70"
+                        cy="70"
+                        r="4"
+                      />
+                      <circle
+                        class="dot day2-weight__dot"
+                        cx="130"
+                        cy="90"
+                        r="4"
+                      />
+                      <circle
+                        class="dot day3-weight__dot"
+                        cx="190"
+                        cy="110"
+                        r="4"
+                      />
+                      <circle
+                        class="dot day4-weight__dot"
+                        cx="250"
+                        cy="120"
+                        r="4"
+                      />
+                      <circle
+                        class="dot day5-weight__dot"
+                        cx="310"
+                        cy="130"
+                        r="4"
+                      />
+                      <circle
+                        class="dot day6-weight__dot"
+                        cx="370"
+                        cy="140"
+                        r="4"
+                      /> -->
                     <!-- <circle
                         class="dot day7-weight__dot"
                         cx="430"
@@ -675,7 +677,7 @@
             </div>
             <div class="detail-value label-input flex-col">
               <label for="weight-goal" class="normal-text cards-description"
-                >Weight Goal  (kg)</label
+                >Weight Goal (kg)</label
               >
               <input
                 type="number"

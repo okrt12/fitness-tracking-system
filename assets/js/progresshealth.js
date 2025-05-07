@@ -76,6 +76,12 @@ backdrop.addEventListener("click", function () {
   addHidden(form);
 });
 
+document.addEventListener("keydown", function (e) {
+  if (e.key === "Escape") {
+    addHidden(form);
+  }
+});
+
 addProgressBtn.addEventListener("click", function (e) {
   toggleHidden(form);
 });
@@ -83,7 +89,7 @@ addProgressBtn.addEventListener("click", function (e) {
 form.addEventListener("submit", async function (e) {
   e.preventDefault();
   const userData = await getData("../backend/api/get-user-info.php");
-  const bmi = calcBMI(userData.height, userData.weight).toFixed(2);
+  const bmi = calcBMI(userData.height, userData.weight).toFixed(1);
   const progressData = {
     diastolic: diastolicInput.value,
     systolic: systolicInput.value,
@@ -100,12 +106,12 @@ weightGoalForm.addEventListener("submit", async function (e) {
   e.preventDefault();
 
   const goalData = {
-    goal: weightGoalInput.value,
+    goal_weight: weightGoalInput.value,
   };
   try {
     const response = await postData(
       goalData,
-      "../backend/controllers/updateGoal.php"
+      "../backend/controllers/updateWeightGoal.php"
     );
     if (response.ok) {
       const data = await response.json();
@@ -195,28 +201,115 @@ async function updateDateLabel() {
   healthDateLabels.forEach((el, i) => {
     el.textContent = reversedDataDate[i];
   });
-  console.log(progressData);
 }
 
 ////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////// Line Chart ////////////////////////////////////////
 // Dom
 const lineChart = document.querySelector(".line-chart");
-const weightPolyline = document.querySelector(".weight-polyline");
+const goalWeightTexts = document.querySelectorAll(".day-kg__text");
+const goalLineText = document.querySelector(".goal-line__text");
+const goalLine = document.querySelector(".goal-line");
 
-// Var
-const circleX = 70;
-const circleY = 230;
+function plotWeightChart(dataWeight, goalWeight, currWeight) {
+  const allWeights = [...dataWeight, goalWeight, currWeight];
+  const maxWeight = Math.max(...allWeights);
+  const minWeight = Math.min(...allWeights);
+  const rangePadding = 2;
 
-const dataWeight = [60, 65, 70, 60, 65, 75, 80];
+  const paddedMax = Math.ceil(maxWeight + rangePadding);
+  const paddedMin = Math.floor(minWeight - rangePadding);
 
-const circleHTML = `<circle class="dot" cx="${circleX}" cy="${circleY}" r="4" />`;
-const polylineHTML = `  <polyline class="polyline weight-polyline" points = 
-  "70,70 130,90 190,110 250,120 310,130 370,140 ${circleX + "," + circleY}"  
-   />`;
+  const steps = 5;
+  const stepValue = (paddedMax - paddedMin) / (steps - 1);
 
-// lineChart.insertAdjacentHTML("beforeend", circleHTML);
-lineChart.insertAdjacentHTML("afterbegin", polylineHTML);
+  const yLabels = [];
+  for (let i = 0; i <= steps; i++) {
+    const label = (paddedMax - i * stepValue).toFixed(1);
+    yLabels.push(label);
+  }
+
+  const chartLeft = 50;
+  const chartRight = 580;
+  const chartTop = 20;
+  const chartBottom = 260;
+  const chartHeight = chartBottom - chartTop;
+  const chartWidth = chartRight - chartLeft;
+
+  const goalY =
+    chartTop +
+    ((maxWeight - goalWeight) / (maxWeight - minWeight)) * chartHeight;
+
+  goalLine.setAttribute("y1", goalY);
+  goalLine.setAttribute("y2", goalY);
+  goalLineText.setAttribute("y", goalY - 5);
+  goalLineText.textContent = "Goal: " + goalWeight + " kg";
+
+  goalWeightTexts.forEach((el, i) => {
+    document.querySelector(`.day${i + 1}-kg`).textContent = yLabels[i];
+  });
+
+  const weights = progressData.map((p) => p.weight);
+  const dates = progressData.map((p) => p.date);
+
+  const yPositions = weights.map((w) => {
+    return chartTop + ((maxWeight - w) / (maxWeight - minWeight)) * chartHeight;
+  });
+
+  const count = weights.length;
+  const stepX = chartWidth / (count - 1);
+  const xPositions = Array.from(
+    { length: count },
+    (_, i) => chartLeft + i * stepX
+  );
+
+  const points = xPositions.map((x, i) => `${x},${yPositions[i]}`).join(" ");
+
+  const lineElement = document.querySelector(".line");
+  lineElement.setAttribute("points", points);
+
+  xPositions.forEach((x, i) => {
+    const circleHTML = `<circle class="dot" cx="${x}" cy="${yPositions[i]}" r="4" />`;
+    const xLabelsHTML = `<text class="day-weight_text" x="${
+      x - 20
+    }" y="280"></text>`;
+    lineChart.insertAdjacentHTML("afterbegin", circleHTML);
+    lineChart.insertAdjacentHTML("beforeend", xLabelsHTML);
+  });
+
+  console.log(dates);
+
+  const weightDateLabels = document.querySelectorAll(".day-weight_text");
+  weightDateLabels.forEach((el) => {
+    el.textContent = "";
+  });
+
+  if (!progressData) return;
+  const dataDate = progressData
+    .filter((el) => el)
+    .map((el) => dateToMonth(el.date));
+
+  const reversedDataDate = dataDate.reverse();
+
+  weightDateLabels.forEach((el, i) => {
+    el.textContent = reversedDataDate[i];
+  });
+}
+
+async function updateWeightChart() {
+  const dataWeight = progressData.filter((el) => el).map((el) => el.weight);
+  const userData = await getData("../backend/api/get-user-info.php");
+  const goalWeight = userData.goal_weight;
+  const currWeight = userData.weight;
+  plotWeightChart(dataWeight, goalWeight, currWeight);
+}
+
+async function updateCalorie() {
+  const calorieC = await getData("../backend/api/get-meal-log.php");
+  const calorieB = await getData("../backend/api/get-workout-log.php");
+  const calorieConsumed = calorieC.data.map((el) => el.calories);
+  const calorieBurned = calorieB.data.map((el) => el.calories_burned);
+}
 
 /////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -225,4 +318,6 @@ lineChart.insertAdjacentHTML("afterbegin", polylineHTML);
   updateBPGraph();
   updateSLGraph();
   updateDateLabel();
+  updateWeightChart();
+  updateCalorie();
 })();
