@@ -31,6 +31,8 @@ const maxHeight = 130;
 const maxBP = 200;
 const maxBSL = 500;
 let progressData;
+let mealLog;
+let workoutLog;
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////   Helper Functions       ////////////////////////
@@ -42,6 +44,19 @@ function dateToMonth(dateStr) {
     day: "numeric",
   });
   return formatted;
+}
+function statusBP(sys, dia) {
+  if (sys > 180 || dia > 120) return "Hypertensive Crisis";
+  if (sys >= 140 || dia >= 90) return "Hypertension Stage 2";
+  if (sys >= 130 || dia >= 80) return "Hypertension Stage 1";
+  if (sys >= 120 && dia < 80) return "Elevated";
+  return "Normal";
+}
+
+function statusBS(bs) {
+  if (bs >= 126) return "Diabetes";
+  if (bs >= 100) return "Prediabetes";
+  return "Normal";
 }
 
 const calcBMI = (height, weight) => weight / (height / 100) ** 2;
@@ -126,6 +141,7 @@ weightGoalForm.addEventListener("submit", async function (e) {
 
 const weightChange = document.querySelector(".weight-change");
 const healthStatus = document.querySelector(".health-status");
+const calBurnedStatus = document.querySelector(".avg-cal__burned");
 const calcWeightChange = (w1, w2) => (w1 > w2 ? w1 - w2 : w2 - w1);
 
 function weightChangeUpdate() {
@@ -137,30 +153,6 @@ function weightChangeUpdate() {
     progressData[0].weight > progressData[1].weight
       ? "↑ " + weightChangeResult + " kg"
       : "↓ " + weightChangeResult + " kg";
-}
-/**
- Normal: < 120/80 mmHg
-
-Elevated: 120–129 & < 80
-
-Stage 1: 130–139 or 80–89
-
-Stage 2: ≥ 140 or ≥ 90
-
-Crisis: > 180 or > 120
- */
-function statusBP(sys, dia) {
-  if (sys > 180 || dia > 120) return "Hypertensive Crisis";
-  if (sys >= 140 || dia >= 90) return "Hypertension Stage 2";
-  if (sys >= 130 || dia >= 80) return "Hypertension Stage 1";
-  if (sys >= 120 && dia < 80) return "Elevated";
-  return "Normal";
-}
-
-function statusBS(bs) {
-  if (bs >= 126) return "Diabetes";
-  if (bs >= 100) return "Prediabetes";
-  return "Normal";
 }
 
 function healthStatusUpdate() {
@@ -190,13 +182,27 @@ function healthStatusUpdate() {
   );
 }
 
+function avegCaloriesUpdate() {
+  const avgBurned =
+    workoutLog
+      .map((el) => el.calories_burned)
+      .reduce((acc, curr) => (acc += curr), 0) / workoutLog.length;
+
+  calBurnedStatus.textContent = avgBurned.toFixed(0) + " kcal /Day";
+}
+
 async function updateUI() {
   const userData = await getData("../backend/api/get-progress.php");
+  const workout = await getData("../backend/api/get-workout-log.php");
+  const meal = await getData("../backend/api/get-meal-log.php");
   if (userData.data.length !== 0) {
+    mealLog = meal.data.filter((el) => el);
+    workoutLog = workout.data.filter((el) => el);
     progressData = userData.data.filter((el) => el);
     currentWeightInput.textContent = (await progressData[0].weight) + " kg";
     weightChangeUpdate();
     healthStatusUpdate();
+    avegCaloriesUpdate();
     return;
   }
   healthStatus.insertAdjacentHTML(
