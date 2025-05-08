@@ -137,9 +137,8 @@
             <h3 class="cards-header">Avg Calories Burned</h3>
             <p class="cards-description normal-text">450/day</p>
           </div>
-          <div class="cards flex-col status-cards">
+          <div class="cards flex-col status-cards health-status">
             <h3 class="cards-header">Health Status</h3>
-            <p class="health-status cards-description normal-text">Normal</p>
           </div>
 
           <!-- <div class="cards flex-col status-cards">

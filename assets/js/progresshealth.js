@@ -125,23 +125,84 @@ weightGoalForm.addEventListener("submit", async function (e) {
 });
 
 const weightChange = document.querySelector(".weight-change");
+const healthStatus = document.querySelector(".health-status");
 const calcWeightChange = (w1, w2) => (w1 > w2 ? w1 - w2 : w2 - w1);
+
+function weightChangeUpdate() {
+  const weightChangeResult = calcWeightChange(
+    progressData[0].weight,
+    progressData[1].weight
+  );
+  weightChange.textContent =
+    progressData[0].weight > progressData[1].weight
+      ? "↑ " + weightChangeResult + " kg"
+      : "↓ " + weightChangeResult + " kg";
+}
+/**
+ Normal: < 120/80 mmHg
+
+Elevated: 120–129 & < 80
+
+Stage 1: 130–139 or 80–89
+
+Stage 2: ≥ 140 or ≥ 90
+
+Crisis: > 180 or > 120
+ */
+function statusBP(sys, dia) {
+  if (sys > 180 || dia > 120) return "Hypertensive Crisis";
+  if (sys >= 140 || dia >= 90) return "Hypertension Stage 2";
+  if (sys >= 130 || dia >= 80) return "Hypertension Stage 1";
+  if (sys >= 120 && dia < 80) return "Elevated";
+  return "Normal";
+}
+
+function statusBS(bs) {
+  if (bs >= 126) return "Diabetes";
+  if (bs >= 100) return "Prediabetes";
+  return "Normal";
+}
+
+function healthStatusUpdate() {
+  const systolic =
+    progressData
+      .map((el) => el.systolic)
+      .reduce((acc, curr) => (acc += curr), 0) / progressData.length;
+  const diastolic =
+    progressData
+      .map((el) => el.diastolic)
+      .reduce((acc, curr) => (acc += curr), 0) / progressData.length;
+  const bloodSugar =
+    progressData
+      .map((el) => +el.sugar_level)
+      .reduce((acc, curr) => (acc += curr), 0) / progressData.length;
+
+  healthStatus.insertAdjacentHTML(
+    "beforeend",
+    `<p class="cards-description normal-text">BP: ${statusBP(
+      systolic,
+      diastolic
+    )}</p>`
+  );
+  healthStatus.insertAdjacentHTML(
+    "beforeend",
+    `<p class="cards-description normal-text">BP: ${statusBS(bloodSugar)}</p>`
+  );
+}
+
 async function updateUI() {
   const userData = await getData("../backend/api/get-progress.php");
   if (userData.data.length !== 0) {
     progressData = userData.data.filter((el) => el);
     currentWeightInput.textContent = (await progressData[0].weight) + " kg";
-
-    const weightChangeResult = calcWeightChange(
-      progressData[0].weight,
-      progressData[1].weight
-    );
-
-    weightChange.textContent =
-      progressData[0].weight > progressData[1].weight
-        ? "↑ " + weightChangeResult + " kg"
-        : "↓ " + weightChangeResult + " kg";
+    weightChangeUpdate();
+    healthStatusUpdate();
+    return;
   }
+  healthStatus.insertAdjacentHTML(
+    "beforeend",
+    `<p class="cards-description normal-text">No Data</p>`
+  );
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////
