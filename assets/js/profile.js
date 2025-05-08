@@ -121,8 +121,6 @@ function getBMIStatus(bmi) {
 async function updateUI() {
   const userData = await getData("../backend/api/get-user-info.php");
   const userProgress = await getData("../backend/api/get-progress.php");
-  console.log(userProgress);
-  console.log(userData);
   infoName.textContent = inputName.value = userData.name;
   infoAge.textContent = inputAge.value = userData.age;
   infoHeight.textContent = inputHeight.value = userData.height;

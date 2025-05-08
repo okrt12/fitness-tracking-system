@@ -4,14 +4,8 @@ require_once('../config/db.php');
 
 header('Content-Type: application/json');
 
-// Check if user is logged in
-if (!isset($_SESSION['user_id'])) {
-  http_response_code(401);
-  echo json_encode(['success' => false, 'message' => 'User not logged in']);
-  exit;
-}
+// Optional: You could check if the user is an admin if needed here.
 
-// Read JSON input from form submission
 $data = json_decode(file_get_contents("php://input"), true);
 
 if (!$data) {
@@ -20,29 +14,42 @@ if (!$data) {
   exit;
 }
 
-// Extract and sanitize input
-$user_id = $_SESSION['user_id'];
-$name = $data['name'] ?? null;
-$category = $data['category'] ?? null;
+// Extract and validate input
+$name = trim($data['name'] ?? '');
+$category = trim($data['category'] ?? '');
 $calories_per_hour = $data['calories_per_hour'] ?? null;
-$workout_day_name = $data['workout_day_name'] ?? null;
+
+if (!$name || !$category || !is_numeric($calories_per_hour)) {
+  http_response_code(400);
+  echo json_encode(['success' => false, 'message' => 'Missing or invalid data']);
+  exit;
+}
 
 try {
-  // Insert into workouts table
+  // Check for duplicate workout (by name and category)
+  $check = $pdo->prepare("SELECT workout_id FROM workout WHERE name = :name AND category = :category");
+  $check->execute(['name' => $name, 'category' => $category]);
+
+  if ($check->fetch()) {
+    http_response_code(409); // Conflict
+    echo json_encode(['success' => false, 'message' => 'Workout with the same name and category already exists']);
+    exit;
+  }
+
+  // Insert into workout table
   $stmt = $pdo->prepare("
-    INSERT INTO workouts (user_id, name, workout_day_name, category, calories_per_hour)
-    VALUES (:user_id, :name, :category, :workout_day_name, :calories_per_hour)
+    INSERT INTO workout (name, category, calories_per_hour)
+    VALUES (:name, :category, :calories_per_hour)
   ");
   
   $stmt->execute([
-    'user_id' => $user_id,
     'name' => $name,
-    'workout_day_name' => $workout_day_name,
     'category' => $category,
     'calories_per_hour' => $calories_per_hour
   ]);
 
   echo json_encode(['success' => true, 'message' => 'Workout added successfully']);
+
 } catch (PDOException $e) {
   http_response_code(500);
   echo json_encode(['success' => false, 'message' => 'Database error: ' . $e->getMessage()]);
