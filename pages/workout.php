@@ -149,12 +149,12 @@
               <label
                 for="workout_day_name"
                 class="normal-text cards-description"
-                >Workout Day Name</label
+                >Workout Category</label
               >
               <select
                 class="input cards-description normal-text"
-                id="workout_day_name"
-                name="workout_day_name"
+                id="workout-category"
+                name="category"
                 required
               >
                 <option value="">Select Workout Day</option>
@@ -169,7 +169,7 @@
                 <option value="Rest Day">Rest Day</option>
               </select>
             </div>
-
+            <!-- 
             <div class="detail-value flex-col">
               <label
                 for="workout-category"
@@ -187,7 +187,7 @@
                 <option value="Yoga">Yoga</option>
                 <option value="Other">Other</option>
               </select>
-            </div>
+            </div> -->
             <div class="detail-value flex-col">
               <label
                 for="calories-per-hour"
@@ -217,19 +217,6 @@
             name="log-workout"
           >
             <h3 class="cards-header">Log Workout</h3>
-            <div class="detail-value flex-col">
-              <label for="workout-id" class="normal-text cards-description"
-                >Workout</label
-              >
-              <select
-                id="workout-id"
-                name="workout_id"
-                class="input normal-text cards-description"
-                required
-              >
-                <option value="">Select a Workout</option>
-              </select>
-            </div>
 
             <div class="detail-value flex-col">
               <label
@@ -253,6 +240,20 @@
                 <option value="Core Day">Core Day</option>
                 <option value="Full Body">Full Body</option>
                 <option value="Rest Day">Rest Day</option>
+              </select>
+            </div>
+
+            <div class="detail-value flex-col">
+              <label for="workout-id" class="normal-text cards-description"
+                >Workout</label
+              >
+              <select
+                id="workout-id"
+                name="workout_id"
+                class="input normal-text cards-description"
+                required
+              >
+                <option value="">Select a Workout</option>
               </select>
             </div>
 
