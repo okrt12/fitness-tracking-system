@@ -124,11 +124,23 @@ weightGoalForm.addEventListener("submit", async function (e) {
   }
 });
 
+const weightChange = document.querySelector(".weight-change");
+const calcWeightChange = (w1, w2) => (w1 > w2 ? w1 - w2 : w2 - w1);
 async function updateUI() {
   const userData = await getData("../backend/api/get-progress.php");
   if (userData.data.length !== 0) {
     progressData = userData.data.filter((el) => el);
     currentWeightInput.textContent = (await progressData[0].weight) + " kg";
+
+    const weightChangeResult = calcWeightChange(
+      progressData[0].weight,
+      progressData[1].weight
+    );
+
+    weightChange.textContent =
+      progressData[0].weight > progressData[1].weight
+        ? "↑ " + weightChangeResult + " kg"
+        : "↓ " + weightChangeResult + " kg";
   }
 }
 
@@ -208,7 +220,6 @@ async function updateDateLabel() {
 }
 
 function updateHealthChart() {
-  console.log(progressData);
   if (!progressData) {
     healthBar.classList.add("hidden");
     noDataHealth.classList.remove("hidden");
@@ -344,8 +355,14 @@ async function updateCalorie() {
   const calorieB = await getData("../backend/api/get-workout-log.php");
   const calorieConsumed = calorieC.data.map((el) => el.calories);
   const calorieBurned = calorieB.data.map((el) => el.calories_burned);
+  // console.log(calorieC);
+  // console.log(calorieB);
 }
 
+/////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
 
 (async () => {

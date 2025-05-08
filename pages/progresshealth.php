@@ -130,7 +130,7 @@
         <div class="progress-status__container container">
           <div class="cards flex-col status-cards">
             <h3 class="cards-header">Weight Change</h3>
-            <p class="cards-description normal-text">↓ 2.5 kg</p>
+            <p class="cards-description normal-text weight-change">No Data</p>
           </div>
 
           <div class="cards flex-col status-cards">
