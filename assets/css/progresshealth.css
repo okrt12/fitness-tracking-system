@@ -206,3 +206,8 @@ svg text {
 .update-weight_goal {
   margin-bottom: 2rem;
 }
+.no-data {
+  color: var(--text-color) !important;
+  font-size: 2.4rem;
+  text-align: center;
+}

@@ -254,15 +254,6 @@
                     />
                     <text class="goal-line__text" x="500" y="125"></text>
 
-                    <!-- X-axis labels -->
-                    <!-- <text class="day-weight_text" x="70" y="280"></text> -->
-                    <!-- <text class="day-weight_text" x="130" y="280"></text>
-                    <text class="day-weight_text" x="190" y="280"></text>
-                    <text class="day-weight_text" x="250" y="280"></text>
-                    <text class="day-weight_text" x="310" y="280"></text>
-                    <text class="day-weight_text" x="370" y="280"></text>
-                    <text class="day-weight_text" x="430" y="280"></text> -->
-
                     <!-- Weight line (sample data) -->
                     <polyline
                       class="line"
@@ -270,54 +261,13 @@
                       stroke="#FFA726"
                       fill="none"
                     />
-
-                    <!-- Dots on the line -->
-                    <!-- <circle
-                        class="dot day1-weight__dot"
-                        cx="70"
-                        cy="70"
-                        r="4"
-                      />
-                      <circle
-                        class="dot day2-weight__dot"
-                        cx="130"
-                        cy="90"
-                        r="4"
-                      />
-                      <circle
-                        class="dot day3-weight__dot"
-                        cx="190"
-                        cy="110"
-                        r="4"
-                      />
-                      <circle
-                        class="dot day4-weight__dot"
-                        cx="250"
-                        cy="120"
-                        r="4"
-                      />
-                      <circle
-                        class="dot day5-weight__dot"
-                        cx="310"
-                        cy="130"
-                        r="4"
-                      />
-                      <circle
-                        class="dot day6-weight__dot"
-                        cx="370"
-                        cy="140"
-                        r="4"
-                      /> -->
-                    <!-- <circle
-                        class="dot day7-weight__dot"
-                        cx="430"
-                        cy="160"
-                        r="4"
-                      /> -->
                   </svg>
                 </div>
-                <p class="cards-description normal-text">
-                  Current: 73kg (Goal: 70kg)
+                <div class="weight-chart__desc"></div>
+                <p
+                  class="normal-text cards-header no-data no-data_weight hidden"
+                >
+                  No data
                 </p>
               </div>
               <!-- Workout Chart -->
@@ -429,8 +379,15 @@
                     </text>
                   </svg>
                 </div>
-                <p class="cards-description normal-text">
-                  This Week: 3 sessions, 950 kcal
+                <div class="workout-chart__desc">
+                  <p class="cards-description normal-text">
+                    This Week: 3 sessions, 950 kcal
+                  </p>
+                </div>
+                <p
+                  class="normal-text cards-header no-data no-data_workout hidden"
+                >
+                  No data
                 </p>
               </div>
             </div>
@@ -440,7 +397,7 @@
         <div class="health-charts__container container">
           <div class="progress-charts health-charts cards">
             <h3 class="cards-header">Health Status</h3>
-            <div class="chart detail-value flex-col">
+            <div class="chart health-bar detail-value flex-col">
               <svg
                 class="bar-chart bp-chart"
                 viewBox="25 -10 570 180"
@@ -661,19 +618,22 @@
                 ></span>
               </div>
             </div>
+            <p class="normal-text cards-header no-data no-data_health hidden">
+              No data
+            </p>
           </div>
           <form class="cards update-weight_goal">
             <h3 class="cards-header">Weight Goal</h3>
             <div class="detail-value flex-col">
               <label class="cards-description normal-text" for="current-weight"
-                >Current Weight</label
+                >Current Weight Goal</label
               >
 
               <span
                 class="input normal-text cards-description"
                 id="current-weight"
-                >10</span
               >
+              </span>
             </div>
             <div class="detail-value label-input flex-col">
               <label for="weight-goal" class="normal-text cards-description"

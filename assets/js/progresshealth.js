@@ -126,12 +126,16 @@ weightGoalForm.addEventListener("submit", async function (e) {
 
 async function updateUI() {
   const userData = await getData("../backend/api/get-progress.php");
-  progressData = userData.data.filter((el) => el);
-  currentWeightInput.textContent = (await progressData[0].weight) + " kg";
+  if (userData.data.length !== 0) {
+    progressData = userData.data.filter((el) => el);
+    currentWeightInput.textContent = (await progressData[0].weight) + " kg";
+  }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////////
+const healthBar = document.querySelector(".health-bar");
+const noDataHealth = document.querySelector(".no-data_health");
 
 function updateBarGraph(chartType, value, height, i) {
   document
@@ -203,6 +207,19 @@ async function updateDateLabel() {
   });
 }
 
+function updateHealthChart() {
+  console.log(progressData);
+  if (!progressData) {
+    healthBar.classList.add("hidden");
+    noDataHealth.classList.remove("hidden");
+    return;
+  }
+  if (healthBar.classList.contains("hidden"))
+    healthBar.classList.remove("hidden");
+  updateBPGraph();
+  updateSLGraph();
+  updateDateLabel();
+}
 ////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////// Line Chart ////////////////////////////////////////
 // Dom
@@ -210,24 +227,10 @@ const lineChart = document.querySelector(".line-chart");
 const goalWeightTexts = document.querySelectorAll(".day-kg__text");
 const goalLineText = document.querySelector(".goal-line__text");
 const goalLine = document.querySelector(".goal-line");
-
+const weightChartDesc = document.querySelector(".weight-chart__desc");
+const noDataWeight = document.querySelector(".no-data_weight");
 function plotWeightChart(dataWeight, goalWeight, currWeight) {
-  const allWeights = [...dataWeight, goalWeight, currWeight];
-  const maxWeight = Math.max(...allWeights);
-  const minWeight = Math.min(...allWeights);
-  const rangePadding = 2;
-
-  const paddedMax = Math.ceil(maxWeight + rangePadding);
-  const paddedMin = Math.floor(minWeight - rangePadding);
-
-  const steps = 5;
-  const stepValue = (paddedMax - paddedMin) / (steps - 1);
-
-  const yLabels = [];
-  for (let i = 0; i <= steps; i++) {
-    const label = (paddedMax - i * stepValue).toFixed(1);
-    yLabels.push(label);
-  }
+  if (!Array.isArray(dataWeight) || dataWeight.length === 0) return;
 
   const chartLeft = 50;
   const chartRight = 580;
@@ -236,69 +239,104 @@ function plotWeightChart(dataWeight, goalWeight, currWeight) {
   const chartHeight = chartBottom - chartTop;
   const chartWidth = chartRight - chartLeft;
 
-  const goalY =
-    chartTop +
-    ((maxWeight - goalWeight) / (maxWeight - minWeight)) * chartHeight;
+  const allWeights = [...dataWeight, goalWeight, currWeight].filter(
+    (w) => w != null
+  );
+  const maxWeight = Math.max(...allWeights);
+  const minWeight = Math.min(...allWeights);
+  const hasRange = maxWeight !== minWeight;
+
+  const rangePadding = 2;
+  const paddedMax = hasRange
+    ? Math.ceil(maxWeight + rangePadding)
+    : maxWeight + 1;
+  const paddedMin = hasRange
+    ? Math.floor(minWeight - rangePadding)
+    : minWeight - 1;
+
+  const steps = 5;
+  const stepValue = (paddedMax - paddedMin) / (steps - 1);
+  for (let i = 0; i < steps; i++) {
+    const label = (paddedMax - i * stepValue).toFixed(1);
+    const el = document.querySelector(`.day${i + 1}-kg`);
+    if (el) el.textContent = label;
+  }
+
+  const goalY = hasRange
+    ? chartTop +
+      ((paddedMax - goalWeight) / (paddedMax - paddedMin)) * chartHeight
+    : chartTop + chartHeight / 2;
 
   goalLine.setAttribute("y1", goalY);
   goalLine.setAttribute("y2", goalY);
   goalLineText.setAttribute("y", goalY - 5);
-  goalLineText.textContent = "Goal: " + goalWeight + " kg";
+  goalLineText.textContent = goalWeight ? `Goal: ${goalWeight} kg` : "No Goal";
 
-  goalWeightTexts.forEach((el, i) => {
-    document.querySelector(`.day${i + 1}-kg`).textContent = yLabels[i];
-  });
-
-  const weights = progressData.map((p) => p.weight);
-
-  const yPositions = weights.map((w) => {
-    return chartTop + ((maxWeight - w) / (maxWeight - minWeight)) * chartHeight;
-  });
+  const weights = progressData.map((el) => el.weight).filter((w) => w != null);
+  const yPositions = weights.map((w) =>
+    hasRange
+      ? chartTop + ((paddedMax - w) / (paddedMax - paddedMin)) * chartHeight
+      : chartTop + chartHeight / 2
+  );
 
   const count = weights.length;
-  const stepX = chartWidth / (count - 1);
+  if (count === 0) return;
+
+  const stepX = count === 1 ? 0 : chartWidth / (count - 1);
   const xPositions = Array.from(
     { length: count },
     (_, i) => chartLeft + i * stepX
   );
 
-  const points = xPositions.map((x, i) => `${x},${yPositions[i]}`).join(" ");
+  lineChart.querySelectorAll(".dot").forEach((dot) => dot.remove());
+  lineChart.querySelectorAll(".day-weight_text").forEach((txt) => txt.remove());
 
-  const lineElement = document.querySelector(".line");
-  lineElement.setAttribute("points", points);
+  const points = xPositions.map((x, i) => `${x},${yPositions[i]}`).join(" ");
+  document.querySelector(".line").setAttribute("points", points);
+
+  const dates = progressData.map((p) => dateToMonth(p.date));
 
   xPositions.forEach((x, i) => {
-    const circleHTML = `<circle class="dot" cx="${x}" cy="${yPositions[i]}" r="4" />`;
-    const xLabelsHTML = `<text class="day-weight_text" x="${
-      x - 20
-    }" y="280"></text>`;
-    lineChart.insertAdjacentHTML("afterbegin", circleHTML);
-    lineChart.insertAdjacentHTML("beforeend", xLabelsHTML);
-  });
-
-  const weightDateLabels = document.querySelectorAll(".day-weight_text");
-  weightDateLabels.forEach((el) => {
-    el.textContent = "";
-  });
-
-  if (!progressData) return;
-  const dataDate = progressData
-    .filter((el) => el)
-    .map((el) => dateToMonth(el.date));
-
-  const reversedDataDate = dataDate.reverse();
-
-  weightDateLabels.forEach((el, i) => {
-    el.textContent = reversedDataDate[i];
+    if (isNaN(x) || isNaN(yPositions[i])) return;
+    const circle = `<circle class="dot" cx="${x}" cy="${yPositions[i]}" r="4" />`;
+    const label = `<text class="day-weight_text" x="${x - 20}" y="280">${
+      dates[i]
+    }</text>`;
+    lineChart.insertAdjacentHTML("beforeend", circle);
+    lineChart.insertAdjacentHTML("beforeend", label);
   });
 }
 
 async function updateWeightChart() {
-  const dataWeight = progressData.filter((el) => el).map((el) => el.weight);
   const userData = await getData("../backend/api/get-user-info.php");
-  const goalWeight = userData.goal_weight;
-  const currWeight = userData.weight;
-  plotWeightChart(dataWeight, goalWeight, currWeight);
+  if (!progressData || !userData.goal_weight) {
+    lineChart.classList.add("hidden");
+    weightChartDesc.classList.add("hidden");
+    noDataWeight.classList.remove("hidden");
+    return;
+  }
+  if (
+    lineChart.classList.contains("hidden") &&
+    weightChartDesc.classList.contains("hidden")
+  ) {
+    lineChart.classList.remove("hidden");
+    weightChartDesc.classList.remove("hidden");
+    noDataWeight.classList.add("hidden");
+  }
+  let dataWeight = progressData.filter((el) => el).map((el) => el.weight);
+  const descHTML = userData.goal_weight
+    ? `<p class="cards-description normal-text">
+                    Current: <span class="current-weight__chart">${userData.weight}</span>kg
+                    (Goal: <span class="goal-weight__chart">${userData.goal_weight}</span> kg)
+                  </p>`
+    : `<p class="cards-description normal-text">
+                  Current: <span class="current-weight__chart">${userData.weight}</span>kg
+                  (Goal: <span class="goal-weight__chart">No weight goal</span>)
+                </p>`;
+
+  weightChartDesc.insertAdjacentHTML("beforeend", descHTML);
+
+  plotWeightChart(dataWeight, userData.goal_weight, userData.weight);
 }
 
 async function updateCalorie() {
@@ -312,9 +350,7 @@ async function updateCalorie() {
 
 (async () => {
   await updateUI();
-  updateBPGraph();
-  updateSLGraph();
-  updateDateLabel();
+  updateHealthChart();
   updateWeightChart();
   updateCalorie();
 })();
