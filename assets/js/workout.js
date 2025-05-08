@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     try {
       const response = await postData(
         addWorkoutData,
-        "../backend/controllers/addWorkout.php"
+        "../backend/controllers/add-user-workout.php"
       );
       if (!response.ok && response.status === 409) {
         const data = await response.json();
