@@ -51,7 +51,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const logWorkoutCalories = document.getElementById("calories-burned");
   const logWorkoutDayName = document.getElementById("workout_day_name_log");
 
-  const updateCaloriesBurned = (duration, calorie) => (duration / 60) * calorie;
+  const updateCaloriesBurned = (duration, calorie) =>
+    Math.ceil((duration / 60) * calorie);
   let selectedWorkoutID;
   logWorkoutID.addEventListener("change", () => {
     selectedWorkoutID = logWorkoutID.value;
@@ -59,7 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   logWorkoutDayName.addEventListener("change", async function (e) {
     const workoutData = await getData("../backend/api/get-workout.php");
-    const dayWorkouts = workoutData.data.filter(
+    let dayWorkouts = [];
+    dayWorkouts = workoutData.data.filter(
       (el) => el.category === logWorkoutDayName.value
     );
     dayWorkouts.forEach((el) => {
@@ -84,7 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   logWorkoutForm.addEventListener("submit", async function (e) {
     e.preventDefault();
-
     const workoutLogData = {
       workout_id: logWorkoutID.value,
       duration: logWorkoutDuration.value,
