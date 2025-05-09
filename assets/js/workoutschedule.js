@@ -300,7 +300,7 @@ function updateTotalWeekWorkout() {
     (total >= 60 &&
       total % 60 !== 0 &&
       Math.floor(total / 60) + " hrs " + (total % 60) + " min") ||
-    total / 60 + " hrs";
+    total + " min";
 }
 
 function workoutDays() {
@@ -392,13 +392,15 @@ async function getNextWorkout() {
 ////////////////////////////////////////////////   Timer       ////////////////////////////////////////////////////
 
 function timer(day, hour, minutes) {
-  if (hour >= 24) {
-    day += 1;
-    hour -= 24;
-  }
-  if (minutes === 60) {
-    hour += 1;
-    minutes = 0;
+  while (hour >= 24) {
+    if (hour >= 24) {
+      day += 1;
+      hour -= 24;
+    }
+    if (minutes === 60) {
+      hour += 1;
+      minutes = 0;
+    }
   }
 
   function updateDisplay() {

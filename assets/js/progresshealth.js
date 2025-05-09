@@ -143,8 +143,18 @@ const weightChange = document.querySelector(".weight-change");
 const healthStatus = document.querySelector(".health-status");
 const calBurnedStatus = document.querySelector(".avg-cal__burned");
 const calcWeightChange = (w1, w2) => (w1 > w2 ? w1 - w2 : w2 - w1);
+const workoutBar = document.querySelectorAll(".workout-bar");
+const workoutText = document.querySelectorAll(".workout__text");
+const workoutBarDayLabel = document.querySelectorAll(".bar-day__texts");
+const workoutChart = document.querySelector(".workout_bar--chart");
+const workoutDesc = document.querySelector(".workout-chart__desc");
+const noDataWorkout = document.querySelector(".no-data_workout");
 
 function weightChangeUpdate() {
+  if (progressData.length === 1) {
+    weightChange.textContent = "No Data";
+    return;
+  }
   const weightChangeResult = calcWeightChange(
     progressData[0].weight,
     progressData[1].weight
@@ -182,39 +192,14 @@ function healthStatusUpdate() {
   );
 }
 
-function avegCaloriesUpdate() {
-  const avgBurned =
-    workoutLog
-      .map((el) => el.calories_burned)
-      .reduce((acc, curr) => (acc += curr), 0) / workoutLog.length;
-
-  calBurnedStatus.textContent = avgBurned.toFixed(0) + " kcal /Day";
+function totalDurationByDate(data) {
+  const totalDurationByDate = data.data.reduce((acc, log) => {
+    const date = log.formatted_date;
+    acc[date] = (acc[date] || 0) + log.duration;
+    return acc;
+  }, {});
+  return totalDurationByDate;
 }
-
-async function updateUI() {
-  const userData = await getData("../backend/api/get-progress.php");
-  const workout = await getData("../backend/api/get-workout-log.php");
-  const meal = await getData("../backend/api/get-meal-log.php");
-  if (userData.data.length !== 0) {
-    mealLog = meal.data.filter((el) => el);
-    workoutLog = workout.data.filter((el) => el);
-    progressData = userData.data.filter((el) => el);
-    currentWeightInput.textContent = (await progressData[0].weight) + " kg";
-    weightChangeUpdate();
-    healthStatusUpdate();
-    avegCaloriesUpdate();
-    return;
-  }
-  healthStatus.insertAdjacentHTML(
-    "beforeend",
-    `<p class="cards-description normal-text">No Data</p>`
-  );
-}
-
-//////////////////////////////////////////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////////////////////////////////////////
-const healthBar = document.querySelector(".health-bar");
-const noDataHealth = document.querySelector(".no-data_health");
 
 function updateBarGraph(chartType, value, height, i) {
   document
@@ -231,15 +216,100 @@ function updateBarGraph(chartType, value, height, i) {
     .setAttribute("y", `${calcTextY(height)}`);
 }
 
-async function updateBPGraph() {
+function resetCharts() {
+  workoutBar.forEach((el) => {
+    el.setAttribute("height", "0");
+  });
+  workoutText.forEach((el) => {
+    el.textContent = "";
+  });
+  bsBars.forEach((el) => {
+    el.setAttribute("height", "0");
+  });
+  bsText.forEach((el) => {
+    el.textContent = "";
+  });
   bpBars.forEach((el) => {
     el.setAttribute("height", "0");
   });
   bpText.forEach((el) => {
     el.textContent = "";
   });
+}
 
-  if (!progressData) return;
+function workoutSessions(workout) {
+  if (workout.data.length !== 0) {
+    noDataWorkout.classList.add("hidden");
+    workoutChart.classList.remove("hidden");
+    workoutDesc.classList.remove("hidden");
+  }
+
+  const workoutData = totalDurationByDate(workout);
+  const dates = Object.keys(workoutData);
+
+  const reversedDataDate = dates.reverse();
+
+  reversedDataDate
+    .filter((el) => el)
+    .forEach((el, i) => {
+      updateBarGraph(
+        "workout",
+        workoutData[el],
+        valueToHeight(workoutData[el], maxBP),
+        i + 1
+      );
+    });
+
+  workoutBarDayLabel.forEach((el, i) => {
+    el.textContent = reversedDataDate[i];
+  });
+
+  const totalBurnedCal = workout.data.reduce(
+    (sum, log) => sum + log.calories_burned,
+    0
+  );
+
+  workoutDesc.insertAdjacentHTML(
+    "beforeend",
+    `<p class="cards-description normal-text">This Week: ${dates.length} sessions, ${totalBurnedCal} kcal burned</p>`
+  );
+  calBurnedStatus.textContent =
+    (totalBurnedCal / dates.length).toFixed(0) + " kcal / Day";
+}
+
+async function updateUI() {
+  const userData = await getData("../backend/api/get-progress.php");
+  const workout = await getData("../backend/api/get-workout-log.php");
+
+  if (userData.data.length !== 0) {
+    workoutLog = workout.data.filter((el) => el);
+    progressData = userData.data.filter((el) => el);
+    currentWeightInput.textContent = (await progressData[0].weight) + " kg";
+    weightChangeUpdate();
+    healthStatusUpdate();
+    resetCharts();
+    workoutSessions(workout);
+
+    return;
+  }
+  healthStatus.insertAdjacentHTML(
+    "beforeend",
+    `<p class="cards-description normal-text">No Data</p>`
+  );
+  if (workout.data.length === 0) {
+    workoutChart.classList.add("hidden");
+    noDataWorkout.classList.remove("hidden");
+    workoutDesc.classList.add("hidden");
+    return;
+  }
+}
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////////////////
+const healthBar = document.querySelector(".health-bar");
+const noDataHealth = document.querySelector(".no-data_health");
+
+async function updateBPGraph() {
   const dataBP = progressData
     .filter((el) => el)
     .map((el) => {
@@ -254,14 +324,6 @@ async function updateBPGraph() {
 }
 
 async function updateSLGraph() {
-  bsBars.forEach((el) => {
-    el.setAttribute("height", "0");
-  });
-  bsText.forEach((el) => {
-    el.textContent = "";
-  });
-
-  if (!progressData) return;
   const dataBS = progressData.filter((el) => el).map((el) => el.sugar_level);
   const reversedDataDate = dataBS.reverse();
 
@@ -377,7 +439,7 @@ function plotWeightChart(dataWeight, goalWeight, currWeight) {
   xPositions.forEach((x, i) => {
     if (isNaN(x) || isNaN(yPositions[i])) return;
     const circle = `<circle class="dot" cx="${x}" cy="${yPositions[i]}" r="4" />`;
-    const label = `<text class="day-weight_text" x="${x - 20}" y="280">${
+    const label = `<text class="day-weight_text" x="${x - 25}" y="280">${
       dates[i]
     }</text>`;
     lineChart.insertAdjacentHTML("beforeend", circle);
@@ -417,15 +479,6 @@ async function updateWeightChart() {
   plotWeightChart(dataWeight, userData.goal_weight, userData.weight);
 }
 
-async function updateCalorie() {
-  const calorieC = await getData("../backend/api/get-meal-log.php");
-  const calorieB = await getData("../backend/api/get-workout-log.php");
-  const calorieConsumed = calorieC.data.map((el) => el.calories);
-  const calorieBurned = calorieB.data.map((el) => el.calories_burned);
-  // console.log(calorieC);
-  // console.log(calorieB);
-}
-
 /////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -436,5 +489,4 @@ async function updateCalorie() {
   await updateUI();
   updateHealthChart();
   updateWeightChart();
-  updateCalorie();
 })();

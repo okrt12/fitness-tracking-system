@@ -206,3 +206,11 @@ svg text {
   font-size: 2.4rem;
   text-align: center;
 }
+
+.workout-chart rect {
+  fill: var(--primary-color);
+}
+
+.workout-chart text {
+  font-size: 1.2rem !important;
+}

@@ -35,7 +35,7 @@ try {
 
   // Format 'date' as 'Apr 28'
   foreach ($logs as &$log) {
-    $log['date'] = date('M j', strtotime($log['date'])); // e.g., "Apr 28"
+    $log['formatted_date'] = date('M j', strtotime($log['date'])); // e.g., "Apr 28"
     unset($log['date']); // Optional: remove original date if not needed
   }
 
