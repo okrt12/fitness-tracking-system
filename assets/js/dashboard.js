@@ -52,6 +52,17 @@ weightProgressText.textContent = weightProgressPercent + "% ";
 weightProgressChart.style.width = `${weightProgressPercent}%`;
 
 ////////////////////////////////////////////////////////////////////////////////////////////
+const qouteDom = document.querySelector(".quote");
+const factDom = document.querySelector(".fact");
+async function updateQuoteFacts() {
+  const factQuoteData = await getData(
+    "../backend/api/get-motivational-content.php"
+  );
+  const qoute = factQuoteData.data.filter((el) => el.type === "quote");
+  const fact = factQuoteData.data.filter((el) => el.type === "fact");
+  qouteDom.textContent = qoute[0].content;
+  factDom.textContent = fact[0].content;
+}
 
 async function updateUI() {
   const userData = await getData("../backend/api/get-user-info.php");
@@ -59,3 +70,4 @@ async function updateUI() {
 }
 
 updateUI();
+updateQuoteFacts();

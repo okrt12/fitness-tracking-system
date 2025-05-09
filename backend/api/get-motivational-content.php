@@ -4,9 +4,21 @@ header('Content-Type: application/json');
 
 try {
   $stmt = $pdo->query("
-  SELECT type, content
- FROM motivational_content
-ORDER BY RAND();
+(
+  SELECT 'quote' AS type, content
+  FROM motivational_content
+  WHERE type = 'quote'
+  ORDER BY RAND()
+  LIMIT 1
+)
+UNION
+(
+  SELECT 'fact' AS type, content
+  FROM motivational_content
+  WHERE type = 'fact'
+  ORDER BY RAND()
+  LIMIT 1
+)
 
   ");
 

@@ -1,7 +1,6 @@
 <?php include "../backend/auth/session.php"; ?>
 <?php include "../backend/auth/auth_check.php"; ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -71,15 +70,18 @@
               </a>
             </li>
             <li>
-            <a
-              class="icon-text sidebar-btn sidebar-btns"
-              href="/pages/workout.php"
-            >
-            <ion-icon class="icons sidebar-icons" name="barbell-outline"></ion-icon>
-          
-              <p class="sidebar-btn">Workout Logs</p>
-            </a>
-          </li>
+              <a
+                class="icon-text sidebar-btn sidebar-btns"
+                href="/pages/workout.php"
+              >
+                <ion-icon
+                  class="icons sidebar-icons"
+                  name="barbell-outline"
+                ></ion-icon>
+
+                <p class="sidebar-btn">Workout Logs</p>
+              </a>
+            </li>
             <li>
               <a
                 class="icon-text sidebar-btn sidebar-btns"
@@ -118,6 +120,7 @@
             </li>
           </ul>
         </nav>
+
         <div class="dashboard-main">
           <div class="header container">
             <h2 class="welcome-text heading-tertiary heading-color">
@@ -125,25 +128,32 @@
             </h2>
           </div>
           <div class="dashboard-cards container">
-            <div class="did-you-know cards">
+            <div class="did-you-know_box cards">
               <h2 class="cards-header">Did You Know?</h2>
-              <p class="normal-text cards-description">
+              <p
+                class="normal-text cards-description fact motivational-content"
+              >
                 Drinking water boosts your metabolism by up to 30%!
               </p>
             </div>
 
             <div class="bmi cards">
               <h2 class="cards-header">BMI and Goals</h2>
-              <p class="normal-text cards-description">BMI: <span class ="bmi-value">22.5</span> <span class="bmi-status">(Normal)</span></p>
+              <p class="normal-text cards-description">
+                BMI: <span class="bmi-value">22.5</span>
+                <span class="bmi-status">(Normal)</span>
+              </p>
               <p class="normal-text cards-description">
                 Goal: <span class="goal">Muscle Gain (Bulking)</span>
               </p>
               <a href="#" class="cards-btn btn bmi-btn"> Update Goal </a>
             </div>
 
-            <div class="quote cards">
+            <div class="quote-box cards">
               <h2 class="cards-header">Motivational Quote</h2>
-              <p class="normal-text cards-description">
+              <p
+                class="normal-text cards-description quote motivational-content"
+              >
                 “The only bad workout is the one you didn’t do.”
               </p>
             </div>

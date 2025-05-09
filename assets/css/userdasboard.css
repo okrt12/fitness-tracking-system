@@ -58,11 +58,12 @@
   background-color: var(--accent-hover);
 }
 
-.did-you-know {
+.did-you-know_box {
   border-left: 0.4rem solid var(--primary-hover);
+  background-color: var(--secondary-color) !important;
 }
 
-.quote {
+.quote-box {
   background-color: var(--secondary-color) !important;
   color: #212121;
   border-left: 0.4rem solid var(--accent-hover);
@@ -86,6 +87,10 @@
 
 .calorie {
   border-left: 0.4rem solid var(--secondary-color);
+}
+
+.motivational-content {
+  line-height: 1.4;
 }
 
 .bar-chart {
