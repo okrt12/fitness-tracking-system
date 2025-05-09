@@ -93,37 +93,37 @@
   line-height: 1.4;
 }
 
+.stat-icon {
+  gap: 1rem !important;
+}
+
 .bar-chart {
-  display: flex;
-  align-items: center;
+  position: relative;
   gap: 2rem;
   height: 100%;
 }
 
-.bar {
+svg text {
+  fill: var(--text-color);
+  font-family: var(--inter);
+  font-size: 1.6rem;
+}
+
+svg rect {
   width: 5rem;
-  padding: 1.6rem;
-  align-self: flex-end;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
 }
 
-.calorie-intake {
-  height: 50%;
-  background-color: var(--primary-color);
-}
-.calorie-outtake {
-  height: 85%;
-  background-color: var(--accent-color1);
+.calorie-burned__bar {
+  fill: var(--accent-color1);
 }
 
-.bar-text {
-  font-weight: 600;
+.calorie-consumed__bar {
+  fill: var(--primary-color);
 }
-
 .legend-container {
-  align-self: flex-start;
+  position: absolute;
+  top: 0;
+  left: 40%;
   margin-left: 3.2rem;
 }
 .legend {
@@ -208,4 +208,14 @@
 .dashboard-btn:hover,
 .dashboard-btn:active {
   background-color: #00b44b;
+}
+
+.hidden {
+  display: none;
+  visibility: hidden;
+  position: absolute;
+}
+
+.no_data {
+  text-align: center;
 }

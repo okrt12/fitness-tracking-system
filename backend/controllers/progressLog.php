@@ -31,23 +31,23 @@ $sugar_level = $data['sugar_level'] ?? null;
 
 try {
 
-$stmt = $pdo->prepare("INSERT INTO user_progress (user_id, weight, bmi, systolic, diastolic, sugar_level)
-                       VALUES (:user_id, :weight, :bmi, :systolic, :diastolic, :sugar_level)");
-$stmt->execute([
-  'user_id' => $user_id,
-  'weight' => $weight,
-  'bmi' => $bmi,
-  'systolic' => $systolic,
-  'diastolic' => $diastolic,
-  'sugar_level' => $sugar_level
-]);
-
-$updateStmt = $pdo->prepare("UPDATE users SET weight = :weight WHERE user_id = :user_id");
-$updateStmt->execute([
+  $stmt = $pdo->prepare("INSERT INTO user_progress (user_id, weight, bmi, systolic, diastolic, sugar_level)
+                         VALUES (:user_id, :weight, :bmi, :systolic, :diastolic, :sugar_level)");
+  $stmt->execute([
+    'user_id' => $user_id,
     'weight' => $weight,
-    'user_id' => $user_id
-]);
+    'bmi' => $bmi,
+    'systolic' => $systolic,
+    'diastolic' => $diastolic,
+    'sugar_level' => $sugar_level
+  ]);
 
+  $updateStmt = $pdo->prepare("UPDATE users SET weight = :weight, bmi = :bmi WHERE user_id = :user_id");
+  $updateStmt->execute([
+      'weight' => $weight,
+      'bmi' => $bmi,
+      'user_id' => $user_id
+  ]);
 
   echo json_encode(['success' => true, 'message' => 'Progress logged successfully']);
 } catch (PDOException $e) {

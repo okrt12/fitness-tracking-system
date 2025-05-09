@@ -1,4 +1,3 @@
-
 <?php
 header('Content-Type: application/json');
 require '../config/db.php';
@@ -21,6 +20,13 @@ $gender = ($data['gender']);
 $goal = ($data['goal']);
 $disease = ($data['disease']);
 
+// Calculate BMI
+$bmi = null;
+if (is_numeric($height) && is_numeric($weight) && $height > 0) {
+  $heightInMeters = $height / 100;
+  $bmi = round($weight / ($heightInMeters * $heightInMeters), 1);
+}
+
 if (!$email) {
   echo json_encode(['success' => false, 'message' => 'Invalid email']);
   exit;
@@ -36,9 +42,9 @@ if ($stmt->rowCount() > 0) {
 }
 
 // Insert new user
-$stmt = $pdo->prepare("INSERT INTO users (name, email, password, age, gender, height, weight, goal, disease) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+$stmt = $pdo->prepare("INSERT INTO users (name, email, password, age, gender, height, weight, goal, disease, bmi) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)");
 
-if ($stmt->execute([$name, $email, $password,$age, $gender, $height, $weight, $goal, $disease])) {
+if ($stmt->execute([$name, $email, $password, $age, $gender, $height, $weight, $goal, $disease, $bmi])) {
   echo json_encode(['success' => true, 'message' => 'User registered successfully']);
 } else {
   echo json_encode(['success' => false, 'message' => 'Registration failed']);

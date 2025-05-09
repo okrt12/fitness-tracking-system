@@ -244,11 +244,11 @@ function workoutSessions(workout) {
     workoutDesc.classList.remove("hidden");
   }
 
+  console.log(workout.data.length);
   const workoutData = totalDurationByDate(workout);
   const dates = Object.keys(workoutData);
 
   const reversedDataDate = dates.reverse();
-
   reversedDataDate
     .filter((el) => el)
     .forEach((el, i) => {
@@ -281,27 +281,26 @@ async function updateUI() {
   const userData = await getData("../backend/api/get-progress.php");
   const workout = await getData("../backend/api/get-workout-log.php");
 
+  if (workout.data.length === 0) {
+    workoutChart.classList.add("hidden");
+    noDataWorkout.classList.remove("hidden");
+    workoutDesc.classList.add("hidden");
+  }
   if (userData.data.length !== 0) {
     workoutLog = workout.data.filter((el) => el);
     progressData = userData.data.filter((el) => el);
-    currentWeightInput.textContent = (await progressData[0].weight) + " kg";
+    currentWeightInput.textContent =
+      (await progressData[0].weight) + " kg" || "No Goal";
     weightChangeUpdate();
     healthStatusUpdate();
     resetCharts();
     workoutSessions(workout);
-
     return;
   }
   healthStatus.insertAdjacentHTML(
     "beforeend",
     `<p class="cards-description normal-text">No Data</p>`
   );
-  if (workout.data.length === 0) {
-    workoutChart.classList.add("hidden");
-    noDataWorkout.classList.remove("hidden");
-    workoutDesc.classList.add("hidden");
-    return;
-  }
 }
 
 //////////////////////////////////////////////////////////////////////////////////////////////

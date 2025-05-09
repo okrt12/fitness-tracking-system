@@ -5,6 +5,7 @@ import {
   postData,
   backdrop,
   addHidden,
+  getBMIStatus,
 } from "./common.js";
 
 // Info
@@ -111,13 +112,6 @@ const calcIdealWeight = function (height) {
   ];
 };
 
-function getBMIStatus(bmi) {
-  if (bmi < 18) return "Underweight";
-  if (bmi > 18 && bmi < 24.9) return "Normal";
-  if (bmi > 24.9 && bmi < 29.9) return "Overweight";
-  if (bmi >= 25) return "Obesity";
-}
-
 async function updateUI() {
   const userData = await getData("../backend/api/get-user-info.php");
   const userProgress = await getData("../backend/api/get-progress.php");
@@ -128,11 +122,12 @@ async function updateUI() {
   goalText.textContent = goals[userData.goal];
 
   bmiValue.forEach((el) => {
-    el.textContent = userProgress.data[0].bmi;
+    el.textContent = userProgress.data[0].bmi || userData.bmi;
   });
 
-  bmiStatus.textContent = getBMIStatus(userProgress.data[0].bmi);
-
+  bmiStatus.textContent =
+    getBMIStatus(userProgress.data[0].bmi) || getBMIStatus(userData.bmi);
+  if (!userProgress.data.lenght) return;
   calcIdealWeight(userData.height).forEach((el, i) => {
     document.querySelector(`.ideal-weight_${i}`).textContent = el;
   });

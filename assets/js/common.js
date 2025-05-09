@@ -91,3 +91,10 @@ export function addHidden(popup) {
   backdrop.classList.add("hidden");
   popup.classList.add("hidden");
 }
+
+export function getBMIStatus(bmi) {
+  if (bmi < 18) return "Underweight";
+  if (bmi > 18 && bmi < 24.9) return "Normal";
+  if (bmi > 24.9 && bmi < 29.9) return "Overweight";
+  if (bmi >= 25) return "Obesity";
+}

@@ -146,7 +146,9 @@
               <p class="normal-text cards-description">
                 Goal: <span class="goal">Muscle Gain (Bulking)</span>
               </p>
-              <a href="#" class="cards-btn btn bmi-btn"> Update Goal </a>
+              <a href="/pages/profile.php" class="cards-btn btn bmi-btn">
+                Update Goal
+              </a>
             </div>
 
             <div class="quote-box cards">
@@ -160,18 +162,33 @@
 
             <div class="quick-stats cards">
               <h2 class="cards-header">Quick Stats</h2>
-              <p class="normal-text cards-description">
-                <span>🍽️ Calories Consumed:</span> 1800 kcal
-              </p>
-              <p class="normal-text cards-description">
-                <span>🔥 Calories Burned:</span> 450 kcal
-              </p>
-              <p class="normal-text cards-description">
-                <span>🏃 Workouts This Week:</span> 3/7
-              </p>
-              <p class="normal-text cards-description">
-                <span>💧 Water Intake:</span> 2.5L
-              </p>
+              <div class="icon-text stat-icon">
+                <ion-icon name="restaurant-outline" class="icons"></ion-icon>
+                <p class="normal-text cards-description">
+                  Calories Consumed:
+                  <span class="calorie-consumed">0 kcal</span>
+                </p>
+              </div>
+
+              <div class="icon-text stat-icon">
+                <ion-icon class="icons" name="flame-outline"></ion-icon>
+                <p class="normal-text cards-description">
+                  Calories Burned: <span class="calorie-burned">0 kcal</span>
+                </p>
+              </div>
+              <div class="icon-text stat-icon">
+                <ion-icon name="barbell-outline" class="icons"></ion-icon>
+                <p class="normal-text cards-description">
+                  Workouts This Week: <span class="week-workouts">0/7</span>
+                </p>
+              </div>
+
+              <div class="icon-text stat-icon">
+                <ion-icon name="water-outline" class="icons"></ion-icon>
+                <p class="normal-text cards-description">
+                  Water Intake: <span class="water-intake">0L</span>
+                </p>
+              </div>
             </div>
 
             <div class="goal-progress cards">
@@ -223,23 +240,54 @@
             <div class="calorie cards">
               <h2 class="cards-header">Calories</h2>
               <div class="bar-chart">
-                <div class="calorie-intake bar">
-                  <span class="normal-text bar-text in-text">2200kcal</span>
-                </div>
-                <div class="calorie-outtake bar">
-                  <span class="normal-text bar-text out-text">2200kcal</span>
-                </div>
+                <svg
+                  class="bar-chart workout-chart workout_bar--chart"
+                  viewBox="25 -10 350 180"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <!-- Axes -->
+                  <line x1="30" y1="10" x2="30" y2="140" stroke="#ccc" />
+                  <line x1="30" y1="140" x2="220" y2="140" stroke="#ccc" />
 
+                  <rect
+                    class="day1-workout_bar calorie-bar calorie-consumed__bar"
+                    x="50"
+                    y="70"
+                    width="20"
+                    height="70"
+                  />
+                  <text
+                    class="day1-calorie_text calorie-consumed__text calorie__text"
+                    x="50"
+                    y="65"
+                  ></text>
+
+                  <rect
+                    class="calorie-bar calorie-burned__bar"
+                    x="120"
+                    y="50"
+                    width="20"
+                    height="90"
+                  />
+                  <text
+                    class="day2-calorie_text calorie-burned__text calorie__text"
+                    x="120"
+                    y="45"
+                  ></text>
+                </svg>
                 <div class="legend-container flex-container">
                   <span class="legend-text normal-text flex-col">
-                    Calorie In<span class="in-legend legend"></span
+                    Consumed<span class="in-legend legend"></span
                   ></span>
 
                   <span class="legend-text normal-text flex-col">
-                    Calorie Out<span class="out-legend legend"></span
+                    Burned<span class="out-legend legend"></span
                   ></span>
                 </div>
               </div>
+              <p class="normal-text cards-description no_data hidden">
+                No Data
+              </p>
             </div>
 
             <div class="cards weight-progress">
