@@ -278,19 +278,20 @@ function workoutSessions(workout) {
 }
 
 async function updateUI() {
-  const userData = await getData("../backend/api/get-progress.php");
+  const userProgress = await getData("../backend/api/get-progress.php");
   const workout = await getData("../backend/api/get-workout-log.php");
 
   if (workout.data.length === 0) {
     workoutChart.classList.add("hidden");
     noDataWorkout.classList.remove("hidden");
     workoutDesc.classList.add("hidden");
+    currentWeightInput.textContent = "No Goal";
   }
-  if (userData.data.length !== 0) {
+  if (userProgress.data.length !== 0) {
     workoutLog = workout.data.filter((el) => el);
-    progressData = userData.data.filter((el) => el);
-    currentWeightInput.textContent =
-      (await progressData[0].weight) + " kg" || "No Goal";
+    progressData = userProgress.data.filter((el) => el);
+    currentWeightInput.textContent = (await progressData[0].weight) + " kg";
+
     weightChangeUpdate();
     healthStatusUpdate();
     resetCharts();

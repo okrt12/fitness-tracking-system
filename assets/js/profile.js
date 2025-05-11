@@ -122,11 +122,14 @@ async function updateUI() {
   goalText.textContent = goals[userData.goal];
 
   bmiValue.forEach((el) => {
-    el.textContent = userProgress.data[0].bmi || userData.bmi;
+    el.textContent = userProgress.data.length
+      ? userProgress.data[0].bmi
+      : userData.bmi;
   });
 
-  bmiStatus.textContent =
-    getBMIStatus(userProgress.data[0].bmi) || getBMIStatus(userData.bmi);
+  bmiStatus.textContent = userProgress.data.length
+    ? getBMIStatus(userProgress.data[0].bmi)
+    : getBMIStatus(userData.bmi);
   if (!userProgress.data.lenght) return;
   calcIdealWeight(userData.height).forEach((el, i) => {
     document.querySelector(`.ideal-weight_${i}`).textContent = el;
