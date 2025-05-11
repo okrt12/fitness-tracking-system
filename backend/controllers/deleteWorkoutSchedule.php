@@ -21,10 +21,17 @@ $user_id = $_SESSION['user_id'];
 $schedule_id = $data['schedule_id'];
 
 try {
-  $stmt = $pdo->prepare("DELETE FROM workout_schedules WHERE user_id = :user_id AND schedule_id = :schedule_id");
+  // Instead of deleting, mark the schedule as "No Workout"
+  $stmt = $pdo->prepare("
+    UPDATE workout_schedules
+    SET workout_day_name = 'No Workout',
+        duration = 0
+    WHERE user_id = :user_id AND schedule_id = :schedule_id
+  ");
+
   $stmt->execute(['user_id' => $user_id, 'schedule_id' => $schedule_id]);
 
-  echo json_encode(['success' => true, 'message' => 'Schedule deleted']);
+  echo json_encode(['success' => true, 'message' => 'Schedule marked as No Workout']);
 } catch (PDOException $e) {
   http_response_code(500);
   echo json_encode(['success' => false, 'message' => 'DB Error: ' . $e->getMessage()]);
