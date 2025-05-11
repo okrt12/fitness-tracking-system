@@ -114,3 +114,7 @@ input {
 .goals-popup {
   width: 35rem;
 }
+
+.no_achieve {
+  text-align: center;
+}

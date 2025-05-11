@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once('../config/db.php');
-require_once('check_workout_achievements.php');
 
 header('Content-Type: application/json');
 
@@ -43,39 +42,41 @@ try {
     'calories_burned' => $calories_burned
   ]);
 
-  $achievements = checkWorkoutAchievements($pdo, $user_id);
+  checkWorkoutAchievements($pdo, $user_id);
 
-  echo json_encode(['success' => true, 'message' => 'Workout logged successfully', 'achievements' => $achievements]);
+  echo json_encode(['success' => true, 'message' => 'Workout logged successfully']);
 } catch (PDOException $e) {
   http_response_code(500);
-  echo json_encode(['success' => false, 'message' => 'Server error while logging workout']);
+  echo json_encode(['success' => false, 'message' => 'Server error: ' . $e->getMessage()]);
 }
 
-
+// 🏆 Workout Achievement Check Function
 function checkWorkoutAchievements($pdo, $user_id) {
   $achievements = [];
 
-  $stmt = $pdo->prepare("SELECT COUNT(*) as count FROM workout_log WHERE user_id = ?");
+  // First Workout
+  $stmt = $pdo->prepare("SELECT COUNT(*) FROM workout_log WHERE user_id = ?");
   $stmt->execute([$user_id]);
-  $count = $stmt->fetch()['count'];
+  $total = $stmt->fetchColumn();
+  if ($total >= 1) $achievements[] = 1;
+  if ($total >= 10) $achievements[] = 2;
 
-  if ($count >= 1) {
-    $achievements[] = ['code' => 'workout_1', 'description' => 'First Workout Logged 🏋️‍♂️'];
-  }
-  if ($count >= 10) {
-    $achievements[] = ['code' => 'workout_10', 'description' => '10 Workouts Logged 💪'];
-  }
+  // Weekly Warrior: logged workout every day for last 7 days
+  $stmt = $pdo->prepare("
+    SELECT COUNT(DISTINCT date) FROM workout_log
+    WHERE user_id = ? AND date >= DATE_SUB(CURDATE(), INTERVAL 6 DAY)
+  ");
+  $stmt->execute([$user_id]);
+  $days = $stmt->fetchColumn();
+  if ($days >= 7) $achievements[] = 3;
 
-  foreach ($achievements as $ach) {
-    $stmt = $pdo->prepare("INSERT IGNORE INTO user_achievements (user_id, achievement_code, date_awarded)
-                           VALUES (?, ?, NOW())");
-    $stmt->execute([$user_id, $ach['code']]);
+  foreach ($achievements as $achievement_id) {
+    $stmt = $pdo->prepare("
+      INSERT INTO user_achievements (user_id, achievement_id, achieved_at)
+      VALUES (?, ?, NOW())
+      ON DUPLICATE KEY UPDATE achieved_at = NOW()
+    ");
+    $stmt->execute([$user_id, $achievement_id]);
   }
-
-  return $achievements;
 }
-
-// ------------------------------
-// Similarly structure meal_log.php and user_progress.php
-// Including checkMealAchievements($pdo, $user_id)
-// and checkProgressAchievements($pdo, $user_id) respectively
+?>

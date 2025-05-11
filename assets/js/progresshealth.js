@@ -244,7 +244,6 @@ function workoutSessions(workout) {
     workoutDesc.classList.remove("hidden");
   }
 
-  console.log(workout.data.length);
   const workoutData = totalDurationByDate(workout);
   const dates = Object.keys(workoutData);
 

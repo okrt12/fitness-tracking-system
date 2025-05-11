@@ -33,6 +33,9 @@ const goalSelect = document.querySelector(".goal-select");
 
 const bmiValue = document.querySelectorAll(".bmi-value");
 const bmiStatus = document.querySelector(".bmi-status");
+const achievementContainer = document.querySelector(
+  ".achievement-tags__container"
+);
 
 editInfoBtn.addEventListener("click", function () {
   toggleHidden(infoPopup);
@@ -136,4 +139,19 @@ async function updateUI() {
   });
 }
 
+async function achievements() {
+  const achievements = await getData("../backend/api/get-user-achievement.php");
+  if (!achievements.achievements.length) {
+    return;
+  }
+  document.querySelector(".no_achieve").classList.add("hidden");
+  achievements.achievements.forEach((el) => {
+    achievementContainer.insertAdjacentHTML(
+      "beforeend",
+      `<span class="cards-description achievement-tags normal-text">${el.description}</span>`
+    );
+  });
+}
+
+achievements();
 updateUI();
