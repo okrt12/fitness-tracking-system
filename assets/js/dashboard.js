@@ -4,7 +4,15 @@ import { getData, getBMIStatus, goals } from "./common.js";
 
 // Variables
 const dashboardHeader = document.querySelector(".header");
-
+const days = {
+  1: "Monday",
+  2: "Tuesday",
+  3: "Wednesday",
+  4: "Thursday",
+  5: "Friday",
+  6: "Saturday",
+  0: "Sunday",
+};
 ///////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////////////////////////////////////////////////////////////////
 const dashboardDate = new Date();
@@ -54,6 +62,48 @@ const barChart = document.querySelector(".bar-chart");
 const noData = document.querySelector(".no_data");
 const progrssChart = document.querySelector(".chart-text");
 const noDataProgress = document.querySelector(".progress_no_data");
+const workoutScheduleCard = document.querySelector(".workout_schedule");
+
+async function todaySchedule(workoutSchedule) {
+  const date = new Date();
+  const today = days[date.getDay()];
+
+  const todaySchedule = workoutSchedule.data.filter(
+    (el) => el.day_of_week === today
+  );
+
+  console.log(today);
+  console.log(todaySchedule);
+  const html =
+    todaySchedule[0] && todaySchedule[0].workout_day_name !== "No Workout"
+      ? `
+        <span class = "normal-text cards-description workout_day_name">Wrokout Day: ${
+          todaySchedule[0].day_of_week
+        }</span>
+    <span class = "normal-text cards-description workout_day_name">Wrokout day name: ${
+      todaySchedule[0].workout_day_name
+    }</span>
+
+    <span class = "normal-text cards-description schedule_time">Time: ${todaySchedule[0].time
+      .split("")
+      .splice(0, 5)
+      .join("")}</span>
+      
+    <span class = "normal-text cards-description schedule_duration">Duration: ${
+      todaySchedule[0].duration >= 60
+        ? Math.floor(todaySchedule[0].duration / 60) + " hr"
+        : todaySchedule[0].duration + " min"
+    }</span> 
+    <span class = "normal-text cards-description">${
+      todaySchedule[0].duration > 60 && todaySchedule[0].duration % 60 !== 0
+        ? (todaySchedule[0].duration % 60) + " min"
+        : ""
+    }</span>
+    </div>
+    `
+      : `<span>No Workout</span>`;
+  workoutScheduleCard.insertAdjacentHTML("beforeend", html);
+}
 
 async function updateStatsCalorie() {
   const workout = await getData("../backend/api/get-workout-log.php");
@@ -61,13 +111,13 @@ async function updateStatsCalorie() {
   const workoutSchedules = await getData(
     "../backend/api/get-workouts-schedule.php"
   );
-  console.log(!workout.data.length || !meal.data.length);
+  todaySchedule(workoutSchedules);
+
   if (!workout.data.length || !meal.data.length) {
     barChart.classList.add("hidden");
     noData.classList.remove("hidden");
     return;
   }
-
   barChart.classList.remove("hidden");
   noData.classList.add("hidden");
   const totalBurnedCal = workout.data.reduce(

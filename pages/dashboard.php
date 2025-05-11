@@ -156,7 +156,7 @@
               <p
                 class="normal-text cards-description quote motivational-content"
               >
-                “The only bad workout is the one you didn’t do.”
+                The only bad workout is the one you didn’t do.
               </p>
             </div>
 
@@ -184,7 +184,9 @@
               </div>
             </div>
 
-            <div class="cards workout_schedule"></div>
+            <div class="cards workout_schedule">
+              <h2 class="cards-header">Today Schedule</h2>
+            </div>
 
             <div class="calorie cards">
               <h2 class="cards-header">Calories</h2>
