@@ -83,6 +83,7 @@
 
 .goal-progress {
   border-left: 0.4rem solid var(--text-color);
+  gap: 1.6rem;
 }
 
 .calorie {
@@ -144,15 +145,10 @@ svg rect {
   background-color: var(--accent-color1);
 }
 
-.weight-progress {
+.workout_schedule {
   min-width: 30rem;
   padding: 2rem;
-  grid-column: span 2;
   border-left: 0.4rem solid var(--primary-color);
-}
-
-.weight-progress__percent {
-  font-size: 1.6rem;
 }
 
 .weight-chart__container {
@@ -160,12 +156,6 @@ svg rect {
   border-radius: 8px;
   height: 10px;
   overflow: hidden;
-}
-
-.weight-progress__chart {
-  width: 60%;
-  height: 100%;
-  background-color: var(--primary-color);
 }
 
 .achivements {

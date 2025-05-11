@@ -182,60 +182,9 @@
                   Workouts This Week: <span class="week-workouts">0/7</span>
                 </p>
               </div>
-
-              <div class="icon-text stat-icon">
-                <ion-icon name="water-outline" class="icons"></ion-icon>
-                <p class="normal-text cards-description">
-                  Water Intake: <span class="water-intake">0L</span>
-                </p>
-              </div>
             </div>
 
-            <div class="goal-progress cards">
-              <h2 class="cards-header">Goal Progress</h2>
-              <p class="normal-text cards-description">
-                Goal: Muscle Gain (Bulking)
-              </p>
-
-              <div class="flex-container chart-text">
-                <svg class="pie-chart" width="120" height="120">
-                  <circle
-                    cx="60"
-                    cy="60"
-                    r="50"
-                    stroke="#1A2636"
-                    stroke-width="15"
-                    fill="none"
-                  />
-                  <circle
-                    cx="60"
-                    cy="60"
-                    r="50"
-                    stroke="#00C853"
-                    stroke-width="15"
-                    fill="none"
-                    stroke-dasharray="314"
-                    stroke-dashoffset="62"
-                    transform="rotate(-90 60 60)"
-                  />
-                  <text
-                    x="50%"
-                    y="50%"
-                    text-anchor="middle"
-                    fill="white"
-                    dy=".3em"
-                    font-size="20px"
-                    class="normal-text pie-text"
-                  >
-                    80%
-                  </text>
-                </svg>
-                <p class="normal-text cards-description">
-                  <span class="progress-text">75</span>
-                  Completed
-                </p>
-              </div>
-            </div>
+            <div class="cards workout_schedule"></div>
 
             <div class="calorie cards">
               <h2 class="cards-header">Calories</h2>
@@ -290,15 +239,55 @@
               </p>
             </div>
 
-            <div class="cards weight-progress">
-              <h2 class="cards-header">Weight Progress</h2>
-              <p class="cards-description normal-text">
-                📉 Weight: <span class="start-weight">70kg</span> →
-                <span class="current-weight">68.5kg</span>
-              </p>
-              <span class="weight-progress__percent normal-text">50%</span>
-              <div class="weight-chart__container">
-                <div class="weight-progress__chart"></div>
+            <div class="goal-progress cards">
+              <h2 class="cards-header">Weight Goal Progress</h2>
+              <p class="progress_no_data hidden">No Data</p>
+              <div class="chart-text flex-container">
+                <svg class="pie-chart" width="120" height="120">
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="50"
+                    stroke="#1A2636"
+                    stroke-width="15"
+                    fill="none"
+                  />
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r="50"
+                    stroke="#00C853"
+                    stroke-width="15"
+                    fill="none"
+                    stroke-dasharray="314"
+                    stroke-dashoffset="62"
+                    transform="rotate(-90 60 60)"
+                  />
+                  <text
+                    x="50%"
+                    y="50%"
+                    text-anchor="middle"
+                    fill="white"
+                    dy=".3em"
+                    font-size="20px"
+                    class="normal-text pie-text"
+                  >
+                    0
+                  </text>
+                </svg>
+                <div class="flex-col detail-value">
+                  <p class="normal-text cards-description">
+                    Goal: <span class="weight_goal">0</span>
+                  </p>
+                  <p class="normal-text cards-description">
+                    Weight: <span class="current_weight">0</span>
+                  </p>
+
+                  <p class="normal-text cards-description">
+                    <span class="progress-text">0</span>
+                    Completed
+                  </p>
+                </div>
               </div>
             </div>
             <div class="cards achivements">
@@ -315,10 +304,18 @@
           <div class="flex-col">
             <h3 class="cards-header">Quick Actions</h3>
             <div class="dashboard-btns__container">
-              <a class="dashboard-btn" href="#"> ➕ Log Workout </a>
-              <a class="dashboard-btn" href="#"> 🍽️ Log Meal </a>
-              <a class="dashboard-btn" href="#"> 📆 Schedule Workout </a>
-              <a class="dashboard-btn" href="#"> 👤 Update Profile </a>
+              <a class="dashboard-btn" href="/pages/workout.php">
+                ➕ Log Workout
+              </a>
+              <a class="dashboard-btn" href="/pages/activitylog.php">
+                🍽️ Log Meal
+              </a>
+              <a class="dashboard-btn" href="/pages/workoutschedule.php">
+                📆 Schedule Workout
+              </a>
+              <a class="dashboard-btn" href="/pages/profile.php">
+                👤 Update Profile
+              </a>
             </div>
           </div>
         </div>

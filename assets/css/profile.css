@@ -20,7 +20,7 @@
 
 .profile-cards {
   display: grid;
-  grid-template-columns: 2fr 2fr 1.2fr;
+  grid-template-columns: 2fr 1.75fr 1.75fr;
   padding-left: 0 !important;
   gap: 2rem;
   margin-bottom: 3.2rem;
@@ -75,11 +75,13 @@
   background-color: var(--primary-color);
   padding: 0.6rem 1.2rem;
   border-radius: 50px;
+  text-align: center;
 }
 .achievement-tags__container {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  overflow-y: auto;
 }
 
 /* **********************************************************************************

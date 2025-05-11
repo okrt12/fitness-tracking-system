@@ -16,21 +16,9 @@ dashboardHeader.insertAdjacentHTML("beforeend", dashboardDateHtml);
 /////////////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////// Graphs    ////////////////////////////////////////////
 // Progress Chart
-const progressPercent = 75;
 const circle = document.querySelector("svg circle:nth-of-type(2)");
 const pieText = document.querySelector(".pie-text");
 const progressText = document.querySelector(".progress-text");
-pieText.textContent = progressText.textContent = progressPercent + "%";
-
-circle.setAttribute("stroke-dashoffset", 314 - (314 * progressPercent) / 100);
-// Weight Progress
-
-const weightProgressText = document.querySelector(".weight-progress__percent");
-const weightProgressChart = document.querySelector(".weight-progress__chart");
-
-const weightProgressPercent = 60;
-weightProgressText.textContent = weightProgressPercent + "% ";
-weightProgressChart.style.width = `${weightProgressPercent}%`;
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 const qouteDom = document.querySelector(".quote");
@@ -64,6 +52,8 @@ const claorieBurnText = document.querySelector(".calorie-burned__text");
 const claorieConText = document.querySelector(".calorie-consumed__text");
 const barChart = document.querySelector(".bar-chart");
 const noData = document.querySelector(".no_data");
+const progrssChart = document.querySelector(".chart-text");
+const noDataProgress = document.querySelector(".progress_no_data");
 
 async function updateStatsCalorie() {
   const workout = await getData("../backend/api/get-workout-log.php");
@@ -118,7 +108,6 @@ async function updateStatsCalorie() {
 async function updateUI() {
   const userData = await getData("../backend/api/get-user-info.php");
   const userProgress = await getData("../backend/api/get-progress.php");
-  console.log(userData);
   document.querySelector(".username").textContent = userData.name;
   bmiStatus.textContent = userProgress.data.length
     ? "(" + getBMIStatus(userProgress.data[0].bmi) + ")"
@@ -128,6 +117,27 @@ async function updateUI() {
     ? userProgress.data[0].bmi
     : userData.bmi;
   fitnessGoal.textContent = goals[userData.goal];
+  if (!userProgress.data.length) {
+    noDataProgress.classList.remove("hidden");
+    progrssChart.classList.add("hidden");
+    return;
+  }
+
+  const currWeight = userProgress.data[0]
+    ? userProgress.data[0].weight
+    : userData.weight;
+  const progressPercent = Math.round(
+    ((userData.goal_weight - currWeight) / userData.goal_weight) * 100
+  );
+
+  pieText.textContent = progressText.textContent = 100 - progressPercent + "%";
+  circle.setAttribute(
+    "stroke-dashoffset",
+    314 - (314 * (100 - progressPercent)) / 100
+  );
+  document.querySelector(".weight_goal").textContent =
+    userData.goal_weight + " kg";
+  document.querySelector(".current_weight").textContent = currWeight + " kg";
 }
 
 updateUI();
