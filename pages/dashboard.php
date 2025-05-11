@@ -294,10 +294,9 @@
             </div>
             <div class="cards achivements">
               <h2 class="cards-header">Achievements</h2>
-              <p class="normal-text cards-description">🏆 5 Day Streak</p>
-              <p class="normal-text cards-description">
-                🏅 BMI Improvement Badge
-              </p>
+              <div
+                class="achivements_tags_container flex-col detail-value"
+              ></div>
               <a class="normal-text achievement-btn cards-description" href="#"
                 >View All</a
               >

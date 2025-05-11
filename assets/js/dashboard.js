@@ -63,6 +63,9 @@ const noData = document.querySelector(".no_data");
 const progrssChart = document.querySelector(".chart-text");
 const noDataProgress = document.querySelector(".progress_no_data");
 const workoutScheduleCard = document.querySelector(".workout_schedule");
+const achievementTagContainer = document.querySelector(
+  ".achivements_tags_container"
+);
 
 async function todaySchedule(workoutSchedule) {
   const date = new Date();
@@ -72,11 +75,8 @@ async function todaySchedule(workoutSchedule) {
     (el) => el.day_of_week === today
   );
 
-  console.log(today);
-  console.log(todaySchedule);
-  const html =
-    todaySchedule[0] && todaySchedule[0].workout_day_name !== "No Workout"
-      ? `
+  const html = todaySchedule[0]
+    ? `
         <span class = "normal-text cards-description workout_day_name">Wrokout Day: ${
           todaySchedule[0].day_of_week
         }</span>
@@ -101,7 +101,7 @@ async function todaySchedule(workoutSchedule) {
     }</span>
     </div>
     `
-      : `<span>No Workout</span>`;
+    : `<span>No Workout</span>`;
   workoutScheduleCard.insertAdjacentHTML("beforeend", html);
 }
 
@@ -189,7 +189,17 @@ async function updateUI() {
     userData.goal_weight + " kg";
   document.querySelector(".current_weight").textContent = currWeight + " kg";
 }
+async function addAchievements() {
+  const achievement = await getData("../backend/api/get-user-achievement.php");
+  for (let i = 0; i < 3; i++) {
+    achievementTagContainer.insertAdjacentHTML(
+      "beforeend",
+      ` <p class="normal-text cards-description">${achievement.achievements[i].description}</p>`
+    );
+  }
+}
 
 updateUI();
 updateQuoteFacts();
 updateStatsCalorie();
+addAchievements();
