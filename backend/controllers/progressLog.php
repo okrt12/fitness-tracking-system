@@ -54,4 +54,35 @@ try {
   http_response_code(500);
   echo json_encode(['success' => false, 'message' => 'Database error: ' . $e->getMessage()]);
 }
+
+function checkProgressAchievements($pdo, $user_id) {
+  $achievements = [];
+
+  // Check total logs
+  $stmt = $pdo->prepare("SELECT COUNT(*) as count FROM user_progress WHERE user_id = ?");
+  $stmt->execute([$user_id]);
+  $count = $stmt->fetch()['count'];
+
+  if ($count >= 1) {
+    $achievements[] = ['code' => 'progress_1', 'description' => 'First Progress Update 📈'];
+  }
+
+  // Example: reward if weight decreased
+  $stmt = $pdo->prepare("SELECT weight FROM user_progress WHERE user_id = ? ORDER BY id DESC LIMIT 2");
+  $stmt->execute([$user_id]);
+  $weights = $stmt->fetchAll(PDO::FETCH_COLUMN);
+
+  if (count($weights) === 2 && $weights[0] < $weights[1]) {
+    $achievements[] = ['code' => 'weight_loss', 'description' => 'Weight Loss Progress 🎯'];
+  }
+
+  foreach ($achievements as $ach) {
+    $stmt = $pdo->prepare("INSERT IGNORE INTO user_achievements (user_id, achievement_code, date_awarded)
+                           VALUES (?, ?, NOW())");
+    $stmt->execute([$user_id, $ach['code']]);
+  }
+
+  return $achievements;
+}
+
 ?>

@@ -48,4 +48,29 @@ try {
   http_response_code(500);
   echo json_encode(['success' => false, 'message' => 'Database error: ' . $e->getMessage()]);
 }
+
+function checkMealAchievements($pdo, $user_id) {
+  $achievements = [];
+
+  // Check total meals
+  $stmt = $pdo->prepare("SELECT COUNT(*) as count FROM meal_log WHERE user_id = ?");
+  $stmt->execute([$user_id]);
+  $count = $stmt->fetch()['count'];
+
+  if ($count >= 1) {
+    $achievements[] = ['code' => 'meal_1', 'description' => 'First Meal Logged 🍽️'];
+  }
+  if ($count >= 10) {
+    $achievements[] = ['code' => 'meal_10', 'description' => '10 Meals Logged 🥗'];
+  }
+
+  foreach ($achievements as $ach) {
+    $stmt = $pdo->prepare("INSERT IGNORE INTO user_achievements (user_id, achievement_code, date_awarded)
+                           VALUES (?, ?, NOW())");
+    $stmt->execute([$user_id, $ach['code']]);
+  }
+
+  return $achievements;
+}
+
 ?>
