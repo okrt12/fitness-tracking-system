@@ -133,7 +133,7 @@ async function updateUI() {
   bmiStatus.textContent = userProgress.data.length
     ? getBMIStatus(userProgress.data[0].bmi)
     : getBMIStatus(userData.bmi);
-  if (!userProgress.data.lenght) return;
+  if (!userProgress.data.length) return;
   calcIdealWeight(userData.height).forEach((el, i) => {
     document.querySelector(`.ideal-weight_${i}`).textContent = el;
   });

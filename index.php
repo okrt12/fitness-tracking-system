@@ -234,12 +234,6 @@
                     Selam, 28 — Addis Ababa
                   </p>
                 </div>
-
-                <img
-                  class="test-img"
-                  src="./assets/imgs/hero.png"
-                  alt="women holding dumbell"
-                />
               </div>
             </h2>
           </div>
@@ -277,39 +271,6 @@
       </section>
     </main>
     <footer class="footer">
-      <!-- <form class="footer-form container">
-        <span class="subheading form-header">Contact Us</span>
-        <div class="label-input">
-          <label class="input__label" for="name">Name</label>
-          <input
-            class="name input"
-            type="text"
-            id="name"
-            placeholder="Your Name"
-          />
-        </div>
-        <div class="label-input">
-          <label class="input__label" for="name">Email</label>
-          <input
-            class="email input"
-            type="text"
-            id="email"
-            placeholder="Your email"
-          />
-        </div>
-        <div class="label-input">
-          <label class="input__label" htmlFor="message"> Message </label>
-          <span class="msg-box border">
-            <input
-              class="input message"
-              type="textarea"
-              id="message"
-              placeholder="Your message"
-            />
-          </span>
-        </div>
-        <a href="#" class="btn cta-btns footer-btn">Submit</a>
-      </form> -->
       <div class="footer-right container">
         <span class="footer-header sub-header heading-color">FitTrack+</span>
         <ul class="footer-btns__container">
