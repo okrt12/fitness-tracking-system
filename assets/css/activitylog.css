@@ -12,10 +12,11 @@
 .main-logs {
   height: 100vh;
   overflow-y: auto;
+  padding: 0 2rem;
 }
 
 .logs-header {
-  margin-top: 2.4rem;
+  margin: 2.4rem 0;
 }
 
 /* ***************************************************************************************************
@@ -35,6 +36,7 @@
   width: 100%;
   border-radius: 11px;
   color: var(--text-color);
+  font-size: 1.6rem;
 }
 
 input,
@@ -51,11 +53,15 @@ select {
 .workout-form,
 .add-meal-form {
   height: fit-content;
+  padding: 2rem;
 }
 
 .workout-btn {
   background-color: var(--primary-color);
+  width: 100%;
+  margin-top: 1rem;
 }
+
 .workout-btn:hover {
   background-color: #00c853;
 }
@@ -72,10 +78,126 @@ select {
 .meal__btn,
 .log-meal__btn {
   background-color: var(--accent-color1);
+  width: 100%;
+  margin-top: 1rem;
 }
 
 .meal__btn:hover,
 .log-meal__btn:hover {
-  color: var(--accent-color);
+  background-color: var(--accent-hover);
   color: var(--white);
+}
+
+/* Form Layout */
+.label-input {
+  margin-bottom: 1.6rem;
+}
+
+.input__label {
+  display: block;
+  margin-bottom: 0.8rem;
+  font-family: var(--poppins);
+  font-size: 1.6rem;
+  color: var(--text-color);
+}
+
+/* Cards Layout */
+.cards {
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
+  .logs-cards {
+    gap: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .main-logs {
+    padding: 0 1.6rem;
+  }
+
+  .logs-cards {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .log-meal,
+  .workout-form,
+  .add-meal-form {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-logs {
+    padding: 0 1.2rem;
+  }
+
+  .logs-header {
+    font-size: 2.4rem;
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  .cards {
+    padding: 1.6rem;
+  }
+
+  .log-meal,
+  .workout-form,
+  .add-meal-form {
+    padding: 1.6rem;
+  }
+
+  .input {
+    padding: 1rem;
+    font-size: 1.4rem;
+  }
+
+  .input__label {
+    font-size: 1.4rem;
+  }
+
+  .label-input {
+    margin-bottom: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main-logs {
+    padding: 0 1rem;
+  }
+
+  .logs-header {
+    font-size: 2rem;
+  }
+
+  .cards {
+    padding: 1.2rem;
+  }
+
+  .log-meal,
+  .workout-form,
+  .add-meal-form {
+    padding: 1.2rem;
+  }
+
+  .cards-header {
+    font-size: 1.8rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .cards-description {
+    font-size: 1.4rem;
+  }
+
+  .workout-btn,
+  .meal__btn,
+  .log-meal__btn {
+    padding: 1rem 1.6rem;
+    font-size: 1.4rem;
+  }
 }

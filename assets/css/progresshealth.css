@@ -214,3 +214,212 @@ svg text {
 .workout-chart text {
   font-size: 1.2rem !important;
 }
+
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
+  .progress-status__container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .chart-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .health-charts__container {
+    grid-template-columns: 2fr 1fr;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .main-progress {
+    padding: 0 2rem;
+  }
+
+  .progress-status__container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .chart-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .health-charts__container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .add-progress__form {
+    width: 90%;
+    max-width: 40rem;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .legend-container {
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .main-progress {
+    padding: 0 1.6rem;
+  }
+
+  .progress-header {
+    font-size: 2.4rem;
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  .progress-status__container {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+
+  .progress-add__btn {
+    height: 3.6rem;
+    font-size: 1.4rem;
+  }
+
+  .chart-card {
+    padding: 1.2rem;
+  }
+
+  .cards-header {
+    font-size: 1.8rem;
+  }
+
+  svg text {
+    font-size: 1.2rem;
+  }
+
+  .goal-line__text {
+    font-size: 1.4rem;
+  }
+
+  .no-data {
+    font-size: 2rem;
+  }
+
+  .input {
+    padding: 1rem;
+    font-size: 1.4rem;
+  }
+
+  .cards {
+    padding: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .main-progress {
+    padding: 0 1rem;
+  }
+
+  .progress-header {
+    font-size: 2rem;
+  }
+
+  .progress-status__container div {
+    gap: 0.8rem;
+  }
+
+  .progress-add__btn {
+    height: 3.2rem;
+    font-size: 1.3rem;
+  }
+
+  .chart-card {
+    padding: 1rem;
+    min-height: 25rem;
+  }
+
+  .cards-header {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .cards-description {
+    font-size: 1.3rem;
+  }
+
+  svg text {
+    font-size: 1.1rem;
+  }
+
+  .goal-line__text {
+    font-size: 1.2rem;
+  }
+
+  .no-data {
+    font-size: 1.8rem;
+  }
+
+  .legend {
+    padding: 0.2rem;
+    width: 1.4rem;
+    height: 1.4rem;
+  }
+
+  .legend-text {
+    gap: 0.8rem;
+    font-size: 1.2rem;
+  }
+
+  .add-progress__form {
+    width: 95%;
+  }
+
+  .health-btn,
+  .progress-add__btn {
+    padding: 0.8rem 1.4rem;
+  }
+}
+
+/* Chart Responsiveness */
+@media screen and (max-width: 768px) {
+  .workout-chart text {
+    font-size: 1rem !important;
+  }
+
+  .line {
+    stroke-width: 1.5;
+  }
+
+  .dot {
+    r: 3;
+  }
+
+  .goal-line {
+    stroke-width: 0.8;
+  }
+
+  .bp-bar,
+  .calorie-bar,
+  .sugar-bar {
+    rx: 4;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .workout-chart text {
+    font-size: 0.9rem !important;
+  }
+
+  .line {
+    stroke-width: 1;
+  }
+
+  .dot {
+    r: 2;
+  }
+
+  .goal-line {
+    stroke-width: 0.6;
+  }
+}

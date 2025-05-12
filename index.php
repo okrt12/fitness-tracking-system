@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/general.css" />
     <link rel="stylesheet" href="./assets/css/indexstyles.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,6 +27,9 @@
     <header class="header">
       <div class="desktop-nav">
         <span class="logo btn heading-color">FitTrack+</span>
+        <button class="mobile-nav-btn">
+          <ion-icon name="menu-outline"></ion-icon>
+        </button>
         <nav class="nav container">
           <ul class="nav-btns__container">
             <li>
@@ -124,7 +128,7 @@
                 <span class="sub-header">Workout Scheduler</span>
                 <p class="feat-card__description">
                   Create workout plans that fit your schedule. From home
-                  routines to gym splits, we’ve got you covered.
+                  routines to gym splits, we've got you covered.
                 </p>
                 <a class="feat-cards__btn">Learn more</a>
               </div>
@@ -189,7 +193,7 @@
                 Based on your profile, FitTrack+ creates a customized workout
                 and diet plan tailored to your goals and preferences. From gym
                 routines to home workouts, and balanced meals to healthy
-                snacks—we’ve got you covered.
+                snacks—we've got you covered.
               </p>
             </div>
             <div class="step-text__box">
@@ -340,5 +344,6 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    <script src="./assets/js/main.js"></script>
   </body>
 </html>
