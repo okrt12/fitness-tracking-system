@@ -101,7 +101,6 @@
   gap: 1rem;
   flex-wrap: wrap;
   overflow-y: auto;
-  max-height: 15rem;
   padding: 0.5rem;
 }
 

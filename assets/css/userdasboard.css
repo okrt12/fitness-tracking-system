@@ -19,6 +19,7 @@
 ***************************** Main *********************************************/
 .dashboard-main {
   overflow-y: auto;
+  padding-left: 0;
 }
 
 .icons {
@@ -208,4 +209,16 @@ svg rect {
 
 .no_data {
   text-align: center;
+}
+
+@media screen and (max-width: 1300px) {
+  .dashboard-main {
+    padding-left: 3.2rem !important;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .dashboard-main {
+    padding-left: 0 !important;
+  }
 }

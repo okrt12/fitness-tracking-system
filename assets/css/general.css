@@ -150,6 +150,7 @@ body {
   background-color: var(--background-color);
   overflow-y: hidden;
   height: 100vh;
+  display: relative;
 }
 
 /* ***************************************************************************
@@ -293,7 +294,18 @@ select {
   justify-self: center;
 }
 
-/* input:-internal-autofill-selected {
-  background-color: var(--light-black) !important;
-  color: var(--text-color) !important;
-} */
+.mobile-nav-btn {
+  position: absolute;
+  top: 22%;
+  left: -10%;
+}
+
+@media screen and (max-width: 768px) {
+  .sidebar {
+    width: fit-content !important;
+  }
+  li p,
+  .logo {
+    display: none;
+  }
+}

@@ -167,7 +167,7 @@
             </div>
           </div>
           <div class="cards flex-col status-cards total-workout_container">
-            <h3 class="cards-header">Weekly Workout Time</h3>
+            <h3 class="cards-header weekly">Weekly Workout Time</h3>
             <p class="cards-description normal-text total-workout_time">
               12 hrs
             </p>

@@ -302,9 +302,34 @@ select {
     width: 100%;
   }
 
+  .spacer {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .schedule-workout__form,
   .edit-schedule__form {
     width: 35rem;
+  }
+}
+
+@media screen and (max-width: 1300px) {
+  .main-workout {
+    padding-left: 3.2rem !important;
+  }
+  .weekly {
+    font-size: 1.6rem !important;
+  }
+}
+
+@media screen and (max-width: 1025px) {
+  .calendar-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  .schedule-status_bar {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.6rem;
   }
 }
 
@@ -323,6 +348,11 @@ select {
     gap: 1.6rem;
   }
 
+  .spacer {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    width: 100%;
+  }
+
   .timer_container {
     justify-content: center;
   }
@@ -334,16 +364,6 @@ select {
   .workout-days {
     justify-content: center;
     padding: 1rem;
-  }
-
-  .calendar-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.2rem;
-  }
-
-  .spacer {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    width: 100%;
   }
 
   .day,
