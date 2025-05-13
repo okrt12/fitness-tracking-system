@@ -28,7 +28,6 @@ JOIN (
 ON DATE(up.date) = recent_logs.log_date AND up.date = recent_logs.max_datetime
 WHERE up.user_id = :user_id
 ORDER BY up.date DESC LIMIT 7;
-
   ");
   $stmt->execute(['user_id' => $user_id]);
   $progressData = $stmt->fetchAll(PDO::FETCH_ASSOC);

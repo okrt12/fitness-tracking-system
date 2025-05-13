@@ -278,6 +278,7 @@
               Log Meal
             </button>
           </form>
+          
         </div>
       </div>
     </main>

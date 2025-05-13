@@ -5,6 +5,7 @@ const loginForm = document.querySelector(".login-form");
 
 const loginShowIcon = document.querySelector(".login_show");
 const loginHideIcon = document.querySelector(".login_hide");
+const errorSuccess = document.querySelector(".error_success");
 
 toggleShowHidePass(loginPasswordInput, loginHideIcon, loginShowIcon);
 
@@ -32,7 +33,9 @@ loginForm.addEventListener("submit", async function (e) {
 
     if (response.ok) {
       if (data.success) {
-        alert("Successfull");
+        // alert("Successfull");
+        errorSuccess.textContent = data.message;
+        errorSuccess.style.color = "#00c853";
         setTimeout(() => {
           window.location.href = "../../pages/dashboard.php";
         }, 1000);
@@ -42,7 +45,8 @@ loginForm.addEventListener("submit", async function (e) {
     if (!data.success) {
       loginEmailInput.classList.add("error-input");
       loginPasswordInput.classList.add("error-input");
-      alert(data.message);
+      errorSuccess.textContent = data.message;
+      errorSuccess.style.color = "#ef5350";
       return;
     }
   } catch (error) {

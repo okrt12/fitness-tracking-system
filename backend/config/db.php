@@ -2,7 +2,7 @@
 $host = 'localhost';
 $dbname = 'fittrack_plus'; // Change if you named it differently
 $username = 'root'; // Change if needed
-$password = '';     // Change if you use a password
+$password = '';
 
 try {
   $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
