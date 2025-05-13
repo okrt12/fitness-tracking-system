@@ -1,6 +1,7 @@
 .profile-container {
   height: 100vh;
   overflow-y: auto;
+  padding: 0 2rem;
 }
 
 .icons {
@@ -15,12 +16,12 @@
  */
 
 .profile-header {
-  margin-top: 2.4rem;
+  margin: 2.4rem 0;
 }
 
 .profile-cards {
   display: grid;
-  grid-template-columns: 2fr 2fr 1.2fr;
+  grid-template-columns: 2fr 1.75fr 1.75fr;
   padding-left: 0 !important;
   gap: 2rem;
   margin-bottom: 3.2rem;
@@ -29,6 +30,13 @@
 
 .info-text {
   font-weight: 600;
+  font-size: 1.6rem;
+}
+
+.detail-value {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .detail-value span {
@@ -36,16 +44,21 @@
   padding: 1.2rem;
   width: 100%;
   border-radius: 11px;
+  font-size: 1.4rem;
 }
 
 .personal-information,
 .personal-information__popup {
   border-left: 0.4rem solid var(--primary-color);
+  padding: 2rem;
 }
 
 .info-btn {
   background-color: var(--primary-color);
+  width: 100%;
+  margin-top: 1.6rem;
 }
+
 .info-btn:hover {
   background-color: #00b74d;
 }
@@ -53,10 +66,13 @@
 .goal,
 .goals-popup {
   border-left: 0.4rem solid var(--accent-color1);
+  padding: 2rem;
 }
 
 .goal-btn {
   background-color: var(--accent-color1);
+  width: 100%;
+  margin-top: 1.6rem;
 }
 
 .goal-btn:hover {
@@ -65,6 +81,7 @@
 
 .bmi {
   border-left: 0.4rem solid var(--primary-hover);
+  padding: 2rem;
 }
 
 .goal-bmi {
@@ -75,11 +92,16 @@
   background-color: var(--primary-color);
   padding: 0.6rem 1.2rem;
   border-radius: 50px;
+  text-align: center;
+  font-size: 1.4rem;
 }
+
 .achievement-tags__container {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
+  overflow-y: auto;
+  padding: 0.5rem;
 }
 
 /* **********************************************************************************
@@ -91,7 +113,7 @@
   position: absolute;
 }
 
-/* ****************************** Personal Informtaion **********************/
+/* ****************************** Personal Information **********************/
 /* Forms */
 
 input {
@@ -105,12 +127,162 @@ input {
   width: 100%;
   border-radius: 11px;
   color: var(--text-color);
+  font-size: 1.4rem;
 }
 
 .personal-information__popup {
   width: 40rem;
+  max-width: 90%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .goals-popup {
   width: 35rem;
+  max-width: 90%;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.no_achieve {
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
+  .profile-cards {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.6rem;
+  }
+
+  .bmi {
+    grid-column: span 2;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .profile-container {
+    padding: 0 1.6rem;
+  }
+
+  .profile-cards {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .bmi {
+    grid-column: auto;
+  }
+
+  .personal-information,
+  .goal,
+  .bmi {
+    padding: 1.6rem;
+  }
+
+  .achievement-tags__container {
+    max-height: 12rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .profile-container {
+    padding: 0 1.2rem;
+  }
+
+  .profile-header {
+    font-size: 2.4rem;
+    text-align: center;
+    margin: 2rem 0;
+  }
+
+  .info-text {
+    font-size: 1.4rem;
+  }
+
+  .detail-value span {
+    font-size: 1.3rem;
+    padding: 1rem;
+  }
+
+  .achievement-tags {
+    font-size: 1.3rem;
+    padding: 0.5rem 1rem;
+  }
+
+  .cards-header {
+    font-size: 1.8rem;
+    margin-bottom: 1.6rem;
+  }
+
+  .input {
+    padding: 1rem;
+    font-size: 1.3rem;
+  }
+
+  .info-btn,
+  .goal-btn {
+    padding: 1rem 1.6rem;
+    font-size: 1.4rem;
+    margin-top: 1.2rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .profile-container {
+    padding: 0 1rem;
+  }
+
+  .profile-header {
+    font-size: 2rem;
+  }
+
+  .personal-information,
+  .goal,
+  .bmi {
+    padding: 1.2rem;
+  }
+
+  .info-text {
+    font-size: 1.3rem;
+  }
+
+  .detail-value span {
+    font-size: 1.2rem;
+  }
+
+  .achievement-tags {
+    font-size: 1.2rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .achievement-tags__container {
+    max-height: 10rem;
+    gap: 0.8rem;
+  }
+
+  .cards-header {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .input {
+    padding: 0.8rem;
+    font-size: 1.2rem;
+  }
+
+  .info-btn,
+  .goal-btn {
+    padding: 0.8rem 1.4rem;
+    font-size: 1.3rem;
+  }
+
+  .no_achieve {
+    font-size: 1.4rem;
+  }
 }

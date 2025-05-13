@@ -11,7 +11,6 @@ import {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////   Variables       ////////////////////////////////////////////////////
 const addScheduleForm = document.querySelector(".schedule-workout__form");
-const scheduleRepeatInput = document.getElementById("weekly-repeat");
 const scheduleTypeInput = document.getElementById("schedule-type");
 const scheduleDayInput = document.getElementById("schedule-day");
 const scheduleTimeInput = document.getElementById("schedule-time");
@@ -72,7 +71,7 @@ const days = {
   4: "Thursday",
   5: "Friday",
   6: "Saturday",
-  7: "Sunday",
+  0: "Sunday",
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -184,10 +183,13 @@ function postWorkoutSchedule() {
 
 async function updateDaysData() {
   const data = await getData("../backend/api/get-workouts-schedule.php");
+
   getWeekData(weekData, data.data);
+
   workoutContainer.forEach((el, i) => {
-    const html = weekData[i]
-      ? `
+    const html =
+      weekData[i] && weekData[i].workout_day_name !== "No Workout"
+        ? `
     <span class = "normal-text cards-description workout_day_name">${
       weekData[i].workout_day_name
     }</span>
@@ -201,10 +203,10 @@ async function updateDaysData() {
     <span class = "normal-text cards-description schedule_duration" data-min = ${
       weekData[i].duration
     }>${
-          weekData[i].duration >= 60
-            ? Math.floor(weekData[i].duration / 60) + " hr"
-            : weekData[i].duration + " min"
-        }</span> 
+            weekData[i].duration >= 60
+              ? Math.floor(weekData[i].duration / 60) + " hr"
+              : weekData[i].duration + " min"
+          }</span> 
     <span class = "normal-text cards-description">${
       weekData[i].duration > 60 && weekData[i].duration % 60 !== 0
         ? (weekData[i].duration % 60) + " min"
@@ -212,7 +214,7 @@ async function updateDaysData() {
     }</span>
     </div>
     `
-      : `<span>No Workout</span>`;
+        : `<span>No Workout</span>`;
     el.insertAdjacentHTML("beforeend", html);
     const schedule_id = weekData[i].schedule_id || "";
     el.setAttribute("data-schedule_id", schedule_id);
@@ -224,12 +226,13 @@ async function addSchedule() {
     const addIcon = el.nextElementSibling.children[0];
     addIcon.addEventListener("click", function (e) {
       const scheduleID = el.getAttribute("data-schedule_id");
-      if (!scheduleID) {
+      if (!scheduleID || scheduleID !== scheduleID + " no") {
         const elementsDay = addIcon.parentElement.getAttribute("data-day");
         scheduleDayInput.value = days[elementsDay];
         toggleHidden(addScheduleForm);
         postWorkoutSchedule();
       } else {
+        console.log(el.getAttribute("data-schedule_id"));
         alert("There is already schedule please click the edit button");
       }
     });
@@ -277,6 +280,8 @@ async function deleteSchedule() {
       if (scheduleID) {
         toggleHidden(yesNoPopup);
         deletePost(scheduleID);
+        el.setAttribute("data-schedule_id", scheduleID + " no");
+        console.log(el.getAttribute("data-schedule_id"));
       } else {
         alert("There is no schedule to delete");
       }
@@ -297,10 +302,11 @@ function updateTotalWeekWorkout() {
     }, 0);
 
   totalWeekWorkout.textContent =
-    (total >= 60 &&
-      total % 60 !== 0 &&
-      Math.floor(total / 60) + " hrs " + (total % 60) + " min") ||
-    total / 60 + " hrs";
+    total >= 60
+      ? total % 60 === 0
+        ? Math.floor(total / 60) + " hrs "
+        : Math.floor(total / 60) + " hrs " + (total % 60) + " min"
+      : total + " min";
 }
 
 function workoutDays() {
@@ -392,13 +398,15 @@ async function getNextWorkout() {
 ////////////////////////////////////////////////   Timer       ////////////////////////////////////////////////////
 
 function timer(day, hour, minutes) {
-  if (hour >= 24) {
-    day += 1;
-    hour -= 24;
-  }
-  if (minutes === 60) {
-    hour += 1;
-    minutes = 0;
+  while (hour >= 24) {
+    if (hour >= 24) {
+      day += 1;
+      hour -= 24;
+    }
+    if (minutes === 60) {
+      hour += 1;
+      minutes = 0;
+    }
   }
 
   function updateDisplay() {

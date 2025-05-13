@@ -1,7 +1,6 @@
 <?php include "../backend/auth/session.php"; ?>
 <?php include "../backend/auth/auth_check.php"; ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -75,8 +74,11 @@
               class="icon-text sidebar-btn sidebar-btns"
               href="/pages/workout.php"
             >
-            <ion-icon class="icons sidebar-icons" name="barbell-outline"></ion-icon>
-          
+              <ion-icon
+                class="icons sidebar-icons"
+                name="barbell-outline"
+              ></ion-icon>
+
               <p class="sidebar-btn">Workout Logs</p>
             </a>
           </li>
@@ -127,21 +129,19 @@
             <h3 class="cards-header">Personal Information</h3>
             <div class="flex-col detail-value">
               <p class="normal-text cards-description info-text">Name</p>
-              <span class="normal-text cards-description info-name"
-                >Abel Alebachewu</span
-              >
+              <span class="normal-text cards-description info-name"></span>
             </div>
             <div class="flex-col detail-value">
               <p class="normal-text cards-description info-text">Age:</p>
-              <span class="normal-text cards-description info-age">22</span>
+              <span class="normal-text cards-description info-age"></span>
             </div>
             <div class="flex-col detail-value">
               <p class="normal-text cards-description info-text">Height(cm):</p>
-              <span class="normal-text cards-description info-height">180</span>
+              <span class="normal-text cards-description info-height"></span>
             </div>
             <div class="flex-col detail-value">
               <p class="normal-text cards-description info-text">Weight(kg):</p>
-              <span class="normal-text cards-description info-weight">75</span>
+              <span class="normal-text cards-description info-weight"></span>
             </div>
 
             <button class="btn-primary info-btn edit-info__btn">
@@ -214,23 +214,6 @@
                 required
               />
             </div>
-            <!-- <div class="flex-col detail-value">
-              <label
-                class="normal-text cards-description input-label"
-                for="diseases"
-                >Diseases (Optional)</label
-              >
-               <select id="diseases" name="diseases" class="input">
-                <option class="input normal-text" value="">None</option>
-                <option class="input normal-text" value="diabetes">
-                  Diabetes
-                </option>
-                <option class="input normal-text" value="hypertension">
-                  Hypertension
-                </option>
-              </select> 
-            </div>
-            -->
             <button type="submit" class="btn-primary info-btn save-info__btn">
               Save
             </button>
@@ -247,7 +230,9 @@
                 </span>
               </div>
               <p class="normal-text cards-description recommendation">
-                Recommendation: Based on your BMI (24.5), we suggest
+                Recommendation: Based on your BMI (<span class="bmi-value"
+                  >24.5</span
+                >), we suggest
                 <strong class="heading-color">bulking</strong> for muscle gain.
               </p>
               <button class="btn-primary goal-btn edit-goal__btn">
@@ -278,9 +263,13 @@
                   Muscle Gain(Bulking)
                 </option>
 
-                <option class="normal-text cards-description" name="fitness-goal" value="maintain">
-                Maintain Fitness
-              </option>
+                <option
+                  class="normal-text cards-description"
+                  name="fitness-goal"
+                  value="maintain"
+                >
+                  Maintain Fitness
+                </option>
 
                 <option
                   name="goal"
@@ -289,9 +278,13 @@
                 >
                   Improve Endurance
                 </option>
-                <option class="normal-text cards-description" name="goal" value="other">
-                Other
-              </option>
+                <option
+                  class="normal-text cards-description"
+                  name="goal"
+                  value="other"
+                >
+                  Other
+                </option>
               </select>
               <button type="submit" class="btn-primary goal-btn save-goal__btn">
                 Save Goal
@@ -301,13 +294,21 @@
             <!-- BMI -->
             <div class="cards bmi">
               <h3 class="cards-header">BMI</h3>
-              <p class="normal-text cards-description">BMI: 24.5 (Normal)</p>
               <p class="normal-text cards-description">
-                Ideal Weight Range: 66kg - 74kg
+                BMI: <span class="bmi-value">24.5</span> (<span
+                  class="bmi-status"
+                  >Normal</span
+                >)
               </p>
               <p class="normal-text cards-description">
-                Based on your BMI <span> (24.5)</span>, Maintain or gain muscle
-                with a balanced diet
+                Ideal Weight Range: <span class="ideal-weight_0"></span>kg -
+                <span class="ideal-weight_1"></span>kg
+              </p>
+              <p class="normal-text cards-description">
+                Based on your BMI (<span class="bmi-value">24.5</span>),
+                <span class="recommendation"
+                  >Maintain or gain muscle with a balanced diet</span
+                >
               </p>
             </div>
           </div>
@@ -315,14 +316,8 @@
           <div class="cards achievements">
             <h3 class="cards-header">Achievements</h3>
             <div class="flex-col achievement-tags__container">
-              <span class="cards-description achievement-tags normal-text"
-                >🏅 5kg Lost</span
-              >
-              <span class="cards-description achievement-tags normal-text"
-                >💪 10 Days Logged</span
-              >
-              <span class="cards-description achievement-tags normal-text"
-                >🔥 1 Month Streak</span
+              <span class="cards-description normal-text no_achieve"
+                >No Achievements</span
               >
             </div>
           </div>

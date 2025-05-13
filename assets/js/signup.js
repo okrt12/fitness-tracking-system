@@ -17,13 +17,6 @@ const gender = document.getElementById("gender");
 const fitnessGoal = document.getElementById("fitness-goal");
 const disease = document.getElementById("diseases");
 const form = document.querySelector(".form");
-//
-document.addEventListener("focus", () => {
-  const inputs = document.querySelectorAll(".input");
-  inputs.forEach((input) => {
-    input.classList.add("input-autofill");
-  });
-});
 
 // UI
 toggleShowHidePass(newPassword, createhideIcon, createShowIcon);
@@ -54,6 +47,7 @@ form.addEventListener("submit", async function (e) {
     goal: fitnessGoal.value,
     disease: disease.value || "none",
   };
+
   try {
     const response = await fetch("../backend/auth/signup_auth.php", {
       method: "POST",

@@ -27,6 +27,8 @@
     <title>FitTrack+ | Progress and Health</title>
   </head>
   <body>
+    <div class="backdrop hidden"></div>
+
     <main class="main">
       <nav class="sidebar">
         <ul>
@@ -74,8 +76,11 @@
               class="icon-text sidebar-btn sidebar-btns"
               href="/pages/workout.php"
             >
-            <ion-icon class="icons sidebar-icons" name="barbell-outline"></ion-icon>
-          
+              <ion-icon
+                class="icons sidebar-icons"
+                name="barbell-outline"
+              ></ion-icon>
+
               <p class="sidebar-btn">Workout Logs</p>
             </a>
           </li>
@@ -125,21 +130,87 @@
         <div class="progress-status__container container">
           <div class="cards flex-col status-cards">
             <h3 class="cards-header">Weight Change</h3>
-            <p class="cards-description normal-text">↓ 2.5 kg</p>
+            <p class="cards-description normal-text weight-change">No Data</p>
           </div>
-          <div class="cards flex-col status-cards">
-            <h3 class="cards-header">Workouts</h3>
-            <p class="cards-description normal-text">12 this month</p>
-          </div>
+
           <div class="cards flex-col status-cards">
             <h3 class="cards-header">Avg Calories Burned</h3>
-            <p class="cards-description normal-text">450/day</p>
+            <p class="cards-description normal-text avg-cal__burned">No data</p>
           </div>
-          <div class="cards flex-col status-cards">
+          <div class="cards flex-col status-cards health-status">
             <h3 class="cards-header">Health Status</h3>
-            <p class="health-status cards-description normal-text">Normal</p>
           </div>
+
+          <button class="btn-primary progress-add__btn">Add Progress</button>
         </div>
+
+        <form
+          id="add-progress__form"
+          class="form cards popup add-progress__form hidden"
+        >
+          <h3 class="cards-header">Log Progress</h3>
+
+          <div class="detail-value label-input flex-col">
+            <label for="weight" class="normal-text cards-description"
+              >Weight (kg)</label
+            >
+            <input
+              type="number"
+              id="weight"
+              class="input normal-text cards-description"
+              placeholder="Enter your weight"
+              min="30"
+              max="300"
+              step="0.1"
+              required
+            />
+          </div>
+          <div class="detail-value flex-col">
+            <label class="cards-description normal-text" for="bp-systolic"
+              >Blood Pressure (Systolic)</label
+            >
+            <input
+              class="input normal-text cards-description bp-systolic"
+              type="number"
+              id="bp-systolic"
+              name="bp-systolic"
+              min="50"
+              max="250"
+              placeholder="e.g., 120"
+            />
+          </div>
+
+          <div class="detail-value flex-col">
+            <label class="cards-description normal-text" for="bp-diastolic"
+              >Blood Pressure (Diastolic)</label
+            >
+            <input
+              class="input normal-text cards-description bp-diastolic"
+              type="number"
+              id="bp-diastolic"
+              name="bp-diastolic"
+              min="30"
+              max="150"
+              placeholder="e.g., 80"
+            />
+          </div>
+          <div class="detail-value label-input flex-col">
+            <label for="blood-sugar" class="normal-text cards-description"
+              >Blood Sugar Level</label
+            >
+            <input
+              type="number"
+              id="blood-sugar"
+              class="input normal-text cards-description"
+              placeholder="e.g 100"
+              min="30"
+              max="300"
+              step="0.1"
+              required
+            />
+          </div>
+          <button type="submit" class="btn-primary health-btn">Log</button>
+        </form>
 
         <div class="container progress-charts__container">
           <div class="progress-charts cards">
@@ -161,11 +232,11 @@
                     <line x1="50" y1="260" x2="580" y2="260" stroke="#ccc" />
 
                     <!-- Y-axis labels -->
-                    <text class="day1-kg__text" x="10" y="30">80kg</text>
-                    <text class="day2-kg__text" x="10" y="80">75kg</text>
-                    <text class="day3-kg__text" x="10" y="130">70kg</text>
-                    <text class="day4-kg__text" x="10" y="180">65kg</text>
-                    <text class="day5-kg__text" x="10" y="230">60kg</text>
+                    <text class="day1-kg day-kg__text" x="10" y="30"></text>
+                    <text class="day2-kg day-kg__text" x="10" y="80"></text>
+                    <text class="day3-kg day-kg__text" x="10" y="130"></text>
+                    <text class="day4-kg day-kg__text" x="10" y="180"></text>
+                    <text class="day5-kg day-kg__text" x="10" y="230"></text>
 
                     <!-- Goal line -->
                     <line
@@ -176,72 +247,22 @@
                       y2="130"
                       stroke-dasharray="4"
                     />
-                    <text class="goal-line__text" x="500" y="125">
-                      Goal: 70kg
-                    </text>
-
-                    <!-- X-axis labels -->
-                    <text class="day1-weight__text" x="70" y="280">Apr 1</text>
-                    <text class="day2-weight__text" x="130" y="280">Apr 3</text>
-                    <text class="day3-weight__text" x="190" y="280">Apr 5</text>
-                    <text class="day4-weight__text" x="250" y="280">Apr 7</text>
-                    <text class="day5-weight__text" x="310" y="280">Apr 9</text>
-                    <text class="day6-weight__text" x="370" y="280">
-                      Apr 11
-                    </text>
-                    <text class="day7-weight__text" x="430" y="280">
-                      Apr 13
-                    </text>
+                    <text class="goal-line__text" x="500" y="125"></text>
 
                     <!-- Weight line (sample data) -->
-
-                    <!-- Dots on the line -->
-                    <circle
-                      class="dot day1-weight__dot"
-                      cx="70"
-                      cy="70"
-                      r="4"
+                    <polyline
+                      class="line"
+                      points=""
+                      stroke="#FFA726"
+                      fill="none"
                     />
-                    <circle
-                      class="dot day2-weight__dot"
-                      cx="130"
-                      cy="90"
-                      r="4"
-                    />
-                    <circle
-                      class="dot day3-weight__dot"
-                      cx="190"
-                      cy="110"
-                      r="4"
-                    />
-                    <circle
-                      class="dot day4-weight__dot"
-                      cx="250"
-                      cy="120"
-                      r="4"
-                    />
-                    <circle
-                      class="dot day5-weight__dot"
-                      cx="310"
-                      cy="130"
-                      r="4"
-                    />
-                    <circle
-                      class="dot day6-weight__dot"
-                      cx="370"
-                      cy="140"
-                      r="4"
-                    />
-                    <!-- <circle
-                      class="dot day7-weight__dot"
-                      cx="430"
-                      cy="160"
-                      r="4"
-                    /> -->
                   </svg>
                 </div>
-                <p class="cards-description normal-text">
-                  Current: 73kg (Goal: 70kg)
+                <div class="weight-chart__desc"></div>
+                <p
+                  class="normal-text cards-header no-data no-data_weight hidden"
+                >
+                  No data
                 </p>
               </div>
               <!-- Workout Chart -->
@@ -249,7 +270,7 @@
                 <h3 class="cards-header">Weekly Workouts</h3>
                 <div class="workout-chart">
                   <svg
-                    class="bar-chart workout-chart"
+                    class="bar-chart workout-chart workout_bar--chart"
                     viewBox="25 -10 350 180"
                     xmlns="http://www.w3.org/2000/svg"
                   >
@@ -261,110 +282,157 @@
 
                     <!-- Mon -->
                     <rect
-                      class="day1-calorie_bar bp-bar bp-mon-bar"
+                      class="day1-workout_bar workout-bar bp-mon-bar"
                       x="50"
                       y="70"
                       width="20"
                       height="70"
                     />
-                    <text class="day1-calorie_text" x="50" y="65">120</text>
+                    <text class="day1-workout_text workout__text" x="50" y="65">
+                      120
+                    </text>
 
                     <!-- Tue -->
                     <rect
-                      class="day2-calorie_bar bp-bar bp-tue-bar"
+                      class="day2-workout_bar workout-bar bp-tue-bar"
                       x="100"
                       y="50"
                       width="20"
                       height="90"
                     />
-                    <text class="day2-calorie_text" x="100" y="45">130</text>
+                    <text
+                      class="day2-workout_text workout__text"
+                      x="100"
+                      y="45"
+                    >
+                      130
+                    </text>
 
                     <!-- Wed -->
                     <rect
-                      class="day3-calorie_bar bp-bar bp-wed-bar"
+                      class="day3-workout_bar workout-bar bp-wed-bar"
                       x="150"
                       y="60"
                       width="20"
                       height="80"
                     />
-                    <text class="day3-calorie_text" x="150" y="55">125</text>
+                    <text
+                      class="day3-workout_text workout__text"
+                      x="150"
+                      y="55"
+                    >
+                      125
+                    </text>
 
                     <!-- Thu -->
                     <rect
-                      class="day4-calorie_bar bp-bar bp-thu-bar"
+                      class="day4-workout_bar workout-bar bp-thu-bar"
                       x="200"
                       y="90"
                       width="20"
                       height="50"
                     />
-                    <text class="day4-calorie_text" x="200" y="85">95</text>
+                    <text
+                      class="day4-workout_text workout__text"
+                      x="200"
+                      y="85"
+                    >
+                      95
+                    </text>
 
                     <!-- Fri -->
                     <rect
-                      class="day5-calorie_bar bp-bar bp-fri-bar"
+                      class="day5-workout_bar workout-bar bp-fri-bar"
                       x="250"
                       y="50"
                       width="20"
                       height="90"
                     />
-                    <text class="day5-calorie_text" x="250" y="45">130</text>
+                    <text
+                      class="day5-workout_text workout__text"
+                      x="250"
+                      y="45"
+                    >
+                      130
+                    </text>
 
                     <!-- Sat -->
                     <rect
-                      class="day6-calorie_bar bp-bar bp-sat-bar"
+                      class="day6-workout_bar workout-bar bp-sat-bar"
                       x="300"
                       y="60"
                       width="20"
                       height="80"
                     />
-                    <text class="day6-calorie_text" x="300" y="55">125</text>
+                    <text
+                      class="day6-workout_text workout__text"
+                      x="300"
+                      y="55"
+                    >
+                      125
+                    </text>
 
                     <!-- Sun -->
                     <rect
-                      class="day7-calorie_bar bp-bar bp-sun-bar"
+                      class="day7-workout_bar workout-bar bp-sun-bar"
                       x="350"
                       y="50"
                       width="20"
                       height="90"
                     />
-                    <text class="day7-calorie_text" x="350" y="45">130</text>
+                    <text
+                      class="day7-workout_text workout__text"
+                      x="350"
+                      y="45"
+                    >
+                      130
+                    </text>
 
                     <!-- Labels -->
-                    <text class="bar-day__texts text-mon" x="50" y="156">
-                      Mon
-                    </text>
-                    <text class="bar-day__texts text-tue" x="90" y="156">
-                      Tue
-                    </text>
-                    <text class="bar-day__texts text-wed" x="140" y="156">
-                      Wed
-                    </text>
-                    <text class="bar-day__texts text-thu" x="190" y="156">
-                      Thu
-                    </text>
-                    <text class="bar-day__texts text-fri" x="240" y="156">
-                      Fri
-                    </text>
-                    <text class="bar-day__texts text-sat" x="290" y="156">
-                      Sat
-                    </text>
-                    <text class="bar-day__texts text-sun" x="340" y="156">
-                      Sun
-                    </text>
+                    <text
+                      class="bar-day__texts workout-bar__text text-mon"
+                      x="40"
+                      y="156"
+                    ></text>
+                    <text
+                      class="bar-day__texts workout-bar__text text-tue"
+                      x="90"
+                      y="156"
+                    ></text>
+                    <text
+                      class="bar-day__texts workout-bar__text text-wed"
+                      x="140"
+                      y="156"
+                    ></text>
+                    <text
+                      class="bar-day__texts workout-bar__text text-thu"
+                      x="190"
+                      y="156"
+                    ></text>
+                    <text
+                      class="bar-day__texts workout-bar__text text-fri"
+                      x="240"
+                      y="156"
+                    ></text>
+                    <text
+                      class="bar-day__texts workout-bar__text text-sat"
+                      x="290"
+                      y="156"
+                    ></text>
+                    <text
+                      class="bar-day__texts workout-bar__text text-sun"
+                      x="340"
+                      y="156"
+                    ></text>
                   </svg>
                 </div>
-                <p class="cards-description normal-text">
-                  This Week: 3 sessions, 950 kcal
+                <div class="workout-chart__desc"></div>
+                <p
+                  class="normal-text cards-header no-data no-data_workout hidden"
+                >
+                  No data
                 </p>
               </div>
-              <!-- Diet Chart -->
-              <!-- <div class="chart-card">
-                <h3 class="cards-header">Daily Calories</h3>
-                <div class="dietChart"></div>
-                <p class="cards-description normal-text">
-                  Today: 1800 kcal (Goal: 2000 kcal)
-                </p>
-              </div> -->
             </div>
           </div>
         </div>
@@ -372,7 +440,7 @@
         <div class="health-charts__container container">
           <div class="progress-charts health-charts cards">
             <h3 class="cards-header">Health Status</h3>
-            <div class="chart detail-value flex-col">
+            <div class="chart health-bar detail-value flex-col">
               <svg
                 class="bar-chart bp-chart"
                 viewBox="25 -10 570 180"
@@ -393,7 +461,7 @@
                   width="20"
                   height="70"
                 />
-                <text class="day1-bp_text" x="50" y="65">120</text>
+                <text class="day1-bp_text bp_text" x="50" y="65">120</text>
 
                 <rect
                   class="day1-sugar_bar sugar-bar sugar-mon-bar"
@@ -402,7 +470,7 @@
                   width="20"
                   height="80"
                 />
-                <text class="day1-sugar_text" x="75" y="55">95</text>
+                <text class="day1-sugar_text sugar_text" x="75" y="55">95</text>
 
                 <!-- Tue -->
                 <rect
@@ -412,7 +480,7 @@
                   width="20"
                   height="90"
                 />
-                <text class="day2-bp_text" x="125" y="45">130</text>
+                <text class="day2-bp_text bp_text" x="125" y="45">130</text>
 
                 <rect
                   class="sugar-bar day2-sugar_bar sugar-tue-bar"
@@ -421,7 +489,9 @@
                   width="20"
                   height="110"
                 />
-                <text class="day2-sugar_text" x="150" y="25">100</text>
+                <text class="day2-sugar_text sugar_text" x="150" y="25">
+                  100
+                </text>
 
                 <!-- Wed -->
                 <rect
@@ -431,7 +501,7 @@
                   width="20"
                   height="80"
                 />
-                <text class="day3-bp_text" x="200" y="55">125</text>
+                <text class="day3-bp_text bp_text" x="200" y="55">125</text>
 
                 <rect
                   class="sugar-bar day3-sugar_bar sugar-wed-bar"
@@ -441,7 +511,9 @@
                   height="100"
                 />
 
-                <text class="day3-sugar_text" x="225" y="35">95</text>
+                <text class="day3-sugar_text sugar_text" x="225" y="35">
+                  95
+                </text>
 
                 <!-- Thu -->
                 <rect
@@ -451,7 +523,7 @@
                   width="20"
                   height="50"
                 />
-                <text class="day4-bp_text" x="275" y="85">95</text>
+                <text class="day4-bp_text bp_text" x="275" y="85">95</text>
 
                 <rect
                   class="sugar-bar day4-sugar_bar sugar-thu-bar"
@@ -460,7 +532,9 @@
                   width="20"
                   height="80"
                 />
-                <text class="day4-sugar_text" x="300" y="55">100</text>
+                <text class="day4-sugar_text sugar_text" x="300" y="55">
+                  100
+                </text>
 
                 <!-- Fri -->
                 <rect
@@ -470,16 +544,18 @@
                   width="20"
                   height="90"
                 />
-                <text class="day5-bp_text" x="350" y="45">130</text>
+                <text class="day5-bp_text bp_text" x="350" y="45">130</text>
 
                 <rect
-                  class="sugar-bar day5-bp_bar sugar-fri-bar"
+                  class="sugar-bar day5-sugar_bar sugar-fri-bar"
                   x="375"
                   y="30"
                   width="20"
                   height="110"
                 />
-                <text class="day5-sugar_text" x="375" y="25">105</text>
+                <text class="day5-sugar_text sugar_text" x="375" y="25">
+                  105
+                </text>
 
                 <!-- Sat -->
                 <rect
@@ -489,16 +565,18 @@
                   width="20"
                   height="80"
                 />
-                <text class="day6-bp_text" x="425" y="55">125</text>
+                <text class="day6-bp_text bp_text" x="425" y="55">125</text>
 
                 <rect
-                  class="sugar-bar day6-bp_bar sugar-sat-bar"
+                  class="sugar-bar day6-sugar_bar sugar-sat-bar"
                   x="450"
                   y="40"
                   width="20"
                   height="100"
                 />
-                <text class="day6-sugar_text" x="450" y="35">110</text>
+                <text class="day6-sugar_text sugar_text" x="450" y="35">
+                  110
+                </text>
 
                 <!-- Sun -->
                 <rect
@@ -508,25 +586,69 @@
                   width="20"
                   height="90"
                 />
-                <text class="day7-bp_text" x="500" y="45">130</text>
+                <text class="day7-bp_text bp_text" x="500" y="45">130</text>
 
                 <rect
-                  class="sugar-bar day7-bp_bar sugar-sun-bar"
+                  class="sugar-bar day7-sugar_bar sugar-sun-bar"
                   x="525"
                   y="30"
                   width="20"
                   height="110"
                 />
-                <text class="day7-sugar_text" x="525" y="25">120</text>
+                <text class="day7-sugar_text sugar_text" x="525" y="25">
+                  120
+                </text>
 
                 <!-- Labels -->
-                <text class="bar-day__texts text-mon" x="40" y="156">Mon</text>
-                <text class="bar-say__texts text-tue" x="115" y="156">Tue</text>
-                <text class="bar-say__texts text-wed" x="190" y="156">Wed</text>
-                <text class="bar-say__texts text-thu" x="265" y="156">Thu</text>
-                <text class="bar-say__texts text-fri" x="340" y="156">Fri</text>
-                <text class="bar-say__texts text-sat" x="415" y="156">Sat</text>
-                <text class="bar-say__texts text-sun" x="490" y="156">Sun</text>
+                <text
+                  class="bar-day__texts health_bar-text text-mon"
+                  x="40"
+                  y="156"
+                >
+                  Mon
+                </text>
+                <text
+                  class="bar-say__texts health_bar-text text-tue"
+                  x="115"
+                  y="156"
+                >
+                  Tue
+                </text>
+                <text
+                  class="bar-say__texts health_bar-text text-wed"
+                  x="190"
+                  y="156"
+                >
+                  Wed
+                </text>
+                <text
+                  class="bar-say__texts health_bar-text text-thu"
+                  x="265"
+                  y="156"
+                >
+                  Thu
+                </text>
+                <text
+                  class="bar-say__texts health_bar-text text-fri"
+                  x="340"
+                  y="156"
+                >
+                  Fri
+                </text>
+                <text
+                  class="bar-say__texts health_bar-text text-sat"
+                  x="415"
+                  y="156"
+                >
+                  Sat
+                </text>
+                <text
+                  class="bar-say__texts health_bar-text text-sun"
+                  x="490"
+                  y="156"
+                >
+                  Sun
+                </text>
               </svg>
 
               <div class="legend-container flex-container">
@@ -539,109 +661,40 @@
                 ></span>
               </div>
             </div>
+            <p class="normal-text cards-header no-data no-data_health hidden">
+              No data
+            </p>
           </div>
+          <form class="cards update-weight_goal">
+            <h3 class="cards-header">Weight Goal</h3>
+            <div class="detail-value flex-col">
+              <label class="cards-description normal-text" for="current-weight"
+                >Current Weight Goal</label
+              >
 
-          <form id="form-log" class="cards health-form flex-col">
-            <h3 class="cards-header">Log Health Metrics</h3>
-            <div class="detail-value flex-col">
-              <label class="cards-description normal-text" for="bp-systolic"
-                >Blood Pressure (Systolic)</label
+              <span
+                class="input normal-text cards-description"
+                id="current-weight"
               >
-              <input
-                class="input normal-text cards-description bp-systolic"
-                required
-                type="number"
-                id="1bp-systolic"
-                name="bp-systolic"
-                min="50"
-                max="250"
-                placeholder="e.g., 120"
-              />
+              </span>
             </div>
-            <div class="detail-value flex-col">
-              <label class="cards-description normal-text" for="bp-diastolic"
-                >Blood Pressure (Diastolic)</label
+            <div class="detail-value label-input flex-col">
+              <label for="weight-goal" class="normal-text cards-description"
+                >Weight Goal (kg)</label
               >
               <input
-                class="input normal-text cards-description bp-diastolic"
-                required
                 type="number"
-                id="1bp-diastolic"
-                name="bp-diastolic"
+                id="weight-goal"
+                class="input normal-text cards-description"
+                placeholder="Enter your weight"
                 min="30"
-                max="150"
-                placeholder="e.g., 80"
-              />
-            </div>
-            <div class="detail-value flex-col">
-              <label class="cards-description normal-text" for="blood-sugar"
-                >Blood Sugar (mg/dL)</label
-              >
-              <input
-                class="input normal-text cards-description blood-sugar"
+                max="300"
+                step="0.1"
                 required
-                type="number"
-                id="1blood-sugar"
-                name="blood-sugar"
-                min="20"
-                max="500"
-                placeholder="e.g., 100"
-              />
-            </div>
-            <button type="submit" class="btn-primary health-btn">
-              Log Health
-            </button>
-          </form>
-
-          <form class="form cards">
-            <h3 class="cards-header">Log Health Metrics</h3>
-            <div class="detail-value flex-col">
-              <label class="cards-description normal-text" for="bp-systolic"
-                >Blood Pressure (Systolic)</label
-              >
-              <input
-                class="input normal-text cards-description bp-systolic"
-                type="number"
-                id="bp-systolic"
-                name="bp-systolic"
-                min="50"
-                max="250"
-                placeholder="e.g., 120"
               />
             </div>
 
-            <div class="detail-value flex-col">
-              <label class="cards-description normal-text" for="bp-diastolic"
-                >Blood Pressure (Diastolic)</label
-              >
-              <input
-                class="input normal-text cards-description bp-diastolic"
-                type="number"
-                id="bp-diastolic"
-                name="bp-diastolic"
-                min="30"
-                max="150"
-                placeholder="e.g., 80"
-              />
-            </div>
-
-            <div class="detail-value flex-col">
-              <label class="cards-description normal-text" for="blood-sugar"
-                >Blood Sugar (mg/dL)</label
-              >
-              <input
-                class="input normal-text cards-description blood-sugar"
-                type="number"
-                id="blood-sugar"
-                name="blood-sugar"
-                min="20"
-                max="500"
-                placeholder="e.g., 100"
-              />
-            </div>
-            <button type="submit" class="btn-primary health-btn">
-              Log Health
-            </button>
+            <button type="submit" class="btn-primary health-btn">Log</button>
           </form>
         </div>
       </div>

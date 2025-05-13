@@ -68,9 +68,10 @@
               name="eye-off-outline"
             ></ion-icon>
           </div>
+          <p class="normal-text cards-description error_success"></p>
           <button type="submit" class="btn-primary login-btn">Log In</button>
 
-          <div class="signup-link"> 
+          <div class="signup-link">
             <p class="normal-text cards-description login-link">
               Don't have an account?
               <a href="/pages/signup.php" class="text-link">Sign Up</a>

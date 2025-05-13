@@ -20,14 +20,19 @@ document.addEventListener("DOMContentLoaded", () => {
       name: addWorkoutName.value,
       category: addWorkoutCategory.value,
       calories_per_hour: addWorkoutCalories.value,
-      workout_day_name: addWorkoutDayName.value,
     };
 
     try {
       const response = await postData(
         addWorkoutData,
-        "../backend/controllers/addWorkout.php"
+        "../backend/controllers/add-user-workout.php"
       );
+      if (!response.ok && response.status === 409) {
+        const data = await response.json();
+        alert(data.message);
+        return;
+      }
+
       if (response.ok) {
         const data = await response.json();
         alert(data.message);
@@ -46,18 +51,23 @@ document.addEventListener("DOMContentLoaded", () => {
   const logWorkoutCalories = document.getElementById("calories-burned");
   const logWorkoutDayName = document.getElementById("workout_day_name_log");
 
-  addOptions(
-    logWorkoutID,
-    "../backend/api/get-workout.php",
-    "workout_id",
-    "name",
-    "workout_id"
-  );
-
-  const updateCaloriesBurned = (duration, calorie) => (duration / 60) * calorie;
+  const updateCaloriesBurned = (duration, calorie) =>
+    Math.ceil((duration / 60) * calorie);
   let selectedWorkoutID;
   logWorkoutID.addEventListener("change", () => {
     selectedWorkoutID = logWorkoutID.value;
+  });
+
+  logWorkoutDayName.addEventListener("change", async function (e) {
+    const workoutData = await getData("../backend/api/get-workout.php");
+    let dayWorkouts = [];
+    dayWorkouts = workoutData.data.filter(
+      (el) => el.category === logWorkoutDayName.value
+    );
+    dayWorkouts.forEach((el) => {
+      const html = `<option name="workout_id" value="${el.workout_id}">${el.name}</option>`;
+      logWorkoutID.insertAdjacentHTML("beforeend", html);
+    });
   });
 
   let totalCaloriesBurned;
@@ -76,7 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   logWorkoutForm.addEventListener("submit", async function (e) {
     e.preventDefault();
-
     const workoutLogData = {
       workout_id: logWorkoutID.value,
       duration: logWorkoutDuration.value,

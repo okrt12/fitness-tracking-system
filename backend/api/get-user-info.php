@@ -11,7 +11,7 @@ if (!isset($_SESSION['user_id'])) {
 $user_id = $_SESSION['user_id'];
 
 try {
-  $stmt = $pdo->prepare("SELECT name, age, gender, height, weight, goal, disease FROM users WHERE user_id = :user_id");
+  $stmt = $pdo->prepare("SELECT name, age, gender, height, weight, bmi, goal_weight, goal, disease FROM users WHERE user_id = :user_id");
   $stmt->execute(['user_id' => $user_id]);
   $user = $stmt->fetch(PDO::FETCH_ASSOC);
 

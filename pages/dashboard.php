@@ -1,7 +1,6 @@
 <?php include "../backend/auth/session.php"; ?>
 <?php include "../backend/auth/auth_check.php"; ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -71,15 +70,18 @@
               </a>
             </li>
             <li>
-            <a
-              class="icon-text sidebar-btn sidebar-btns"
-              href="/pages/workout.php"
-            >
-            <ion-icon class="icons sidebar-icons" name="barbell-outline"></ion-icon>
-          
-              <p class="sidebar-btn">Workout Logs</p>
-            </a>
-          </li>
+              <a
+                class="icon-text sidebar-btn sidebar-btns"
+                href="/pages/workout.php"
+              >
+                <ion-icon
+                  class="icons sidebar-icons"
+                  name="barbell-outline"
+                ></ion-icon>
+
+                <p class="sidebar-btn">Workout Logs</p>
+              </a>
+            </li>
             <li>
               <a
                 class="icon-text sidebar-btn sidebar-btns"
@@ -118,6 +120,7 @@
             </li>
           </ul>
         </nav>
+
         <div class="dashboard-main">
           <div class="header container">
             <h2 class="welcome-text heading-tertiary heading-color">
@@ -125,52 +128,123 @@
             </h2>
           </div>
           <div class="dashboard-cards container">
-            <div class="did-you-know cards">
+            <div class="did-you-know_box cards">
               <h2 class="cards-header">Did You Know?</h2>
-              <p class="normal-text cards-description">
+              <p
+                class="normal-text cards-description fact motivational-content"
+              >
                 Drinking water boosts your metabolism by up to 30%!
               </p>
             </div>
 
             <div class="bmi cards">
               <h2 class="cards-header">BMI and Goals</h2>
-              <p class="normal-text cards-description">BMI: <span class ="bmi-value">22.5</span> <span class="bmi-status">(Normal)</span></p>
+              <p class="normal-text cards-description">
+                BMI: <span class="bmi-value">22.5</span>
+                <span class="bmi-status">(Normal)</span>
+              </p>
               <p class="normal-text cards-description">
                 Goal: <span class="goal">Muscle Gain (Bulking)</span>
               </p>
-              <a href="#" class="cards-btn btn bmi-btn"> Update Goal </a>
+              <a href="/pages/profile.php" class="cards-btn btn bmi-btn">
+                Update Goal
+              </a>
             </div>
 
-            <div class="quote cards">
+            <div class="quote-box cards">
               <h2 class="cards-header">Motivational Quote</h2>
-              <p class="normal-text cards-description">
-                “The only bad workout is the one you didn’t do.”
+              <p
+                class="normal-text cards-description quote motivational-content"
+              >
+                The only bad workout is the one you didn’t do.
               </p>
             </div>
 
             <div class="quick-stats cards">
               <h2 class="cards-header">Quick Stats</h2>
-              <p class="normal-text cards-description">
-                <span>🍽️ Calories Consumed:</span> 1800 kcal
-              </p>
-              <p class="normal-text cards-description">
-                <span>🔥 Calories Burned:</span> 450 kcal
-              </p>
-              <p class="normal-text cards-description">
-                <span>🏃 Workouts This Week:</span> 3/7
-              </p>
-              <p class="normal-text cards-description">
-                <span>💧 Water Intake:</span> 2.5L
+              <div class="icon-text stat-icon">
+                <ion-icon name="restaurant-outline" class="icons"></ion-icon>
+                <p class="normal-text cards-description">
+                  Calories Consumed:
+                  <span class="calorie-consumed">0 kcal</span>
+                </p>
+              </div>
+
+              <div class="icon-text stat-icon">
+                <ion-icon class="icons" name="flame-outline"></ion-icon>
+                <p class="normal-text cards-description">
+                  Calories Burned: <span class="calorie-burned">0 kcal</span>
+                </p>
+              </div>
+              <div class="icon-text stat-icon">
+                <ion-icon name="barbell-outline" class="icons"></ion-icon>
+                <p class="normal-text cards-description">
+                  Workouts This Week: <span class="week-workouts">0/7</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="cards workout_schedule">
+              <h2 class="cards-header">Today Schedule</h2>
+            </div>
+
+            <div class="calorie cards">
+              <h2 class="cards-header">Calories</h2>
+              <div class="bar-chart">
+                <svg
+                  class="bar-chart workout-chart workout_bar--chart"
+                  viewBox="25 -10 350 180"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <!-- Axes -->
+                  <line x1="30" y1="10" x2="30" y2="140" stroke="#ccc" />
+                  <line x1="30" y1="140" x2="220" y2="140" stroke="#ccc" />
+
+                  <rect
+                    class="day1-workout_bar calorie-bar calorie-consumed__bar"
+                    x="50"
+                    y="70"
+                    width="20"
+                    height="70"
+                  />
+                  <text
+                    class="day1-calorie_text calorie-consumed__text calorie__text"
+                    x="50"
+                    y="65"
+                  ></text>
+
+                  <rect
+                    class="calorie-bar calorie-burned__bar"
+                    x="120"
+                    y="50"
+                    width="20"
+                    height="90"
+                  />
+                  <text
+                    class="day2-calorie_text calorie-burned__text calorie__text"
+                    x="120"
+                    y="45"
+                  ></text>
+                </svg>
+                <div class="legend-container flex-container">
+                  <span class="legend-text normal-text flex-col">
+                    Consumed<span class="in-legend legend"></span
+                  ></span>
+
+                  <span class="legend-text normal-text flex-col">
+                    Burned<span class="out-legend legend"></span
+                  ></span>
+                </div>
+              </div>
+              <p class="normal-text cards-description no_data hidden">
+                No Data
               </p>
             </div>
 
             <div class="goal-progress cards">
-              <h2 class="cards-header">Goal Progress</h2>
-              <p class="normal-text cards-description">
-                Goal: Muscle Gain (Bulking)
-              </p>
-
-              <div class="flex-container chart-text">
+              <h2 class="cards-header">Weight Goal Progress</h2>
+              <p class="progress_no_data hidden">No Data</p>
+              <div class="chart-text flex-container">
                 <svg class="pie-chart" width="120" height="120">
                   <circle
                     cx="60"
@@ -200,55 +274,29 @@
                     font-size="20px"
                     class="normal-text pie-text"
                   >
-                    80%
+                    0
                   </text>
                 </svg>
-                <p class="normal-text cards-description">
-                  <span class="progress-text">75</span>
-                  Completed
-                </p>
-              </div>
-            </div>
+                <div class="flex-col detail-value">
+                  <p class="normal-text cards-description">
+                    Goal: <span class="weight_goal">0</span>
+                  </p>
+                  <p class="normal-text cards-description">
+                    Weight: <span class="current_weight">0</span>
+                  </p>
 
-            <div class="calorie cards">
-              <h2 class="cards-header">Calories</h2>
-              <div class="bar-chart">
-                <div class="calorie-intake bar">
-                  <span class="normal-text bar-text in-text">2200kcal</span>
+                  <p class="normal-text cards-description">
+                    <span class="progress-text">0</span>
+                    Completed
+                  </p>
                 </div>
-                <div class="calorie-outtake bar">
-                  <span class="normal-text bar-text out-text">2200kcal</span>
-                </div>
-
-                <div class="legend-container flex-container">
-                  <span class="legend-text normal-text flex-col">
-                    Calorie In<span class="in-legend legend"></span
-                  ></span>
-
-                  <span class="legend-text normal-text flex-col">
-                    Calorie Out<span class="out-legend legend"></span
-                  ></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="cards weight-progress">
-              <h2 class="cards-header">Weight Progress</h2>
-              <p class="cards-description normal-text">
-                📉 Weight: <span class="start-weight">70kg</span> →
-                <span class="current-weight">68.5kg</span>
-              </p>
-              <span class="weight-progress__percent normal-text">50%</span>
-              <div class="weight-chart__container">
-                <div class="weight-progress__chart"></div>
               </div>
             </div>
             <div class="cards achivements">
               <h2 class="cards-header">Achievements</h2>
-              <p class="normal-text cards-description">🏆 5 Day Streak</p>
-              <p class="normal-text cards-description">
-                🏅 BMI Improvement Badge
-              </p>
+              <div
+                class="achivements_tags_container flex-col detail-value"
+              ></div>
               <a class="normal-text achievement-btn cards-description" href="#"
                 >View All</a
               >
@@ -257,10 +305,18 @@
           <div class="flex-col">
             <h3 class="cards-header">Quick Actions</h3>
             <div class="dashboard-btns__container">
-              <a class="dashboard-btn" href="#"> ➕ Log Workout </a>
-              <a class="dashboard-btn" href="#"> 🍽️ Log Meal </a>
-              <a class="dashboard-btn" href="#"> 📆 Schedule Workout </a>
-              <a class="dashboard-btn" href="#"> 👤 Update Profile </a>
+              <a class="dashboard-btn" href="/pages/workout.php">
+                ➕ Log Workout
+              </a>
+              <a class="dashboard-btn" href="/pages/activitylog.php">
+                🍽️ Log Meal
+              </a>
+              <a class="dashboard-btn" href="/pages/workoutschedule.php">
+                📆 Schedule Workout
+              </a>
+              <a class="dashboard-btn" href="/pages/profile.php">
+                👤 Update Profile
+              </a>
             </div>
           </div>
         </div>

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/css/general.css" />
     <link rel="stylesheet" href="./assets/css/indexstyles.css" />
+    <link rel="stylesheet" href="./assets/css/responsive.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -26,6 +27,9 @@
     <header class="header">
       <div class="desktop-nav">
         <span class="logo btn heading-color">FitTrack+</span>
+        <button class="mobile-nav-btn">
+          <ion-icon name="menu-outline"></ion-icon>
+        </button>
         <nav class="nav container">
           <ul class="nav-btns__container">
             <li>
@@ -124,7 +128,7 @@
                 <span class="sub-header">Workout Scheduler</span>
                 <p class="feat-card__description">
                   Create workout plans that fit your schedule. From home
-                  routines to gym splits, we’ve got you covered.
+                  routines to gym splits, we've got you covered.
                 </p>
                 <a class="feat-cards__btn">Learn more</a>
               </div>
@@ -189,7 +193,7 @@
                 Based on your profile, FitTrack+ creates a customized workout
                 and diet plan tailored to your goals and preferences. From gym
                 routines to home workouts, and balanced meals to healthy
-                snacks—we’ve got you covered.
+                snacks—we've got you covered.
               </p>
             </div>
             <div class="step-text__box">
@@ -230,12 +234,6 @@
                     Selam, 28 — Addis Ababa
                   </p>
                 </div>
-
-                <img
-                  class="test-img"
-                  src="./assets/imgs/hero.png"
-                  alt="women holding dumbell"
-                />
               </div>
             </h2>
           </div>
@@ -273,39 +271,6 @@
       </section>
     </main>
     <footer class="footer">
-      <!-- <form class="footer-form container">
-        <span class="subheading form-header">Contact Us</span>
-        <div class="label-input">
-          <label class="input__label" for="name">Name</label>
-          <input
-            class="name input"
-            type="text"
-            id="name"
-            placeholder="Your Name"
-          />
-        </div>
-        <div class="label-input">
-          <label class="input__label" for="name">Email</label>
-          <input
-            class="email input"
-            type="text"
-            id="email"
-            placeholder="Your email"
-          />
-        </div>
-        <div class="label-input">
-          <label class="input__label" htmlFor="message"> Message </label>
-          <span class="msg-box border">
-            <input
-              class="input message"
-              type="textarea"
-              id="message"
-              placeholder="Your message"
-            />
-          </span>
-        </div>
-        <a href="#" class="btn cta-btns footer-btn">Submit</a>
-      </form> -->
       <div class="footer-right container">
         <span class="footer-header sub-header heading-color">FitTrack+</span>
         <ul class="footer-btns__container">
@@ -340,5 +305,6 @@
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
     ></script>
+    <script src="./assets/js/main.js"></script>
   </body>
 </html>

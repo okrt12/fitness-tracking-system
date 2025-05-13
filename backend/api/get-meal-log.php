@@ -16,11 +16,11 @@ $user_id = $_SESSION['user_id'];
 try {
   // Fetch meal logs with meal names (joining with meals table)
   $stmt = $pdo->prepare("
-    SELECT m.name, ml.quantity, ml.calories, ml.log_date
+    SELECT m.name, ml.quantity, ml.calories, ml.date
     FROM meal_log ml
     JOIN meals m ON ml.meal_id = m.meal_id
     WHERE ml.user_id = :user_id
-    ORDER BY ml.log_date DESC
+    ORDER BY ml.date DESC
   ");
   $stmt->execute(['user_id' => $user_id]);
   $mealLogs = $stmt->fetchAll(PDO::FETCH_ASSOC);
